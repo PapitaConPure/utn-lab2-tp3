@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tp2", "tp2\tp2.csproj", "{38BCB699-0BE3-44D0-BB53-9F6BB72084F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlquilerLib", "AlquilerLib\AlquilerLib.csproj", "{C3B9CB44-4048-45BE-8269-36473E678183}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38BCB699-0BE3-44D0-BB53-9F6BB72084F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BCB699-0BE3-44D0-BB53-9F6BB72084F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BCB699-0BE3-44D0-BB53-9F6BB72084F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BCB699-0BE3-44D0-BB53-9F6BB72084F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B9CB44-4048-45BE-8269-36473E678183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B9CB44-4048-45BE-8269-36473E678183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B9CB44-4048-45BE-8269-36473E678183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B9CB44-4048-45BE-8269-36473E678183}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7CD2E0B-E9F0-4443-9FCB-87A4312CFC62}
+	EndGlobalSection
+EndGlobal
