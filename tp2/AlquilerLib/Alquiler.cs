@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	class Alquiler {
+	class Alquiler: IComparable {
 		Propiedad propiedad;
 		public Propiedad GetPropiedad { get { return propiedad; } }
 		public int Número{get;private set;}
@@ -21,6 +21,10 @@ namespace AlquilerLib {
 			this.FechaSalida = fechaSalida;
 			this.PrecioTotal = 0;
 			this.propiedad=propiedad;
+		}
+
+		public int CompareTo(object obj) {
+			return this.Número.CompareTo(obj);
 		}
 	}
 }
