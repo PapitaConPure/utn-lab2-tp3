@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AlquilerLib {
 	abstract class Propiedad : IImprimible, IComparable {
 		private string dirección;
-		private string[] servicios = new string[5];
+		private string[] servicios;
 		private int cServicios = 0;
 		protected double precioBase;
 		private int maxPasajeros;
@@ -15,6 +15,10 @@ namespace AlquilerLib {
 		private DateTime fechaSalida;
 		private List<Alquiler> alquileres = new List<Alquiler>();
 
+		public int CServicios
+		{
+			get { return cServicios; }
+		}
 		public int Número{get;private set;}
         public Propiedad(int número,string dirección,double precioBase)
 		{
@@ -22,7 +26,8 @@ namespace AlquilerLib {
 			this.dirección = dirección;
 			this.precioBase = precioBase;
 			this.alquileres = new List<Alquiler>();
-		}
+            servicios = new string[5];
+        }
 		public void AgregarServicio(string servicio)
 		{
 			servicios[cServicios++]= servicio;
