@@ -28,6 +28,10 @@ namespace AlquilerLib {
 			servicios[cServicios++]= servicio;
 		}
 
+		public void Alquilar(Alquiler alquiler) {
+			this.alquileres.Add(alquiler);
+		}
+
 		public Alquiler VerAlquiler(int nroAlquiler) {
 
 			this.alquileres.Sort();

@@ -24,8 +24,13 @@ namespace AlquilerLib {
 			return this.propiedades[idx];
 		}
 
-		public void AlquilarPropiedad(int nroPropiedad, int nroAlquiler) {
-			//this.ConsultarPropiedad(nroPropiedad).AgregarAlquiler(new Alquiler(nroAlquiler));
+		public void AlquilarPropiedad(int nroPropiedad, Alquiler alquiler) {
+			this.ConsultarPropiedad(nroPropiedad).Alquilar(alquiler);
+		}
+
+		public void CancelarAlquiler(int nroPropiedad, int nroAlquiler) {
+			Propiedad propiedad = this.ConsultarPropiedad(nroPropiedad);
+			propiedad.VerAlquiler(nroAlquiler);
 		}
 	}
 }
