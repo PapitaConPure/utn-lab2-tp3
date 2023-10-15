@@ -28,6 +28,25 @@ namespace AlquilerLib {
 			servicios[cServicios++]= servicio;
 		}
 
+		public Alquiler VerAlquiler(int nroAlquiler) {
+
+			this.alquileres.Sort();
+
+			Alquiler buscado = new Alquiler(
+				nroAlquiler,
+				new DateTime(2023, 01, 05),
+				new DateTime(2023, 01, 06),
+				new DateTime(2023, 01, 08),
+				new Casa(0, "", 0));
+
+			int idx = this.alquileres.BinarySearch(buscado);
+
+			if(idx < 0)
+				return null;
+
+			return this.alquileres[idx];
+		}
+
         public abstract string Imprimir();
 
 		public int CompareTo(object obj) {

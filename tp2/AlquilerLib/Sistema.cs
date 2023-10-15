@@ -25,7 +25,7 @@ namespace AlquilerLib {
 		}
 
 		public void AlquilarPropiedad(int nroPropiedad, int nroAlquiler) {
-			this.ConsultarPropiedad(nroPropiedad);
+			//this.ConsultarPropiedad(nroPropiedad).AgregarAlquiler(new Alquiler(nroAlquiler));
 		}
 	}
 }
