@@ -10,7 +10,7 @@
 		{
 
 		}
-		public override double PrecioPorDía()
+		public  double PrecioPorDía()
 		{
 			return 0;
 		}

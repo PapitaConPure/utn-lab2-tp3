@@ -11,6 +11,10 @@ namespace AlquilerLib {
 		private int cServicios = 0;
 		protected double precioBase;
 		private int maxPasajeros;
+		private DateTime fechaInicio;
+		private DateTime fechaSalida;
+		private List<Alquiler> alquileres = new List<Alquiler>();
+
 		public int Número
 		{
 			get;private set;
@@ -25,7 +29,6 @@ namespace AlquilerLib {
 		{
 			servicios[cServicios++]= servicio;
 		}
-		public abstract double PrecioPorDía();
         public abstract string Imprimir();
 	}
 }
