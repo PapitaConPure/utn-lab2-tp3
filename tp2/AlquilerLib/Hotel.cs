@@ -9,7 +9,7 @@ namespace AlquilerLib {
 		private int estrellas;
 		private List<Habitación> habitaciones;
 
-		public Hotel(int estrellas) {
+		public Hotel(int número, string dirección, double precioBase, int estrellas): base(número, dirección, precioBase) {
 			this.estrellas = estrellas;
 			this.habitaciones = new List<Habitación>();
 		}
