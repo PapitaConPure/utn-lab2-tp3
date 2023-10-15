@@ -1,5 +1,7 @@
-﻿namespace AlquilerLib {
-	class Habitación {
+﻿using System;
+
+namespace AlquilerLib {
+	class Habitación: IComparable {
 		private TipoHabitación tipo;
 
 		public enum TipoHabitación {
@@ -23,6 +25,10 @@
 				default: return 0;
 				}
 			}
+		}
+
+		public int CompareTo(object obj) {
+			return this.Número.CompareTo(obj);
 		}
 	}
 }

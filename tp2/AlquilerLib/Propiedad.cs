@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	abstract class Propiedad : IImprimible {
+	abstract class Propiedad : IImprimible, IComparable {
 		private string dirección;
 		private string[] servicios = new string[5];
 		private int cServicios = 0;
@@ -29,6 +29,11 @@ namespace AlquilerLib {
 		{
 			servicios[cServicios++]= servicio;
 		}
+
         public abstract string Imprimir();
+
+		public int CompareTo(object obj) {
+			return this.Número.CompareTo(obj);
+		}
 	}
 }

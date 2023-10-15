@@ -33,17 +33,16 @@ namespace AlquilerLib {
 			return precio;
 		}
 
-		private Habitación VerHabitación(int número) {
-			Habitación encontrada = null;
-			int c = 0;
+		public Habitación VerHabitación(int número) {
+			this.habitaciones.Sort();
 
-			while(c < this.habitaciones.Count && encontrada == null) {
-				if(this.habitaciones[c].Número == número)
-					encontrada = this.habitaciones[c];
-				c++;
-			}
+			Habitación buscada = new Habitación(número, Habitación.TipoHabitación.Simple);
+			int idx = this.habitaciones.BinarySearch(buscada);
 
-			return encontrada;
+			if(idx < 0)
+				return null;
+
+			return this.habitaciones[idx];
 		}
 
 		public override string Imprimir() {
