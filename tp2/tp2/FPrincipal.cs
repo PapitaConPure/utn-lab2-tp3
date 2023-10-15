@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace tp2 {
 	public partial class FPrincipal: Form {
 		public FPrincipal() {
-			InitializeComponent();
+			this.InitializeComponent();
 		}
 	}
 }

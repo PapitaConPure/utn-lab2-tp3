@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib {
 	abstract class Propiedad: IImprimible {
-		public abstract void Imprimir();
+		public abstract string Imprimir();
 	}
 }

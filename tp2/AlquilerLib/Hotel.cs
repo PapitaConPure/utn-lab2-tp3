@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 namespace AlquilerLib {
 	class Hotel: Propiedad {
 
+
+		public override string Imprimir() {
+			return "";
+		}
 	}
 
 	class Habitación {
