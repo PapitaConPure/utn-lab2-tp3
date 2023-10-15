@@ -21,6 +21,7 @@ namespace AlquilerLib {
 			this.Número = número;
 			this.dirección = dirección;
 			this.precioBase = precioBase;
+			this.alquileres = new List<Alquiler>();
 		}
 		public void AgregarServicio(string servicio)
 		{
