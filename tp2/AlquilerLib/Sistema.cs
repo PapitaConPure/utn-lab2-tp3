@@ -29,8 +29,7 @@ namespace AlquilerLib {
 		}
 
 		public void CancelarAlquiler(int nroPropiedad, int nroAlquiler) {
-			Propiedad propiedad = this.ConsultarPropiedad(nroPropiedad);
-			propiedad.VerAlquiler(nroAlquiler);
+			this.ConsultarPropiedad(nroPropiedad).CancelarAlquiler(nroAlquiler);
 		}
 	}
 }
