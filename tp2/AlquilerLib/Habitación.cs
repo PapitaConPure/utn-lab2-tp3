@@ -12,7 +12,7 @@ namespace AlquilerLib {
 
 		public Habitación(int número, TipoHabitación tipo) {
 			this.Número = número;
-			this.tipo = tipo;
+			this.tipo = tipo; 
 		}
 
 		public int Número { get; private set; }
