@@ -10,7 +10,7 @@ namespace AlquilerLib {
 		}
 		public  double PrecioPorDía(int nroAlquiler)
 		{
-			Alquiler alquiler =VerAlquiler(nroAlquiler);
+			Alquiler alquiler = VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);// Es lo mismo que fechasalida-fechaentrada
 			return precioBase*(int)diferencia.TotalDays;
 		}

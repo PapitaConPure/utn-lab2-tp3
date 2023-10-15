@@ -31,7 +31,10 @@ namespace AlquilerLib {
 		public void Alquilar(Alquiler alquiler) {
 			this.alquileres.Add(alquiler);
 		}
-
+		public void QuitarAlquiler (int nroAlquiler)
+		{
+			this.alquileres.Remove(VerAlquiler(nroAlquiler));
+		}
 		public Alquiler VerAlquiler(int nroAlquiler) {
 
 			this.alquileres.Sort();
