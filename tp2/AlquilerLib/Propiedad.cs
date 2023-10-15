@@ -15,10 +15,7 @@ namespace AlquilerLib {
 		private DateTime fechaSalida;
 		private List<Alquiler> alquileres = new List<Alquiler>();
 
-		public int Número
-		{
-			get;private set;
-		}
+		public int Número{get;private set;}
         public Propiedad(int número,string dirección,double precioBase)
 		{
 			this.Número = número;
