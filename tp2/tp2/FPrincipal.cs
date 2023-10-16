@@ -15,11 +15,12 @@ namespace tp2 {
 		public FPrincipal() {
 			this.InitializeComponent();
 		}
-		
-        List<string> servicios = new List<string>();
 
         private void FPrincipal_Load(object sender, EventArgs e) {
 			this.ofdElegirImagen.InitialDirectory = Environment.CurrentDirectory;
+
+			this.mcReservas.MinDate = DateTime.Now;
+			this.mcReservas.MaxDate = DateTime.Now.AddMonths(3);
 		}
 
 		private void SeleccionarTextBox(object sender, EventArgs e) {
@@ -45,9 +46,10 @@ namespace tp2 {
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
 			
 		}
-		private List<string>Servicios()
-		{
-            if (cbCochera.Checked)servicios.Add("Cochera");
+
+		private List<string>Servicios() {
+			List<string> servicios = new List<string>();
+			if (cbCochera.Checked)servicios.Add("Cochera");
 			if (cbDesayuno.Checked) servicios.Add("Desayuno");
 			if (cbLimpieza.Checked) servicios.Add("Limpieza");
 			if (cbMascotas.Checked) servicios.Add("Mascotas");
