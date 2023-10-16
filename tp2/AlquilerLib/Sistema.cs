@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	class Sistema {
+	public class Sistema {
 		public static double PrecioBase;
 		List<Propiedad> propiedades;
 

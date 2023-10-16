@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	class Cliente {
+	public class Cliente {
 		public int Dni{get;private set;}
 		public string Nombre{get;private set;}
 		public string Apellido{get;private set;}
