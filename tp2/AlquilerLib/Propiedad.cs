@@ -14,10 +14,7 @@ namespace AlquilerLib {
 		private DateTime fechaSalida;
 		private List<Alquiler> alquileres = new List<Alquiler>();
 
-		public int CServicios
-		{
-			get { return cServicios; }
-		}
+		public int CServicios	{get { return cServicios; }}
 		public int Número{get;private set;}
         public Propiedad(int número, string dirección)
 		{
