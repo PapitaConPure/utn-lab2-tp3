@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	abstract class Propiedad : IImprimible, IComparable {
+	public abstract class Propiedad : IImprimible, IComparable {
 		private string dirección;
 		private string[] servicios;
 		private int cServicios = 0;
@@ -47,7 +47,7 @@ namespace AlquilerLib {
 				new DateTime(2023, 01, 05),
 				new DateTime(2023, 01, 06),
 				new DateTime(2023, 01, 08),
-				new Casa(0, "", 0));
+				new Casa(0, ""));
 
 			int idx = this.alquileres.BinarySearch(buscado);
 

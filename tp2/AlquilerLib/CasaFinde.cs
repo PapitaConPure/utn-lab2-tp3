@@ -1,9 +1,8 @@
 ﻿using System;
 
 namespace AlquilerLib {
-	class CasaFinde: Casa {
-		public CasaFinde(int número,string dirección,double precioBase):base(número,dirección,precioBase)
-		{
+	public class CasaFinde: Casa {
+		public CasaFinde(int número, string dirección): base(número,dirección) {
 
 		}
 		public bool EsIntervaloVálido(DateTime inicio,DateTime fin)

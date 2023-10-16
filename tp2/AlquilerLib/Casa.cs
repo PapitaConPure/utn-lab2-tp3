@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace AlquilerLib {
-	class Casa: Propiedad, IImprimible {
+	public class Casa: Propiedad, IImprimible {
 		private int camasDisponibles;
 
 		public int CamasDisponibles{
@@ -9,7 +9,7 @@ namespace AlquilerLib {
 			set { this.camasDisponibles = value; }
 		}
 
-		public Casa(int número, string dirección, double precioBase): base(número, dirección) {}
+		public Casa(int número, string dirección): base(número, dirección) {}
 
 		public  double PrecioPorDía(int nroAlquiler) {
 			Alquiler alquiler = VerAlquiler(nroAlquiler);

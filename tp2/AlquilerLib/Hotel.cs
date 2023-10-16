@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	class Hotel: Propiedad {
+	public class Hotel: Propiedad {
 		private int estrellas;
 		private List<Habitación> habitaciones;
 

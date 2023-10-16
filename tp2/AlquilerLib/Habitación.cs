@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace AlquilerLib {
-	class Habitación: IComparable {
+	public class Habitación: IComparable {
 		private TipoHabitación tipo;
 
 		public enum TipoHabitación {

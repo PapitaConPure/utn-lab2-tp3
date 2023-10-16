@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	class Alquiler: IComparable {
+	public class Alquiler: IComparable {
 		Propiedad propiedad;
 		public Propiedad GetPropiedad { get { return propiedad; } }
 		public int Número{get;private set;}

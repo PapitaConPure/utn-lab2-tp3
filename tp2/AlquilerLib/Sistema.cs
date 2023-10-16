@@ -16,7 +16,7 @@ namespace AlquilerLib {
 		public Propiedad ConsultarPropiedad(int número) {
 			this.propiedades.Sort();
 
-			Propiedad buscada = new Casa(número, "", 0);
+			Propiedad buscada = new Casa(número, "");
 			int idx = this.propiedades.BinarySearch(buscada);
 
 			if(idx < 0)
