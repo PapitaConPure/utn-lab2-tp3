@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,8 +15,10 @@ namespace tp2 {
 		public FPrincipal() {
 			this.InitializeComponent();
 		}
+		
+        List<string> servicios = new List<string>();
 
-		private void FPrincipal_Load(object sender, EventArgs e) {
+        private void FPrincipal_Load(object sender, EventArgs e) {
 			this.ofdElegirImagen.InitialDirectory = Environment.CurrentDirectory;
 		}
 
@@ -40,6 +44,16 @@ namespace tp2 {
 
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
 			
+		}
+		private List<string>Servicios()
+		{
+            if (cbCochera.Checked)servicios.Add("Cochera");
+			if (cbDesayuno.Checked) servicios.Add("Desayuno");
+			if (cbLimpieza.Checked) servicios.Add("Limpieza");
+			if (cbMascotas.Checked) servicios.Add("Mascotas");
+			if (cbPileta.Checked) servicios.Add("Pileta");
+			if (cbWifi.Checked) servicios.Add("Wi Fi");
+			return servicios;
 		}
 	}
 }
