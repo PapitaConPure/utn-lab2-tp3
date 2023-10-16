@@ -9,7 +9,7 @@ namespace AlquilerLib {
 		private int estrellas;
 		private List<Habitación> habitaciones;
 
-		public Hotel(int número, string dirección, double precioBase, int estrellas): base(número, dirección, precioBase) {
+		public Hotel(int número, string dirección, int estrellas): base(número, dirección) {
 			this.estrellas = estrellas;
 			this.habitaciones = new List<Habitación>();
 		}
@@ -23,7 +23,7 @@ namespace AlquilerLib {
 		}
 
 		public double PrecioPorDía(int número) {
-			double precio = this.precioBase;
+			double precio = Sistema.PrecioBase;
 
 			precio += precio * this.VerHabitación(número).PcntAdicional;
 
