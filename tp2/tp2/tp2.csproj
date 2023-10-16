@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlquilerLib\AlquilerLib.csproj">
+      <Project>{c3b9cb44-4048-45be-8269-36473e678183}</Project>
+      <Name>AlquilerLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

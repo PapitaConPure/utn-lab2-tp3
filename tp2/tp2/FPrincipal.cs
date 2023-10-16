@@ -9,13 +9,14 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AlquilerLib;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
 		public FPrincipal() {
 			this.InitializeComponent();
 		}
-
+		Casa casa;
         private void FPrincipal_Load(object sender, EventArgs e) {
 			this.ofdElegirImagen.InitialDirectory = Environment.CurrentDirectory;
 
