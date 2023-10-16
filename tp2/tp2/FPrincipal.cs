@@ -13,5 +13,17 @@ namespace tp2 {
 		public FPrincipal() {
 			this.InitializeComponent();
 		}
+
+		private void FPrincipal_Load(object sender, EventArgs e) {
+			this.ofdElegirImagen.InitialDirectory = Environment.CurrentDirectory;
+		}
+
+		private void SeleccionarTextBox(object sender, EventArgs e) {
+			(sender as TextBox).SelectAll();
+		}
+
+		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
+			(sender as NumericUpDown).Select(0, 20);
+		}
 	}
 }
