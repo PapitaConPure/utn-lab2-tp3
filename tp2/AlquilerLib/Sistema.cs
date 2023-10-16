@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib {
 	class Sistema {
+		public readonly double PrecioBase;
 		List<Propiedad> propiedades;
 
-		public Sistema() {
+		public Sistema(double precioBase) {
+			this.PrecioBase = precioBase;
 			this.propiedades = new List<Propiedad>();
 		}
 

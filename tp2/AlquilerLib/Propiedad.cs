@@ -9,7 +9,6 @@ namespace AlquilerLib {
 		private string dirección;
 		private string[] servicios;
 		private int cServicios = 0;
-		protected double precioBase;
 		private int maxPasajeros;
 		private DateTime fechaInicio;
 		private DateTime fechaSalida;
@@ -20,11 +19,10 @@ namespace AlquilerLib {
 			get { return cServicios; }
 		}
 		public int Número{get;private set;}
-        public Propiedad(int número,string dirección,double precioBase)
+        public Propiedad(int número, string dirección)
 		{
 			this.Número = número;
 			this.dirección = dirección;
-			this.precioBase = precioBase;
 			this.alquileres = new List<Alquiler>();
             servicios = new string[5];
         }
