@@ -13,7 +13,7 @@ using AlquilerLib;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
-
+		
         public FPrincipal() {
 			this.InitializeComponent();
 		}
