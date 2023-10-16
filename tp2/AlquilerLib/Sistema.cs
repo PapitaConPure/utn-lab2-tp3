@@ -32,5 +32,9 @@ namespace AlquilerLib {
 		public void CancelarAlquiler(int nroPropiedad, int nroAlquiler) {
 			this.ConsultarPropiedad(nroPropiedad).QuitarAlquiler(nroAlquiler);
 		}
+		public void AgregarPropiedad(Propiedad propiedad)
+		{
+			this.propiedades.Add(propiedad);
+		}
 	}
 }
