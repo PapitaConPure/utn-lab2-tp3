@@ -25,5 +25,21 @@ namespace tp2 {
 		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
 			(sender as NumericUpDown).Select(0, 20);
 		}
+
+		private void BtnElegirImagen_Click(object sender, EventArgs e) {
+
+		}
+
+		private void BtnAgregarCasa_Click(object sender, EventArgs e) {
+
+		}
+
+		private void BtnAgregarHotel_Click(object sender, EventArgs e) {
+			
+		}
+
+		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
+			
+		}
 	}
 }

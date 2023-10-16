@@ -24,9 +24,9 @@ namespace tp2 {
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent() {
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnAgregarHotel = new System.Windows.Forms.Button();
 			this.btnAgregarCasa = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
+			this.btnConsultarAlquiler = new System.Windows.Forms.Button();
 			this.btnAlquilar = new System.Windows.Forms.Button();
 			this.btnCancelarAlquiler = new System.Windows.Forms.Button();
 			this.gbAlquileres = new System.Windows.Forms.GroupBox();
@@ -73,60 +73,83 @@ namespace tp2 {
 			this.panel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// button1
+			// btnAgregarHotel
 			// 
-			this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button1.Location = new System.Drawing.Point(248, 5);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(114, 50);
-			this.button1.TabIndex = 2;
-			this.button1.Text = "Agregar Hotel";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
+			this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarHotel.Location = new System.Drawing.Point(252, 5);
+			this.btnAgregarHotel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.btnAgregarHotel.Name = "btnAgregarHotel";
+			this.btnAgregarHotel.Size = new System.Drawing.Size(117, 50);
+			this.btnAgregarHotel.TabIndex = 2;
+			this.btnAgregarHotel.Text = "Agregar Hotel";
+			this.btnAgregarHotel.UseVisualStyleBackColor = false;
+			this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
 			// 
 			// btnAgregarCasa
 			// 
+			this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
 			this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnAgregarCasa.Location = new System.Drawing.Point(126, 5);
+			this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
+			this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarCasa.Location = new System.Drawing.Point(128, 5);
 			this.btnAgregarCasa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnAgregarCasa.Name = "btnAgregarCasa";
-			this.btnAgregarCasa.Size = new System.Drawing.Size(114, 50);
+			this.btnAgregarCasa.Size = new System.Drawing.Size(116, 50);
 			this.btnAgregarCasa.TabIndex = 1;
 			this.btnAgregarCasa.Text = "Agregar Casa";
-			this.btnAgregarCasa.UseVisualStyleBackColor = true;
+			this.btnAgregarCasa.UseVisualStyleBackColor = false;
+			this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
 			// 
-			// button3
+			// btnConsultarAlquiler
 			// 
-			this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button3.Location = new System.Drawing.Point(4, 4);
-			this.button3.Margin = new System.Windows.Forms.Padding(4);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(113, 33);
-			this.button3.TabIndex = 0;
-			this.button3.Text = "Consultar";
-			this.button3.UseVisualStyleBackColor = true;
+			this.btnConsultarAlquiler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.btnConsultarAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnConsultarAlquiler.FlatAppearance.BorderSize = 0;
+			this.btnConsultarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnConsultarAlquiler.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnConsultarAlquiler.Location = new System.Drawing.Point(4, 4);
+			this.btnConsultarAlquiler.Margin = new System.Windows.Forms.Padding(4);
+			this.btnConsultarAlquiler.Name = "btnConsultarAlquiler";
+			this.btnConsultarAlquiler.Size = new System.Drawing.Size(113, 33);
+			this.btnConsultarAlquiler.TabIndex = 0;
+			this.btnConsultarAlquiler.Text = "Consultar";
+			this.btnConsultarAlquiler.UseVisualStyleBackColor = false;
+			this.btnConsultarAlquiler.Click += new System.EventHandler(this.BtnConsultarAlquiler_Click);
 			// 
 			// btnAlquilar
 			// 
+			this.btnAlquilar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
 			this.btnAlquilar.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnAlquilar.FlatAppearance.BorderSize = 0;
+			this.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAlquilar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnAlquilar.Location = new System.Drawing.Point(4, 86);
 			this.btnAlquilar.Margin = new System.Windows.Forms.Padding(4);
 			this.btnAlquilar.Name = "btnAlquilar";
 			this.btnAlquilar.Size = new System.Drawing.Size(113, 34);
 			this.btnAlquilar.TabIndex = 2;
 			this.btnAlquilar.Text = "Alquilar";
-			this.btnAlquilar.UseVisualStyleBackColor = true;
+			this.btnAlquilar.UseVisualStyleBackColor = false;
 			// 
 			// btnCancelarAlquiler
 			// 
+			this.btnCancelarAlquiler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
 			this.btnCancelarAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCancelarAlquiler.FlatAppearance.BorderSize = 0;
+			this.btnCancelarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnCancelarAlquiler.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnCancelarAlquiler.Location = new System.Drawing.Point(4, 45);
 			this.btnCancelarAlquiler.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCancelarAlquiler.Name = "btnCancelarAlquiler";
 			this.btnCancelarAlquiler.Size = new System.Drawing.Size(113, 33);
 			this.btnCancelarAlquiler.TabIndex = 1;
 			this.btnCancelarAlquiler.Text = "Cancelar";
-			this.btnCancelarAlquiler.UseVisualStyleBackColor = true;
+			this.btnCancelarAlquiler.UseVisualStyleBackColor = false;
 			// 
 			// gbAlquileres
 			// 
@@ -140,7 +163,7 @@ namespace tp2 {
 			this.gbAlquileres.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbAlquileres.Name = "gbAlquileres";
 			this.gbAlquileres.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.gbAlquileres.Size = new System.Drawing.Size(494, 154);
+			this.gbAlquileres.Size = new System.Drawing.Size(501, 154);
 			this.gbAlquileres.TabIndex = 1;
 			this.gbAlquileres.TabStop = false;
 			this.gbAlquileres.Text = "Alquileres";
@@ -153,7 +176,7 @@ namespace tp2 {
 			this.gbReservaNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbReservaNueva.Name = "gbReservaNueva";
 			this.gbReservaNueva.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.gbReservaNueva.Size = new System.Drawing.Size(365, 78);
+			this.gbReservaNueva.Size = new System.Drawing.Size(372, 78);
 			this.gbReservaNueva.TabIndex = 1;
 			this.gbReservaNueva.TabStop = false;
 			this.gbReservaNueva.Text = "Reserva Nueva";
@@ -167,7 +190,7 @@ namespace tp2 {
 			this.dateTimePicker1.Location = new System.Drawing.Point(8, 30);
 			this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(349, 27);
+			this.dateTimePicker1.Size = new System.Drawing.Size(356, 27);
 			this.dateTimePicker1.TabIndex = 0;
 			// 
 			// panel4
@@ -177,7 +200,7 @@ namespace tp2 {
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel4.Location = new System.Drawing.Point(4, 25);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(365, 46);
+			this.panel4.Size = new System.Drawing.Size(372, 46);
 			this.panel4.TabIndex = 0;
 			// 
 			// lblNroAlquiler
@@ -202,7 +225,7 @@ namespace tp2 {
             0,
             0});
 			this.nudNroAlquiler.Name = "nudNroAlquiler";
-			this.nudNroAlquiler.Size = new System.Drawing.Size(252, 27);
+			this.nudNroAlquiler.Size = new System.Drawing.Size(259, 27);
 			this.nudNroAlquiler.TabIndex = 0;
 			this.nudNroAlquiler.ThousandsSeparator = true;
 			this.nudNroAlquiler.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
@@ -212,11 +235,11 @@ namespace tp2 {
 			// 
 			this.tableLayoutPanel3.ColumnCount = 1;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Controls.Add(this.button3, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.btnConsultarAlquiler, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.btnCancelarAlquiler, 0, 1);
 			this.tableLayoutPanel3.Controls.Add(this.btnAlquilar, 0, 2);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(369, 25);
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(376, 25);
 			this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 3;
@@ -232,7 +255,7 @@ namespace tp2 {
 			this.tbDirección.Location = new System.Drawing.Point(108, 5);
 			this.tbDirección.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tbDirección.Name = "tbDirección";
-			this.tbDirección.Size = new System.Drawing.Size(252, 27);
+			this.tbDirección.Size = new System.Drawing.Size(259, 27);
 			this.tbDirección.TabIndex = 0;
 			this.tbDirección.Click += new System.EventHandler(this.SeleccionarTextBox);
 			this.tbDirección.Enter += new System.EventHandler(this.SeleccionarTextBox);
@@ -252,11 +275,11 @@ namespace tp2 {
 			// 
 			this.gbServicios.Controls.Add(this.tableLayoutPanel1);
 			this.gbServicios.Dock = System.Windows.Forms.DockStyle.Right;
-			this.gbServicios.Location = new System.Drawing.Point(370, 25);
+			this.gbServicios.Location = new System.Drawing.Point(377, 25);
 			this.gbServicios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbServicios.Name = "gbServicios";
 			this.gbServicios.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.gbServicios.Size = new System.Drawing.Size(120, 223);
+			this.gbServicios.Size = new System.Drawing.Size(120, 227);
 			this.gbServicios.TabIndex = 3;
 			this.gbServicios.TabStop = false;
 			this.gbServicios.Text = "Servicios";
@@ -282,7 +305,7 @@ namespace tp2 {
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(112, 193);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(112, 197);
 			this.tableLayoutPanel1.TabIndex = 9;
 			// 
 			// cbMascotas
@@ -292,7 +315,7 @@ namespace tp2 {
 			this.cbMascotas.Location = new System.Drawing.Point(4, 165);
 			this.cbMascotas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.cbMascotas.Name = "cbMascotas";
-			this.cbMascotas.Size = new System.Drawing.Size(104, 23);
+			this.cbMascotas.Size = new System.Drawing.Size(104, 27);
 			this.cbMascotas.TabIndex = 5;
 			this.cbMascotas.Text = "Mascotas";
 			this.cbMascotas.UseVisualStyleBackColor = true;
@@ -366,11 +389,11 @@ namespace tp2 {
 			this.gbPropiedades.Controls.Add(this.panel2);
 			this.gbPropiedades.Controls.Add(this.panel3);
 			this.gbPropiedades.Controls.Add(this.gbServicios);
-			this.gbPropiedades.Location = new System.Drawing.Point(16, 18);
+			this.gbPropiedades.Location = new System.Drawing.Point(16, 14);
 			this.gbPropiedades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbPropiedades.Name = "gbPropiedades";
 			this.gbPropiedades.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.gbPropiedades.Size = new System.Drawing.Size(494, 253);
+			this.gbPropiedades.Size = new System.Drawing.Size(501, 257);
 			this.gbPropiedades.TabIndex = 0;
 			this.gbPropiedades.TabStop = false;
 			this.gbPropiedades.Text = "Propiedades";
@@ -383,27 +406,32 @@ namespace tp2 {
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel2.Controls.Add(this.btnElegirImagen, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.btnAgregarHotel, 2, 0);
 			this.tableLayoutPanel2.Controls.Add(this.btnAgregarCasa, 1, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 188);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 192);
 			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(366, 60);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(373, 60);
 			this.tableLayoutPanel2.TabIndex = 4;
 			// 
 			// btnElegirImagen
 			// 
+			this.btnElegirImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
 			this.btnElegirImagen.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnElegirImagen.FlatAppearance.BorderSize = 0;
+			this.btnElegirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnElegirImagen.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnElegirImagen.Location = new System.Drawing.Point(4, 5);
 			this.btnElegirImagen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnElegirImagen.Name = "btnElegirImagen";
-			this.btnElegirImagen.Size = new System.Drawing.Size(114, 50);
+			this.btnElegirImagen.Size = new System.Drawing.Size(116, 50);
 			this.btnElegirImagen.TabIndex = 0;
 			this.btnElegirImagen.Text = "Elegir Imagen";
-			this.btnElegirImagen.UseVisualStyleBackColor = true;
+			this.btnElegirImagen.UseVisualStyleBackColor = false;
+			this.btnElegirImagen.Click += new System.EventHandler(this.BtnElegirImagen_Click);
 			// 
 			// panel1
 			// 
@@ -414,7 +442,7 @@ namespace tp2 {
 			this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.panel1.Name = "panel1";
 			this.panel1.Padding = new System.Windows.Forms.Padding(3, 5, 6, 16);
-			this.panel1.Size = new System.Drawing.Size(366, 51);
+			this.panel1.Size = new System.Drawing.Size(373, 51);
 			this.panel1.TabIndex = 2;
 			// 
 			// nudMaxPasajeros
@@ -423,7 +451,7 @@ namespace tp2 {
 			this.nudMaxPasajeros.Location = new System.Drawing.Point(108, 5);
 			this.nudMaxPasajeros.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.nudMaxPasajeros.Name = "nudMaxPasajeros";
-			this.nudMaxPasajeros.Size = new System.Drawing.Size(252, 27);
+			this.nudMaxPasajeros.Size = new System.Drawing.Size(259, 27);
 			this.nudMaxPasajeros.TabIndex = 0;
 			this.nudMaxPasajeros.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
 			this.nudMaxPasajeros.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
@@ -448,7 +476,7 @@ namespace tp2 {
 			this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.panel2.Name = "panel2";
 			this.panel2.Padding = new System.Windows.Forms.Padding(3, 5, 6, 16);
-			this.panel2.Size = new System.Drawing.Size(366, 51);
+			this.panel2.Size = new System.Drawing.Size(373, 51);
 			this.panel2.TabIndex = 1;
 			// 
 			// nudNroPropiedad
@@ -462,7 +490,7 @@ namespace tp2 {
             0,
             0});
 			this.nudNroPropiedad.Name = "nudNroPropiedad";
-			this.nudNroPropiedad.Size = new System.Drawing.Size(252, 27);
+			this.nudNroPropiedad.Size = new System.Drawing.Size(259, 27);
 			this.nudNroPropiedad.TabIndex = 0;
 			this.nudNroPropiedad.ThousandsSeparator = true;
 			this.nudNroPropiedad.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
@@ -488,7 +516,7 @@ namespace tp2 {
 			this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.panel3.Name = "panel3";
 			this.panel3.Padding = new System.Windows.Forms.Padding(3, 5, 6, 16);
-			this.panel3.Size = new System.Drawing.Size(366, 51);
+			this.panel3.Size = new System.Drawing.Size(373, 51);
 			this.panel3.TabIndex = 0;
 			// 
 			// ofdElegirImagen
@@ -501,16 +529,17 @@ namespace tp2 {
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(523, 449);
+			this.ClientSize = new System.Drawing.Size(530, 449);
 			this.Controls.Add(this.gbPropiedades);
 			this.Controls.Add(this.gbAlquileres);
 			this.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(420, 480);
 			this.Name = "FPrincipal";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Alquileres";
+			this.Text = "<";
 			this.Load += new System.EventHandler(this.FPrincipal_Load);
 			this.gbAlquileres.ResumeLayout(false);
 			this.gbReservaNueva.ResumeLayout(false);
@@ -535,9 +564,9 @@ namespace tp2 {
 
 		#endregion
 
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnAgregarHotel;
 		private System.Windows.Forms.Button btnAgregarCasa;
-		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button btnConsultarAlquiler;
 		private System.Windows.Forms.Button btnAlquilar;
 		private System.Windows.Forms.Button btnCancelarAlquiler;
 		private System.Windows.Forms.GroupBox gbAlquileres;
