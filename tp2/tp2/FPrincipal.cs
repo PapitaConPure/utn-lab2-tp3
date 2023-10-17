@@ -14,6 +14,8 @@ using AlquilerLib;
 namespace tp2 {
 	public partial class FPrincipal: Form {
 		Sistema sistema;
+		Alquiler alquiler;
+		Casa casa;
         public FPrincipal() {
 			this.InitializeComponent();
 		}
@@ -37,15 +39,16 @@ namespace tp2 {
 		}
 
 		private void BtnAgregarCasa_Click(object sender, EventArgs e) {
-
-		}
+            casa = new Casa(Convert.ToInt32(nudNroPropiedad.Text), tbDirección.Text);//para q no se me rompa xd
+			sistema.AgregarPropiedad(casa);
+        }
 
 		private void BtnAgregarHotel_Click(object sender, EventArgs e) {
 			
 		}
 
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
-			if (sistema.ConsultarPropiedad(Convert.ToInt32(nudNroAlquiler.Value)) != null)
+			if (sistema.ConsultarPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value)) != null)
 			{
 				MessageBox.Show("La propiedad está disponible.");
 			}
@@ -59,11 +62,15 @@ namespace tp2 {
 
         private void btnCancelarAlquiler_Click(object sender, EventArgs e)
         {
-			if(sistema.CancelarAlquiler(Convert.ToInt32(nudNumPropiedad), Convert.ToInt32(nudNroAlquiler.Value))) MessageBox.Show("El alquiler fue cancelado con éxito.");
+			if(sistema.CancelarAlquiler(Convert.ToInt32(nudNroPropiedadAlquiler), Convert.ToInt32(nudNroAlquiler.Value))) MessageBox.Show("El alquiler fue cancelado con éxito.");
 			
         }
 
-
+        private void btnAlquilar_Click(object sender, EventArgs e)
+        {
+			alquiler = new Alquiler(Convert.ToInt32(nudNroPropiedadAlquiler.Value),DateTime.Now,mcReservas.SelectionStart,mcReservas.SelectionEnd,casa);
+			if (sistema.AlquilarPropiedad(alquiler.Número, alquiler)) MessageBox.Show("Propiedad Alquilada.");
+        }
 
 
 
@@ -103,5 +110,7 @@ namespace tp2 {
             if (cbWifi.Checked) servicios.Add("Wi Fi");
             return servicios;
         }
+
+        
     }
 }
