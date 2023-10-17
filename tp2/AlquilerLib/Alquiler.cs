@@ -24,7 +24,7 @@ namespace AlquilerLib {
 		}
 
 		public int CompareTo(object obj) {
-			return this.Número.CompareTo(obj);
+			return this.Número.CompareTo((obj as Alquiler).Número);
 		}
 	}
 }
