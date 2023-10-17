@@ -57,6 +57,7 @@ namespace tp2 {
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ofdElegirImagen = new System.Windows.Forms.OpenFileDialog();
+            this.nudNumPropiedad = new System.Windows.Forms.NumericUpDown();
             this.gbAlquileres.SuspendLayout();
             this.gbReservaNueva.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -71,6 +72,7 @@ namespace tp2 {
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumPropiedad)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregarHotel
@@ -150,12 +152,14 @@ namespace tp2 {
             this.btnCancelarAlquiler.TabIndex = 1;
             this.btnCancelarAlquiler.Text = "Cancelar";
             this.btnCancelarAlquiler.UseVisualStyleBackColor = false;
+            this.btnCancelarAlquiler.Click += new System.EventHandler(this.btnCancelarAlquiler_Click);
             // 
             // gbAlquileres
             // 
             this.gbAlquileres.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbAlquileres.Controls.Add(this.nudNumPropiedad);
             this.gbAlquileres.Controls.Add(this.gbReservaNueva);
             this.gbAlquileres.Controls.Add(this.panel4);
             this.gbAlquileres.Controls.Add(this.tableLayoutPanel3);
@@ -523,6 +527,22 @@ namespace tp2 {
             this.ofdElegirImagen.Filter = "Imagen PNG | *.png | Imagen JPG | *.jpg | Todos los archivos | *.*";
             this.ofdElegirImagen.InitialDirectory = ".";
             // 
+            // nudNumPropiedad
+            // 
+            this.nudNumPropiedad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudNumPropiedad.Location = new System.Drawing.Point(109, -5);
+            this.nudNumPropiedad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudNumPropiedad.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nudNumPropiedad.Name = "nudNumPropiedad";
+            this.nudNumPropiedad.Size = new System.Drawing.Size(87, 27);
+            this.nudNumPropiedad.TabIndex = 5;
+            this.nudNumPropiedad.ThousandsSeparator = true;
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -556,6 +576,7 @@ namespace tp2 {
             ((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNumPropiedad)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -595,6 +616,7 @@ namespace tp2 {
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.OpenFileDialog ofdElegirImagen;
 		private System.Windows.Forms.MonthCalendar mcReservas;
-	}
+        private System.Windows.Forms.NumericUpDown nudNumPropiedad;
+    }
 }
 
