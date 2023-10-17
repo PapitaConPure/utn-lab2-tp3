@@ -5,10 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
+	/// <summary>
+	/// Representa un sistema de alquileres
+	/// </summary>
 	public class Sistema {
+		/// <summary>
+		/// El precio base con el que trabajan todas las propiedades del sistema
+		/// </summary>
 		public static double PrecioBase;
 		List<Propiedad> propiedades;
 
+		/// <summary>
+		/// Crea un sistema de propiedades con una lista de propiedades vacía
+		/// </summary>
 		public Sistema() {
 			this.propiedades = new List<Propiedad>();
 		}
