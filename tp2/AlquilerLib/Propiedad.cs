@@ -57,7 +57,7 @@ namespace AlquilerLib {
         public abstract string Imprimir();
 
 		public int CompareTo(object obj) {
-			return this.Número.CompareTo(obj);
+			return this.Número.CompareTo((obj as Propiedad).Número);
 		}
 	}
 }
