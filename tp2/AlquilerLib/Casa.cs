@@ -9,6 +9,14 @@ namespace AlquilerLib {
 			set { this.camasDisponibles = value; }
 		}
 
+		public override bool Disponible
+		{
+			get {
+				return alquileres.Count == 0;
+			}
+		}
+
+
 		public Casa(int número, string dirección): base(número, dirección) {}
 
 		public  double PrecioPorDía(int nroAlquiler) {

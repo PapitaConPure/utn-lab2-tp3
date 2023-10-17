@@ -13,8 +13,14 @@ namespace AlquilerLib {
 			this.estrellas = estrellas;
 			this.habitaciones = new List<Habitación>();
 		}
-
-		public void AgregarHabitación(int número, Habitación.TipoHabitación tipo) {
+        public override bool Disponible
+        {
+            get
+            {
+                return false;//Actualizar.
+            }
+        }
+        public void AgregarHabitación(int número, Habitación.TipoHabitación tipo) {
 			this.habitaciones.Add(new Habitación(número, tipo));
 		}
 

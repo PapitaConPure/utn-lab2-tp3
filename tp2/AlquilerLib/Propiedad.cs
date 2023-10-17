@@ -12,10 +12,11 @@ namespace AlquilerLib {
 		private int maxPasajeros;
 		private DateTime fechaInicio;
 		private DateTime fechaSalida;
-		private List<Alquiler> alquileres = new List<Alquiler>();
+		protected List<Alquiler> alquileres = new List<Alquiler>();
 
 		public int CServicios	{get { return cServicios; }}
 		public int Número{get;private set;}
+		public abstract bool Disponible { get;}
         public Propiedad(int número, string dirección)
 		{
 			this.Número = número;
