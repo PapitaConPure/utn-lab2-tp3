@@ -16,7 +16,7 @@ namespace AlquilerLib {
 
 		public int CServicios	{get { return cServicios; }}
 		public int Número{get;private set;}
-		public abstract bool Disponible { get;}
+		public abstract bool Disponible { get; }
         public Propiedad(int número, string dirección)
 		{
 			this.Número = número;

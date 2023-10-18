@@ -4,13 +4,12 @@ namespace AlquilerLib {
 	public class Casa: Propiedad, IImprimible {
 		private int camasDisponibles;
 
-		public int CamasDisponibles{
+		public int CamasDisponibles {
 			get { return this.camasDisponibles; }
 			set { this.camasDisponibles = value; }
 		}
 
-		public override bool Disponible
-		{
+		public override bool Disponible {
 			get {
 				return alquileres.Count == 0;
 			}
