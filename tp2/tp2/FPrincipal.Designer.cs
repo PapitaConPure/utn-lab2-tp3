@@ -24,16 +24,14 @@ namespace tp2 {
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.btnAgregarHotel = new System.Windows.Forms.Button();
 			this.btnAgregarCasa = new System.Windows.Forms.Button();
 			this.btnConsultarAlquiler = new System.Windows.Forms.Button();
 			this.btnAlquilar = new System.Windows.Forms.Button();
 			this.btnCancelarAlquiler = new System.Windows.Forms.Button();
 			this.gbAlquileres = new System.Windows.Forms.GroupBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.nudNroPropiedadAlquiler = new System.Windows.Forms.NumericUpDown();
 			this.gbReservaNueva = new System.Windows.Forms.GroupBox();
 			this.pnlCalendario = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,8 +45,6 @@ namespace tp2 {
 			this.Domingo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cmbMes = new System.Windows.Forms.ComboBox();
 			this.panel4 = new System.Windows.Forms.Panel();
-			this.lblNroAlquiler = new System.Windows.Forms.Label();
-			this.nudNroAlquiler = new System.Windows.Forms.NumericUpDown();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.tbDirección = new System.Windows.Forms.TextBox();
 			this.lblDirección = new System.Windows.Forms.Label();
@@ -71,14 +67,19 @@ namespace tp2 {
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.ofdElegirImagen = new System.Windows.Forms.OpenFileDialog();
+			this.tlpNrosAlquiler = new System.Windows.Forms.TableLayoutPanel();
+			this.panel6 = new System.Windows.Forms.Panel();
+			this.nudNroAlquiler = new System.Windows.Forms.NumericUpDown();
+			this.lblNroAlquiler = new System.Windows.Forms.Label();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.nudNroPropiedadAlquiler = new System.Windows.Forms.NumericUpDown();
+			this.lblNroPropiedad = new System.Windows.Forms.Label();
 			this.gbAlquileres.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedadAlquiler)).BeginInit();
 			this.gbReservaNueva.SuspendLayout();
 			this.pnlCalendario.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).BeginInit();
 			this.panel4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudNroAlquiler)).BeginInit();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.gbServicios.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -89,6 +90,11 @@ namespace tp2 {
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).BeginInit();
 			this.panel3.SuspendLayout();
+			this.tlpNrosAlquiler.SuspendLayout();
+			this.panel6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudNroAlquiler)).BeginInit();
+			this.panel5.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedadAlquiler)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnAgregarHotel
@@ -133,7 +139,7 @@ namespace tp2 {
 			this.btnConsultarAlquiler.Location = new System.Drawing.Point(4, 4);
 			this.btnConsultarAlquiler.Margin = new System.Windows.Forms.Padding(4);
 			this.btnConsultarAlquiler.Name = "btnConsultarAlquiler";
-			this.btnConsultarAlquiler.Size = new System.Drawing.Size(113, 77);
+			this.btnConsultarAlquiler.Size = new System.Drawing.Size(113, 79);
 			this.btnConsultarAlquiler.TabIndex = 0;
 			this.btnConsultarAlquiler.Text = "Consultar";
 			this.btnConsultarAlquiler.UseVisualStyleBackColor = false;
@@ -146,10 +152,10 @@ namespace tp2 {
 			this.btnAlquilar.FlatAppearance.BorderSize = 0;
 			this.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnAlquilar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnAlquilar.Location = new System.Drawing.Point(4, 174);
+			this.btnAlquilar.Location = new System.Drawing.Point(4, 178);
 			this.btnAlquilar.Margin = new System.Windows.Forms.Padding(4);
 			this.btnAlquilar.Name = "btnAlquilar";
-			this.btnAlquilar.Size = new System.Drawing.Size(113, 78);
+			this.btnAlquilar.Size = new System.Drawing.Size(113, 80);
 			this.btnAlquilar.TabIndex = 2;
 			this.btnAlquilar.Text = "Alquilar";
 			this.btnAlquilar.UseVisualStyleBackColor = false;
@@ -162,10 +168,10 @@ namespace tp2 {
 			this.btnCancelarAlquiler.FlatAppearance.BorderSize = 0;
 			this.btnCancelarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnCancelarAlquiler.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnCancelarAlquiler.Location = new System.Drawing.Point(4, 89);
+			this.btnCancelarAlquiler.Location = new System.Drawing.Point(4, 91);
 			this.btnCancelarAlquiler.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCancelarAlquiler.Name = "btnCancelarAlquiler";
-			this.btnCancelarAlquiler.Size = new System.Drawing.Size(113, 77);
+			this.btnCancelarAlquiler.Size = new System.Drawing.Size(113, 79);
 			this.btnCancelarAlquiler.TabIndex = 1;
 			this.btnCancelarAlquiler.Text = "Cancelar";
 			this.btnCancelarAlquiler.UseVisualStyleBackColor = false;
@@ -176,8 +182,6 @@ namespace tp2 {
 			this.gbAlquileres.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.gbAlquileres.Controls.Add(this.label3);
-			this.gbAlquileres.Controls.Add(this.nudNroPropiedadAlquiler);
 			this.gbAlquileres.Controls.Add(this.gbReservaNueva);
 			this.gbAlquileres.Controls.Add(this.panel4);
 			this.gbAlquileres.Controls.Add(this.tableLayoutPanel3);
@@ -185,46 +189,21 @@ namespace tp2 {
 			this.gbAlquileres.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbAlquileres.Name = "gbAlquileres";
 			this.gbAlquileres.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.gbAlquileres.Size = new System.Drawing.Size(543, 286);
+			this.gbAlquileres.Size = new System.Drawing.Size(543, 292);
 			this.gbAlquileres.TabIndex = 1;
 			this.gbAlquileres.TabStop = false;
 			this.gbAlquileres.Text = "Alquileres";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(179, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(37, 20);
-			this.label3.TabIndex = 6;
-			this.label3.Text = "Nro.";
-			// 
-			// nudNroPropiedadAlquiler
-			// 
-			this.nudNroPropiedadAlquiler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.nudNroPropiedadAlquiler.Location = new System.Drawing.Point(223, -5);
-			this.nudNroPropiedadAlquiler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.nudNroPropiedadAlquiler.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-			this.nudNroPropiedadAlquiler.Name = "nudNroPropiedadAlquiler";
-			this.nudNroPropiedadAlquiler.Size = new System.Drawing.Size(87, 27);
-			this.nudNroPropiedadAlquiler.TabIndex = 5;
-			this.nudNroPropiedadAlquiler.ThousandsSeparator = true;
 			// 
 			// gbReservaNueva
 			// 
 			this.gbReservaNueva.Controls.Add(this.pnlCalendario);
 			this.gbReservaNueva.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gbReservaNueva.Location = new System.Drawing.Point(4, 71);
+			this.gbReservaNueva.Location = new System.Drawing.Point(4, 75);
 			this.gbReservaNueva.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbReservaNueva.MinimumSize = new System.Drawing.Size(0, 198);
 			this.gbReservaNueva.Name = "gbReservaNueva";
 			this.gbReservaNueva.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.gbReservaNueva.Size = new System.Drawing.Size(414, 210);
+			this.gbReservaNueva.Size = new System.Drawing.Size(414, 212);
 			this.gbReservaNueva.TabIndex = 1;
 			this.gbReservaNueva.TabStop = false;
 			this.gbReservaNueva.Text = "Reserva Nueva";
@@ -236,7 +215,7 @@ namespace tp2 {
 			this.pnlCalendario.Location = new System.Drawing.Point(4, 25);
 			this.pnlCalendario.Name = "pnlCalendario";
 			this.pnlCalendario.Padding = new System.Windows.Forms.Padding(12);
-			this.pnlCalendario.Size = new System.Drawing.Size(406, 180);
+			this.pnlCalendario.Size = new System.Drawing.Size(406, 182);
 			this.pnlCalendario.TabIndex = 1;
 			// 
 			// tableLayoutPanel4
@@ -254,7 +233,7 @@ namespace tp2 {
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(382, 156);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(382, 158);
 			this.tableLayoutPanel4.TabIndex = 1;
 			// 
 			// dgvCalendario
@@ -266,14 +245,14 @@ namespace tp2 {
 			this.dgvCalendario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
 			this.dgvCalendario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvCalendario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvCalendario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lunes,
@@ -283,17 +262,17 @@ namespace tp2 {
             this.Viernes,
             this.Sábado,
             this.Domingo});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle6;
 			this.dgvCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvCalendario.EnableHeadersVisualStyles = false;
-			this.dgvCalendario.Location = new System.Drawing.Point(185, 3);
+			this.dgvCalendario.Location = new System.Drawing.Point(185, 4);
 			this.dgvCalendario.MultiSelect = false;
 			this.dgvCalendario.Name = "dgvCalendario";
 			this.dgvCalendario.ReadOnly = true;
@@ -372,7 +351,7 @@ namespace tp2 {
 			this.cmbMes.Dock = System.Windows.Forms.DockStyle.Top;
 			this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbMes.FormattingEnabled = true;
-			this.cmbMes.Location = new System.Drawing.Point(0, 3);
+			this.cmbMes.Location = new System.Drawing.Point(0, 4);
 			this.cmbMes.Margin = new System.Windows.Forms.Padding(0, 3, 8, 8);
 			this.cmbMes.Name = "cmbMes";
 			this.cmbMes.Size = new System.Drawing.Size(174, 28);
@@ -381,41 +360,12 @@ namespace tp2 {
 			// 
 			// panel4
 			// 
-			this.panel4.Controls.Add(this.lblNroAlquiler);
-			this.panel4.Controls.Add(this.nudNroAlquiler);
+			this.panel4.Controls.Add(this.tlpNrosAlquiler);
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel4.Location = new System.Drawing.Point(4, 25);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(414, 46);
+			this.panel4.Size = new System.Drawing.Size(414, 50);
 			this.panel4.TabIndex = 0;
-			// 
-			// lblNroAlquiler
-			// 
-			this.lblNroAlquiler.AutoSize = true;
-			this.lblNroAlquiler.Location = new System.Drawing.Point(4, 7);
-			this.lblNroAlquiler.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lblNroAlquiler.Name = "lblNroAlquiler";
-			this.lblNroAlquiler.Size = new System.Drawing.Size(93, 20);
-			this.lblNroAlquiler.TabIndex = 4;
-			this.lblNroAlquiler.Text = "Nro. Alquiler";
-			// 
-			// nudNroAlquiler
-			// 
-			this.nudNroAlquiler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.nudNroAlquiler.Location = new System.Drawing.Point(105, 5);
-			this.nudNroAlquiler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.nudNroAlquiler.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-			this.nudNroAlquiler.Name = "nudNroAlquiler";
-			this.nudNroAlquiler.Size = new System.Drawing.Size(301, 27);
-			this.nudNroAlquiler.TabIndex = 0;
-			this.nudNroAlquiler.ThousandsSeparator = true;
-			this.nudNroAlquiler.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
-			this.nudNroAlquiler.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// tableLayoutPanel3
 			// 
@@ -432,7 +382,7 @@ namespace tp2 {
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(121, 256);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(121, 262);
 			this.tableLayoutPanel3.TabIndex = 2;
 			// 
 			// tbDirección
@@ -711,32 +661,117 @@ namespace tp2 {
 			this.ofdElegirImagen.Filter = "Imagen PNG | *.png | Imagen JPG | *.jpg | Todos los archivos | *.*";
 			this.ofdElegirImagen.InitialDirectory = ".";
 			// 
+			// tlpNrosAlquiler
+			// 
+			this.tlpNrosAlquiler.ColumnCount = 2;
+			this.tlpNrosAlquiler.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tlpNrosAlquiler.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tlpNrosAlquiler.Controls.Add(this.panel5, 0, 0);
+			this.tlpNrosAlquiler.Controls.Add(this.panel6, 1, 0);
+			this.tlpNrosAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tlpNrosAlquiler.Location = new System.Drawing.Point(0, 0);
+			this.tlpNrosAlquiler.Name = "tlpNrosAlquiler";
+			this.tlpNrosAlquiler.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+			this.tlpNrosAlquiler.RowCount = 1;
+			this.tlpNrosAlquiler.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tlpNrosAlquiler.Size = new System.Drawing.Size(414, 50);
+			this.tlpNrosAlquiler.TabIndex = 1;
+			// 
+			// panel6
+			// 
+			this.panel6.Controls.Add(this.nudNroAlquiler);
+			this.panel6.Controls.Add(this.lblNroAlquiler);
+			this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel6.Location = new System.Drawing.Point(210, 0);
+			this.panel6.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+			this.panel6.Name = "panel6";
+			this.panel6.Size = new System.Drawing.Size(198, 50);
+			this.panel6.TabIndex = 2;
+			// 
+			// nudNroAlquiler
+			// 
+			this.nudNroAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudNroAlquiler.Location = new System.Drawing.Point(0, 20);
+			this.nudNroAlquiler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.nudNroAlquiler.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+			this.nudNroAlquiler.Name = "nudNroAlquiler";
+			this.nudNroAlquiler.Size = new System.Drawing.Size(198, 27);
+			this.nudNroAlquiler.TabIndex = 5;
+			this.nudNroAlquiler.ThousandsSeparator = true;
+			// 
+			// lblNroAlquiler
+			// 
+			this.lblNroAlquiler.AutoSize = true;
+			this.lblNroAlquiler.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lblNroAlquiler.Location = new System.Drawing.Point(0, 0);
+			this.lblNroAlquiler.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.lblNroAlquiler.Name = "lblNroAlquiler";
+			this.lblNroAlquiler.Size = new System.Drawing.Size(93, 20);
+			this.lblNroAlquiler.TabIndex = 6;
+			this.lblNroAlquiler.Text = "Nro. Alquiler";
+			// 
+			// panel5
+			// 
+			this.panel5.Controls.Add(this.nudNroPropiedadAlquiler);
+			this.panel5.Controls.Add(this.lblNroPropiedad);
+			this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel5.Location = new System.Drawing.Point(6, 0);
+			this.panel5.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(198, 50);
+			this.panel5.TabIndex = 3;
+			// 
+			// nudNroPropiedadAlquiler
+			// 
+			this.nudNroPropiedadAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudNroPropiedadAlquiler.Location = new System.Drawing.Point(0, 20);
+			this.nudNroPropiedadAlquiler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.nudNroPropiedadAlquiler.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+			this.nudNroPropiedadAlquiler.Name = "nudNroPropiedadAlquiler";
+			this.nudNroPropiedadAlquiler.Size = new System.Drawing.Size(198, 27);
+			this.nudNroPropiedadAlquiler.TabIndex = 8;
+			this.nudNroPropiedadAlquiler.ThousandsSeparator = true;
+			// 
+			// lblNroPropiedad
+			// 
+			this.lblNroPropiedad.AutoSize = true;
+			this.lblNroPropiedad.Dock = System.Windows.Forms.DockStyle.Top;
+			this.lblNroPropiedad.Location = new System.Drawing.Point(0, 0);
+			this.lblNroPropiedad.Name = "lblNroPropiedad";
+			this.lblNroPropiedad.Size = new System.Drawing.Size(110, 20);
+			this.lblNroPropiedad.TabIndex = 7;
+			this.lblNroPropiedad.Text = "Nro. Propiedad";
+			// 
 			// FPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(569, 569);
+			this.ClientSize = new System.Drawing.Size(569, 575);
 			this.Controls.Add(this.gbPropiedades);
 			this.Controls.Add(this.gbAlquileres);
 			this.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(500, 608);
+			this.MinimumSize = new System.Drawing.Size(500, 614);
 			this.Name = "FPrincipal";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "<";
 			this.Load += new System.EventHandler(this.FPrincipal_Load);
 			this.gbAlquileres.ResumeLayout(false);
-			this.gbAlquileres.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedadAlquiler)).EndInit();
 			this.gbReservaNueva.ResumeLayout(false);
 			this.pnlCalendario.ResumeLayout(false);
 			this.tableLayoutPanel4.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).EndInit();
 			this.panel4.ResumeLayout(false);
-			this.panel4.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudNroAlquiler)).EndInit();
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.gbServicios.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
@@ -749,6 +784,13 @@ namespace tp2 {
 			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).EndInit();
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
+			this.tlpNrosAlquiler.ResumeLayout(false);
+			this.panel6.ResumeLayout(false);
+			this.panel6.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudNroAlquiler)).EndInit();
+			this.panel5.ResumeLayout(false);
+			this.panel5.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedadAlquiler)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -761,8 +803,6 @@ namespace tp2 {
 		private System.Windows.Forms.Button btnAlquilar;
 		private System.Windows.Forms.Button btnCancelarAlquiler;
 		private System.Windows.Forms.GroupBox gbAlquileres;
-		private System.Windows.Forms.Label lblNroAlquiler;
-		private System.Windows.Forms.NumericUpDown nudNroAlquiler;
 		private System.Windows.Forms.TextBox tbDirección;
 		private System.Windows.Forms.Label lblDirección;
 		private System.Windows.Forms.GroupBox gbServicios;
@@ -787,8 +827,6 @@ namespace tp2 {
 		private System.Windows.Forms.GroupBox gbReservaNueva;
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.OpenFileDialog ofdElegirImagen;
-        private System.Windows.Forms.NumericUpDown nudNroPropiedadAlquiler;
-        private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Panel pnlCalendario;
 		private System.Windows.Forms.DataGridView dgvCalendario;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -800,6 +838,13 @@ namespace tp2 {
 		private System.Windows.Forms.DataGridViewTextBoxColumn Sábado;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Domingo;
 		private System.Windows.Forms.ComboBox cmbMes;
+		private System.Windows.Forms.TableLayoutPanel tlpNrosAlquiler;
+		private System.Windows.Forms.Panel panel6;
+		private System.Windows.Forms.NumericUpDown nudNroAlquiler;
+		private System.Windows.Forms.Label lblNroAlquiler;
+		private System.Windows.Forms.Panel panel5;
+		private System.Windows.Forms.NumericUpDown nudNroPropiedadAlquiler;
+		private System.Windows.Forms.Label lblNroPropiedad;
 	}
 }
 
