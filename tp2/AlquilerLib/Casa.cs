@@ -18,12 +18,7 @@ namespace AlquilerLib {
 		}
 
 		public override bool PuedeAlquilar(Alquiler alquiler) {
-			if(!base.PuedeAlquilar(alquiler))
-				return false;
-
-			//Lógica de alquiler de casa nose
-
-			return true;
+			return base.PuedeAlquilar(alquiler);
 		}
 
 		public override string Imprimir() {
