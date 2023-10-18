@@ -9,13 +9,6 @@ namespace AlquilerLib {
 			set { this.camasDisponibles = value; }
 		}
 
-		public override bool Disponible {
-			get {
-				return alquileres.Count == 0;
-			}
-		}
-
-
 		public Casa(int número, string dirección): base(número, dirección) {}
 
 		public  double PrecioPorDía(int nroAlquiler) {
@@ -24,7 +17,16 @@ namespace AlquilerLib {
 			return Sistema.PrecioBase * (1 + camasDisponibles * 0.07) * (1 + CServicios * 0.14) * (int)diferencia.TotalDays;
 		}
 
-        public override string Imprimir() {
+		public override bool PuedeAlquilar(Alquiler alquiler) {
+			if(!base.PuedeAlquilar(alquiler))
+				return false;
+
+			//Lógica de alquiler de casa nose
+
+			return true;
+		}
+
+		public override string Imprimir() {
 			return "uwu";
         }
     }

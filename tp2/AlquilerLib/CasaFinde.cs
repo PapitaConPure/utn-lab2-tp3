@@ -12,6 +12,12 @@ namespace AlquilerLib {
 		private bool EsFinde(DateTime fecha)
 		{
 			return fecha.DayOfWeek == DayOfWeek.Friday;
-        }
+		}
+
+		public override bool PuedeAlquilar(Alquiler alquiler) {
+			return base.PuedeAlquilar(alquiler)
+				&& this.EsFinde(alquiler.FechaEntrada)
+				&& alquiler.FechaSalida.Day < alquiler.FechaEntrada.Day + 3;
+		}
 	}
 }

@@ -51,6 +51,15 @@ namespace AlquilerLib {
 			return this.habitaciones[idx];
 		}
 
+		public override bool PuedeAlquilar(Alquiler alquiler) {
+			if(!base.PuedeAlquilar(alquiler))
+				return false;
+
+			//Lógica de alquiler de casa nose
+
+			return true;
+		}
+
 		public override string Imprimir() {
 			return "";
 		}

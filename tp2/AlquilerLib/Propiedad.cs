@@ -16,7 +16,9 @@ namespace AlquilerLib {
 
 		public int CServicios	{get { return cServicios; }}
 		public int Número{get;private set;}
-		public abstract bool Disponible { get; }
+
+
+
         public Propiedad(int número, string dirección)
 		{
 			this.Número = número;
@@ -55,7 +57,18 @@ namespace AlquilerLib {
 			return this.alquileres[idx];
 		}
 
-        public abstract string Imprimir();
+		public virtual bool PuedeAlquilar(Alquiler alquiler) {
+			bool puede = true;
+
+			foreach(Alquiler otro in this.alquileres)
+				puede &= 
+					alquiler.FechaSalida.CompareTo(otro.FechaEntrada) < 0 
+					|| alquiler.FechaEntrada.CompareTo(otro.FechaSalida) > 0;
+
+			return puede;
+		}
+
+		public abstract string Imprimir();
 
 		public int CompareTo(object obj) {
 			return this.Número.CompareTo((obj as Propiedad).Número);

@@ -55,10 +55,13 @@ namespace AlquilerLib {
 		/// <returns><see langword="true"/> si se pudo alquilar la <see cref="Propiedad"/></returns>
 		public bool AlquilarPropiedad(int nroPropiedad, Alquiler alquiler) {
 			Propiedad propiedad = this.ConsultarPropiedad(nroPropiedad);
+
             if (propiedad is null)
                 return false;
-            if (!propiedad.Disponible)
+
+            if (!propiedad.PuedeAlquilar(alquiler))
 				return false;
+
 			propiedad.Alquilar(alquiler);
 			return true;
 		}
