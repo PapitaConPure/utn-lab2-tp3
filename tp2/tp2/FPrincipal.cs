@@ -18,7 +18,7 @@ namespace tp2 {
 		Casa casa;
 		Calendario calendario;
 		DateTime[] meses;
-
+		FM1 ventana;
         public FPrincipal() {
 			this.InitializeComponent();
 		}
@@ -79,18 +79,29 @@ namespace tp2 {
 				MessageBox.Show("No hay día seleccionado");
 				return;
 			}
-
-			this.alquiler = new Alquiler(
-				Convert.ToInt32(nudNroPropiedadAlquiler.Value),
-				DateTime.Now,
-				this.calendario.DíaSeleccionado,
-				this.calendario.DíaSeleccionado.AddDays(3),
-				casa);
+            ventana = new FM1();
+			ventana.calindario.TodayDate = calendario.DíaSeleccionado;
+			if (ventana.ShowDialog() == DialogResult.OK)
+			{
+				this.alquiler = new Alquiler(
+					Convert.ToInt32(nudNroPropiedadAlquiler.Value),
+					DateTime.Now,
+					ventana.calindario.SelectionStart, ventana.calindario.SelectionEnd, casa
+				);
+				MessageBox.Show($@"Desde:{ventana.calindario.SelectionStart.Day}/{ventana.calindario.SelectionStart.Month}  hasta {ventana.calindario.SelectionEnd.Day}/{ventana.calindario.SelectionEnd.Month}");
+			}
+			try
+			{
 
 			if(sistema.AlquilarPropiedad(alquiler.Número, alquiler))
 				MessageBox.Show("Propiedad Alquilada.");
 			else
 				MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
+			}
+			catch
+			{
+				MessageBox.Show("CASI EXPLOTA TODO.");
+			}
         }
 
         private List<string> Servicios() {
