@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AlquilerLib {
 	public class Alquiler: IComparable {
 		Propiedad propiedad;
-		public Propiedad GetPropiedad { get { return propiedad; } }
+
 		public int Número{get;private set;}
 		public DateTime FechaReservada{get;private set;}
 		public DateTime FechaEntrada {get;private set;}
@@ -17,6 +17,13 @@ namespace AlquilerLib {
 		{
 			this.Número = número;
 			this.FechaReservada= fechaReservada;
+
+			if(fechaEntrada > fechaSalida) {
+				DateTime fechaAuxiliar = fechaEntrada;
+				fechaEntrada = fechaSalida;
+				fechaSalida = fechaAuxiliar;
+			}
+
 			this.FechaEntrada= fechaEntrada;
 			this.FechaSalida = fechaSalida;
 			this.PrecioTotal = 0;

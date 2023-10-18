@@ -6,8 +6,8 @@ namespace AlquilerLib {
 
 		public enum TipoHabitación {
 			Simple = 0,
-			Doble,
-			Triple,
+			Doble = 80,
+			Triple = 150,
 		}
 
 		public Habitación(int número, TipoHabitación tipo) {
@@ -19,11 +19,7 @@ namespace AlquilerLib {
 
 		public double PcntAdicional {
 			get {
-				switch(this.tipo) {
-				case TipoHabitación.Doble:  return 0.8;
-				case TipoHabitación.Triple: return 1.5;
-				default: return 0;
-				}
+				return (int)this.tipo / 100;
 			}
 		}
 
