@@ -64,10 +64,7 @@ namespace tp2 {
 			Propiedad propiedad = sistema.ConsultarPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value));
 
             if(propiedad!= null) {
-				if(propiedad.Disponible)
-					MessageBox.Show("La propiedad está disponible.");
-				else
-					MessageBox.Show("La propiedad no está disponible.");
+				MessageBox.Show("La propiedad existe.");
 			} else
 				MessageBox.Show("La propiedad no existe.");
 		}
