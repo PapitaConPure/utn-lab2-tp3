@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace AlquilerLib {
-	public class Habitación: IComparable {
+	public class Habitación:Propiedad, IComparable {
 		private TipoHabitación tipo;
 		private double adicional;
 		public enum TipoHabitación {
@@ -10,7 +10,7 @@ namespace AlquilerLib {
 			Triple = 150,
 		}
 
-		public Habitación(int número, TipoHabitación tipo) {
+		public Habitación(int número,TipoHabitación tipo):base(número) {
 			this.Número = número;
 			this.tipo = tipo; 
 		}
@@ -23,8 +23,23 @@ namespace AlquilerLib {
 			}
 		}
 
-		public int CompareTo(object obj) {
+        public override bool PuedeAlquilar(Alquiler alquiler)
+        {
+            if (!base.PuedeAlquilar(alquiler))
+                return false;
+			//CUESTIONAR
+            //Lógica de alquiler de casa nose
+
+            return true;
+		}
+		public int CompareTo(object obj)//ni se q error sale acá
+		{
 			return this.Número.CompareTo((obj as Habitación).Número);
 		}
-	}
+
+        public override string Imprimir()
+        {
+            return "";
+        }
+    }
 }
