@@ -14,6 +14,7 @@ namespace AlquilerLib {
 		/// </summary>
 		public static double PrecioBase;
 		List<Propiedad> propiedades;
+		List<Hotel> hoteles;
 
 		/// <summary>
 		/// Crea un sistema de propiedades con una lista de propiedades vacía
@@ -53,6 +54,8 @@ namespace AlquilerLib {
 		/// <param name="nroPropiedad">número de la propiedad a alquilar</param>
 		/// <param name="alquiler">alquiler a relacionar con la propiedad</param>
 		/// <returns><see langword="true"/> si se pudo alquilar la <see cref="Propiedad"/></returns>
+		/// 
+
 		public bool AlquilarPropiedad(int nroPropiedad, Alquiler alquiler) {
 			Propiedad propiedad = this.ConsultarPropiedad(nroPropiedad);
 
@@ -65,7 +68,19 @@ namespace AlquilerLib {
 			propiedad.Alquilar(alquiler);
 			return true;
 		}
-
+		public bool QuitarPropiedad(int nroPropiedad)
+		{
+			Propiedad propiedad = this.ConsultarPropiedad(nroPropiedad);
+			if (propiedad != null)
+			{
+				this.propiedades.Remove(propiedad);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 		/// <summary>
 		/// Cancela el alquiler indicado para la propiedad indicada
 		/// </summary>
@@ -80,6 +95,15 @@ namespace AlquilerLib {
 
 			propiedad.QuitarAlquiler(nroAlquiler);
 			return true;
+		}
+		public void AgregarHotel(Hotel hotel)
+		{
+			this.hoteles.Add(hotel);
+		} 
+
+		public void QuitarHotel(Hotel hotel)
+		{
+			this.hoteles.Remove(hotel);
 		}
 	}
 }
