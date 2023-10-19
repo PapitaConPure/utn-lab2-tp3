@@ -11,15 +11,18 @@ namespace AlquilerLib {
 		protected int maxPasajeros;
 		private int cServicios = 0;
 		protected List<Alquiler> alquileres = new List<Alquiler>();
-
+        private Persona propietario;
+        //No entendí muy bien lo de que cada propiedad tenga un propietario
+        //Sería el dueño de la propiedad que la alquila y desp el cliente???
 		public int CServicios	{get { return cServicios; }}
 		public int Número{get;private set;}
 
-        public Propiedad(int número)
+        public Propiedad(int número)//Persona propietario
 		{
 			this.Número = número;
 			this.alquileres = new List<Alquiler>();
             servicios = new string[5];
+            //this.propietario=propietario;
         }
 
 		public double CalcularPrecioTotal()
@@ -47,7 +50,7 @@ namespace AlquilerLib {
                 new DateTime(2023, 01, 05),
                 new DateTime(2023, 01, 06),
                 new DateTime(2023, 01, 08),
-                new Casa(0, ""));
+                new Casa(0, ""),new Cliente(0,0,"","",0));
 
             int idx = this.alquileres.BinarySearch(buscado);
 
