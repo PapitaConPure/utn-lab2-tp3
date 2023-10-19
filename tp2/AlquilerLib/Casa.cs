@@ -3,13 +3,16 @@
 namespace AlquilerLib {
 	public class Casa: Propiedad, IImprimible {
 		private int camasDisponibles;
-
+		public int MínimoDías { get; }
 		public int CamasDisponibles {
 			get { return this.camasDisponibles; }
 			set { this.camasDisponibles = value; }
 		}
 
-		public Casa(int número, string dirección): base(número, dirección) {}
+		public Casa(int número, string dirección): base(número, dirección) 
+		{
+			MínimoDías = 5;//es un ejemplo
+		}
 
 		public  double PrecioPorDía(int nroAlquiler) {
 			Alquiler alquiler = VerAlquiler(nroAlquiler);

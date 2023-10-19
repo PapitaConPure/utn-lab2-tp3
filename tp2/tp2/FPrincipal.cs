@@ -61,7 +61,7 @@ namespace tp2 {
 		}
 
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
-			Propiedad propiedad = sistema.ConsultarPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value));
+			Propiedad propiedad = sistema.VerPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value));
 
             if(propiedad!= null) {
 				MessageBox.Show("La propiedad existe.");

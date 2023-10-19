@@ -3,7 +3,7 @@
 namespace AlquilerLib {
 	public class Habitación: IComparable {
 		private TipoHabitación tipo;
-
+		private double adicional;
 		public enum TipoHabitación {
 			Simple = 0,
 			Doble = 80,
