@@ -5,21 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	public class Cliente {
-		public int Dni{get;private set;}
-		public string Nombre{get;private set;}
-		public string Apellido{get;private set;}
-		public string Género{get;private set;}
-		public int Tel{get;private set;}
-		public string Dirección{ get; private set; }
-		public Cliente(int dni,string nombre,string apellido,string género,int tel,string dirección)
+	public class Cliente:Persona {
+		public int CantPasajeros
 		{
-			this.Dni = dni;
-			this.Nombre = nombre;
-			this.Apellido = apellido;
-			this.Género = género;
-			this.Tel = tel;
-			this.Dirección = dirección;
+			get;
+		}
+		public Cliente(int cantPasajeros,int dni,string nombre,string apellido,int tel):base(dni,nombre,tel,apellido) 
+		{
+		CantPasajeros=cantPasajeros;
 		}
 
 	}

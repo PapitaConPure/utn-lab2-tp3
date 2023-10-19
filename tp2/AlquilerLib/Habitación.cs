@@ -14,8 +14,11 @@ namespace AlquilerLib {
 			this.Número = número;
 			this.tipo = tipo; 
 		}
-
-		public int Número { get; private set; }
+		//cuestionar
+		public int Número
+		{
+			get;
+		}
 
 		public double PcntAdicional {
 			get {
