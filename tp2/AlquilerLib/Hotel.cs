@@ -5,12 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	public class Hotel: Propiedad {
-		private int estrellas;
+	public class Hotel {
+		public int Estrellas
+		{
+			get;
+		}
 		private List<Habitación> habitaciones;
 
-		public Hotel(int número, string dirección, int estrellas): base(número, dirección) {
-			this.estrellas = estrellas;
+		public Hotel(int número, string dirección, int estrellas) {
+			this.Estrellas = estrellas;
 			this.habitaciones = new List<Habitación>();
 		}
 
@@ -27,7 +30,7 @@ namespace AlquilerLib {
 
 			precio += precio * this.VerHabitación(número).PcntAdicional;
 
-			if(this.estrellas >= 3)
+			if(this.Estrellas >= 3)
 				precio += precio * 0.4;
 
 			return precio;
@@ -45,17 +48,5 @@ namespace AlquilerLib {
 			return this.habitaciones[idx];
 		}
 
-		public override bool PuedeAlquilar(Alquiler alquiler) {
-			if(!base.PuedeAlquilar(alquiler))
-				return false;
-
-			//Lógica de alquiler de casa nose
-
-			return true;
-		}
-
-		public override string Imprimir() {
-			return "";
-		}
 	}
 }

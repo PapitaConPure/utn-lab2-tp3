@@ -6,67 +6,81 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib {
 	public abstract class Propiedad : IImprimible, IComparable {
-		private string dirección;
-		private string[] servicios;
+		protected string[] servicios;
+		protected double precioDía;
+		protected int maxPasajeros;
 		private int cServicios = 0;
-		private int maxPasajeros;
-		private DateTime fechaInicio;
-		private DateTime fechaSalida;
 		protected List<Alquiler> alquileres = new List<Alquiler>();
-
+        private Persona propietario;
+        //No entendí muy bien lo de que cada propiedad tenga un propietario
+        //Sería el dueño de la propiedad que la alquila y desp el cliente???
 		public int CServicios	{get { return cServicios; }}
 		public int Número{get;private set;}
 
-
-
-        public Propiedad(int número, string dirección)
+        public Propiedad(int número)//Persona propietario
 		{
 			this.Número = número;
-			this.dirección = dirección;
 			this.alquileres = new List<Alquiler>();
             servicios = new string[5];
+            //this.propietario=propietario;
         }
-		public void AgregarServicio(string servicio)
+
+		public double CalcularPrecioTotal()
+		{
+			return 0;
+		}
+
+        public void Alquilar(Alquiler alquiler)
+        {
+            this.alquileres.Add(alquiler);
+        }
+
+        public void QuitarAlquiler(int nroAlquiler)
+        {
+            this.alquileres.Remove(VerAlquiler(nroAlquiler));
+        }
+
+        public Alquiler VerAlquiler(int nroAlquiler)
+        {
+
+            this.alquileres.Sort();
+
+            Alquiler buscado = new Alquiler(
+                nroAlquiler,
+                new DateTime(2023, 01, 05),
+                new DateTime(2023, 01, 06),
+                new DateTime(2023, 01, 08),
+                new Casa(0, ""),new Cliente(0,0,"","",0));
+
+            int idx = this.alquileres.BinarySearch(buscado);
+
+            if (idx < 0)
+                return null;
+
+            return this.alquileres[idx];
+        }
+
+        public virtual bool PuedeAlquilar(Alquiler alquiler)
+        {
+            bool puede = true;
+
+            foreach (Alquiler otro in this.alquileres)
+                puede &=
+                    alquiler.FechaSalida.CompareTo(otro.FechaEntrada) < 0
+                    || alquiler.FechaEntrada.CompareTo(otro.FechaSalida) > 0;
+
+            return puede;
+        }
+
+        public string[] VerServicios()
+        {
+            return servicios;
+        }
+        public void AgregarServicio(string servicio)
 		{
 			servicios[cServicios++]= servicio;
 		}
 
-		public void Alquilar(Alquiler alquiler) {
-			this.alquileres.Add(alquiler);
-		}
-		public void QuitarAlquiler (int nroAlquiler)
-		{
-			this.alquileres.Remove(VerAlquiler(nroAlquiler));
-		}
-		public Alquiler VerAlquiler(int nroAlquiler) {
-
-			this.alquileres.Sort();
-
-			Alquiler buscado = new Alquiler(
-				nroAlquiler,
-				new DateTime(2023, 01, 05),
-				new DateTime(2023, 01, 06),
-				new DateTime(2023, 01, 08),
-				new Casa(0, ""));
-
-			int idx = this.alquileres.BinarySearch(buscado);
-
-			if(idx < 0)
-				return null;
-
-			return this.alquileres[idx];
-		}
-
-		public virtual bool PuedeAlquilar(Alquiler alquiler) {
-			bool puede = true;
-
-			foreach(Alquiler otro in this.alquileres)
-				puede &= 
-					alquiler.FechaSalida.CompareTo(otro.FechaEntrada) < 0 
-					|| alquiler.FechaEntrada.CompareTo(otro.FechaSalida) > 0;
-
-			return puede;
-		}
 
 		public abstract string Imprimir();
 

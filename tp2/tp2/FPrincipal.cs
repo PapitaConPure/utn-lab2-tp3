@@ -19,10 +19,11 @@ namespace tp2 {
 		Calendario calendario;
 		DateTime[] meses;
 		FM1 ventana;
+		Cliente cliente;
         public FPrincipal() {
 			this.InitializeComponent();
 		}
-
+		//////// REHACER EL FORM...
 		private void FPrincipal_Load(object sender, EventArgs e) {
 			this.ofdElegirImagen.InitialDirectory = Environment.CurrentDirectory;
 
@@ -61,7 +62,7 @@ namespace tp2 {
 		}
 
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
-			Propiedad propiedad = sistema.ConsultarPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value));
+			Propiedad propiedad = sistema.VerPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value));
 
             if(propiedad!= null) {
 				MessageBox.Show("La propiedad existe.");
@@ -86,7 +87,7 @@ namespace tp2 {
 				this.alquiler = new Alquiler(
 					Convert.ToInt32(nudNroPropiedadAlquiler.Value),
 					DateTime.Now,
-					ventana.calindario.SelectionStart, ventana.calindario.SelectionEnd, casa
+					ventana.calindario.SelectionStart, ventana.calindario.SelectionEnd, casa,cliente
 				);
 				MessageBox.Show($@"Desde:{ventana.calindario.SelectionStart.Day}/{ventana.calindario.SelectionStart.Month}  hasta {ventana.calindario.SelectionEnd.Day}/{ventana.calindario.SelectionEnd.Month}");
 			}
