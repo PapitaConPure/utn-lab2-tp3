@@ -1994,7 +1994,7 @@
 <XPD:OBJ name="OwnedViews[13]" type="UMLRealizationView" guid="hZ8YxpvrZ0+eUigV3Jp9WwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">868,352;936,324;936,224;1068,223</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">868,352;936,324;936,292;1068,241</XPD:ATTR>
 <XPD:REF name="Model">0aCjDWpkskSVKSZfb+4ViAAA</XPD:REF>
 <XPD:REF name="Head">TJTguZhnC0yg+mcXwqDoYQAA</XPD:REF>
 <XPD:REF name="Tail">iiSyRGmLpUCDCFH8CGhT9gAA</XPD:REF>
