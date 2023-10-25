@@ -16,5 +16,20 @@ namespace tp2
         {
             InitializeComponent();
         }
+
+        private void rbCasa_CheckedChanged(object sender, EventArgs e)
+        {
+            nudMinDias.Enabled = true;
+        }
+
+        private void rbCasaFinde_CheckedChanged(object sender, EventArgs e)
+        {
+            nudMinDias.Enabled = false;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
