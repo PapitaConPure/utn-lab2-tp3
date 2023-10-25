@@ -11,9 +11,9 @@ namespace AlquilerLib
         public int Dni { get; }
         public string Nombre { get; }
         public string Apellido { get; }
-        public int Tel { get; }
+        public long Tel { get; }
 
-        public Persona(int dni,string nombre, int tel, string apellido)
+        public Persona(int dni,string nombre, long tel, string apellido)
         {
             Dni = dni;
             Nombre = nombre;

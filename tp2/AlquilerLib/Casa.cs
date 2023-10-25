@@ -2,25 +2,19 @@
 
 namespace AlquilerLib {
 	public class Casa: Propiedad, IImprimible {
-		private int camasDisponibles;
-		private string dirección;
-		public int MínimoDías { get; }
-		public int CamasDisponibles {
-			get { return this.camasDisponibles; }
-			set { this.camasDisponibles = value; }
-        }
+		public int MínimoPermitido { get; }
+		public int CamasDisponibles { get; private set; }
 		
-		public Casa(int número,string dirección): base(número) 
+		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles): base(número,dirección) 
 		{
-			MínimoDías = 5;//es un ejemplo
-            this.dirección = dirección;
+			this.CamasDisponibles= camasDisponibles;
+			this.MínimoPermitido = mínimoPermitido;
         }
 
-		///Cuestionar
 		public  double PrecioPorDía(int nroAlquiler) {
 			Alquiler alquiler = VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);// Es lo mismo que fechasalida-fechaentrada
-			return Sistema.PrecioBase * (1 + camasDisponibles * 0.07) * (1 + CServicios * 0.14) * (int)diferencia.TotalDays;
+			return Sistema.PrecioBase * (1 + CamasDisponibles * 0.07) * (1 + CServicios * 0.14) * (int)diferencia.TotalDays;
 		}
 
 		public override bool PuedeAlquilar(Alquiler alquiler) {
@@ -28,7 +22,7 @@ namespace AlquilerLib {
 		}
 
 		public override string Imprimir() {
-			return "uwu";
+			return $"Dirección:{this.Dirección}, Número de Propiedad:{this.Número},Pasjeros:{maxPasajeros}";
         }
     }
 }
