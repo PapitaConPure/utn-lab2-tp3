@@ -76,6 +76,9 @@ namespace AlquilerLib {
             return puede;
         }
 
+        public abstract double PrecioPorDía(int nroAlquiler);
+        public abstract double PrecioTotal(int nroAlquiler);
+
         public string[] VerServicios()
         {
             return servicios;
@@ -84,7 +87,6 @@ namespace AlquilerLib {
 		{
 			servicios[cServicios++]= servicio;
 		}
-
 
 		public abstract string Imprimir();
 

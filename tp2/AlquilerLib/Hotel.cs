@@ -45,7 +45,7 @@ namespace AlquilerLib {
 			}
 		}
 
-		public double PrecioPorDía(TipoHabitación tipo) {
+		public override double PrecioPorDía(Alquiler alquiler) {
 			double precio = Sistema.PrecioBase;
 
 			precio += precio * (int)tipo / 100;
