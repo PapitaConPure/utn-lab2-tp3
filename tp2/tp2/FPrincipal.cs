@@ -18,7 +18,7 @@ namespace tp2 {
 		Casa casa;
 		Calendario calendario;
 		DateTime[] meses;
-		FM1 ventana;
+		FAlquiler ventana;
 		Cliente cliente;
         public FPrincipal() {
 			this.InitializeComponent();
@@ -80,7 +80,7 @@ namespace tp2 {
 				MessageBox.Show("No hay día seleccionado");
 				return;
 			}
-            ventana = new FM1();
+            ventana = new FAlquiler();
 			ventana.calindario.TodayDate = calendario.DíaSeleccionado;
 			if (ventana.ShowDialog() == DialogResult.OK)
 			{
