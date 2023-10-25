@@ -13,6 +13,11 @@ namespace AlquilerLib {
 		public DateTime FechaEntrada {get;private set;}
 		public DateTime FechaSalida { get;private set;}
 		public double PrecioTotal { get;private set;}
+
+		public Cliente Cliente {
+			get { return this.cliente; }
+		}
+
 		public Alquiler(int número,DateTime fechaReservada,DateTime fechaEntrada, DateTime fechaSalida,Propiedad propiedad,Cliente cliente)
 		{
 			this.Número = número;
