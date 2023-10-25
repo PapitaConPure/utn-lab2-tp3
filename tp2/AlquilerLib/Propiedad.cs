@@ -14,16 +14,21 @@ namespace AlquilerLib {
         private Persona propietario;
         //No entendí muy bien lo de que cada propiedad tenga un propietario
         //Sería el dueño de la propiedad que la alquila y desp el cliente???
-		public int CServicios	{get { return cServicios; }}
-		public int Número{get;private set;}
 
-        public Propiedad(int número)//Persona propietario
+		public Propiedad(int número, string dirección)//Persona propietario
 		{
 			this.Número = número;
+			this.Dirección = dirección;
 			this.alquileres = new List<Alquiler>();
             servicios = new string[5];
-            //this.propietario=propietario;
-        }
+			//this.propietario=propietario;
+		}
+
+		public int CServicios { get { return cServicios; } }
+
+		public int Número { get; private set; }
+
+		public string Dirección { get; private set; }
 
 		public double CalcularPrecioTotal()
 		{
