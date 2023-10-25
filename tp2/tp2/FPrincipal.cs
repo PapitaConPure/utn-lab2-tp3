@@ -91,14 +91,20 @@ namespace tp2 {
 			FAgregarHotel fhotel = new FAgregarHotel();
 			if(fhotel.ShowDialog() == DialogResult.OK)
             {
+				hotel = new Hotel(Convert.ToInt32(fhotel.nudNroPropiedad),
+									fhotel.tbDireccionHotel.Text, Convert.ToInt32(fhotel.nudEstrellas),
+									Convert.ToInt16(fhotel.nudSimples),
+									Convert.ToInt16(fhotel.nudDobles),
+									Convert.ToInt16(fhotel.nudTriples));
+				if (fhotel.chbGarage.Checked) casa.AgregarServicio("Cochera");
+				if (fhotel.chbDesayuno.Checked) casa.AgregarServicio("Desayuno");
+				if (fhotel.chbLimpieza.Checked) casa.AgregarServicio("Limpieza");
+				if (fhotel.chbPermiteMascotas.Checked) casa.AgregarServicio("Mascotas");
+				if (fhotel.chbPileta.Checked) casa.AgregarServicio("Pileta");
+				if (fhotel.chbWIFI.Checked) casa.AgregarServicio("Wi-Fi");
 
-            }
-
-			sistema.AgregarHotel(hotel);
-
-
-
-
+				sistema.AgregarHotel(hotel);
+			}
 		}
 
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {

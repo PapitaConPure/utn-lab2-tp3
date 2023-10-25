@@ -100,7 +100,6 @@ namespace tp2 {
             this.btnAlquilar.TabIndex = 2;
             this.btnAlquilar.Text = "Alquilar";
             this.btnAlquilar.UseVisualStyleBackColor = false;
-            this.btnAlquilar.Click += new System.EventHandler(this.btnAlquilar_Click);
             // 
             // btnCancelarAlquiler
             // 
