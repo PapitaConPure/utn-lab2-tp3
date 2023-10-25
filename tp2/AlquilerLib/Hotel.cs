@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib {
 	public class Hotel {
-		public int Estrellas
-		{
+		public int Estrellas {
 			get;
 		}
-		private List<Habitación> habitaciones;
+		private int CntSimple { get; }
 
 		public Hotel(int número, string dirección, int estrellas) {
 			this.Estrellas = estrellas;
