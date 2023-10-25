@@ -4,11 +4,12 @@ namespace AlquilerLib {
 	public class Casa: Propiedad, IImprimible {
 		public int MínimoPermitido { get; }
 		public int CamasDisponibles { get; private set; }
-		
-		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles): base(número,dirección) 
+		Persona propietario;
+		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido): base(número,dirección) 
 		{
 			this.CamasDisponibles= camasDisponibles;
 			this.MínimoPermitido = mínimoPermitido;
+			propietario = new Persona(dni, nombre, tel, apellido);
         }
 
 		public  double PrecioPorDía(int nroAlquiler) {

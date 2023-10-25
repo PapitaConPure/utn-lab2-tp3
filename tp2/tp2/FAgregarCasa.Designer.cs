@@ -35,8 +35,6 @@ namespace tp2
             this.lbMinDias = new System.Windows.Forms.Label();
             this.lbCantCamas = new System.Windows.Forms.Label();
             this.nudCantCamas = new System.Windows.Forms.NumericUpDown();
-            this.lbPrecioBase = new System.Windows.Forms.Label();
-            this.nudPrecioBase = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.chbPileta = new System.Windows.Forms.CheckBox();
             this.chbGarage = new System.Windows.Forms.CheckBox();
@@ -61,7 +59,6 @@ namespace tp2
             this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinDias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantCamas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDNI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).BeginInit();
@@ -149,37 +146,6 @@ namespace tp2
             this.nudCantCamas.Size = new System.Drawing.Size(120, 20);
             this.nudCantCamas.TabIndex = 6;
             this.nudCantCamas.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lbPrecioBase
-            // 
-            this.lbPrecioBase.AutoSize = true;
-            this.lbPrecioBase.Location = new System.Drawing.Point(49, 134);
-            this.lbPrecioBase.Name = "lbPrecioBase";
-            this.lbPrecioBase.Size = new System.Drawing.Size(67, 13);
-            this.lbPrecioBase.TabIndex = 9;
-            this.lbPrecioBase.Text = "Precio Base:";
-            // 
-            // nudPrecioBase
-            // 
-            this.nudPrecioBase.Location = new System.Drawing.Point(179, 132);
-            this.nudPrecioBase.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.nudPrecioBase.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudPrecioBase.Name = "nudPrecioBase";
-            this.nudPrecioBase.Size = new System.Drawing.Size(120, 20);
-            this.nudPrecioBase.TabIndex = 8;
-            this.nudPrecioBase.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -442,8 +408,6 @@ namespace tp2
             this.Controls.Add(this.chbGarage);
             this.Controls.Add(this.chbPileta);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbPrecioBase);
-            this.Controls.Add(this.nudPrecioBase);
             this.Controls.Add(this.lbCantCamas);
             this.Controls.Add(this.nudCantCamas);
             this.Controls.Add(this.lbMinDias);
@@ -454,7 +418,6 @@ namespace tp2
             this.Text = "FAgregarCasa";
             ((System.ComponentModel.ISupportInitialize)(this.nudMinDias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantCamas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDNI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).EndInit();
@@ -466,7 +429,6 @@ namespace tp2
         #endregion
         private System.Windows.Forms.Label lbMinDias;
         private System.Windows.Forms.Label lbCantCamas;
-        private System.Windows.Forms.Label lbPrecioBase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbDirec;
         private System.Windows.Forms.Label lbPropietario;
@@ -479,7 +441,6 @@ namespace tp2
         private System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.NumericUpDown nudMinDias;
         public System.Windows.Forms.NumericUpDown nudCantCamas;
-        public System.Windows.Forms.NumericUpDown nudPrecioBase;
         public System.Windows.Forms.TextBox tbDireccionCasa;
         public System.Windows.Forms.TextBox tbNombre;
         public System.Windows.Forms.NumericUpDown nudDNI;

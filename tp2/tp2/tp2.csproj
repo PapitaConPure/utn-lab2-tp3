@@ -47,9 +47,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calendario.cs" />
-    <Compile Include="FM1.cs">
+    <Compile Include="FAgregarCasa.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FAgregarCasa.Designer.cs">
+      <DependentUpon>FAgregarCasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FAgregarHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAgregarHotel.Designer.cs">
+      <DependentUpon>FAgregarHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FBusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FBusqueda.Designer.cs">
+      <DependentUpon>FBusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FM1.cs" />
     <Compile Include="FM1.Designer.cs">
       <DependentUpon>FM1.cs</DependentUpon>
     </Compile>
@@ -61,6 +77,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FAgregarCasa.resx">
+      <DependentUpon>FAgregarCasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FAgregarHotel.resx">
+      <DependentUpon>FAgregarHotel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FM1.resx">
       <DependentUpon>FM1.cs</DependentUpon>
     </EmbeddedResource>
