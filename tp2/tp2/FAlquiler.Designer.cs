@@ -1,6 +1,6 @@
 ﻿namespace tp2
 {
-    partial class FM1
+    partial class FAlquiler
     {
         /// <summary>
         /// Required designer variable.

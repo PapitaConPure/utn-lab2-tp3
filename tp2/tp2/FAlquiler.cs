@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace tp2
 {
-    public partial class FM1 : Form
+    public partial class FAlquiler : Form
     {
-        public FM1()
+        public FAlquiler()
         {
             InitializeComponent();
         }
