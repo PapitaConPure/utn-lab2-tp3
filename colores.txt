@@ -1,5 +1,10 @@
-text: #161616;
-background: #f0f0f0;
-primary: #ffbe46;
-secondary: #d3c5c5;
-accent: #317777;
+text: #161616
+background: #f0f0f0
+primary: #ffbe46
+secondary: #d3c5c5
+accent: #317777
+
+info: #54b4d3
+success: #1ba345
+warning: #eed001
+danger: #f03e43

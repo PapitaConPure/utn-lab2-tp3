@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ofdElegirImagen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="ofdDatos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>158, 17</value>
   </metadata>
+  <metadata name="sfdDatos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>298, 17</value>
+  </metadata>
+  <data name="label1.Text" xml:space="preserve">
+    <value>No me acuerdo si esto va acá, de última lo quitamos. La idea es que cuando se selecciona una residencia de la lista, se abre una ventana modal y te da la opción de alquilar ahí. Si no me equivoco, sería FAlquilar o algo por ahí. Ni idea de cuánto texto puedo meter acá jaja. ¿Este color les llama la atención? Espero que sí para que LEAN ESTO (presiona la tecla Supr en mí para borrarme después de leer)</value>
+  </data>
 </root>

@@ -47,66 +47,69 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calendario.cs" />
-    <Compile Include="FAgregarCasa.cs">
+    <Compile Include="Formularios\Agregar Residencias\FAgregarCasa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FAgregarCasa.Designer.cs">
+    <Compile Include="Formularios\Agregar Residencias\FAgregarCasa.Designer.cs">
       <DependentUpon>FAgregarCasa.cs</DependentUpon>
     </Compile>
-    <Compile Include="FAgregarHotel.cs">
+    <Compile Include="Formularios\Agregar Residencias\FAgregarHotel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FAgregarHotel.Designer.cs">
+    <Compile Include="Formularios\Agregar Residencias\FAgregarHotel.Designer.cs">
       <DependentUpon>FAgregarHotel.cs</DependentUpon>
     </Compile>
-    <Compile Include="FAlquiler.cs">
+    <Compile Include="Formularios\FAlquiler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FAlquiler.Designer.cs">
+    <Compile Include="Formularios\FAlquiler.Designer.cs">
       <DependentUpon>FAlquiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="FFechaAlquiler.cs">
+    <Compile Include="Formularios\FFechaAlquiler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FFechaAlquiler.Designer.cs">
+    <Compile Include="Formularios\FFechaAlquiler.Designer.cs">
       <DependentUpon>FFechaAlquiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="FBusqueda.cs">
+    <Compile Include="Formularios\FBusqueda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FBusqueda.Designer.cs">
+    <Compile Include="Formularios\FBusqueda.Designer.cs">
       <DependentUpon>FBusqueda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FDetalles.cs">
+    <Compile Include="Formularios\FDetalles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FDetalles.Designer.cs">
+    <Compile Include="Formularios\FDetalles.Designer.cs">
       <DependentUpon>FDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FPrincipal.cs">
+    <Compile Include="Formularios\FPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FPrincipal.Designer.cs">
+    <Compile Include="Formularios\FPrincipal.Designer.cs">
       <DependentUpon>FPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FAgregarCasa.resx">
+    <EmbeddedResource Include="Formularios\Agregar Residencias\FAgregarCasa.resx">
       <DependentUpon>FAgregarCasa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FAgregarHotel.resx">
+    <EmbeddedResource Include="Formularios\Agregar Residencias\FAgregarHotel.resx">
       <DependentUpon>FAgregarHotel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FAlquiler.resx">
+    <EmbeddedResource Include="Formularios\FAlquiler.resx">
       <DependentUpon>FAlquiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FFechaAlquiler.resx">
+    <EmbeddedResource Include="Formularios\FBusqueda.resx">
+      <DependentUpon>FBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FFechaAlquiler.resx">
       <DependentUpon>FFechaAlquiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FDetalles.resx">
+    <EmbeddedResource Include="Formularios\FDetalles.resx">
       <DependentUpon>FDetalles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FPrincipal.resx">
+    <EmbeddedResource Include="Formularios\FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

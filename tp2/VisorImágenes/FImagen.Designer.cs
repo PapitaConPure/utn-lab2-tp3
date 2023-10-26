@@ -33,117 +33,129 @@
 			this.anterior = new System.Windows.Forms.Button();
 			this.btnQuitarImágenes = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.siguiente = new System.Windows.Forms.Button();
+			this.ofdElegirImagen = new System.Windows.Forms.OpenFileDialog();
 			((System.ComponentModel.ISupportInitialize)(this.pbVisor)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// btnCargarImagen
 			// 
+			this.btnCargarImagen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
 			this.btnCargarImagen.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCargarImagen.Location = new System.Drawing.Point(3, 3);
+			this.btnCargarImagen.FlatAppearance.BorderSize = 0;
+			this.btnCargarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnCargarImagen.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnCargarImagen.Location = new System.Drawing.Point(4, 4);
+			this.btnCargarImagen.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCargarImagen.Name = "btnCargarImagen";
-			this.btnCargarImagen.Size = new System.Drawing.Size(174, 30);
+			this.btnCargarImagen.Size = new System.Drawing.Size(132, 42);
 			this.btnCargarImagen.TabIndex = 0;
-			this.btnCargarImagen.Text = "Cargar Imágenes";
-			this.btnCargarImagen.UseVisualStyleBackColor = true;
-			this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
+			this.btnCargarImagen.Text = "Cargar Imagen";
+			this.btnCargarImagen.UseVisualStyleBackColor = false;
+			this.btnCargarImagen.Click += new System.EventHandler(this.BtnCargarImagen_Click);
 			// 
 			// pbVisor
 			// 
-			this.pbVisor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.pbVisor.Location = new System.Drawing.Point(12, 93);
+			this.pbVisor.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pbVisor.Location = new System.Drawing.Point(0, 50);
+			this.pbVisor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.pbVisor.Name = "pbVisor";
-			this.pbVisor.Size = new System.Drawing.Size(360, 239);
+			this.pbVisor.Size = new System.Drawing.Size(380, 337);
 			this.pbVisor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pbVisor.TabIndex = 1;
 			this.pbVisor.TabStop = false;
 			// 
 			// anterior
 			// 
-			this.anterior.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.anterior.Location = new System.Drawing.Point(3, 3);
+			this.anterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.anterior.Dock = System.Windows.Forms.DockStyle.Right;
+			this.anterior.FlatAppearance.BorderSize = 0;
+			this.anterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.anterior.Font = new System.Drawing.Font("Segoe UI", 18F);
+			this.anterior.Location = new System.Drawing.Point(284, 4);
+			this.anterior.Margin = new System.Windows.Forms.Padding(4);
 			this.anterior.Name = "anterior";
-			this.anterior.Size = new System.Drawing.Size(174, 27);
+			this.anterior.Size = new System.Drawing.Size(42, 42);
 			this.anterior.TabIndex = 2;
-			this.anterior.Text = "Anterior";
-			this.anterior.UseVisualStyleBackColor = true;
-			this.anterior.Click += new System.EventHandler(this.anterior_Click);
+			this.anterior.Text = "◄";
+			this.anterior.UseVisualStyleBackColor = false;
+			this.anterior.Click += new System.EventHandler(this.BtnAnterior_Click);
 			// 
 			// btnQuitarImágenes
 			// 
+			this.btnQuitarImágenes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(67)))));
 			this.btnQuitarImágenes.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnQuitarImágenes.Location = new System.Drawing.Point(183, 3);
+			this.btnQuitarImágenes.FlatAppearance.BorderSize = 0;
+			this.btnQuitarImágenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnQuitarImágenes.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnQuitarImágenes.Location = new System.Drawing.Point(144, 4);
+			this.btnQuitarImágenes.Margin = new System.Windows.Forms.Padding(4);
 			this.btnQuitarImágenes.Name = "btnQuitarImágenes";
-			this.btnQuitarImágenes.Size = new System.Drawing.Size(174, 30);
+			this.btnQuitarImágenes.Size = new System.Drawing.Size(132, 42);
 			this.btnQuitarImágenes.TabIndex = 0;
-			this.btnQuitarImágenes.Text = "Quitar Imágenes";
-			this.btnQuitarImágenes.UseVisualStyleBackColor = true;
-			this.btnQuitarImágenes.Click += new System.EventHandler(this.btnQuitarImágenes_Click);
+			this.btnQuitarImágenes.Text = "Quitar Imagen";
+			this.btnQuitarImágenes.UseVisualStyleBackColor = false;
+			this.btnQuitarImágenes.Click += new System.EventHandler(this.BtnQuitarImágenes_Click);
 			// 
 			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnCount = 4;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel1.Controls.Add(this.siguiente, 3, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btnCargarImagen, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.anterior, 2, 0);
 			this.tableLayoutPanel1.Controls.Add(this.btnQuitarImágenes, 1, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(360, 36);
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(380, 50);
 			this.tableLayoutPanel1.TabIndex = 5;
-			// 
-			// tableLayoutPanel2
-			// 
-			this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel2.ColumnCount = 2;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel2.Controls.Add(this.siguiente, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.anterior, 0, 0);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 54);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(360, 33);
-			this.tableLayoutPanel2.TabIndex = 6;
 			// 
 			// siguiente
 			// 
-			this.siguiente.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.siguiente.Location = new System.Drawing.Point(183, 3);
+			this.siguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.siguiente.Dock = System.Windows.Forms.DockStyle.Right;
+			this.siguiente.FlatAppearance.BorderSize = 0;
+			this.siguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.siguiente.Font = new System.Drawing.Font("Segoe UI", 18F);
+			this.siguiente.Location = new System.Drawing.Point(334, 4);
+			this.siguiente.Margin = new System.Windows.Forms.Padding(4);
 			this.siguiente.Name = "siguiente";
-			this.siguiente.Size = new System.Drawing.Size(174, 27);
+			this.siguiente.Size = new System.Drawing.Size(42, 42);
 			this.siguiente.TabIndex = 4;
-			this.siguiente.Text = "Siguiente";
-			this.siguiente.UseVisualStyleBackColor = true;
-			this.siguiente.Click += new System.EventHandler(this.siguiente_click);
+			this.siguiente.Text = "►";
+			this.siguiente.UseVisualStyleBackColor = false;
+			this.siguiente.Click += new System.EventHandler(this.BtnSiguiente_click);
+			// 
+			// ofdElegirImagen
+			// 
+			this.ofdElegirImagen.DefaultExt = "*.png";
+			this.ofdElegirImagen.Filter = "Imagen PNG (*.png)|*.png|Imagen JPG (*.jpg)|*.jpg|Todos los archivos (*.*)|*.*";
+			this.ofdElegirImagen.InitialDirectory = ".";
+			this.ofdElegirImagen.Title = "Elegir imagen";
 			// 
 			// FImagen
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(384, 344);
-			this.Controls.Add(this.tableLayoutPanel2);
-			this.Controls.Add(this.tableLayoutPanel1);
+			this.ClientSize = new System.Drawing.Size(380, 387);
 			this.Controls.Add(this.pbVisor);
+			this.Controls.Add(this.tableLayoutPanel1);
+			this.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "FImagen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Imágenes";
+			this.Text = "Visor de Imágenes";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FImagen_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.pbVisor)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
-			this.tableLayoutPanel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -155,8 +167,8 @@
         private System.Windows.Forms.Button anterior;
 		private System.Windows.Forms.Button btnQuitarImágenes;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Button siguiente;
+		private System.Windows.Forms.OpenFileDialog ofdElegirImagen;
 	}
 }
 

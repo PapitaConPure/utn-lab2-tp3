@@ -11,13 +11,10 @@ using System.Windows.Forms;
 
 namespace tp2 {
 	public partial class FAlquiler: Form {
-		Alquiler alquiler;
-		Calendario calendario;
-		DateTime[] meses;
-		FFechaAlquiler ventana;
-		Cliente cliente;
-		Sistema sistema;
-		Casa casa;
+		private Alquiler alquiler;
+		private Calendario calendario;
+		private DateTime[] meses;
+		private Sistema sistema;
 
 		public FAlquiler() {
 			this.InitializeComponent();
@@ -40,7 +37,7 @@ namespace tp2 {
 		}
 
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
-			Residencia propiedad = sistema.VerPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value));
+			Residencia propiedad = this.sistema.VerPropiedad(Convert.ToInt32(this.nudNroPropiedadAlquiler.Value));
 
 			if(propiedad != null) {
 				MessageBox.Show("La propiedad existe.");
@@ -48,22 +45,23 @@ namespace tp2 {
 				MessageBox.Show("La propiedad no existe.");
 		}
 
-		private void btnCancelarAlquiler_Click(object sender, EventArgs e) {
+		private void BtnCancelarAlquiler_Click(object sender, EventArgs e) {
 			if(this.sistema.CancelarAlquiler(Convert.ToInt32(this.nudNroPropiedadAlquiler), Convert.ToInt32(this.nudNroAlquiler.Value)))
 				MessageBox.Show("El alquiler fue cancelado con éxito.");
 		}
 
-		private void btnAlquilar_Click(object sender, EventArgs e) {
+		private void BtnAlquilar_Click(object sender, EventArgs e) {
 			if(!this.calendario.HayDíaSeleccionado) {
 				MessageBox.Show("No hay día seleccionado");
 				return;
 			}
-			int nroAlquiler = Convert.ToInt32(nudNroAlquiler.Value);
-			ventana = new FFechaAlquiler();
-			ventana.calindario.TodayDate = calendario.DíaSeleccionado;
+			Casa casa = new Casa(0, "a", 1, 2, 3, "b", 4, "c", new Image[0]);
+			Cliente cliente = new Cliente(0, 1, "a", "b", 3);
+			FFechaAlquiler ventana = new FFechaAlquiler();
+			ventana.calindario.TodayDate = this.calendario.DíaSeleccionado;
 			if(ventana.ShowDialog() == DialogResult.OK) {
 				this.alquiler = new Alquiler(
-					Convert.ToInt32(nudNroPropiedadAlquiler.Value),
+					Convert.ToInt32(this.nudNroPropiedadAlquiler.Value),
 					DateTime.Now,
 					ventana.calindario.SelectionStart,
 					ventana.calindario.SelectionEnd,
@@ -75,7 +73,7 @@ namespace tp2 {
 
 			try {
 
-				if(sistema.AlquilarPropiedad(alquiler.Número, alquiler))
+				if(this.sistema.AlquilarPropiedad(this.alquiler.Número, this.alquiler))
 					MessageBox.Show("Propiedad Alquilada.");
 				else
 					MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");

@@ -22,7 +22,7 @@ namespace AlquilerLib {
 			this.Imágenes = imágenes;
 		}
 
-		public int CServicios { get { return cServicios; } }
+		public int CServicios { get { return this.cServicios; } }
 
 		public int Número { get; private set; }
 
@@ -46,7 +46,7 @@ namespace AlquilerLib {
 
         public void QuitarAlquiler(int nroAlquiler)
         {
-            this.alquileres.Remove(VerAlquiler(nroAlquiler));
+            this.alquileres.Remove(this.VerAlquiler(nroAlquiler));
         }
 
         public Alquiler VerAlquiler(int nroAlquiler)
@@ -83,19 +83,20 @@ namespace AlquilerLib {
         }
 
         public abstract double PrecioPorDía(int nroAlquiler);
+
         public abstract double PrecioTotal(int nroAlquiler);
 
         public string[] VerServicios()
         {
-            return servicios;
+            return this.servicios;
         }
         public void AgregarServicio(string servicio)
 		{
-			servicios[cServicios++]= servicio;
+			this.servicios[this.cServicios++]= servicio;
 		}
 
-		public virtual string Imprimir() {
-			return $"{this.Dirección};{this.Número}";
+		public string Imprimir() {
+			return $"{this.Número}";
 		}
 
 		public int CompareTo(object obj) {

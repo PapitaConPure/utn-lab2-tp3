@@ -15,8 +15,7 @@ namespace cargandoImagenes
 		private int cantidadImágenes;
         private int imagenActual;
 
-		public FImagen()
-        {
+		public FImagen() {
             this.InitializeComponent();
 			this.Imágenes = new Image[2];
 			this.cantidadImágenes = 0;
@@ -28,17 +27,24 @@ namespace cargandoImagenes
 				this.Imágenes[i] = imágenes[i];
 				this.cantidadImágenes++;
 			}
+
+			if(this.cantidadImágenes > 0)
+				this.pbVisor.Image = this.Imágenes[0];
 		}
+
+		public bool CargóTodas { get; private set; }
 
 		public Image[] Imágenes { get; private set; }
 
-		private void btnCargarImagen_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog abrirImagen = new OpenFileDialog();
+		private void BtnCargarImagen_Click(object sender, EventArgs e) {
+			if(this.cantidadImágenes == this.Imágenes.Length)
+				return;
+
+			OpenFileDialog abrirImagen = new OpenFileDialog();
             if(abrirImagen.ShowDialog() == DialogResult.OK)
             {
                 this.Imágenes[this.cantidadImágenes] = Image.FromFile(abrirImagen.FileName);
-				this.pbVisor.Image = Imágenes[this.cantidadImágenes];
+				this.pbVisor.Image = this.Imágenes[this.cantidadImágenes];
 
 				if(this.cantidadImágenes > 0)
 					this.imagenActual++;
@@ -47,31 +53,30 @@ namespace cargandoImagenes
 			}
 		}
 
-		private void btnQuitarImágenes_Click(object sender, EventArgs e) {
+		private void BtnQuitarImágenes_Click(object sender, EventArgs e) {
+			if(this.cantidadImágenes == 0)
+				return;
+
+			this.Imágenes[this.imagenActual] = this.Imágenes[--this.cantidadImágenes];
+
+			if(this.imagenActual > 0)
+				this.imagenActual--;
+
 			if(this.cantidadImágenes > 0) {
-				this.Imágenes[this.imagenActual] = this.Imágenes[--this.cantidadImágenes];
-
-				if(this.imagenActual > 0)
-					this.imagenActual--;
-
-				if(this.cantidadImágenes > 0) {
-					this.pbVisor.Image = this.Imágenes[this.imagenActual];
-				} else {
-					this.pbVisor.Image = null;
-				}
+				this.pbVisor.Image = this.Imágenes[this.imagenActual];
+			} else {
+				this.pbVisor.Image = null;
 			}
-
-			MessageBox.Show(string.Join("\n", this.imagenActual, this.cantidadImágenes));
 		}
 
-		private void siguiente_click(object sender, EventArgs e)
+		private void BtnSiguiente_click(object sender, EventArgs e)
         {
             if(this.imagenActual < this.cantidadImágenes - 1) {
                 this.pbVisor.Image = this.Imágenes[++this.imagenActual];
             }
         }
 
-        private void anterior_Click(object sender, EventArgs e)
+        private void BtnAnterior_Click(object sender, EventArgs e)
         {
             if(this.imagenActual > 0)
             {
@@ -81,8 +86,10 @@ namespace cargandoImagenes
 
         private void FImagen_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(this.cantidadImágenes == this.Imágenes.Length)
-				this.DialogResult= DialogResult.OK;
+			if(this.cantidadImágenes == this.Imágenes.Length)
+				this.CargóTodas = true;
+			else
+				this.CargóTodas = false;
         }
 	}
 }

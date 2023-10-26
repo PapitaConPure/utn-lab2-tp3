@@ -30,49 +30,37 @@ namespace AlquilerLib {
 		public int CntTriple { get; set; }
 
 		public override double PrecioPorDía(int nroAlquiler) { ///terminar de codificar
-			Alquiler alquiler = VerAlquiler(nroAlquiler);
-			double precio = Sistema.PrecioBase;
+			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
+			double precio = 1;
 
-			precio += precio * (int)VerTipoHabitación(alquiler.Cliente.CantPasajeros) / 100;
+			precio += (int)this.VerTipoHabitación(alquiler.Cliente.CantPasajeros) / 100;
 
 			if(this.Estrellas >= 3)
-				precio += precio * 0.4;
-
-			//precio += precio * 0.03;
+				precio *= 1.4;
 
 			return precio;
 		}
         public override double PrecioTotal(int nroAlquiler)
         {
-            Alquiler alquiler = VerAlquiler(nroAlquiler);
+            Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn);
 			//double precioFinal = PrecioPorDía(nroAlquiler) * diferencia.Days;
-			double precioFinal = PrecioPorDía(nroAlquiler) * (1 + diferencia.Days * 0.03);
+			double precioFinal = this.PrecioPorDía(nroAlquiler) * (1 + (int)diferencia.TotalDays * 0.03);
 			return precioFinal;
 		}
-		public TipoHabitación VerTipoHabitación(int cantPasajeros)
-		{
-			if (cantPasajeros > 4)
-			{
+		public TipoHabitación VerTipoHabitación(int cantPasajeros) {
+			if(cantPasajeros > 4) {
 				return TipoHabitación.Triple;
-			}else if (cantPasajeros > 2)
-			{
+			} else if(cantPasajeros > 2) {
 				return TipoHabitación.Doble;
-			}
-			else
-			{
+			} else {
 				return TipoHabitación.Simple;
 			}
 		}
 
-		public override string Imprimir() {
-			return $"{base.Imprimir()};{this.Estrellas}";
-		}
-
 		public override string ToString()
         {
-			return $"Hotel: {Dirección}, {Número}";
-
+			return $"Hotel: {this.Dirección}, {this.Número}";
 		}
     }
 }

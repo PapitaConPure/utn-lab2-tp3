@@ -11,20 +11,20 @@ namespace AlquilerLib {
 		{
 			this.CamasDisponibles= camasDisponibles;
 			this.MínimoPermitido = mínimoPermitido;
-			Propietario = new Persona(dni, nombre, tel, apellido);
+			this.Propietario = new Persona(dni, nombre, tel, apellido);
         }
 
-		public  override double PrecioPorDía(int nroAlquiler) {
-			Alquiler alquiler = VerAlquiler(nroAlquiler);
-			TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn);// Es lo mismo que fechasalida-fechaentrada
-			return Sistema.PrecioBase * (1 + CamasDisponibles * 0.07) * (1 + CServicios * 0.14);
+		public override double PrecioPorDía(int nroAlquiler) {
+			//Alquiler alquiler = this.VerAlquiler(nroAlquiler);
+			//TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn); //Es lo mismo que fechasalida-fechaentrada
+			return (1 + this.CamasDisponibles * 0.07) * (1 + this.CServicios * 0.14);
 		}
 
         public override double PrecioTotal(int nroAlquiler)
         {
-			Alquiler alquiler = VerAlquiler(nroAlquiler);
+			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn);
-			double PrecioFinal = (PrecioPorDía(nroAlquiler) * (diferencia.Days-this.MínimoPermitido)) * 0.9 + (PrecioPorDía(nroAlquiler)*(this.MínimoPermitido));
+			double PrecioFinal = this.PrecioPorDía(nroAlquiler) * (diferencia.Days-this.MínimoPermitido) * 0.9 + this.PrecioPorDía(nroAlquiler) * this.MínimoPermitido;
 			return PrecioFinal;
         }
 
@@ -39,11 +39,11 @@ namespace AlquilerLib {
 		public void ModificarCamas(int camas)
         {
 			this.CamasDisponibles = camas;
-        }
+		}
 
-        public override string ToString()
+		public override string ToString()
         {
-			return $"Casa: {Dirección}, {Número}";
+			return $"Casa: {this.Dirección}, {this.Número}";
         }
     }
 }

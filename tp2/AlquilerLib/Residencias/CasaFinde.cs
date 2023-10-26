@@ -11,6 +11,7 @@ namespace AlquilerLib {
 				&& this.EsFinde(alquiler.CheckIn)
 				&& alquiler.CheckOut.Day < alquiler.CheckIn.Day + 3;
 		}
+
 		private bool EsFinde(DateTime fecha) {
 			return fecha.DayOfWeek == DayOfWeek.Friday;
 		}

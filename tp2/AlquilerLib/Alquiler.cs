@@ -18,19 +18,21 @@ namespace AlquilerLib {
 
 		public DateTime CheckOut { get; private set; }
 
+		public double PrecioBase { get; private set; }
+
 		public double PrecioTotal {
 			get {
-				return this.residencia.PrecioTotal(this.Número);
+				return this.PrecioBase * this.residencia.PrecioTotal(this.Número);
 			}
 		}
 
-		public Hotel.TipoHabitación tipoHabitación { get; set; }
+		public Hotel.TipoHabitación TipoHabitación { get; private set; }
 
 		public Cliente Cliente {
 			get { return this.cliente; }
 		}
 
-		public Alquiler(int número,DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Residencia propiedad, Cliente cliente)
+		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Residencia residencia, Cliente cliente)
 		{
 			this.Número = número;
 			this.FechaReserva= fechaReserva;
@@ -43,7 +45,14 @@ namespace AlquilerLib {
 
 			this.CheckIn= checkIn;
 			this.CheckOut = checkOut;
-			this.residencia = propiedad;
+			this.PrecioBase = Sistema.PrecioBase * (this.CheckOut - this.CheckIn).TotalDays;
+			this.residencia = residencia;
+
+			if(residencia is Hotel) {
+				Hotel hotel = residencia as Hotel;
+				this.TipoHabitación = hotel.VerTipoHabitación(cliente.CantPasajeros);
+			}
+
 			this.cliente = cliente;
 		}
 
@@ -52,13 +61,7 @@ namespace AlquilerLib {
 		}
 
         public string Imprimir() {
-			string retornoBase = this.residencia.Imprimir();
-
-			if(this.residencia is Hotel) {
-				retornoBase += $";{this.tipoHabitación}";
-			}
-
-			return string.Join(";", retornoBase, this.cliente.Imprimir(), this.FechaReserva, this.CheckIn, this.CheckOut, this.PrecioTotal);
+			return string.Join(";", this.residencia.Imprimir(), this.cliente.Imprimir(), this.FechaReserva, this.CheckIn, this.CheckOut, this.PrecioTotal);
         }
     }
 }

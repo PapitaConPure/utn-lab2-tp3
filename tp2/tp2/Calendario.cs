@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace tp2 {
+	/// <summary>
+	/// Representa un calendario personalizado que edita un <see cref="DataGridView"/> relacionado para representarse
+	/// </summary>
 	class Calendario {
 		private DataGridView dataGridView;
 		private int[,] días;
@@ -14,8 +17,12 @@ namespace tp2 {
 		private const int COLUMNAS = 7;
 		private int año;
 		private int mes;
+		int díasTotales;
 		int primerDíaSemana;
 
+		/// <summary>
+		/// Especifica un nombre de mes
+		/// </summary>
 		public enum NombreMes {
 			Enero = 1,
 			Febrero = 2,
@@ -31,6 +38,10 @@ namespace tp2 {
 			Diciembre = 12,
 		}
 
+		/// <summary>
+		/// Crea un nuevo calendario para modificar el <see cref="DataGridView"/> especificado, y carga inicialmente el mes actual
+		/// </summary>
+		/// <param name="dataGridView"><see cref="DataGridView"/> con el que operará este calendario</param>
 		public Calendario(DataGridView dataGridView) {
 			this.dataGridView = dataGridView;
 			dataGridView.RowCount = FILAS;
@@ -46,6 +57,10 @@ namespace tp2 {
 			this.MostrarMes(fecha.Month, fecha.Year);
 		}
 
+		/// <summary>
+		/// Indica si hay algún día seleccionado actualmente en el calendario
+		/// </summary>
+		/// <remarks>Si no hay ningún calendario cargado, devuelve <see langword="false"/></remarks>
 		public bool HayDíaSeleccionado {
 			get {
 				if(this.dataGridView.SelectedCells.Count == 0)
@@ -57,6 +72,10 @@ namespace tp2 {
 			}
 		}
 
+		/// <summary>
+		/// Devuelve el día seleccionado actualmente en el calendario
+		/// </summary>
+		/// 
 		public DateTime DíaSeleccionado {
 			get {
 				DataGridViewCell celda = this.dataGridView.SelectedCells[0];
@@ -65,6 +84,11 @@ namespace tp2 {
 			}
 		}
 
+		/// <summary>
+		/// Muestra el mes especificado del año indicado en el calendario
+		/// </summary>
+		/// <param name="mes">El mes a mostrar</param>
+		/// <param name="año">El año al que pertenece el mes a mostrar</param>
 		public void MostrarMes(int mes, int año) {
 			this.días = new int[40, 2];
 			this.dataGridView.ClearSelection();
@@ -74,15 +98,15 @@ namespace tp2 {
 			DateTime fecha = new DateTime(año, mes, 1);
 
 			this.primerDíaSemana = (int)fecha.DayOfWeek;
-			if(primerDíaSemana == (int)DayOfWeek.Sunday)
-				primerDíaSemana = 6;
+			if(this.primerDíaSemana == (int)DayOfWeek.Sunday)
+				this.primerDíaSemana = 6;
 			else
-				primerDíaSemana--;
+				this.primerDíaSemana--;
 
-			int díasTotales = DateTime.DaysInMonth(año, mes);
+			this.díasTotales = DateTime.DaysInMonth(año, mes);
 
-			for(int d = 0; d < díasTotales; d++)
-				this.días[primerDíaSemana + d, 0] = d + 1;
+			for(int d = 0; d < this.díasTotales; d++)
+				this.días[this.primerDíaSemana + d, 0] = d + 1;
 
 			int columna, fila;
 			DataGridViewCell celda;
@@ -100,10 +124,10 @@ namespace tp2 {
 						celda.Style.BackColor = Color.FromArgb(219, 145, 88);
 					celda.Style.ForeColor = Color.FromArgb(22, 22, 22);
 				} else {
-					if(d < primerDíaSemana)
-						celda.Value = d + 1 + DateTime.DaysInMonth(año, mes - 1) - primerDíaSemana;
+					if(d < this.primerDíaSemana)
+						celda.Value = d + 1 + DateTime.DaysInMonth(año, mes - 1) - this.primerDíaSemana;
 					else
-						celda.Value = d + 1 - díasTotales - primerDíaSemana;
+						celda.Value = d + 1 - this.díasTotales - this.primerDíaSemana;
 
 					celda.Style.BackColor = Color.FromArgb(211, 197, 197);
 					celda.Style.ForeColor = Color.FromArgb(112, 103, 103);
@@ -111,8 +135,25 @@ namespace tp2 {
 			}
 		}
 
-		public void Marcar(int día, int estado) {
-			int idx = this.primerDíaSemana + día;
+		/// <summary>
+		/// Marca un día como alquilado u libre
+		/// </summary>
+		/// <remarks>Para ver los cambios, debe llamarse <see cref="MostrarMes(int, int)"/> nuevamente</remarks>
+		/// <param name="día">El día a marcar, de 1 en adelante</param>
+		/// <param name="alquilado"></param>
+		public void Marcar(int día, bool alquilado = true) {
+			if(día < 1)
+				throw new ArgumentOutOfRangeException("El día a marcar no puede ser menor que 1");
+
+			if(día >= this.díasTotales)
+				return;
+
+			int idx = this.primerDíaSemana + día - 1;
+			int estado = 0;
+
+			if(alquilado)
+				estado = 1;
+
 			this.días[idx, 1] = estado;
 		}
 	}

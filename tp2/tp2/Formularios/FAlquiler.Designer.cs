@@ -372,7 +372,7 @@ namespace tp2 {
 			this.btnAlquilar.TabIndex = 4;
 			this.btnAlquilar.Text = "Alquilar";
 			this.btnAlquilar.UseVisualStyleBackColor = false;
-			this.btnAlquilar.Click += new System.EventHandler(this.btnAlquilar_Click);
+			this.btnAlquilar.Click += new System.EventHandler(this.BtnAlquilar_Click);
 			// 
 			// btnCancelarAlquiler
 			// 
@@ -388,7 +388,7 @@ namespace tp2 {
 			this.btnCancelarAlquiler.TabIndex = 3;
 			this.btnCancelarAlquiler.Text = "Cancelar";
 			this.btnCancelarAlquiler.UseVisualStyleBackColor = false;
-			this.btnCancelarAlquiler.Click += new System.EventHandler(this.btnCancelarAlquiler_Click);
+			this.btnCancelarAlquiler.Click += new System.EventHandler(this.BtnCancelarAlquiler_Click);
 			// 
 			// FAlquiler
 			// 
