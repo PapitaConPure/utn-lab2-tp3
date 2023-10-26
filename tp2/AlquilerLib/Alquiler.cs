@@ -16,7 +16,11 @@ namespace AlquilerLib {
 
 		public DateTime FechaSalida { get; private set; }
 
-		public double PrecioTotal { get; private set; }
+		public double PrecioTotal {
+			get {
+				return this.propiedad.PrecioTotal(this.Número);
+			}
+		}
 
 		public Hotel.TipoHabitación tipoHabitación { get; set; }
 
@@ -24,7 +28,7 @@ namespace AlquilerLib {
 			get { return this.cliente; }
 		}
 
-		public Alquiler(int número,DateTime fechaReservada,DateTime fechaEntrada, DateTime fechaSalida,Residencia propiedad,Cliente cliente,double precio)
+		public Alquiler(int número,DateTime fechaReservada,DateTime fechaEntrada, DateTime fechaSalida,Residencia propiedad,Cliente cliente)
 		{
 			this.Número = número;
 			this.FechaReservada= fechaReservada;
@@ -37,7 +41,6 @@ namespace AlquilerLib {
 
 			this.FechaEntrada= fechaEntrada;
 			this.FechaSalida = fechaSalida;
-			this.PrecioTotal = precio;
 			this.propiedad=propiedad;
 			this.cliente= cliente;
 		}

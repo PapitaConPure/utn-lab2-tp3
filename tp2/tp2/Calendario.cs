@@ -14,6 +14,7 @@ namespace tp2 {
 		private const int COLUMNAS = 7;
 		private int año;
 		private int mes;
+		int primerDíaSemana;
 
 		public enum NombreMes {
 			Enero = 1,
@@ -45,6 +46,25 @@ namespace tp2 {
 			this.MostrarMes(fecha.Month, fecha.Year);
 		}
 
+		public bool HayDíaSeleccionado {
+			get {
+				if(this.dataGridView.SelectedCells.Count == 0)
+					return false;
+
+				DataGridViewCell celda = this.dataGridView.SelectedCells[0];
+				int índice = celda.ColumnIndex + celda.RowIndex * COLUMNAS;
+				return índice < this.días.GetLength(0) && this.días[índice, 0] != 0;
+			}
+		}
+
+		public DateTime DíaSeleccionado {
+			get {
+				DataGridViewCell celda = this.dataGridView.SelectedCells[0];
+				int índice = celda.ColumnIndex + celda.RowIndex * COLUMNAS;
+				return new DateTime(this.año, this.mes, this.días[índice, 0]);
+			}
+		}
+
 		public void MostrarMes(int mes, int año) {
 			this.días = new int[40, 2];
 			this.dataGridView.ClearSelection();
@@ -53,7 +73,7 @@ namespace tp2 {
 
 			DateTime fecha = new DateTime(año, mes, 1);
 
-			int primerDíaSemana = (int)fecha.DayOfWeek;
+			this.primerDíaSemana = (int)fecha.DayOfWeek;
 			if(primerDíaSemana == (int)DayOfWeek.Sunday)
 				primerDíaSemana = 6;
 			else
@@ -91,23 +111,9 @@ namespace tp2 {
 			}
 		}
 
-		public bool HayDíaSeleccionado {
-			get {
-				if(this.dataGridView.SelectedCells.Count == 0)
-					return false;
-
-				DataGridViewCell celda = this.dataGridView.SelectedCells[0];
-				int índice = celda.ColumnIndex + celda.RowIndex * COLUMNAS;
-				return índice < this.días.GetLength(0) && this.días[índice, 0] != 0;
-			}
-		}
-
-		public DateTime DíaSeleccionado {
-			get {
-				DataGridViewCell celda = this.dataGridView.SelectedCells[0];
-				int índice = celda.ColumnIndex + celda.RowIndex * COLUMNAS;
-				return new DateTime(this.año, this.mes, this.días[índice, 0]);
-			}
+		public void Marcar(int día, int estado) {
+			int idx = this.primerDíaSemana + día;
+			this.días[idx, 1] = estado;
 		}
 	}
 }

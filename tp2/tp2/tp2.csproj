@@ -65,6 +65,12 @@
     <Compile Include="FAlquiler.Designer.cs">
       <DependentUpon>FAlquiler.cs</DependentUpon>
     </Compile>
+    <Compile Include="FFechaAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FFechaAlquiler.Designer.cs">
+      <DependentUpon>FFechaAlquiler.cs</DependentUpon>
+    </Compile>
     <Compile Include="FBusqueda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FAlquiler.resx">
       <DependentUpon>FAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FFechaAlquiler.resx">
+      <DependentUpon>FFechaAlquiler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FDetalles.resx">
       <DependentUpon>FDetalles.cs</DependentUpon>
