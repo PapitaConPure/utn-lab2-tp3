@@ -19,7 +19,7 @@ namespace AlquilerLib {
 			this.Número = número;
 			this.Dirección = dirección;
 			this.alquileres = new List<Alquiler>();
-            servicios = new string[5];
+            servicios = new string[6];
 			//this.propietario=propietario;
 		}
 

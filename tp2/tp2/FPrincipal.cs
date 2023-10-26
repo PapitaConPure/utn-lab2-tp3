@@ -301,16 +301,19 @@ namespace tp2 {
 				detail.lbDetalles.Items.Add($"Direccion: {aVer.Dirección}");
 				detail.lbDetalles.Items.Add($"Nro Propiedad: {aVer.Número}");
 				detail.lbDetalles.Items.Add($"Servicios:");
-				foreach(string s in ((Hotel)aVer).VerServicios())
-					detail.lbDetalles.Items.Add("s");
+				foreach(string s in aVer.VerServicios())
+					if(s!=null) detail.lbDetalles.Items.Add(s);
 			}
 			else if(aVer is Casa)
             {
 				detail.lbDetalles.Items.Add($"Minimo de dias: {((Casa)aVer).MínimoPermitido}");
 				detail.lbDetalles.Items.Add($"Cantidad de camas: {((Casa)aVer).CamasDisponibles}");
 				detail.lbDetalles.Items.Add($"Propietario:");
-				detail.lbDetalles.Items.Add($"Apellido: {((Casa)aVer).Propietario.Apellido} Nombre: {((Casa)aVer).Propietario.Nombre}");
-				detail.lbDetalles.Items.Add($"Dni: {((Casa)aVer).Propietario.Dni} Tel:{((Casa)aVer).Propietario.Tel}");
+				detail.lbDetalles.Items.Add($"Apellido: {((Casa)aVer).Propietario.Apellido}, Nombre: {((Casa)aVer).Propietario.Nombre}");
+				detail.lbDetalles.Items.Add($"Dni: {((Casa)aVer).Propietario.Dni}, Tel:{((Casa)aVer).Propietario.Tel}");
+				detail.lbDetalles.Items.Add($"Servicios:");
+				foreach (string s in aVer.VerServicios())
+					if (s != null) detail.lbDetalles.Items.Add(s);
 			}
 			detail.ShowDialog();
 			detail.Close();
