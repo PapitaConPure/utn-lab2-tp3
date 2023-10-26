@@ -47,7 +47,6 @@
     <Compile Include="Casa.cs" />
     <Compile Include="CasaFinde.cs" />
     <Compile Include="Cliente.cs" />
-    <Compile Include="Habitación.cs" />
     <Compile Include="Hotel.cs" />
     <Compile Include="IImprimible.cs" />
     <Compile Include="Persona.cs" />
