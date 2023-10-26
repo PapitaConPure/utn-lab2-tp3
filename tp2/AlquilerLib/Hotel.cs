@@ -19,7 +19,7 @@ namespace AlquilerLib {
 			this.CntTriple = cntTriple;
 		}
 
-		public int Estrellas { get; private set; }
+		public int Estrellas { get; set; }
 
 		public int CntSimple { get; set; }
 
