@@ -56,6 +56,8 @@ namespace tp2 {
             this.btnAgregarHotel = new System.Windows.Forms.Button();
             this.cbPropiedades = new System.Windows.Forms.ComboBox();
             this.lbPropiedades = new System.Windows.Forms.Label();
+            this.btnBorrarPropiedad = new System.Windows.Forms.Button();
+            this.btnModificarPropiedad = new System.Windows.Forms.Button();
             this.gbAlquileres.SuspendLayout();
             this.gbReservaNueva.SuspendLayout();
             this.pnlCalendario.SuspendLayout();
@@ -456,11 +458,32 @@ namespace tp2 {
             this.lbPropiedades.TabIndex = 5;
             this.lbPropiedades.Text = "Propiedades";
             // 
+            // btnBorrarPropiedad
+            // 
+            this.btnBorrarPropiedad.Location = new System.Drawing.Point(282, 117);
+            this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
+            this.btnBorrarPropiedad.Size = new System.Drawing.Size(75, 28);
+            this.btnBorrarPropiedad.TabIndex = 6;
+            this.btnBorrarPropiedad.Text = "Eliminar Propiedad";
+            this.btnBorrarPropiedad.UseVisualStyleBackColor = true;
+            this.btnBorrarPropiedad.Click += new System.EventHandler(this.btnBorrarPropiedad_Click);
+            // 
+            // btnModificarPropiedad
+            // 
+            this.btnModificarPropiedad.Location = new System.Drawing.Point(386, 117);
+            this.btnModificarPropiedad.Name = "btnModificarPropiedad";
+            this.btnModificarPropiedad.Size = new System.Drawing.Size(102, 28);
+            this.btnModificarPropiedad.TabIndex = 7;
+            this.btnModificarPropiedad.Text = "Modificar";
+            this.btnModificarPropiedad.UseVisualStyleBackColor = true;
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 575);
+            this.Controls.Add(this.btnModificarPropiedad);
+            this.Controls.Add(this.btnBorrarPropiedad);
             this.Controls.Add(this.lbPropiedades);
             this.Controls.Add(this.cbPropiedades);
             this.Controls.Add(this.btnAgregarHotel);
@@ -525,6 +548,8 @@ namespace tp2 {
         private System.Windows.Forms.Button btnAgregarHotel;
         private System.Windows.Forms.ComboBox cbPropiedades;
         private System.Windows.Forms.Label lbPropiedades;
+        private System.Windows.Forms.Button btnBorrarPropiedad;
+        private System.Windows.Forms.Button btnModificarPropiedad;
     }
 }
 

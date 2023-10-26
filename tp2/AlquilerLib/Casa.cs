@@ -23,7 +23,7 @@ namespace AlquilerLib {
 		}
 
 		public override string Imprimir() {
-			return $"Dirección:{this.Dirección}, Número de Propiedad:{this.Número},Pasjeros:{maxPasajeros}";
+			return $"Dirección:{this.Dirección}, Número de Propiedad:{this.Número},Pasjeros:{CamasDisponibles}";
         }
     }
 }
