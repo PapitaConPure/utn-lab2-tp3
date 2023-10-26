@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Drawing;
 
 namespace AlquilerLib {
 	public class CasaFinde: Casa {
-		public CasaFinde(int número, string dirección,int camas,int dni,string nombre, long tel, string apellido): base(número,dirección,3,camas,dni,nombre,tel,apellido) {}
+		public CasaFinde(int número, string dirección,int camas,int dni,string nombre, long tel, string apellido, Image[] imágenes): base(número,dirección,3,camas,dni,nombre,tel,apellido, imágenes) {}
 
 		public override bool PuedeAlquilar(Alquiler alquiler) {
 			return base.PuedeAlquilar(alquiler)

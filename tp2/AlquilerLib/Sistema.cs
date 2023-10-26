@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,7 @@ namespace AlquilerLib {
 		public Residencia VerPropiedad(int número) {
 			this.propiedades.Sort();
 
-			Residencia buscada = new Casa(número, "",0,0,0,"",0,"");
+			Residencia buscada = new Casa(número, "",0,0,0,"",0,"", new Image[] { });
 			int idx = this.propiedades.BinarySearch(buscada);
 
 			if(idx < 0)

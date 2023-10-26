@@ -60,12 +60,13 @@ namespace tp2 {
 				if(fcasa.rbCasa.Checked)
                 {
 					casa = new Casa(Convert.ToInt32(fcasa.nudNroPropiedad.Text),
-												fcasa.tbDireccionCasa.Text,
-												Convert.ToInt32(fcasa.nudMinDias.Value),
-												Convert.ToInt32(fcasa.nudCantCamas.Value),
-												Convert.ToInt32(fcasa.nudDNI.Value),
-												fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel.Value),
-												fcasa.tbApellido.Text);
+									fcasa.tbDireccionCasa.Text,
+									Convert.ToInt32(fcasa.nudMinDias.Value),
+									Convert.ToInt32(fcasa.nudCantCamas.Value),
+									Convert.ToInt32(fcasa.nudDNI.Value),
+									fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel.Value),
+									fcasa.tbApellido.Text,
+									new Image[] { });
 				}
 				else if (fcasa.rbCasaFinde.Checked)
                 {
@@ -73,7 +74,8 @@ namespace tp2 {
 										 fcasa.tbDireccionCasa.Text, 3,
 										 Convert.ToInt32(fcasa.nudDNI.Value),
 										 fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel.Value),
-										 fcasa.tbApellido.Text);
+										 fcasa.tbApellido.Text,
+										 new Image[] { });
 				}
 
 				if (fcasa.chbGarage.Checked) casa.AgregarServicio("Cochera");
@@ -96,7 +98,8 @@ namespace tp2 {
 									fhotel.tbDireccionHotel.Text, Convert.ToInt32(fhotel.nudEstrellas.Value),
 									Convert.ToInt16(fhotel.nudSimples.Value),
 									Convert.ToInt16(fhotel.nudDobles.Value),
-									Convert.ToInt16(fhotel.nudTriples.Value));
+									Convert.ToInt16(fhotel.nudTriples.Value),
+									new Image[] { });
 				if (fhotel.chbGarage.Checked) hotel.AgregarServicio("Cochera");
 				if (fhotel.chbDesayuno.Checked) hotel.AgregarServicio("Desayuno");
 				if (fhotel.chbLimpieza.Checked) hotel.AgregarServicio("Limpieza");
