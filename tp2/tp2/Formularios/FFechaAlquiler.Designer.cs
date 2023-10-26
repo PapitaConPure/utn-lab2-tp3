@@ -30,7 +30,7 @@
         {
 			this.btnAceptar = new System.Windows.Forms.Button();
 			this.btnCancelar = new System.Windows.Forms.Button();
-			this.calindario = new System.Windows.Forms.MonthCalendar();
+			this.calendario = new System.Windows.Forms.MonthCalendar();
 			this.SuspendLayout();
 			// 
 			// btnAceptar
@@ -55,20 +55,20 @@
 			// 
 			// calindario
 			// 
-			this.calindario.CalendarDimensions = new System.Drawing.Size(2, 1);
-			this.calindario.Location = new System.Drawing.Point(7, 18);
-			this.calindario.MaxDate = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
-			this.calindario.MaxSelectionCount = 31;
-			this.calindario.Name = "calindario";
-			this.calindario.TabIndex = 3;
-			this.calindario.TodayDate = new System.DateTime(((long)(0)));
+			this.calendario.CalendarDimensions = new System.Drawing.Size(2, 1);
+			this.calendario.Location = new System.Drawing.Point(7, 18);
+			this.calendario.MaxDate = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
+			this.calendario.MaxSelectionCount = 31;
+			this.calendario.Name = "calindario";
+			this.calendario.TabIndex = 3;
+			this.calendario.TodayDate = new System.DateTime(((long)(0)));
 			// 
 			// FAlquiler
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(512, 259);
-			this.Controls.Add(this.calindario);
+			this.Controls.Add(this.calendario);
 			this.Controls.Add(this.btnCancelar);
 			this.Controls.Add(this.btnAceptar);
 			this.Name = "FAlquiler";
@@ -80,6 +80,6 @@
         #endregion
         public System.Windows.Forms.Button btnAceptar;
         public System.Windows.Forms.Button btnCancelar;
-        public System.Windows.Forms.MonthCalendar calindario;
+        public System.Windows.Forms.MonthCalendar calendario;
     }
 }
