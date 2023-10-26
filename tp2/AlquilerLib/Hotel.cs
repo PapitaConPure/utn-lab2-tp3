@@ -21,43 +21,44 @@ namespace AlquilerLib {
 
 		public int Estrellas { get; private set; }
 
-		public int CntSimple { get; private set; }
+		public int CntSimple { get; set; }
 
-		public int CntDoble { get; private set; }
+		public int CntDoble { get; set; }
 
-		public int CntTriple { get; private set; }
+		public int CntTriple { get; set; }
 
-		public void AgregarHabitación(TipoHabitación tipo) {
-			switch(tipo) {
-			case TipoHabitación.Simple: this.CntSimple++; break;
-			case TipoHabitación.Doble:  this.CntDoble++; break;
-			case TipoHabitación.Triple: this.CntTriple++; break;
-			default: break;
-			}
-		}
-
-		public void QuitarHabitación(TipoHabitación tipo) {
-			switch(tipo) {
-			case TipoHabitación.Simple: this.CntSimple--; break;
-			case TipoHabitación.Doble: this.CntDoble--; break;
-			case TipoHabitación.Triple: this.CntTriple--; break;
-			default: break;
-			}
-		}
-
-		public override double PrecioPorDía(Alquiler alquiler) {
+		public override double PrecioPorDía(int nroAlquiler) { ///terminar de codificar
+			Alquiler alquiler = VerAlquiler(nroAlquiler);
 			double precio = Sistema.PrecioBase;
 
-			precio += precio * (int)tipo / 100;
+			precio += precio * (int)VerTipoHabitación(alquiler.Cliente.CantPasajeros) / 100;
 
 			if(this.Estrellas >= 3)
 				precio += precio * 0.4;
 
 			return precio;
 		}
-
-		public override string Imprimir() {
-			throw new NotImplementedException("Falta implementar loco");
+        public override double PrecioTotal(int nroAlquiler)
+        {
+            Alquiler alquiler = VerAlquiler(nroAlquiler);
+			return alquiler.PrecioTotal;
+		}
+		public TipoHabitación VerTipoHabitación(int cantPasajeros)
+		{
+			if (cantPasajeros > 4)
+			{
+				return TipoHabitación.Triple;
+			}else if (cantPasajeros > 2)
+			{
+				return TipoHabitación.Doble;
+			}
+			else
+			{
+				return TipoHabitación.Simple;
+			}
+		}
+        public override string Imprimir() {
+		
 		}
 	}
 }
