@@ -9,13 +9,14 @@ namespace AlquilerLib {
 	public class Alquiler: IComparable, IImprimible {
 		private Residencia residencia;
 		private Cliente cliente;
+
 		public int Número{ get;private set; }
 
-		public DateTime FechaReservada{ get; private set; }
+		public DateTime FechaReserva { get; private set; }
 
-		public DateTime FechaEntrada { get; private set; }
+		public DateTime CheckIn { get; private set; }
 
-		public DateTime FechaSalida { get; private set; }
+		public DateTime CheckOut { get; private set; }
 
 		public double PrecioTotal {
 			get {
@@ -29,21 +30,21 @@ namespace AlquilerLib {
 			get { return this.cliente; }
 		}
 
-		public Alquiler(int número,DateTime fechaReservada,DateTime fechaEntrada, DateTime fechaSalida,Residencia propiedad,Cliente cliente)
+		public Alquiler(int número,DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Residencia propiedad, Cliente cliente)
 		{
 			this.Número = número;
-			this.FechaReservada= fechaReservada;
+			this.FechaReserva= fechaReserva;
 
-			if(fechaEntrada > fechaSalida) {
-				DateTime fechaAuxiliar = fechaEntrada;
-				fechaEntrada = fechaSalida;
-				fechaSalida = fechaAuxiliar;
+			if(checkIn > checkOut) {
+				DateTime fechaAuxiliar = checkIn;
+				checkIn = checkOut;
+				checkOut = fechaAuxiliar;
 			}
 
-			this.FechaEntrada= fechaEntrada;
-			this.FechaSalida = fechaSalida;
-			this.residencia=propiedad;
-			this.cliente= cliente;
+			this.CheckIn= checkIn;
+			this.CheckOut = checkOut;
+			this.residencia = propiedad;
+			this.cliente = cliente;
 		}
 
 		public int CompareTo(object obj) {
@@ -51,15 +52,13 @@ namespace AlquilerLib {
 		}
 
         public string Imprimir() {
-			string retorno = this.residencia.Imprimir();
+			string retornoBase = this.residencia.Imprimir();
 
 			if(this.residencia is Hotel) {
-				retorno += $";{this.tipoHabitación}";
+				retornoBase += $";{this.tipoHabitación}";
 			}
 
-			retorno += $";{this.cliente.Imprimir()};{this.FechaEntrada}";
-
-			return retorno;
+			return string.Join(";", retornoBase, this.cliente.Imprimir(), this.FechaReserva, this.CheckIn, this.CheckOut, this.PrecioTotal);
         }
     }
 }
