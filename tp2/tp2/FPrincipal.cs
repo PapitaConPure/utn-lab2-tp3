@@ -287,7 +287,14 @@ namespace tp2 {
 		}
 
 		private void btnExportar_Click(object sender, EventArgs e) {
+			FileStream fs = null;
+			StreamWriter sw = null;
 
+			try {
+				fs = new FileStream();
+			} catch {
+
+			}
 		}
 	}
 }

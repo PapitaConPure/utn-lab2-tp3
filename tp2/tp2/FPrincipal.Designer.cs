@@ -24,7 +24,6 @@ namespace tp2 {
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent() {
-			this.ofdElegirImagen = new System.Windows.Forms.OpenFileDialog();
 			this.btnAgregarCasa = new System.Windows.Forms.Button();
 			this.btnAgregarHotel = new System.Windows.Forms.Button();
 			this.cbPropiedades = new System.Windows.Forms.ComboBox();
@@ -34,13 +33,10 @@ namespace tp2 {
 			this.btnVer = new System.Windows.Forms.Button();
 			this.btnImportar = new System.Windows.Forms.Button();
 			this.btnExportar = new System.Windows.Forms.Button();
+			this.ofdElegirImagen = new System.Windows.Forms.OpenFileDialog();
+			this.ofdDatos = new System.Windows.Forms.OpenFileDialog();
+			this.sfdDatos = new System.Windows.Forms.SaveFileDialog();
 			this.SuspendLayout();
-			// 
-			// ofdElegirImagen
-			// 
-			this.ofdElegirImagen.DefaultExt = "*.png";
-			this.ofdElegirImagen.Filter = "Imagen PNG | *.png | Imagen JPG | *.jpg | Todos los archivos | *.*";
-			this.ofdElegirImagen.InitialDirectory = ".";
 			// 
 			// btnAgregarCasa
 			// 
@@ -130,6 +126,25 @@ namespace tp2 {
 			this.btnExportar.UseVisualStyleBackColor = true;
 			this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
 			// 
+			// ofdElegirImagen
+			// 
+			this.ofdElegirImagen.DefaultExt = "*.png";
+			this.ofdElegirImagen.Filter = "Imagen PNG | *.png | Imagen JPG | *.jpg | Todos los archivos | *.*";
+			this.ofdElegirImagen.InitialDirectory = ".";
+			// 
+			// ofdDatos
+			// 
+			this.ofdDatos.DefaultExt = "*.csv";
+			this.ofdDatos.FileName = "datos.csv";
+			this.ofdDatos.Filter = "Archivos CSV (*.csv)|*.csv";
+			this.ofdDatos.InitialDirectory = ".";
+			// 
+			// sfdDatos
+			// 
+			this.sfdDatos.DefaultExt = "*.csv";
+			this.sfdDatos.Filter = "Archivos CSV (*.csv)|*.csv";
+			this.sfdDatos.InitialDirectory = ".";
+			// 
 			// FPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -160,7 +175,6 @@ namespace tp2 {
 		}
 
 		#endregion
-		private System.Windows.Forms.OpenFileDialog ofdElegirImagen;
         private System.Windows.Forms.Button btnAgregarCasa;
         private System.Windows.Forms.Button btnAgregarHotel;
         private System.Windows.Forms.ComboBox cbPropiedades;
@@ -170,6 +184,9 @@ namespace tp2 {
         private System.Windows.Forms.Button btnVer;
 		private System.Windows.Forms.Button btnImportar;
 		private System.Windows.Forms.Button btnExportar;
+		private System.Windows.Forms.OpenFileDialog ofdElegirImagen;
+		private System.Windows.Forms.OpenFileDialog ofdDatos;
+		private System.Windows.Forms.SaveFileDialog sfdDatos;
 	}
 }
 
