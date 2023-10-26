@@ -231,7 +231,7 @@ namespace tp2 {
 			this.cmbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cmbResidencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbResidencias.FormattingEnabled = true;
-			this.cmbResidencias.Location = new System.Drawing.Point(3, 27);
+			this.cmbResidencias.Location = new System.Drawing.Point(3, 20);
 			this.cmbResidencias.Name = "cmbResidencias";
 			this.cmbResidencias.Size = new System.Drawing.Size(734, 28);
 			this.cmbResidencias.TabIndex = 6;
