@@ -21,9 +21,5 @@ namespace AlquilerLib {
 		public override bool PuedeAlquilar(Alquiler alquiler) {
 			return base.PuedeAlquilar(alquiler);
 		}
-
-		public override string Imprimir() {
-			return $"Dirección:{this.Dirección}, Número de Propiedad:{this.Número},Pasjeros:{CamasDisponibles}";
-        }
     }
 }

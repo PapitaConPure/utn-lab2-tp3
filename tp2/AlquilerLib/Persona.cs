@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib
 {
-    public class Persona
+    public class Persona: IImprimible
     {
         public int Dni { get; }
         public string Nombre { get; }
@@ -20,5 +20,9 @@ namespace AlquilerLib
             Tel = tel;
             Apellido = apellido;
         }
-    }
+
+		public virtual string Imprimir() {
+			return string.Join(";", this.Dni, this.Nombre, this.Apellido, this.Tel);
+		}
+	}
 }

@@ -88,7 +88,9 @@ namespace AlquilerLib {
 			servicios[cServicios++]= servicio;
 		}
 
-		public abstract string Imprimir();
+		public string Imprimir() {
+			return $"{this.Dirección};{this.Número}";
+		}
 
 		public int CompareTo(object obj) {
 			return this.Número.CompareTo((obj as Propiedad).Número);

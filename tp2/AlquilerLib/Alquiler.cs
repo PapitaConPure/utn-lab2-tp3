@@ -5,14 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	public class Alquiler: IComparable,IImprimible {
+	public class Alquiler: IComparable, IImprimible {
 		private Propiedad propiedad;
 		private Cliente cliente;
-		public int Número{get;private set;}
-		public DateTime FechaReservada{get;private set;}
-		public DateTime FechaEntrada {get;private set;}
-		public DateTime FechaSalida { get;private set;}
-		public double PrecioTotal { get;private set;}
+		public int Número{ get;private set; }
+
+		public DateTime FechaReservada{ get; private set; }
+
+		public DateTime FechaEntrada { get; private set; }
+
+		public DateTime FechaSalida { get; private set; }
+
+		public double PrecioTotal { get; private set; }
+
+		public Hotel.TipoHabitación tipoHabitación { get; set; }
 
 		public Cliente Cliente {
 			get { return this.cliente; }
@@ -40,13 +46,15 @@ namespace AlquilerLib {
 			return this.Número.CompareTo((obj as Alquiler).Número);
 		}
 
-        public string Imprimir()
-        { 
-			string retorno=propiedad.Imprimir();
+        public string Imprimir() {
+			string retorno = this.propiedad.Imprimir();
 
-			if(this.propiedad is Hotel){
-				retorno += $", Tipo Habitación:{(this.propiedad as Hotel).VerTipoHabitación(cliente.CantPasajeros)}";
+			if(this.propiedad is Hotel) {
+				retorno += $";{this.tipoHabitación}";
 			}
+
+			retorno += $";{this.cliente.Imprimir()};{this.FechaEntrada}";
+
 			return retorno;
         }
     }
