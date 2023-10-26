@@ -15,6 +15,9 @@ namespace tp2
         public FAgregarHotel()
         {
             InitializeComponent();
+            tbDireccionHotel.Enabled = true;
+            nudNroPropiedad.Enabled = true;
+            nudEstrellas.Enabled = true;
         }
 
         

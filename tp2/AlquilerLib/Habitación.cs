@@ -2,24 +2,34 @@
 
 namespace AlquilerLib {
 	public class Habitación:Propiedad, IComparable {
-		private TipoHabitación tipo;
+		//private TipoHabitación tipo;
 		private double adicional;
 
-		public Habitación(int número,TipoHabitación tipo):base(número) {
-			this.Número = número;
-			this.tipo = tipo;
-		}
-		//cuestionar
-		public int Número
+        public Habitación(int número) : base(número,"")
+        {
+            this.Número = número;
+            //this.tipo = tipo;
+        }
+        //cuestionar
+        public int Número
 		{
 			get;
 		}
 
-		public double PcntAdicional {
-			get {
-				return (int)this.tipo / 100;
-			}
-		}
+        //public double PcntAdicional {
+        //	get {
+        //		return (int)this.tipo / 100;
+        //	}
+        //}
+
+        public override double PrecioPorDía(int nroAlquiler)
+        {
+            return 0;
+        }
+        public override double PrecioTotal(int nroAlquiler)
+        {
+            return 0;
+        }
 
         public override bool PuedeAlquilar(Alquiler alquiler)
         {
@@ -35,9 +45,10 @@ namespace AlquilerLib {
 			return this.Número.CompareTo((obj as Habitación).Número);
 		}
 
-        public override string Imprimir()
-        {
-            return "";
-        }
+        //public override string Imprimir()
+        //{
+        //    return "";
+        //}
+
     }
 }

@@ -15,6 +15,14 @@ namespace tp2
         public FAgregarCasa()
         {
             InitializeComponent();
+            rbCasa.Enabled = true;
+            rbCasaFinde.Enabled = true;
+            tbDireccionCasa.Enabled = true;
+            nudNroPropiedad.Enabled = true;
+            nudDNI.Enabled = true;
+            nudTel.Enabled = true;
+            tbNombre.Enabled = true;
+            tbApellido.Enabled = true;
         }
 
         private void rbCasa_CheckedChanged(object sender, EventArgs e)

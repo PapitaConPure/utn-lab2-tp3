@@ -61,18 +61,18 @@ namespace tp2 {
                 {
 					casa = new Casa(Convert.ToInt32(fcasa.nudNroPropiedad.Text),
 												fcasa.tbDireccionCasa.Text,
-												Convert.ToInt32(fcasa.nudMinDias),
-												Convert.ToInt32(fcasa.nudCantCamas),
-												Convert.ToInt32(fcasa.nudDNI),
-												fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel),
+												Convert.ToInt32(fcasa.nudMinDias.Value),
+												Convert.ToInt32(fcasa.nudCantCamas.Value),
+												Convert.ToInt32(fcasa.nudDNI.Value),
+												fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel.Value),
 												fcasa.tbApellido.Text);
 				}
 				else if (fcasa.rbCasaFinde.Checked)
                 {
 					casa = new CasaFinde(Convert.ToInt32(fcasa.nudNroPropiedad.Text),
 										 fcasa.tbDireccionCasa.Text, 3,
-										 Convert.ToInt32(fcasa.nudDNI),
-										 fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel),
+										 Convert.ToInt32(fcasa.nudDNI.Value),
+										 fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel.Value),
 										 fcasa.tbApellido.Text);
 				}
 
@@ -88,15 +88,15 @@ namespace tp2 {
 			}
         }
 
-		private void BtnAgregarHotel_Click(object sender, EventArgs e) {
+		private void btnAgregarHotel_Click_1(object sender, EventArgs e) {
 			FAgregarHotel fhotel = new FAgregarHotel();
 			if(fhotel.ShowDialog() == DialogResult.OK)
             {
-				hotel = new Hotel(Convert.ToInt32(fhotel.nudNroPropiedad),
-									fhotel.tbDireccionHotel.Text, Convert.ToInt32(fhotel.nudEstrellas),
-									Convert.ToInt16(fhotel.nudSimples),
-									Convert.ToInt16(fhotel.nudDobles),
-									Convert.ToInt16(fhotel.nudTriples));
+				hotel = new Hotel(Convert.ToInt32(fhotel.nudNroPropiedad.Value),
+									fhotel.tbDireccionHotel.Text, Convert.ToInt32(fhotel.nudEstrellas.Value),
+									Convert.ToInt16(fhotel.nudSimples.Value),
+									Convert.ToInt16(fhotel.nudDobles.Value),
+									Convert.ToInt16(fhotel.nudTriples.Value));
 				if (fhotel.chbGarage.Checked) casa.AgregarServicio("Cochera");
 				if (fhotel.chbDesayuno.Checked) casa.AgregarServicio("Desayuno");
 				if (fhotel.chbLimpieza.Checked) casa.AgregarServicio("Limpieza");
@@ -168,9 +168,109 @@ namespace tp2 {
         {
 			Propiedad aBorrar = cbPropiedades.SelectedItem as Propiedad;
 			if (sistema.QuitarPropiedad(aBorrar.Número))
+			{
 				MessageBox.Show("Propiedad Eliminada");
+				cbPropiedades.Items.Remove(aBorrar);
+			}
 			else
 				MessageBox.Show("No se ha podido eliminar");
+			
 		}
+
+        private void btnModificarPropiedad_Click(object sender, EventArgs e)
+        {
+			Propiedad aModificar = cbPropiedades.SelectedItem as Propiedad;
+			if(aModificar is Hotel)
+            {
+				FAgregarHotel fhotel = new FAgregarHotel();
+				fhotel.tbDireccionHotel.Enabled = false;
+				fhotel.nudNroPropiedad.Enabled = false;
+			    fhotel.nudEstrellas.Enabled = false;
+
+                if (fhotel.ShowDialog() == DialogResult.OK)
+                {
+					((Hotel)aModificar).CntSimple += Convert.ToInt32(fhotel.nudSimples.Value);
+					((Hotel)aModificar).CntDoble += Convert.ToInt32(fhotel.nudDobles.Value);
+					((Hotel)aModificar).CntTriple += Convert.ToInt32(fhotel.nudTriples.Value);
+
+					if (fhotel.chbGarage.Checked)
+                    {
+						BuscarServicio(aModificar, "Cochera");
+					}
+					if (fhotel.chbDesayuno.Checked)
+					{
+						BuscarServicio(aModificar, "Desayuno");
+					}
+					if (fhotel.chbLimpieza.Checked)
+                    {
+						BuscarServicio(aModificar, "Limpieza");
+					}
+					if (fhotel.chbPermiteMascotas.Checked)
+                    {
+						BuscarServicio(aModificar, "Mascotas");
+					}
+					if (fhotel.chbPileta.Checked)
+                    {
+                        BuscarServicio(aModificar,"Pileta");
+                    }
+                    if (fhotel.chbWIFI.Checked)
+                    {
+						BuscarServicio(aModificar, "WIFI");
+					}
+				}
+			}
+			else if(aModificar is Casa)
+            {
+				FAgregarCasa fcasa = new FAgregarCasa();
+				fcasa.rbCasa.Enabled = false;
+				fcasa.rbCasaFinde.Enabled = false;
+				fcasa.tbDireccionCasa.Enabled = false;
+				fcasa.nudNroPropiedad.Enabled = false;
+				fcasa.nudDNI.Enabled = false;
+				fcasa.nudTel.Enabled = false;
+				fcasa.tbNombre.Enabled = false;
+				fcasa.tbApellido.Enabled = false;
+
+				((Casa)aModificar).ModificarCamas(Convert.ToInt32(fcasa.nudCantCamas.Value));
+				((Casa)aModificar).ModificarDias(Convert.ToInt32(fcasa.nudMinDias.Value));
+				if (fcasa.chbGarage.Checked)
+				{
+					BuscarServicio(aModificar, "Cochera");
+				}
+				if (fcasa.chbDesayuno.Checked)
+				{
+					BuscarServicio(aModificar, "Desayuno");
+				}
+				if (fcasa.chbLimpieza.Checked)
+				{
+					BuscarServicio(aModificar, "Limpieza");
+				}
+				if (fcasa.chbPermiteMascotas.Checked)
+				{
+					BuscarServicio(aModificar, "Mascotas");
+				}
+				if (fcasa.chbPileta.Checked)
+				{
+					BuscarServicio(aModificar, "Pileta");
+				}
+				if (fcasa.chbWIFI.Checked)
+				{
+					BuscarServicio(aModificar, "WIFI");
+				}
+			}
+        }
+
+        private void BuscarServicio(Propiedad aModificar, string buscado)
+        {
+			string[] serv;
+			bool rep;
+            rep = false;
+            serv = aModificar.VerServicios();
+            foreach (string s in serv)
+                if (s == buscado)
+                    rep = true;
+            if (!rep)
+                aModificar.AgregarServicio(buscado);
+        }
     }
 }
