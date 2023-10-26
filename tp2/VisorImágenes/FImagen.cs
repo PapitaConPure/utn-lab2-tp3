@@ -28,8 +28,12 @@ namespace cargandoImagenes
 				this.cantidadImágenes++;
 			}
 
-			if(this.cantidadImágenes > 0)
+			if(this.cantidadImágenes > 0) {
 				this.pbVisor.Image = this.Imágenes[0];
+
+				if(this.cantidadImágenes == this.Imágenes.Length)
+					this.CargóTodas = true;
+			}
 		}
 
 		public bool CargóTodas { get; private set; }

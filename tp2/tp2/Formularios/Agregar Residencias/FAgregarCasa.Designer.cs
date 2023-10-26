@@ -39,7 +39,7 @@ namespace tp2
 			this.chbPermiteMascotas = new System.Windows.Forms.CheckBox();
 			this.chbLimpieza = new System.Windows.Forms.CheckBox();
 			this.lbDirec = new System.Windows.Forms.Label();
-			this.tbDireccionCasa = new System.Windows.Forms.TextBox();
+			this.tbDirección = new System.Windows.Forms.TextBox();
 			this.chbDesayuno = new System.Windows.Forms.CheckBox();
 			this.tbApellido = new System.Windows.Forms.TextBox();
 			this.lbDNI = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@ namespace tp2
 			this.lbNombres = new System.Windows.Forms.Label();
 			this.lbTel = new System.Windows.Forms.Label();
 			this.lbNum = new System.Windows.Forms.Label();
-			this.nudNroPropiedad = new System.Windows.Forms.NumericUpDown();
+			this.nudNroResidencia = new System.Windows.Forms.NumericUpDown();
 			this.btnCrear = new System.Windows.Forms.Button();
 			this.btnCancelar = new System.Windows.Forms.Button();
 			this.btnAgregarImágen = new System.Windows.Forms.Button();
@@ -70,7 +70,7 @@ namespace tp2
 			((System.ComponentModel.ISupportInitialize)(this.nudCantCamas)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudDNI)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudTel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudNroResidencia)).BeginInit();
 			this.tlpTipoCasa.SuspendLayout();
 			this.gbMinDías.SuspendLayout();
 			this.gbCantCamas.SuspendLayout();
@@ -140,6 +140,8 @@ namespace tp2
             0,
             0,
             0});
+			this.nudMinDias.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudMinDias.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// nudCantCamas
 			// 
@@ -164,6 +166,8 @@ namespace tp2
             0,
             0,
             0});
+			this.nudCantCamas.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudCantCamas.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// chbPileta
 			// 
@@ -231,14 +235,16 @@ namespace tp2
 			this.lbDirec.TabIndex = 17;
 			this.lbDirec.Text = "Direccion";
 			// 
-			// tbDireccionCasa
+			// tbDirección
 			// 
-			this.tbDireccionCasa.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tbDireccionCasa.Location = new System.Drawing.Point(84, 5);
-			this.tbDireccionCasa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.tbDireccionCasa.Name = "tbDireccionCasa";
-			this.tbDireccionCasa.Size = new System.Drawing.Size(188, 27);
-			this.tbDireccionCasa.TabIndex = 0;
+			this.tbDirección.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tbDirección.Location = new System.Drawing.Point(84, 5);
+			this.tbDirección.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.tbDirección.Name = "tbDirección";
+			this.tbDirección.Size = new System.Drawing.Size(188, 27);
+			this.tbDirección.TabIndex = 0;
+			this.tbDirección.Click += new System.EventHandler(this.SeleccionarTextBox);
+			this.tbDirección.Enter += new System.EventHandler(this.SeleccionarTextBox);
 			// 
 			// chbDesayuno
 			// 
@@ -259,6 +265,8 @@ namespace tp2
 			this.tbApellido.Name = "tbApellido";
 			this.tbApellido.Size = new System.Drawing.Size(306, 27);
 			this.tbApellido.TabIndex = 1;
+			this.tbApellido.Click += new System.EventHandler(this.SeleccionarTextBox);
+			this.tbApellido.Enter += new System.EventHandler(this.SeleccionarTextBox);
 			// 
 			// lbDNI
 			// 
@@ -282,7 +290,7 @@ namespace tp2
             0,
             0});
 			this.nudDNI.Minimum = new decimal(new int[] {
-            1000000,
+            10000000,
             0,
             0,
             0});
@@ -290,10 +298,12 @@ namespace tp2
 			this.nudDNI.Size = new System.Drawing.Size(306, 27);
 			this.nudDNI.TabIndex = 0;
 			this.nudDNI.Value = new decimal(new int[] {
-            1000000,
+            10000000,
             0,
             0,
             0});
+			this.nudDNI.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudDNI.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// tbNombre
 			// 
@@ -303,6 +313,8 @@ namespace tp2
 			this.tbNombre.Name = "tbNombre";
 			this.tbNombre.Size = new System.Drawing.Size(306, 27);
 			this.tbNombre.TabIndex = 2;
+			this.tbNombre.Click += new System.EventHandler(this.SeleccionarTextBox);
+			this.tbNombre.Enter += new System.EventHandler(this.SeleccionarTextBox);
 			// 
 			// nudTel
 			// 
@@ -317,6 +329,8 @@ namespace tp2
 			this.nudTel.Name = "nudTel";
 			this.nudTel.Size = new System.Drawing.Size(306, 27);
 			this.nudTel.TabIndex = 3;
+			this.nudTel.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudTel.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// lbApellido
 			// 
@@ -362,29 +376,31 @@ namespace tp2
 			this.lbNum.TabIndex = 29;
 			this.lbNum.Text = "Nro.";
 			// 
-			// nudNroPropiedad
+			// nudNroResidencia
 			// 
-			this.nudNroPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.nudNroPropiedad.Location = new System.Drawing.Point(325, 5);
-			this.nudNroPropiedad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.nudNroPropiedad.Maximum = new decimal(new int[] {
+			this.nudNroResidencia.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudNroResidencia.Location = new System.Drawing.Point(325, 5);
+			this.nudNroResidencia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.nudNroResidencia.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
-			this.nudNroPropiedad.Minimum = new decimal(new int[] {
+			this.nudNroResidencia.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-			this.nudNroPropiedad.Name = "nudNroPropiedad";
-			this.nudNroPropiedad.Size = new System.Drawing.Size(57, 27);
-			this.nudNroPropiedad.TabIndex = 1;
-			this.nudNroPropiedad.Value = new decimal(new int[] {
+			this.nudNroResidencia.Name = "nudNroResidencia";
+			this.nudNroResidencia.Size = new System.Drawing.Size(57, 27);
+			this.nudNroResidencia.TabIndex = 1;
+			this.nudNroResidencia.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+			this.nudNroResidencia.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudNroResidencia.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// btnCrear
 			// 
@@ -592,10 +608,10 @@ namespace tp2
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.19084F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.80916F));
-			this.tableLayoutPanel2.Controls.Add(this.tbDireccionCasa, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.tbDirección, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.lbDirec, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.lbNum, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.nudNroPropiedad, 3, 0);
+			this.tableLayoutPanel2.Controls.Add(this.nudNroResidencia, 3, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 22);
 			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -654,7 +670,7 @@ namespace tp2
 			((System.ComponentModel.ISupportInitialize)(this.nudCantCamas)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudDNI)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudTel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudNroResidencia)).EndInit();
 			this.tlpTipoCasa.ResumeLayout(false);
 			this.tlpTipoCasa.PerformLayout();
 			this.gbMinDías.ResumeLayout(false);
@@ -687,12 +703,12 @@ namespace tp2
         private System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.NumericUpDown nudMinDias;
         public System.Windows.Forms.NumericUpDown nudCantCamas;
-        public System.Windows.Forms.TextBox tbDireccionCasa;
+        public System.Windows.Forms.TextBox tbDirección;
         public System.Windows.Forms.TextBox tbApellido;
         public System.Windows.Forms.NumericUpDown nudDNI;
         public System.Windows.Forms.TextBox tbNombre;
         public System.Windows.Forms.NumericUpDown nudTel;
-        public System.Windows.Forms.NumericUpDown nudNroPropiedad;
+        public System.Windows.Forms.NumericUpDown nudNroResidencia;
         public System.Windows.Forms.RadioButton rbCasa;
         public System.Windows.Forms.RadioButton rbCasaFinde;
         public System.Windows.Forms.CheckBox chbPileta;

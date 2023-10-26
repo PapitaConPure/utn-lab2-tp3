@@ -91,7 +91,8 @@ namespace AlquilerLib {
         }
         public void AgregarServicio(string servicio)
 		{
-			this.servicios[this.cServicios++]= servicio;
+			if(!this.servicios.Contains(servicio))
+				this.servicios[this.cServicios++]= servicio;
 		}
 
 		public string Imprimir() {

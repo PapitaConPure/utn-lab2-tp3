@@ -49,7 +49,7 @@ namespace tp2
 			this.chbLimpieza = new System.Windows.Forms.CheckBox();
 			this.chbDesayuno = new System.Windows.Forms.CheckBox();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.tlpDatos = new System.Windows.Forms.TableLayoutPanel();
 			this.tbDireccionHotel = new System.Windows.Forms.TextBox();
 			this.lbDirec = new System.Windows.Forms.Label();
 			this.lbNum = new System.Windows.Forms.Label();
@@ -71,7 +71,7 @@ namespace tp2
 			this.gbServicios.SuspendLayout();
 			this.tlpServicios.SuspendLayout();
 			this.gbDatos.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
+			this.tlpDatos.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.trbEstrellas)).BeginInit();
 			this.pnlEstrellas.SuspendLayout();
@@ -150,7 +150,7 @@ namespace tp2
 			this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.btnAceptar.Name = "btnAceptar";
 			this.btnAceptar.Size = new System.Drawing.Size(172, 32);
-			this.btnAceptar.TabIndex = 38;
+			this.btnAceptar.TabIndex = 0;
 			this.btnAceptar.Text = "Aceptar";
 			this.btnAceptar.UseVisualStyleBackColor = false;
 			// 
@@ -169,7 +169,7 @@ namespace tp2
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(402, 42);
-			this.tableLayoutPanel1.TabIndex = 46;
+			this.tableLayoutPanel1.TabIndex = 5;
 			// 
 			// btnCancelar
 			// 
@@ -183,7 +183,7 @@ namespace tp2
 			this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
 			this.btnCancelar.Name = "btnCancelar";
 			this.btnCancelar.Size = new System.Drawing.Size(172, 26);
-			this.btnCancelar.TabIndex = 32;
+			this.btnCancelar.TabIndex = 1;
 			this.btnCancelar.Text = "Cancelar";
 			this.btnCancelar.UseVisualStyleBackColor = false;
 			// 
@@ -195,7 +195,7 @@ namespace tp2
 			this.panel1.Name = "panel1";
 			this.panel1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.panel1.Size = new System.Drawing.Size(402, 42);
-			this.panel1.TabIndex = 47;
+			this.panel1.TabIndex = 4;
 			// 
 			// btnAgregarImágen
 			// 
@@ -221,7 +221,7 @@ namespace tp2
 			this.gbServicios.Name = "gbServicios";
 			this.gbServicios.Padding = new System.Windows.Forms.Padding(8, 5, 8, 5);
 			this.gbServicios.Size = new System.Drawing.Size(402, 84);
-			this.gbServicios.TabIndex = 48;
+			this.gbServicios.TabIndex = 3;
 			this.gbServicios.TabStop = false;
 			this.gbServicios.Text = "Servicios";
 			// 
@@ -315,7 +315,7 @@ namespace tp2
 			// 
 			// gbDatos
 			// 
-			this.gbDatos.Controls.Add(this.tableLayoutPanel2);
+			this.gbDatos.Controls.Add(this.tlpDatos);
 			this.gbDatos.Dock = System.Windows.Forms.DockStyle.Top;
 			this.gbDatos.Location = new System.Drawing.Point(16, 18);
 			this.gbDatos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -326,25 +326,25 @@ namespace tp2
 			this.gbDatos.TabStop = false;
 			this.gbDatos.Text = "Datos de Residencia";
 			// 
-			// tableLayoutPanel2
+			// tlpDatos
 			// 
-			this.tableLayoutPanel2.ColumnCount = 4;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.19084F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.80916F));
-			this.tableLayoutPanel2.Controls.Add(this.tbDireccionHotel, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.lbDirec, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.lbNum, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.nudNroPropiedad, 3, 0);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 22);
-			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(386, 36);
-			this.tableLayoutPanel2.TabIndex = 0;
+			this.tlpDatos.ColumnCount = 4;
+			this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.19084F));
+			this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.80916F));
+			this.tlpDatos.Controls.Add(this.tbDireccionHotel, 1, 0);
+			this.tlpDatos.Controls.Add(this.lbDirec, 0, 0);
+			this.tlpDatos.Controls.Add(this.lbNum, 2, 0);
+			this.tlpDatos.Controls.Add(this.nudNroPropiedad, 3, 0);
+			this.tlpDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tlpDatos.Location = new System.Drawing.Point(8, 22);
+			this.tlpDatos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.tlpDatos.Name = "tlpDatos";
+			this.tlpDatos.RowCount = 1;
+			this.tlpDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpDatos.Size = new System.Drawing.Size(386, 36);
+			this.tlpDatos.TabIndex = 0;
 			// 
 			// tbDireccionHotel
 			// 
@@ -547,8 +547,8 @@ namespace tp2
 			this.tlpServicios.ResumeLayout(false);
 			this.tlpServicios.PerformLayout();
 			this.gbDatos.ResumeLayout(false);
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
+			this.tlpDatos.ResumeLayout(false);
+			this.tlpDatos.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedad)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.trbEstrellas)).EndInit();
 			this.pnlEstrellas.ResumeLayout(false);
@@ -584,7 +584,7 @@ namespace tp2
 		public System.Windows.Forms.CheckBox chbLimpieza;
 		public System.Windows.Forms.CheckBox chbDesayuno;
 		private System.Windows.Forms.GroupBox gbDatos;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+		private System.Windows.Forms.TableLayoutPanel tlpDatos;
 		public System.Windows.Forms.TextBox tbDireccionHotel;
 		private System.Windows.Forms.Label lbDirec;
 		private System.Windows.Forms.Label lbNum;

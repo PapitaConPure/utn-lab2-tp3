@@ -58,5 +58,15 @@ namespace tp2 {
 			this.nudNroPropiedad.Enabled = true;
 			this.trbEstrellas.Enabled = true;
 		}
+
+		#region Calidad de vida
+		private void SeleccionarTextBox(object sender, EventArgs e) {
+			(sender as TextBox).SelectAll();
+		}
+
+		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
+			(sender as NumericUpDown).Select(0, 20);
+		}
+		#endregion
 	}
 }

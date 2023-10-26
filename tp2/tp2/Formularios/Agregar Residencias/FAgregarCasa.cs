@@ -30,8 +30,8 @@ namespace tp2 {
 			= this.gbMinDías.Enabled
 				= false;
 
-			this.tbDireccionCasa.Text = casa.Dirección;
-			this.nudNroPropiedad.Value = casa.Número;
+			this.tbDirección.Text = casa.Dirección;
+			this.nudNroResidencia.Value = casa.Número;
 			this.rbCasaFinde.Checked = casa is CasaFinde;
 			this.nudCantCamas.Value = casa.CamasDisponibles;
 			this.nudMinDias.Value = casa.MínimoPermitido;
@@ -60,20 +60,64 @@ namespace tp2 {
         }
 
         private void BtnCrear_Click(object sender, EventArgs e) {
-            if(this.fImagen.CargóTodas)
+			//Tal vez pasar el arroje de errores a las propiedades al crear una residencia
+			try {
+				if(this.tbDirección.TextLength == 0) {
+					this.tbDirección.Focus();
+					throw new InvalidOperationException("Debes ingresar una dirección de residencia válida");
+				}
+
+				if(this.tbApellido.TextLength == 0) {
+					this.tbApellido.Focus();
+					throw new InvalidOperationException("Debes ingresar el apellido del propietario de la casa");
+				}
+
+				if(this.tbNombre.TextLength == 0) {
+					this.tbNombre.Focus();
+					throw new InvalidOperationException("Debes ingresar el/los nombre/s del propietario de la casa");
+				}
+
+				if(!this.fImagen.CargóTodas) {
+					this.btnAgregarImágen.Focus();
+					throw new InvalidOperationException("Debes cargar 2 imágenes para la residencia");
+				}
+
+				MessageBox.Show(
+					"La residencia fue registrada exitosamente",
+					"Residencia agregada",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Information);
+			} catch(InvalidOperationException ex) {
+				MessageBox.Show(
+					ex.Message,
+					"Datos incompletos",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Warning);
+
 				this.DialogResult = DialogResult.None;
+			}
         }
 
 		private void Inicializar() {
 			this.InitializeComponent();
 			this.rbCasa.Enabled = true;
 			this.rbCasaFinde.Enabled = true;
-			this.tbDireccionCasa.Enabled = true;
-			this.nudNroPropiedad.Enabled = true;
+			this.tbDirección.Enabled = true;
+			this.nudNroResidencia.Enabled = true;
 			this.nudDNI.Enabled = true;
 			this.nudTel.Enabled = true;
 			this.tbApellido.Enabled = true;
 			this.tbNombre.Enabled = true;
 		}
+
+		#region Calidad de vida
+		private void SeleccionarTextBox(object sender, EventArgs e) {
+			(sender as TextBox).SelectAll();
+		}
+
+		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
+			(sender as NumericUpDown).Select(0, 20);
+		}
+		#endregion
 	}
 }
