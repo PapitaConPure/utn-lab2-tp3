@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	public class Alquiler: IComparable {
+	public class Alquiler: IComparable,IImprimible {
 		private Propiedad propiedad;
 		private Cliente cliente;
 		public int Número{get;private set;}
@@ -39,5 +39,15 @@ namespace AlquilerLib {
 		public int CompareTo(object obj) {
 			return this.Número.CompareTo((obj as Alquiler).Número);
 		}
-	}
+
+        public string Imprimir()
+        { 
+			string retorno=propiedad.Imprimir();
+
+			if(this.propiedad is Hotel){
+				retorno += $", Tipo Habitación:{(this.propiedad as Hotel).VerTipoHabitación(cliente.CantPasajeros)}";
+			}
+			return retorno;
+        }
+    }
 }

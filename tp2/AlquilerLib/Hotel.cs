@@ -58,7 +58,7 @@ namespace AlquilerLib {
 			}
 		}
         public override string Imprimir() {
-		
+			return $"Dirección:{Dirección}, N.Propiedad{this.Número}";
 		}
 	}
 }
