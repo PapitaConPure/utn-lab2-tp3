@@ -51,7 +51,7 @@
     <Compile Include="IImprimible.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Propiedad.cs" />
+    <Compile Include="Residencia.cs" />
     <Compile Include="Sistema.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
