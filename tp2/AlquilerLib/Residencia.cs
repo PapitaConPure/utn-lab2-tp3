@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
+	[Serializable]
 	public abstract class Residencia : IImprimible, IComparable {
 		protected string[] servicios;
 		protected double precioDía;

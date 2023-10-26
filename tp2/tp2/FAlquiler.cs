@@ -72,6 +72,7 @@ namespace tp2 {
 				);
 				MessageBox.Show($@"Desde:{ventana.calindario.SelectionStart.Day}/{ventana.calindario.SelectionStart.Month}  hasta {ventana.calindario.SelectionEnd.Day}/{ventana.calindario.SelectionEnd.Month}");
 			}
+
 			try {
 
 				if(sistema.AlquilarPropiedad(alquiler.Número, alquiler))

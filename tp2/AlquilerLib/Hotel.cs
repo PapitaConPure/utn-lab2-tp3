@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
+	[Serializable]
 	public class Hotel: Residencia {
 		public enum TipoHabitación {
 			Simple = 0,

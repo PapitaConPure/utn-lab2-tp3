@@ -9,14 +9,16 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 using AlquilerLib;
-using cargandoImagenes;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
-		Sistema sistema;
-		Hotel hotel;
-		Casa casa;
+		private Sistema sistema;
+		private Hotel hotel;
+		private Casa casa;
+		private string rutaBin;
 
         public FPrincipal() {
 			this.InitializeComponent();
@@ -25,7 +27,40 @@ namespace tp2 {
 		private void FPrincipal_Load(object sender, EventArgs e) {
 			this.ofdElegirImagen.InitialDirectory = Environment.CurrentDirectory;
 
-			this.sistema = new Sistema();
+			string rutaDir = Application.StartupPath;
+			this.rutaBin = Path.Combine(rutaDir, "config.dat");
+
+			FileStream fs = null;
+
+			try {
+				if(File.Exists(rutaBin)) {
+					fs = new FileStream(rutaBin, FileMode.Open, FileAccess.Read);
+					BinaryFormatter bf = new BinaryFormatter();
+					this.sistema = bf.Deserialize(fs) as Sistema;
+				}
+			} catch(IOException) {
+
+			} finally {
+				if(fs != null)
+					fs.Close();
+			}
+
+			if(this.sistema == null)
+				this.sistema = new Sistema();
+		}
+
+		private void FPrincipal_FormClosed(object sender, FormClosedEventArgs e) {
+			FileStream fs = null;
+			try {
+				fs = new FileStream(rutaBin, FileMode.OpenOrCreate, FileAccess.Write);
+				BinaryFormatter bf = new BinaryFormatter();
+				bf.Serialize(fs, this.sistema);
+			} catch(IOException) {
+
+			} finally {
+				if(fs != null)
+					fs.Close();
+			}
 		}
 
 		private void SeleccionarTextBox(object sender, EventArgs e) {
@@ -118,18 +153,15 @@ namespace tp2 {
 			
 		}
 
-        private void btnModificarPropiedad_Click(object sender, EventArgs e)
-        {
+        private void btnModificarPropiedad_Click(object sender, EventArgs e) {
 			Residencia aModificar = cbPropiedades.SelectedItem as Residencia;
-			if(aModificar is Hotel)
-            {
+			if(aModificar is Hotel) {
 				FAgregarHotel fhotel = new FAgregarHotel();
 				fhotel.tbDireccionHotel.Enabled = false;
 				fhotel.nudNroPropiedad.Enabled = false;
 			    fhotel.nudEstrellas.Enabled = false;
 
-                if (fhotel.ShowDialog() == DialogResult.OK)
-                {
+                if (fhotel.ShowDialog() == DialogResult.OK) {
 					((Hotel)aModificar).CntSimple += Convert.ToInt32(fhotel.nudSimples.Value);
 					((Hotel)aModificar).CntDoble += Convert.ToInt32(fhotel.nudDobles.Value);
 					((Hotel)aModificar).CntTriple += Convert.ToInt32(fhotel.nudTriples.Value);
@@ -159,9 +191,7 @@ namespace tp2 {
 						BuscarServicio(aModificar, "WIFI");
 					}
 				}
-			}
-			else if(aModificar is Casa)
-            {
+			} else if(aModificar is Casa) {
 				FAgregarCasa fcasa = new FAgregarCasa();
 				fcasa.rbCasa.Enabled = false;
 				fcasa.rbCasaFinde.Enabled = false;
@@ -205,8 +235,7 @@ namespace tp2 {
 			}
         }
 
-        private void BuscarServicio(Residencia aModificar, string buscado)
-        {
+        private void BuscarServicio(Residencia aModificar, string buscado) {
 			string[] serv;
 			bool rep;
             rep = false;
@@ -218,8 +247,7 @@ namespace tp2 {
                 aModificar.AgregarServicio(buscado);
         }
 
-        private void btnVer_Click(object sender, EventArgs e)
-        {
+        private void btnVer_Click(object sender, EventArgs e) {
 			FDetalles detail = new FDetalles();
 			Residencia aVer = cbPropiedades.SelectedItem as Residencia;
 
@@ -252,6 +280,14 @@ namespace tp2 {
 
 			detail.ShowDialog();
 			detail.Close();
+		}
+
+		private void btnImportar_Click(object sender, EventArgs e) {
+
+		}
+
+		private void btnExportar_Click(object sender, EventArgs e) {
+
 		}
 	}
 }

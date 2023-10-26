@@ -9,6 +9,7 @@ namespace AlquilerLib {
 	/// <summary>
 	/// Representa un sistema de alquileres
 	/// </summary>
+	[Serializable]
 	public class Sistema {
 		/// <summary>
 		/// El precio base con el que trabajan todas las propiedades del sistema

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
+	[Serializable]
 	public class Alquiler: IComparable, IImprimible {
 		private Residencia propiedad;
 		private Cliente cliente;

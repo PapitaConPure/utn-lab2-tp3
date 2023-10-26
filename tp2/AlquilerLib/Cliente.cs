@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
+	[Serializable]
 	public class Cliente: Persona {
 		public int CantPasajeros { get; private set; }
 

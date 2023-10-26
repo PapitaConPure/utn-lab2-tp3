@@ -2,6 +2,7 @@
 using System.Drawing;
 
 namespace AlquilerLib {
+	[Serializable]
 	public class CasaFinde: Casa {
 		public CasaFinde(int número, string dirección,int camas,int dni,string nombre, long tel, string apellido, Image[] imágenes): base(número,dirección,3,camas,dni,nombre,tel,apellido, imágenes) {}
 

@@ -32,6 +32,8 @@ namespace tp2 {
 			this.btnBorrarPropiedad = new System.Windows.Forms.Button();
 			this.btnModificarPropiedad = new System.Windows.Forms.Button();
 			this.btnVer = new System.Windows.Forms.Button();
+			this.btnImportar = new System.Windows.Forms.Button();
+			this.btnExportar = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// ofdElegirImagen
@@ -108,11 +110,33 @@ namespace tp2 {
 			this.btnVer.UseVisualStyleBackColor = true;
 			this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
 			// 
+			// btnImportar
+			// 
+			this.btnImportar.Location = new System.Drawing.Point(12, 525);
+			this.btnImportar.Name = "btnImportar";
+			this.btnImportar.Size = new System.Drawing.Size(172, 38);
+			this.btnImportar.TabIndex = 9;
+			this.btnImportar.Text = "Importar Alquileres";
+			this.btnImportar.UseVisualStyleBackColor = true;
+			this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+			// 
+			// btnExportar
+			// 
+			this.btnExportar.Location = new System.Drawing.Point(385, 525);
+			this.btnExportar.Name = "btnExportar";
+			this.btnExportar.Size = new System.Drawing.Size(172, 38);
+			this.btnExportar.TabIndex = 10;
+			this.btnExportar.Text = "Exportar Alquileres";
+			this.btnExportar.UseVisualStyleBackColor = true;
+			this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+			// 
 			// FPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(569, 575);
+			this.Controls.Add(this.btnExportar);
+			this.Controls.Add(this.btnImportar);
 			this.Controls.Add(this.btnVer);
 			this.Controls.Add(this.btnModificarPropiedad);
 			this.Controls.Add(this.btnBorrarPropiedad);
@@ -128,6 +152,7 @@ namespace tp2 {
 			this.Name = "FPrincipal";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Empresa de Alquileres";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FPrincipal_FormClosed);
 			this.Load += new System.EventHandler(this.FPrincipal_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -143,6 +168,8 @@ namespace tp2 {
         private System.Windows.Forms.Button btnBorrarPropiedad;
         private System.Windows.Forms.Button btnModificarPropiedad;
         private System.Windows.Forms.Button btnVer;
+		private System.Windows.Forms.Button btnImportar;
+		private System.Windows.Forms.Button btnExportar;
 	}
 }
 

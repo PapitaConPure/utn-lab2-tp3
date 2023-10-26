@@ -2,6 +2,7 @@
 using System.Drawing;
 
 namespace AlquilerLib {
+	[Serializable]
 	public class Casa: Residencia, IImprimible {
 		public int MínimoPermitido { get; private set; }
 		public int CamasDisponibles { get; private set; }

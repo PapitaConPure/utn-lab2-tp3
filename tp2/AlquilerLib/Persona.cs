@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlquilerLib
-{
-    public class Persona: IImprimible
+namespace AlquilerLib {
+	[Serializable]
+	public class Persona: IImprimible
     {
         public int Dni { get; }
         public string Nombre { get; }
