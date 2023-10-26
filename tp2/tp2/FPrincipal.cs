@@ -84,6 +84,7 @@ namespace tp2 {
 				if (fcasa.chbWIFI.Checked) casa.AgregarServicio("Wi-Fi");
 
 				sistema.AgregarPropiedad(casa);
+				cbPropiedades.Items.Add(casa);
 			}
         }
 
@@ -104,6 +105,7 @@ namespace tp2 {
 				if (fhotel.chbWIFI.Checked) casa.AgregarServicio("Wi-Fi");
 
 				sistema.AgregarHotel(hotel);
+				cbPropiedades.Items.Add(hotel);
 			}
 		}
 
@@ -162,6 +164,13 @@ namespace tp2 {
 			this.calendario.MostrarMes(mes.Month, mes.Year);
 		}
 
-        
+        private void btnBorrarPropiedad_Click(object sender, EventArgs e)
+        {
+			Propiedad aBorrar = cbPropiedades.SelectedItem as Propiedad;
+			if (sistema.QuitarPropiedad(aBorrar.Número))
+				MessageBox.Show("Propiedad Eliminada");
+			else
+				MessageBox.Show("No se ha podido eliminar");
+		}
     }
 }
