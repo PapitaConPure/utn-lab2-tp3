@@ -45,10 +45,10 @@ namespace tp2
             this.tbDireccionCasa = new System.Windows.Forms.TextBox();
             this.chbDesayuno = new System.Windows.Forms.CheckBox();
             this.lbPropietario = new System.Windows.Forms.Label();
-            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.tbApellido = new System.Windows.Forms.TextBox();
             this.lbDNI = new System.Windows.Forms.Label();
             this.nudDNI = new System.Windows.Forms.NumericUpDown();
-            this.tbApellido = new System.Windows.Forms.TextBox();
+            this.tbNombre = new System.Windows.Forms.TextBox();
             this.nudTel = new System.Windows.Forms.NumericUpDown();
             this.lbApellido = new System.Windows.Forms.Label();
             this.lbNombres = new System.Windows.Forms.Label();
@@ -245,12 +245,12 @@ namespace tp2
             this.lbPropietario.TabIndex = 20;
             this.lbPropietario.Text = "Propietario";
             // 
-            // tbNombre
+            // tbApellido
             // 
-            this.tbNombre.Location = new System.Drawing.Point(122, 392);
-            this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(100, 20);
-            this.tbNombre.TabIndex = 22;
+            this.tbApellido.Location = new System.Drawing.Point(122, 392);
+            this.tbApellido.Name = "tbApellido";
+            this.tbApellido.Size = new System.Drawing.Size(100, 20);
+            this.tbApellido.TabIndex = 22;
             // 
             // lbDNI
             // 
@@ -283,12 +283,12 @@ namespace tp2
             0,
             0});
             // 
-            // tbApellido
+            // tbNombre
             // 
-            this.tbApellido.Location = new System.Drawing.Point(122, 430);
-            this.tbApellido.Name = "tbApellido";
-            this.tbApellido.Size = new System.Drawing.Size(100, 20);
-            this.tbApellido.TabIndex = 24;
+            this.tbNombre.Location = new System.Drawing.Point(122, 430);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(100, 20);
+            this.tbNombre.TabIndex = 24;
             // 
             // nudTel
             // 
@@ -394,9 +394,9 @@ namespace tp2
             this.Controls.Add(this.lbNombres);
             this.Controls.Add(this.lbApellido);
             this.Controls.Add(this.nudTel);
-            this.Controls.Add(this.tbApellido);
-            this.Controls.Add(this.nudDNI);
             this.Controls.Add(this.tbNombre);
+            this.Controls.Add(this.nudDNI);
+            this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.lbDNI);
             this.Controls.Add(this.lbPropietario);
             this.Controls.Add(this.chbDesayuno);
@@ -442,9 +442,9 @@ namespace tp2
         public System.Windows.Forms.NumericUpDown nudMinDias;
         public System.Windows.Forms.NumericUpDown nudCantCamas;
         public System.Windows.Forms.TextBox tbDireccionCasa;
-        public System.Windows.Forms.TextBox tbNombre;
-        public System.Windows.Forms.NumericUpDown nudDNI;
         public System.Windows.Forms.TextBox tbApellido;
+        public System.Windows.Forms.NumericUpDown nudDNI;
+        public System.Windows.Forms.TextBox tbNombre;
         public System.Windows.Forms.NumericUpDown nudTel;
         public System.Windows.Forms.NumericUpDown nudNroPropiedad;
         public System.Windows.Forms.RadioButton rbCasa;

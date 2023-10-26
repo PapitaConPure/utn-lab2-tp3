@@ -54,7 +54,7 @@ namespace AlquilerLib {
                 new DateTime(2023, 01, 05),
                 new DateTime(2023, 01, 06),
                 new DateTime(2023, 01, 08),
-                new Casa(0, "",0,0,0,"",0,""),new Cliente(0,0,"","",0));
+                new Casa(0, "",0,0,0,"",0,""),new Cliente(0,0,"","",0),0);
 
             int idx = this.alquileres.BinarySearch(buscado);
 

@@ -71,6 +71,12 @@
     <Compile Include="FBusqueda.Designer.cs">
       <DependentUpon>FBusqueda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FDetalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDetalles.Designer.cs">
+      <DependentUpon>FDetalles.cs</DependentUpon>
+    </Compile>
     <Compile Include="FPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FAlquiler.resx">
       <DependentUpon>FAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDetalles.resx">
+      <DependentUpon>FDetalles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>

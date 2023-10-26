@@ -21,8 +21,8 @@ namespace tp2
             nudNroPropiedad.Enabled = true;
             nudDNI.Enabled = true;
             nudTel.Enabled = true;
-            tbNombre.Enabled = true;
             tbApellido.Enabled = true;
+            tbNombre.Enabled = true;
         }
 
         private void rbCasa_CheckedChanged(object sender, EventArgs e)

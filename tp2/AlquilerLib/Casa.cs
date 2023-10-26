@@ -4,12 +4,12 @@ namespace AlquilerLib {
 	public class Casa: Propiedad, IImprimible {
 		public int MínimoPermitido { get; private set; }
 		public int CamasDisponibles { get; private set; }
-		Persona propietario;
+		public Persona Propietario;
 		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido): base(número,dirección) 
 		{
 			this.CamasDisponibles= camasDisponibles;
 			this.MínimoPermitido = mínimoPermitido;
-			propietario = new Persona(dni, nombre, tel, apellido);
+			Propietario = new Persona(dni, nombre, tel, apellido);
         }
 
 		public  override double PrecioPorDía(int nroAlquiler) {
@@ -37,6 +37,11 @@ namespace AlquilerLib {
 		public void ModificarCamas(int camas)
         {
 			this.CamasDisponibles = camas;
+        }
+
+        public override string ToString()
+        {
+			return $"Casa: {Dirección}, {Número}";
         }
     }
 }

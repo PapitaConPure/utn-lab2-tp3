@@ -14,7 +14,6 @@ namespace AlquilerLib {
 		/// </summary>
 		public static double PrecioBase;
 		List<Propiedad> propiedades;
-		List<Hotel> hoteles;
 
 		/// <summary>
 		/// Crea un sistema de propiedades con una lista de propiedades vacía
@@ -96,14 +95,6 @@ namespace AlquilerLib {
 			propiedad.QuitarAlquiler(nroAlquiler);
 			return true;
 		}
-		public void AgregarHotel(Hotel hotel)
-		{
-			this.hoteles.Add(hotel);
-		} 
-
-		public void QuitarHotel(Hotel hotel)
-		{
-			this.hoteles.Remove(hotel);
-		}
+		
 	}
 }

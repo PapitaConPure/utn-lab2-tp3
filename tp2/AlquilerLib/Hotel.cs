@@ -62,5 +62,11 @@ namespace AlquilerLib {
 				return TipoHabitación.Simple;
 			}
 		}
-	}
+
+        public override string ToString()
+        {
+			return $"Hotel: {Dirección}, {Número}";
+
+		}
+    }
 }

@@ -24,8 +24,8 @@ namespace tp2 {
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnConsultarAlquiler = new System.Windows.Forms.Button();
             this.btnAlquilar = new System.Windows.Forms.Button();
             this.btnCancelarAlquiler = new System.Windows.Forms.Button();
@@ -58,6 +58,7 @@ namespace tp2 {
             this.lbPropiedades = new System.Windows.Forms.Label();
             this.btnBorrarPropiedad = new System.Windows.Forms.Button();
             this.btnModificarPropiedad = new System.Windows.Forms.Button();
+            this.btnVer = new System.Windows.Forms.Button();
             this.gbAlquileres.SuspendLayout();
             this.gbReservaNueva.SuspendLayout();
             this.pnlCalendario.SuspendLayout();
@@ -187,14 +188,14 @@ namespace tp2 {
             this.dgvCalendario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.dgvCalendario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCalendario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCalendario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lunes,
@@ -204,14 +205,14 @@ namespace tp2 {
             this.Viernes,
             this.Sábado,
             this.Domingo});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCalendario.EnableHeadersVisualStyles = false;
             this.dgvCalendario.Location = new System.Drawing.Point(185, 4);
@@ -444,10 +445,11 @@ namespace tp2 {
             // 
             // cbPropiedades
             // 
+            this.cbPropiedades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPropiedades.FormattingEnabled = true;
             this.cbPropiedades.Location = new System.Drawing.Point(119, 117);
             this.cbPropiedades.Name = "cbPropiedades";
-            this.cbPropiedades.Size = new System.Drawing.Size(121, 28);
+            this.cbPropiedades.Size = new System.Drawing.Size(201, 28);
             this.cbPropiedades.TabIndex = 4;
             // 
             // lbPropiedades
@@ -461,7 +463,7 @@ namespace tp2 {
             // 
             // btnBorrarPropiedad
             // 
-            this.btnBorrarPropiedad.Location = new System.Drawing.Point(282, 117);
+            this.btnBorrarPropiedad.Location = new System.Drawing.Point(337, 117);
             this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
             this.btnBorrarPropiedad.Size = new System.Drawing.Size(75, 28);
             this.btnBorrarPropiedad.TabIndex = 6;
@@ -471,7 +473,7 @@ namespace tp2 {
             // 
             // btnModificarPropiedad
             // 
-            this.btnModificarPropiedad.Location = new System.Drawing.Point(386, 117);
+            this.btnModificarPropiedad.Location = new System.Drawing.Point(431, 116);
             this.btnModificarPropiedad.Name = "btnModificarPropiedad";
             this.btnModificarPropiedad.Size = new System.Drawing.Size(102, 28);
             this.btnModificarPropiedad.TabIndex = 7;
@@ -479,11 +481,22 @@ namespace tp2 {
             this.btnModificarPropiedad.UseVisualStyleBackColor = true;
             this.btnModificarPropiedad.Click += new System.EventHandler(this.btnModificarPropiedad_Click);
             // 
+            // btnVer
+            // 
+            this.btnVer.Location = new System.Drawing.Point(337, 80);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(75, 31);
+            this.btnVer.TabIndex = 8;
+            this.btnVer.Text = "Ver detalles";
+            this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 575);
+            this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnModificarPropiedad);
             this.Controls.Add(this.btnBorrarPropiedad);
             this.Controls.Add(this.lbPropiedades);
@@ -552,6 +565,7 @@ namespace tp2 {
         private System.Windows.Forms.Label lbPropiedades;
         private System.Windows.Forms.Button btnBorrarPropiedad;
         private System.Windows.Forms.Button btnModificarPropiedad;
+        private System.Windows.Forms.Button btnVer;
     }
 }
 
