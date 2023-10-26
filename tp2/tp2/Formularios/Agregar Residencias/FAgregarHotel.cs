@@ -12,7 +12,7 @@ using cargandoImagenes;
 
 namespace tp2 {
     public partial class FAgregarHotel : Form {
-		FImagen fImagen;
+		private readonly FImagen fImagen;
 
 		public FAgregarHotel() {
 			this.Inicializar();

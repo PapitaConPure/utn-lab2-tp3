@@ -12,7 +12,7 @@ using AlquilerLib;
 
 namespace tp2 {
     public partial class FAgregarCasa: Form {
-		FImagen fImagen;
+		private readonly FImagen fImagen;
 
 		public FAgregarCasa() {
 			this.Inicializar();
