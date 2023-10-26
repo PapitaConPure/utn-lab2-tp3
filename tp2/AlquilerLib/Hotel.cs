@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace AlquilerLib {
 			Triple = 150,
 		}
 
-		public Hotel(int número, string dirección,  int estrellas, int cntSimple, int cntDoble, int cntTriple): base(número, dirección) {
+		public Hotel(int número, string dirección,  int estrellas, int cntSimple, int cntDoble, int cntTriple, Image[] imágenes) : base(número, dirección, imágenes) {
 			this.Estrellas = estrellas;
 			this.CntSimple = cntSimple;
 			this.CntDoble = cntDoble;

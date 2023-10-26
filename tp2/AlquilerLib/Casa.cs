@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Drawing;
 
 namespace AlquilerLib {
 	public class Casa: Residencia, IImprimible {
 		public int MínimoPermitido { get; private set; }
 		public int CamasDisponibles { get; private set; }
 		public Persona Propietario;
-		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido): base(número,dirección) 
+		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido, Image[] imágenes): base(número, dirección, imágenes) 
 		{
 			this.CamasDisponibles= camasDisponibles;
 			this.MínimoPermitido = mínimoPermitido;
