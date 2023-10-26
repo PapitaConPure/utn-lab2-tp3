@@ -272,7 +272,47 @@ namespace tp2 {
 		}
 
 		private void BtnImportar_Click(object sender, EventArgs e) {
+			FileStream fs = null;
+			StreamReader sr = null;
 
+			try {
+				fs = new FileStream(this.ofdDatos.FileName, FileMode.Open, FileAccess.Read);
+				sr = new StreamReader(fs);
+
+				Residencia residencia;
+				string linea;
+				int i = 0;
+				while(!sr.EndOfStream) {
+					linea = sr.ReadLine();
+					i++;
+					string[] datos = linea.Split(';');
+					if(datos.Length == 13) {
+						Residencia p = this.sistema.VerPropiedad(Convert.ToInt32(datos[0]));
+						residencia = new Hotel(
+							Convert.ToInt32(datos[0]),
+							datos[1],
+							Convert.ToInt32(datos[2]),
+							((Hotel)p).CntSimple,
+							((Hotel)p).CntDoble,
+							((Hotel)p).CntTriple,
+							((Hotel)p).Imágenes
+							);
+					}
+				}
+			} catch(IOException ex) {
+				MessageBox.Show(ex.Message, "Error de Lectura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+			} catch(UnauthorizedAccessException ex) {
+				MessageBox.Show(ex.Message, "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+			} catch(ArgumentException ex) {
+				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			} finally {
+				if(fs != null) {
+					if(sr != null)
+						sr.Close();
+
+					fs.Close();
+				}
+			}
 		}
 
 		private void BtnExportar_Click(object sender, EventArgs e) {
