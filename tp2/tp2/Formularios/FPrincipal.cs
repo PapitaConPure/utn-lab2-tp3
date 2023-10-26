@@ -109,7 +109,7 @@ namespace tp2 {
 				if (fcasa.chbPileta.Checked) this.casa.AgregarServicio("Pileta");
 				if (fcasa.chbWIFI.Checked) this.casa.AgregarServicio("Wi-Fi");
 
-				this.sistema.AgregarPropiedad(this.casa);
+				this.sistema.AgregarResidencia(this.casa);
 				this.cmbResidencias.Items.Add(this.casa);
 				
             }
@@ -132,7 +132,7 @@ namespace tp2 {
 				if (fhotel.chbPileta.Checked) this.hotel.AgregarServicio("Pileta");
 				if (fhotel.chbWIFI.Checked) this.hotel.AgregarServicio("Wi-Fi");
 
-				this.sistema.AgregarPropiedad(this.hotel);
+				this.sistema.AgregarResidencia(this.hotel);
 				this.cmbResidencias.Items.Add(this.hotel);
 			}
 		}
@@ -141,7 +141,7 @@ namespace tp2 {
 			Residencia aBorrar = this.cmbResidencias.SelectedItem as Residencia;
 
             if(aBorrar is Residencia) {
-				if(this.sistema.QuitarPropiedad(aBorrar.Número)) {
+				if(this.sistema.QuitarResidencia(aBorrar.Número)) {
 					MessageBox.Show("Residencia eliminada");
 					this.cmbResidencias.Items.Remove(aBorrar);
 				} else
@@ -290,7 +290,7 @@ namespace tp2 {
 					i++;
 					string[] datos = linea.Split(';');
 					if(datos.Length == 13) {
-						Residencia p = this.sistema.VerPropiedad(Convert.ToInt32(datos[0]));
+						Residencia p = this.sistema.VerResidencia(Convert.ToInt32(datos[0]));
 						residencia = new Hotel(
 							Convert.ToInt32(datos[0]),
 							datos[1],

@@ -36,7 +36,7 @@ namespace tp2 {
 		}
 
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
-			Residencia propiedad = this.sistema.VerPropiedad(Convert.ToInt32(this.nudNroPropiedadAlquiler.Value));
+			Residencia propiedad = this.sistema.VerResidencia(Convert.ToInt32(this.nudNroPropiedadAlquiler.Value));
 
 			if(propiedad != null) {
 				MessageBox.Show("La propiedad existe.");
@@ -75,7 +75,7 @@ namespace tp2 {
 				MessageBox.Show($"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}", "Residencia alquilada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 				try {
-					if(this.sistema.AlquilarPropiedad(alquiler.Número, alquiler))
+					if(this.sistema.AlquilarResidencia(alquiler.Número, alquiler))
 						MessageBox.Show("Propiedad Alquilada.");
 					else
 						MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
