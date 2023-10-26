@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tp2", "tp2\tp2.csproj", "{3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlquilerLib", "AlquilerLib\AlquilerLib.csproj", "{C3B9CB44-4048-45BE-8269-36473E678183}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cargandoImagenes", "cargandoImagenes\cargandoImagenes.csproj", "{FFAC131B-AF51-4FF2-AAE4-46DBEAF79476}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C3B9CB44-4048-45BE-8269-36473E678183}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3B9CB44-4048-45BE-8269-36473E678183}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3B9CB44-4048-45BE-8269-36473E678183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFAC131B-AF51-4FF2-AAE4-46DBEAF79476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFAC131B-AF51-4FF2-AAE4-46DBEAF79476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFAC131B-AF51-4FF2-AAE4-46DBEAF79476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFAC131B-AF51-4FF2-AAE4-46DBEAF79476}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
