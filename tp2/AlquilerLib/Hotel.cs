@@ -45,7 +45,7 @@ namespace AlquilerLib {
         public override double PrecioTotal(int nroAlquiler)
         {
             Alquiler alquiler = VerAlquiler(nroAlquiler);
-			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);
+			TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn);
 			//double precioFinal = PrecioPorDía(nroAlquiler) * diferencia.Days;
 			double precioFinal = PrecioPorDía(nroAlquiler) * (1 + diferencia.Days * 0.03);
 			return precioFinal;
@@ -65,7 +65,11 @@ namespace AlquilerLib {
 			}
 		}
 
-        public override string ToString()
+		public override string Imprimir() {
+			return $"{base.Imprimir()};{this.Estrellas}";
+		}
+
+		public override string ToString()
         {
 			return $"Hotel: {Dirección}, {Número}";
 

@@ -76,8 +76,8 @@ namespace AlquilerLib {
 
             foreach (Alquiler otro in this.alquileres)
                 puede &=
-                    alquiler.FechaSalida.CompareTo(otro.FechaEntrada) < 0
-                    || alquiler.FechaEntrada.CompareTo(otro.FechaSalida) > 0;
+                    alquiler.CheckOut.CompareTo(otro.CheckIn) < 0
+                    || alquiler.CheckIn.CompareTo(otro.CheckOut) > 0;
 
             return puede;
         }
@@ -94,7 +94,7 @@ namespace AlquilerLib {
 			servicios[cServicios++]= servicio;
 		}
 
-		public string Imprimir() {
+		public virtual string Imprimir() {
 			return $"{this.Dirección};{this.Número}";
 		}
 

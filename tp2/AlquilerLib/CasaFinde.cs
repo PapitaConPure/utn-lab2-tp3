@@ -8,8 +8,8 @@ namespace AlquilerLib {
 
 		public override bool PuedeAlquilar(Alquiler alquiler) {
 			return base.PuedeAlquilar(alquiler)
-				&& this.EsFinde(alquiler.FechaEntrada)
-				&& alquiler.FechaSalida.Day < alquiler.FechaEntrada.Day + 3;
+				&& this.EsFinde(alquiler.CheckIn)
+				&& alquiler.CheckOut.Day < alquiler.CheckIn.Day + 3;
 		}
 		private bool EsFinde(DateTime fecha) {
 			return fecha.DayOfWeek == DayOfWeek.Friday;
