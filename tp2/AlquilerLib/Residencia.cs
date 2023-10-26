@@ -42,6 +42,7 @@ namespace AlquilerLib {
         public void Alquilar(Alquiler alquiler)
         {
             this.alquileres.Add(alquiler);
+			alquiler.Residencia = this;
         }
 
         public void QuitarAlquiler(int nroAlquiler)
@@ -51,7 +52,6 @@ namespace AlquilerLib {
 
         public Alquiler VerAlquiler(int nroAlquiler)
         {
-
             this.alquileres.Sort();
 
             Alquiler buscado = new Alquiler(
@@ -59,8 +59,7 @@ namespace AlquilerLib {
                 new DateTime(2023, 01, 05),
                 new DateTime(2023, 01, 06),
                 new DateTime(2023, 01, 08),
-                new Casa(0, "",0,0,0,"",0,"", new Image[] { }),
-				new Cliente(0,0,"","",0));
+				new Cliente(0, 0, 0, "", "", 0));
 
             int idx = this.alquileres.BinarySearch(buscado);
 

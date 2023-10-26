@@ -277,37 +277,42 @@ namespace tp2 {
 
 			FileStream fs = null;
 			StreamReader sr = null;
+			int n = 1;
 
 			try {
 				fs = new FileStream(this.ofdDatos.FileName, FileMode.Open, FileAccess.Read);
 				sr = new StreamReader(fs);
 
 				Residencia residencia;
+				Alquiler alquiler;
 				string linea;
-				int i = 0;
 				while(!sr.EndOfStream) {
 					linea = sr.ReadLine();
-					i++;
+					n++;
 					string[] datos = linea.Split(';');
-					if(datos.Length == 13) {
-						Residencia p = this.sistema.VerResidencia(Convert.ToInt32(datos[0]));
-						residencia = new Hotel(
-							Convert.ToInt32(datos[0]),
-							datos[1],
-							Convert.ToInt32(datos[2]),
-							((Hotel)p).CntSimple,
-							((Hotel)p).CntDoble,
-							((Hotel)p).CntTriple,
-							((Hotel)p).Imágenes
-							);
-					}
+					if(datos.Length == 8) {
+						residencia = this.sistema.VerResidencia(Convert.ToInt32(datos[0]));
+						alquiler = new Alquiler(
+							Convert.ToInt32(datos[1]),
+							Convert.ToDateTime(datos[3]),
+							Convert.ToDateTime(datos[4]),
+							Convert.ToDateTime(datos[5]),
+							//PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE
+							new Cliente(Convert.ToInt32(datos[2]), 0, 0, "", "", 0));
+							//PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE
+
+						residencia.Alquilar(alquiler);
+					} else
+						throw new ArgumentException("Cantidad de datos inválida");
 				}
+			} catch(FormatException ex) {
+				MessageBox.Show($"Línea {n}: {ex.Message}", "Error de Conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			} catch(IOException ex) {
-				MessageBox.Show(ex.Message, "Error de Lectura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+				MessageBox.Show($"Línea {n}: {ex.Message}", "Error de Lectura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 			} catch(UnauthorizedAccessException ex) {
-				MessageBox.Show(ex.Message, "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+				MessageBox.Show($"Línea {n}: {ex.Message}", "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 			} catch(ArgumentException ex) {
-				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show($"Línea {n}: {ex.Message}", "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			} finally {
 				if(fs != null) {
 					if(sr != null)

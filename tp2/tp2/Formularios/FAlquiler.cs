@@ -19,7 +19,7 @@ namespace tp2 {
 			this.InitializeComponent();
 		}
 
-		public FAlquiler(Sistema sistema): this() {
+		public FAlquiler(Sistema sistema, Residencia _): this() {
 			this.sistema = sistema;
 		}
 
@@ -54,8 +54,7 @@ namespace tp2 {
 				MessageBox.Show("No hay día seleccionado");
 				return;
 			}
-			Casa casa = new Casa(0, "a", 1, 2, 3, "b", 4, "c", new Image[0]);
-			Cliente cliente = new Cliente(0, 1, "a", "b", 3);
+
 			FFechaAlquiler ventana = new FFechaAlquiler();
 			ventana.calendario.TodayDate = this.calendario.DíaSeleccionado;
 
@@ -63,25 +62,28 @@ namespace tp2 {
 				DateTime checkIn = ventana.calendario.SelectionStart;
 				DateTime checkOut = ventana.calendario.SelectionEnd;
 
+				//PENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTE
+				Cliente cliente = new Cliente(0, 0, 0, "", "", 0);
+				//PENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTE
+
 				Alquiler alquiler = new Alquiler(
-					Convert.ToInt32(this.nudNroPropiedadAlquiler.Value),
-					DateTime.Now,
+					(int)this.nudNroAlquiler.Value,
+					this.calendario.DíaSeleccionado,
 					checkIn,
 					checkOut,
-					casa,
 					cliente
 				);
 
-				MessageBox.Show($"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}", "Residencia alquilada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(
+					$"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}",
+					"Residencia alquilada",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Information);
 
-				try {
-					if(this.sistema.AlquilarResidencia(alquiler.Número, alquiler))
-						MessageBox.Show("Propiedad Alquilada.");
-					else
-						MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
-				} catch {
-					MessageBox.Show("CASI EXPLOTA TODO.");
-				}
+				if(this.sistema.AlquilarResidencia((int)this.nudNroPropiedadAlquiler.Value, alquiler))
+					MessageBox.Show("Propiedad Alquilada.");
+				else
+					MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
 			}
 		}
 

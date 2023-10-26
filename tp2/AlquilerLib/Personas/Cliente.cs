@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 namespace AlquilerLib {
 	[Serializable]
 	public class Cliente: Persona {
-		public int CantPasajeros { get; private set; }
-
-		public Cliente(int cantPasajeros, int dni, string nombre, string apellido, int tel): base(dni, nombre, tel, apellido) {
+		public Cliente(int número, int cantPasajeros, int dni, string nombre, string apellido, int tel)
+		: base(dni, nombre, tel, apellido) {
+			this.Número = número;
 			this.CantPasajeros = cantPasajeros;
 		}
+
+		public int CantPasajeros { get; private set; }
+
+		public int Número { get; private set; }
 
 		public override string Imprimir() {
 			return string.Join(";", base.Imprimir(), this.CantPasajeros);

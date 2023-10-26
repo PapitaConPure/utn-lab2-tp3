@@ -32,7 +32,20 @@ namespace AlquilerLib {
 			get { return this.cliente; }
 		}
 
-		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Residencia residencia, Cliente cliente)
+		public Residencia Residencia {
+			get { return this.residencia; }
+			set {
+				if(this.residencia != null)
+					throw new InvalidOperationException("No se puede cambiar la residencia de un alquiler ya emitido");
+
+				this.residencia = value;
+
+				if(value is Hotel)
+					this.TipoHabitación = (value as Hotel).VerTipoHabitación(this.cliente.CantPasajeros);
+			}
+		}
+
+		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Cliente cliente)
 		{
 			this.Número = número;
 			this.FechaReserva= fechaReserva;
@@ -45,14 +58,7 @@ namespace AlquilerLib {
 
 			this.CheckIn= checkIn;
 			this.CheckOut = checkOut;
-			this.PrecioBase = Sistema.PrecioBase * (this.CheckOut - this.CheckIn).TotalDays;
-			this.residencia = residencia;
-
-			if(residencia is Hotel) {
-				Hotel hotel = residencia as Hotel;
-				this.TipoHabitación = hotel.VerTipoHabitación(cliente.CantPasajeros);
-			}
-
+			this.PrecioBase = Sistema.PrecioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
 			this.cliente = cliente;
 		}
 
@@ -60,8 +66,16 @@ namespace AlquilerLib {
 			return this.Número.CompareTo((obj as Alquiler).Número);
 		}
 
-        public string Imprimir() {
-			return string.Join(";", this.residencia.Imprimir(), this.cliente.Imprimir(), this.FechaReserva, this.CheckIn, this.CheckOut, this.PrecioTotal);
+		public string Imprimir() {
+			return string.Join(";",
+				this.residencia.Número,
+				this.Número,
+				this.cliente.Número,
+				this.FechaReserva.Ticks,
+				this.CheckIn.Ticks,
+				this.CheckOut.Ticks,
+				this.residencia.PrecioPorDía(this.Número),
+				this.PrecioTotal);
         }
     }
 }
