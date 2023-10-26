@@ -272,6 +272,9 @@ namespace tp2 {
 		}
 
 		private void BtnImportar_Click(object sender, EventArgs e) {
+			if(this.ofdDatos.ShowDialog() != DialogResult.OK)
+				return;
+
 			FileStream fs = null;
 			StreamReader sr = null;
 
