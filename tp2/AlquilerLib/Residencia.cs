@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,15 @@ namespace AlquilerLib {
 		protected double precioDía;
 		private int cServicios = 0;
 		protected List<Alquiler> alquileres = new List<Alquiler>();
-        //No entendí muy bien lo de que cada propiedad tenga un propietario
-        //Sería el dueño de la propiedad que la alquila y desp el cliente???
+		private Image[] imágenes;
 
-		public Residencia(int número, string dirección)//Persona propietario
+		public Residencia(int número, string dirección, Image[] imágenes) //Persona propietario
 		{
 			this.Número = número;
 			this.Dirección = dirección;
 			this.alquileres = new List<Alquiler>();
             this.servicios = new string[6];
-			//this.propietario=propietario;
+			this.imágenes = new Image[2];
 		}
 
 		public int CServicios { get { return cServicios; } }
