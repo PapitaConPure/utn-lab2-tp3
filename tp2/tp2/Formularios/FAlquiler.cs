@@ -11,10 +11,9 @@ using System.Windows.Forms;
 
 namespace tp2 {
 	public partial class FAlquiler: Form {
-		private Alquiler alquiler;
+		private readonly Sistema sistema;
 		private Calendario calendario;
 		private DateTime[] meses;
-		private Sistema sistema;
 
 		public FAlquiler() {
 			this.InitializeComponent();
@@ -58,27 +57,31 @@ namespace tp2 {
 			Casa casa = new Casa(0, "a", 1, 2, 3, "b", 4, "c", new Image[0]);
 			Cliente cliente = new Cliente(0, 1, "a", "b", 3);
 			FFechaAlquiler ventana = new FFechaAlquiler();
-			ventana.calindario.TodayDate = this.calendario.DíaSeleccionado;
+			ventana.calendario.TodayDate = this.calendario.DíaSeleccionado;
+
 			if(ventana.ShowDialog() == DialogResult.OK) {
-				this.alquiler = new Alquiler(
+				DateTime checkIn = ventana.calendario.SelectionStart;
+				DateTime checkOut = ventana.calendario.SelectionEnd;
+
+				Alquiler alquiler = new Alquiler(
 					Convert.ToInt32(this.nudNroPropiedadAlquiler.Value),
 					DateTime.Now,
-					ventana.calindario.SelectionStart,
-					ventana.calindario.SelectionEnd,
+					checkIn,
+					checkOut,
 					casa,
 					cliente
 				);
-				MessageBox.Show($@"Desde:{ventana.calindario.SelectionStart.Day}/{ventana.calindario.SelectionStart.Month}  hasta {ventana.calindario.SelectionEnd.Day}/{ventana.calindario.SelectionEnd.Month}");
-			}
 
-			try {
+				MessageBox.Show($"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}", "Residencia alquilada", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-				if(this.sistema.AlquilarPropiedad(this.alquiler.Número, this.alquiler))
-					MessageBox.Show("Propiedad Alquilada.");
-				else
-					MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
-			} catch {
-				MessageBox.Show("CASI EXPLOTA TODO.");
+				try {
+					if(this.sistema.AlquilarPropiedad(alquiler.Número, alquiler))
+						MessageBox.Show("Propiedad Alquilada.");
+					else
+						MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
+				} catch {
+					MessageBox.Show("CASI EXPLOTA TODO.");
+				}
 			}
 		}
 
