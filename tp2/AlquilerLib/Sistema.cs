@@ -15,13 +15,17 @@ namespace AlquilerLib {
 		/// El precio base con el que trabajan todas las propiedades del sistema
 		/// </summary>
 		public static double PrecioBase;
-		List<Residencia> propiedades;
+		List<Residencia> residencias;
 
 		/// <summary>
 		/// Crea un sistema de propiedades con una lista de propiedades vacía
 		/// </summary>
 		public Sistema() {
-			this.propiedades = new List<Residencia>();
+			this.residencias = new List<Residencia>();
+		}
+
+		public Residencia[] Residencias {
+			get { return this.residencias.ToArray(); }
 		}
 
 		/// <summary>
@@ -29,7 +33,7 @@ namespace AlquilerLib {
 		/// </summary>
 		/// <param name="propiedad">propiedad a incorporar</param>
 		public void AgregarPropiedad(Residencia propiedad) {
-			this.propiedades.Add(propiedad);
+			this.residencias.Add(propiedad);
 		}
 
 		/// <summary>
@@ -38,15 +42,15 @@ namespace AlquilerLib {
 		/// <param name="nroPropiedad">número de propiedad a buscar</param>
 		/// <returns>La <see cref="Residencia"/> bajo el número indicado, o <see langword="null"/> si no se encuentra</returns>
 		public Residencia VerPropiedad(int número) {
-			this.propiedades.Sort();
+			this.residencias.Sort();
 
 			Residencia buscada = new Casa(número, "",0,0,0,"",0,"", new Image[] { });
-			int idx = this.propiedades.BinarySearch(buscada);
+			int idx = this.residencias.BinarySearch(buscada);
 
 			if(idx < 0)
 				return null;
 
-			return this.propiedades[idx];
+			return this.residencias[idx];
 		}
 
 		/// <summary>
@@ -74,7 +78,7 @@ namespace AlquilerLib {
 			Residencia propiedad = this.VerPropiedad(nroPropiedad);
 			if (propiedad != null)
 			{
-				this.propiedades.Remove(propiedad);
+				this.residencias.Remove(propiedad);
 				return true;
 			}
 			else

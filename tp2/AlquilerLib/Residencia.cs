@@ -11,7 +11,7 @@ namespace AlquilerLib {
 		protected string[] servicios;
 		protected double precioDía;
 		private int cServicios = 0;
-		protected List<Alquiler> alquileres = new List<Alquiler>();
+		private List<Alquiler> alquileres = new List<Alquiler>();
 
 		public Residencia(int número, string dirección, Image[] imágenes) //Persona propietario
 		{
@@ -29,6 +29,10 @@ namespace AlquilerLib {
 		public string Dirección { get; private set; }
 
 		public Image[] Imágenes { get; private set; }
+
+		public Alquiler[] Alquileres {
+			get { return this.alquileres.ToArray(); }
+		}
 
 		public double CalcularPrecioTotal()
 		{

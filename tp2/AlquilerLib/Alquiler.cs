@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AlquilerLib {
 	[Serializable]
 	public class Alquiler: IComparable, IImprimible {
-		private Residencia propiedad;
+		private Residencia residencia;
 		private Cliente cliente;
 		public int Número{ get;private set; }
 
@@ -19,7 +19,7 @@ namespace AlquilerLib {
 
 		public double PrecioTotal {
 			get {
-				return this.propiedad.PrecioTotal(this.Número);
+				return this.residencia.PrecioTotal(this.Número);
 			}
 		}
 
@@ -42,7 +42,7 @@ namespace AlquilerLib {
 
 			this.FechaEntrada= fechaEntrada;
 			this.FechaSalida = fechaSalida;
-			this.propiedad=propiedad;
+			this.residencia=propiedad;
 			this.cliente= cliente;
 		}
 
@@ -51,9 +51,9 @@ namespace AlquilerLib {
 		}
 
         public string Imprimir() {
-			string retorno = this.propiedad.Imprimir();
+			string retorno = this.residencia.Imprimir();
 
-			if(this.propiedad is Hotel) {
+			if(this.residencia is Hotel) {
 				retorno += $";{this.tipoHabitación}";
 			}
 

@@ -287,13 +287,32 @@ namespace tp2 {
 		}
 
 		private void btnExportar_Click(object sender, EventArgs e) {
+			if(this.sfdDatos.ShowDialog() != DialogResult.OK)
+				return;
+
 			FileStream fs = null;
 			StreamWriter sw = null;
 
 			try {
-				fs = new FileStream();
-			} catch {
+				fs = new FileStream(this.sfdDatos.FileName, FileMode.OpenOrCreate, FileAccess.Write);
+				sw = new StreamWriter(fs);
 
+				foreach(Residencia residencia in this.sistema.Residencias) {
+					foreach(Alquiler alquiler in residencia.Alquileres) {
+						sw.WriteLine(alquiler.Imprimir());
+					}
+				}
+			} catch(IOException ex) {
+				MessageBox.Show(ex.Message, "Error de Escritura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+			} catch(ArgumentException ex) {
+				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			} finally {
+				if(fs != null) {
+					if(sw != null)
+						sw.Close();
+
+					fs.Close();
+				}
 			}
 		}
 	}
