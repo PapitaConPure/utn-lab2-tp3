@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace AlquilerLib {
-	public class Casa: Propiedad, IImprimible {
+	public class Casa: Residencia, IImprimible {
 		public int MínimoPermitido { get; private set; }
 		public int CamasDisponibles { get; private set; }
 		public Persona Propietario;

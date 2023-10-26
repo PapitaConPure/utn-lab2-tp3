@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib {
 	public class Alquiler: IComparable, IImprimible {
-		private Propiedad propiedad;
+		private Residencia propiedad;
 		private Cliente cliente;
 		public int Número{ get;private set; }
 
@@ -24,7 +24,7 @@ namespace AlquilerLib {
 			get { return this.cliente; }
 		}
 
-		public Alquiler(int número,DateTime fechaReservada,DateTime fechaEntrada, DateTime fechaSalida,Propiedad propiedad,Cliente cliente,double precio)
+		public Alquiler(int número,DateTime fechaReservada,DateTime fechaEntrada, DateTime fechaSalida,Residencia propiedad,Cliente cliente,double precio)
 		{
 			this.Número = número;
 			this.FechaReservada= fechaReservada;

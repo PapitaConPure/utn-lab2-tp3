@@ -13,20 +13,20 @@ namespace AlquilerLib {
 		/// El precio base con el que trabajan todas las propiedades del sistema
 		/// </summary>
 		public static double PrecioBase;
-		List<Propiedad> propiedades;
+		List<Residencia> propiedades;
 
 		/// <summary>
 		/// Crea un sistema de propiedades con una lista de propiedades vacía
 		/// </summary>
 		public Sistema() {
-			this.propiedades = new List<Propiedad>();
+			this.propiedades = new List<Residencia>();
 		}
 
 		/// <summary>
 		/// Agrega una propiedad al sistema
 		/// </summary>
 		/// <param name="propiedad">propiedad a incorporar</param>
-		public void AgregarPropiedad(Propiedad propiedad) {
+		public void AgregarPropiedad(Residencia propiedad) {
 			this.propiedades.Add(propiedad);
 		}
 
@@ -34,11 +34,11 @@ namespace AlquilerLib {
 		/// Consulta una propiedad por número de propiedad
 		/// </summary>
 		/// <param name="nroPropiedad">número de propiedad a buscar</param>
-		/// <returns>La <see cref="Propiedad"/> bajo el número indicado, o <see langword="null"/> si no se encuentra</returns>
-		public Propiedad VerPropiedad(int número) {
+		/// <returns>La <see cref="Residencia"/> bajo el número indicado, o <see langword="null"/> si no se encuentra</returns>
+		public Residencia VerPropiedad(int número) {
 			this.propiedades.Sort();
 
-			Propiedad buscada = new Casa(número, "",0,0,0,"",0,"");
+			Residencia buscada = new Casa(número, "",0,0,0,"",0,"");
 			int idx = this.propiedades.BinarySearch(buscada);
 
 			if(idx < 0)
@@ -52,11 +52,11 @@ namespace AlquilerLib {
 		/// </summary>
 		/// <param name="nroPropiedad">número de la propiedad a alquilar</param>
 		/// <param name="alquiler">alquiler a relacionar con la propiedad</param>
-		/// <returns><see langword="true"/> si se pudo alquilar la <see cref="Propiedad"/></returns>
+		/// <returns><see langword="true"/> si se pudo alquilar la <see cref="Residencia"/></returns>
 		/// 
 
 		public bool AlquilarPropiedad(int nroPropiedad, Alquiler alquiler) {
-			Propiedad propiedad = this.VerPropiedad(nroPropiedad);
+			Residencia propiedad = this.VerPropiedad(nroPropiedad);
 
             if (propiedad is null)
                 return false;
@@ -69,7 +69,7 @@ namespace AlquilerLib {
 		}
 		public bool QuitarPropiedad(int nroPropiedad)
 		{
-			Propiedad propiedad = this.VerPropiedad(nroPropiedad);
+			Residencia propiedad = this.VerPropiedad(nroPropiedad);
 			if (propiedad != null)
 			{
 				this.propiedades.Remove(propiedad);
@@ -87,7 +87,7 @@ namespace AlquilerLib {
 		/// <param name="nroAlquiler"></param>
 		/// <returns><see langword="true"/> si se pudo cancelar el Alquiler</returns>
 		public bool CancelarAlquiler(int nroPropiedad, int nroAlquiler) {
-			Propiedad propiedad = this.VerPropiedad(nroPropiedad);
+			Residencia propiedad = this.VerPropiedad(nroPropiedad);
 
 			if(propiedad is null)
 				return false;

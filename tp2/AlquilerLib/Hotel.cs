@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	public class Hotel: Propiedad {
+	public class Hotel: Residencia {
 		public enum TipoHabitación {
 			Simple = 0,
 			Doble = 80,

@@ -5,21 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AlquilerLib {
-	public abstract class Propiedad : IImprimible, IComparable {
+	public abstract class Residencia : IImprimible, IComparable {
 		protected string[] servicios;
 		protected double precioDía;
 		private int cServicios = 0;
 		protected List<Alquiler> alquileres = new List<Alquiler>();
-        private Persona propietario;
         //No entendí muy bien lo de que cada propiedad tenga un propietario
         //Sería el dueño de la propiedad que la alquila y desp el cliente???
 
-		public Propiedad(int número, string dirección)//Persona propietario
+		public Residencia(int número, string dirección)//Persona propietario
 		{
 			this.Número = número;
 			this.Dirección = dirección;
 			this.alquileres = new List<Alquiler>();
-            servicios = new string[6];
+            this.servicios = new string[6];
 			//this.propietario=propietario;
 		}
 
@@ -93,7 +92,7 @@ namespace AlquilerLib {
 		}
 
 		public int CompareTo(object obj) {
-			return this.Número.CompareTo((obj as Propiedad).Número);
+			return this.Número.CompareTo((obj as Residencia).Número);
 		}
 	}
 }

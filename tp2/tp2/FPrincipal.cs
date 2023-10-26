@@ -110,7 +110,7 @@ namespace tp2 {
 		}
 
 		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
-			Propiedad propiedad = sistema.VerPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value));
+			Residencia propiedad = sistema.VerPropiedad(Convert.ToInt32(nudNroPropiedadAlquiler.Value));
 
             if(propiedad!= null) {
 				MessageBox.Show("La propiedad existe.");
@@ -166,7 +166,7 @@ namespace tp2 {
 
         private void btnBorrarPropiedad_Click(object sender, EventArgs e)
         {
-			Propiedad aBorrar = cbPropiedades.SelectedItem as Propiedad;
+			Residencia aBorrar = cbPropiedades.SelectedItem as Residencia;
             if (aBorrar != null)
             {
 				if (sistema.QuitarPropiedad(aBorrar.Número))
@@ -187,7 +187,7 @@ namespace tp2 {
 
         private void btnModificarPropiedad_Click(object sender, EventArgs e)
         {
-			Propiedad aModificar = cbPropiedades.SelectedItem as Propiedad;
+			Residencia aModificar = cbPropiedades.SelectedItem as Residencia;
 			if(aModificar is Hotel)
             {
 				FAgregarHotel fhotel = new FAgregarHotel();
@@ -272,7 +272,7 @@ namespace tp2 {
 			}
         }
 
-        private void BuscarServicio(Propiedad aModificar, string buscado)
+        private void BuscarServicio(Residencia aModificar, string buscado)
         {
 			string[] serv;
 			bool rep;
@@ -288,7 +288,7 @@ namespace tp2 {
         private void btnVer_Click(object sender, EventArgs e)
         {
 			FDetalles detail = new FDetalles();
-			Propiedad aVer = cbPropiedades.SelectedItem as Propiedad;
+			Residencia aVer = cbPropiedades.SelectedItem as Residencia;
 			
             
 			if(aVer is Hotel)
