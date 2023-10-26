@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Drawing;
 
 namespace AlquilerLib {
 	public class Casa: Residencia, IImprimible {
 		public int MínimoPermitido { get; private set; }
 		public int CamasDisponibles { get; private set; }
 		public Persona Propietario;
-		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido): base(número,dirección) 
+		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido, Image[] imágenes): base(número, dirección, imágenes) 
 		{
 			this.CamasDisponibles= camasDisponibles;
 			this.MínimoPermitido = mínimoPermitido;
@@ -15,14 +16,14 @@ namespace AlquilerLib {
 		public  override double PrecioPorDía(int nroAlquiler) {
 			Alquiler alquiler = VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);// Es lo mismo que fechasalida-fechaentrada
-			return Sistema.PrecioBase * (1 + CamasDisponibles * 0.07) * (1 + CServicios * 0.14) * (int)diferencia.TotalDays;
+			return Sistema.PrecioBase * (1 + CamasDisponibles * 0.07) * (1 + CServicios * 0.14);
 		}
 
         public override double PrecioTotal(int nroAlquiler)
         {
 			Alquiler alquiler = VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);
-			double PrecioFinal = PrecioPorDía(nroAlquiler) * diferencia.Days;
+			double PrecioFinal = (PrecioPorDía(nroAlquiler) * (diferencia.Days-this.MínimoPermitido)) * 0.9 + (PrecioPorDía(nroAlquiler)*(this.MínimoPermitido));
 			return PrecioFinal;
         }
 
