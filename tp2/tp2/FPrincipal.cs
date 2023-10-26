@@ -284,6 +284,36 @@ namespace tp2 {
 
 		private void btnImportar_Click(object sender, EventArgs e) {
 
+			Residencia residencia;
+			FileStream fs;
+			StreamReader sr;
+			string linea;
+			string[] datos;
+			int i = 0;
+			try
+			{
+				fs = new FileStream(ofdDatos.FileName, FileMode.Open, FileAccess.Read);
+				sr = new StreamReader(fs);
+				while (!sr.EndOfStream)
+				{
+					linea=sr.ReadLine();
+					i++;
+					datos = linea.Split(';');
+					if (datos.Length == 13)
+					{
+						Residencia p = sistema.VerPropiedad(Convert.ToInt32(datos[0]));
+						residencia = new Hotel(
+							Convert.ToInt32(datos[0]),
+							datos[1],
+							Convert.ToInt32(datos[2]),
+							((Hotel)p).CntSimple,
+							((Hotel)p).CntDoble,
+							((Hotel)p).CntTriple,
+							((Hotel)p).Imágenes
+							);
+					}
+				}
+			}
 		}
 
 		private void btnExportar_Click(object sender, EventArgs e) {
