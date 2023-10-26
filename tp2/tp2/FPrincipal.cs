@@ -295,8 +295,10 @@ namespace tp2 {
         {
 			FDetalles detail = new FDetalles();
 			Residencia aVer = cbPropiedades.SelectedItem as Residencia;
-			
-            
+
+			detail.lbDetalles.Items.Add($"Nro Propiedad: {aVer.Número}");
+			detail.lbDetalles.Items.Add($"Direccion: {aVer.Dirección}");
+
 			if(aVer is Hotel)
             {
 				detail.lbDetalles.Items.Add($"Estrellas: {((Hotel)aVer).Estrellas}");
@@ -304,11 +306,6 @@ namespace tp2 {
 				detail.lbDetalles.Items.Add($"Simples: {((Hotel)aVer).CntSimple}");
 				detail.lbDetalles.Items.Add($"Dobles: {((Hotel)aVer).CntDoble}");
 				detail.lbDetalles.Items.Add($"triples: {((Hotel)aVer).CntTriple}");
-				detail.lbDetalles.Items.Add($"Direccion: {aVer.Dirección}");
-				detail.lbDetalles.Items.Add($"Nro Propiedad: {aVer.Número}");
-				detail.lbDetalles.Items.Add($"Servicios:");
-				foreach(string s in aVer.VerServicios())
-					if(s!=null) detail.lbDetalles.Items.Add(s);
 			}
 			else if(aVer is Casa)
             {
@@ -317,10 +314,15 @@ namespace tp2 {
 				detail.lbDetalles.Items.Add($"Propietario:");
 				detail.lbDetalles.Items.Add($"Apellido: {((Casa)aVer).Propietario.Apellido}, Nombre: {((Casa)aVer).Propietario.Nombre}");
 				detail.lbDetalles.Items.Add($"Dni: {((Casa)aVer).Propietario.Dni}, Tel:{((Casa)aVer).Propietario.Tel}");
-				detail.lbDetalles.Items.Add($"Servicios:");
-				foreach (string s in aVer.VerServicios())
-					if (s != null) detail.lbDetalles.Items.Add(s);
 			}
+
+			detail.lbDetalles.Items.Add($"Servicios:");
+			foreach(string s in aVer.VerServicios())
+				if(s != null) detail.lbDetalles.Items.Add(s);
+
+			detail.pbImagen1.Image = aVer.Imágenes[0];
+			detail.pbImagen2.Image = aVer.Imágenes[1];
+
 			detail.ShowDialog();
 			detail.Close();
 		}

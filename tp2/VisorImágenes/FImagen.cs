@@ -12,86 +12,77 @@ namespace cargandoImagenes
 {
     public partial class FImagen : Form
     {
-        public FImagen()
+		private int cantidadImágenes;
+        private int imagenActual;
+
+		public FImagen()
         {
-            InitializeComponent();
-        }
-        private PictureBox[] imagenes = new PictureBox[2];
-        private int cont = 0; 
-        public Image[] Imágenes
+            this.InitializeComponent();
+			this.Imágenes = new Image[2];
+			this.cantidadImágenes = 0;
+			this.imagenActual = 0;
+		}
+
+		public FImagen(Image[] imágenes): this() {
+			for(int i = 0; i < this.Imágenes.Length; i++) {
+				this.Imágenes[i] = imágenes[i];
+				this.cantidadImágenes++;
+			}
+		}
+
+		public Image[] Imágenes { get; private set; }
+
+		private void btnCargarImagen_Click(object sender, EventArgs e)
         {
-            get
+            OpenFileDialog abrirImagen = new OpenFileDialog();
+            if(abrirImagen.ShowDialog() == DialogResult.OK)
             {
-				Image[] ret = new Image[2];
+                this.Imágenes[this.cantidadImágenes] = Image.FromFile(abrirImagen.FileName);
+				this.pbVisor.Image = Imágenes[this.cantidadImágenes];
 
-				for(int i = 0; i < cont; i++)
-					ret[i] = this.imagenes[i].Image;
+				if(this.cantidadImágenes > 0)
+					this.imagenActual++;
 
-                return ret;
-            }
-        }                 
-        private void btnCargarImagen_Click(object sender, EventArgs e)
+				this.cantidadImágenes++;
+			}
+		}
+
+		private void btnQuitarImágenes_Click(object sender, EventArgs e) {
+			if(this.cantidadImágenes > 0) {
+				this.Imágenes[this.imagenActual] = this.Imágenes[--this.cantidadImágenes];
+
+				if(this.imagenActual > 0)
+					this.imagenActual--;
+
+				if(this.cantidadImágenes > 0) {
+					this.pbVisor.Image = this.Imágenes[this.imagenActual];
+				} else {
+					this.pbVisor.Image = null;
+				}
+			}
+
+			MessageBox.Show(string.Join("\n", this.imagenActual, this.cantidadImágenes));
+		}
+
+		private void siguiente_click(object sender, EventArgs e)
         {
-            if (cont < imagenes.Length)
-            {
-                OpenFileDialog abrirImagen = new OpenFileDialog();
-                if (abrirImagen.ShowDialog() == DialogResult.OK)
-                {
-                    imagenes[cont] = new PictureBox();
-                    imagenes[cont].Image = Image.FromFile(abrirImagen.FileName);
-                    imagenes[cont].SizeMode = PictureBoxSizeMode.StretchImage;
-                    cont++;
-
-                    if (cont == imagenes.Length)
-                    {
-                        Ver.Enabled = true;
-                        btnCargarImagen.Enabled = false;
-                    }
-                }
+            if(this.imagenActual < this.cantidadImágenes - 1) {
+                this.pbVisor.Image = this.Imágenes[++this.imagenActual];
             }
-        }
-
-        private void siguiente_click(object sender, EventArgs e)
-        {
-            if (cont <imagenes.Length-1)
-            {
-                cont++;
-                pictureBox1.Image = imagenes[cont].Image;
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-
         }
 
         private void anterior_Click(object sender, EventArgs e)
         {
-            if (cont>0)
+            if(this.imagenActual > 0)
             {
-                cont--;
-                pictureBox1.Image = imagenes[cont].Image;
-                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                this.pbVisor.Image = this.Imágenes[--this.imagenActual];
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            siguiente.Enabled = false;
-            anterior.Enabled = false;
-            Ver.Enabled = false;
-        }
-
-        private void Ver_Click(object sender, EventArgs e)
-        {
-            siguiente.Enabled = true;
-            anterior.Enabled = true;
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.Image = imagenes[0].Image;
-            cont = 0;
-            Ver.Enabled = false;
         }
 
         private void FImagen_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(cont==this.imagenes.Length-1)this.DialogResult= DialogResult.OK;
+            if(this.cantidadImágenes == this.Imágenes.Length)
+				this.DialogResult= DialogResult.OK;
         }
-    }
+	}
 }

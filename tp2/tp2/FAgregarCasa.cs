@@ -53,13 +53,13 @@ namespace tp2
 
         private void btnAgregarImagen_Click(object sender, EventArgs e)
         {
-            if (fi.ShowDialog() == DialogResult.OK)
-                this.ImágenesCargadas = true;
+			this.ImágenesCargadas = fi.ShowDialog() == DialogResult.OK;
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            if(!this.ImágenesCargadas)this.DialogResult=DialogResult.None;
+            if(!this.ImágenesCargadas)
+				this.DialogResult=DialogResult.None;
         }
     }
 }

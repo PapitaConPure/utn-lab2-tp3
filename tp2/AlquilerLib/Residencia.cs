@@ -11,7 +11,6 @@ namespace AlquilerLib {
 		protected double precioDía;
 		private int cServicios = 0;
 		protected List<Alquiler> alquileres = new List<Alquiler>();
-		private Image[] imágenes;
 
 		public Residencia(int número, string dirección, Image[] imágenes) //Persona propietario
 		{
@@ -19,7 +18,7 @@ namespace AlquilerLib {
 			this.Dirección = dirección;
 			this.alquileres = new List<Alquiler>();
             this.servicios = new string[6];
-			this.imágenes = new Image[2];
+			this.Imágenes = imágenes;
 		}
 
 		public int CServicios { get { return cServicios; } }
@@ -27,6 +26,8 @@ namespace AlquilerLib {
 		public int Número { get; private set; }
 
 		public string Dirección { get; private set; }
+
+		public Image[] Imágenes { get; private set; }
 
 		public double CalcularPrecioTotal()
 		{
