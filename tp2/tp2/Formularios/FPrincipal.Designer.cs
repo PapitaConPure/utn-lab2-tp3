@@ -67,6 +67,7 @@ namespace tp2 {
 			this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
 			this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
 			this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
 			this.btnAgregarCasa.Name = "btnAgregarCasa";
 			this.btnAgregarCasa.Size = new System.Drawing.Size(327, 36);
@@ -82,6 +83,7 @@ namespace tp2 {
 			this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
 			this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
 			this.btnAgregarHotel.Location = new System.Drawing.Point(410, 3);
 			this.btnAgregarHotel.Name = "btnAgregarHotel";
 			this.btnAgregarHotel.Size = new System.Drawing.Size(327, 36);
@@ -123,11 +125,12 @@ namespace tp2 {
 			// 
 			// btnVer
 			// 
-			this.btnVer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.btnVer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(180)))), ((int)(((byte)(211)))));
 			this.btnVer.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnVer.FlatAppearance.BorderSize = 0;
 			this.btnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnVer.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnVer.ForeColor = System.Drawing.Color.White;
 			this.btnVer.Location = new System.Drawing.Point(249, 3);
 			this.btnVer.Name = "btnVer";
 			this.btnVer.Size = new System.Drawing.Size(240, 36);
