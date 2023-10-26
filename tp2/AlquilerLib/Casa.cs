@@ -16,14 +16,14 @@ namespace AlquilerLib {
 		public  override double PrecioPorDía(int nroAlquiler) {
 			Alquiler alquiler = VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);// Es lo mismo que fechasalida-fechaentrada
-			return Sistema.PrecioBase * (1 + CamasDisponibles * 0.07) * (1 + CServicios * 0.14) * (int)diferencia.TotalDays;
+			return Sistema.PrecioBase * (1 + CamasDisponibles * 0.07) * (1 + CServicios * 0.14);
 		}
 
         public override double PrecioTotal(int nroAlquiler)
         {
 			Alquiler alquiler = VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);
-			double PrecioFinal = PrecioPorDía(nroAlquiler) * diferencia.Days;
+			double PrecioFinal = (PrecioPorDía(nroAlquiler) * (diferencia.Days-this.MínimoPermitido)) * 0.9 + (PrecioPorDía(nroAlquiler)*(this.MínimoPermitido));
 			return PrecioFinal;
         }
 
