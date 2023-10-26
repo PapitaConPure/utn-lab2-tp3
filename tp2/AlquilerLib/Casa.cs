@@ -22,11 +22,7 @@ namespace AlquilerLib {
         {
 			Alquiler alquiler = VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);
-			double PrecioFinal=0;
-			for(int i=0; i < diferencia.Days; i++)
-            {
-				PrecioFinal += this.PrecioPorDía(nroAlquiler);
-            }
+			double PrecioFinal = PrecioPorDía(nroAlquiler) * diferencia.Days;
 			return PrecioFinal;
         }
 

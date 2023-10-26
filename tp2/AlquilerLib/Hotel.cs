@@ -36,12 +36,17 @@ namespace AlquilerLib {
 			if(this.Estrellas >= 3)
 				precio += precio * 0.4;
 
+			//precio += precio * 0.03;
+
 			return precio;
 		}
         public override double PrecioTotal(int nroAlquiler)
         {
             Alquiler alquiler = VerAlquiler(nroAlquiler);
-			return alquiler.PrecioTotal;
+			TimeSpan diferencia = alquiler.FechaSalida.Subtract(alquiler.FechaEntrada);
+			//double precioFinal = PrecioPorDía(nroAlquiler) * diferencia.Days;
+			double precioFinal = PrecioPorDía(nroAlquiler) * (1 + diferencia.Days * 0.03);
+			return precioFinal;
 		}
 		public TipoHabitación VerTipoHabitación(int cantPasajeros)
 		{
