@@ -24,7 +24,7 @@ namespace cargandoImagenes
             {
 				Image[] ret = new Image[2];
 
-				for(int i = 0; i < this.imagenes.Length && this.imagenes[i] != null; i++)
+				for(int i = 0; i < cont; i++)
 					ret[i] = this.imagenes[i].Image;
 
                 return ret;
@@ -32,7 +32,7 @@ namespace cargandoImagenes
         }                 
         private void btnCargarImagen_Click(object sender, EventArgs e)
         {
-            if (cont < 3)
+            if (cont < imagenes.Length)
             {
                 OpenFileDialog abrirImagen = new OpenFileDialog();
                 if (abrirImagen.ShowDialog() == DialogResult.OK)
@@ -42,7 +42,7 @@ namespace cargandoImagenes
                     imagenes[cont].SizeMode = PictureBoxSizeMode.StretchImage;
                     cont++;
 
-                    if (cont == 3)
+                    if (cont == imagenes.Length)
                     {
                         Ver.Enabled = true;
                         btnCargarImagen.Enabled = false;
@@ -77,7 +77,6 @@ namespace cargandoImagenes
             siguiente.Enabled = false;
             anterior.Enabled = false;
             Ver.Enabled = false;
-
         }
 
         private void Ver_Click(object sender, EventArgs e)
@@ -88,6 +87,11 @@ namespace cargandoImagenes
             pictureBox1.Image = imagenes[0].Image;
             cont = 0;
             Ver.Enabled = false;
+        }
+
+        private void FImagen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(cont==this.imagenes.Length-1)this.DialogResult= DialogResult.OK;
         }
     }
 }

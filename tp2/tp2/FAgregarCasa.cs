@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cargandoImagenes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,16 @@ namespace tp2
             tbApellido.Enabled = true;
             tbNombre.Enabled = true;
         }
+        FImagen fi = new FImagen();
+
+        public bool ImágenesCargadas
+        {
+            get;private set;
+        }
+        public Image[] Imágenes
+        {
+            get { return fi.Imágenes; }
+        }
 
         private void rbCasa_CheckedChanged(object sender, EventArgs e)
         {
@@ -38,6 +49,17 @@ namespace tp2
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            if (fi.ShowDialog() == DialogResult.OK)
+                this.ImágenesCargadas = true;
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            if(!this.ImágenesCargadas)this.DialogResult=DialogResult.None;
         }
     }
 }

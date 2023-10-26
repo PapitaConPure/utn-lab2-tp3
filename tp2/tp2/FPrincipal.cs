@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AlquilerLib;
+using cargandoImagenes;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
@@ -57,8 +58,9 @@ namespace tp2 {
 			FAgregarCasa fcasa = new FAgregarCasa();
             if (fcasa.ShowDialog() == DialogResult.OK)
             {
+
 				if(fcasa.rbCasa.Checked)
-                {
+				{
 					casa = new Casa(Convert.ToInt32(fcasa.nudNroPropiedad.Text),
 									fcasa.tbDireccionCasa.Text,
 									Convert.ToInt32(fcasa.nudMinDias.Value),
@@ -66,16 +68,16 @@ namespace tp2 {
 									Convert.ToInt32(fcasa.nudDNI.Value),
 									fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel.Value),
 									fcasa.tbApellido.Text,
-									new Image[] { });
+									fcasa.Imágenes);
 				}
 				else if (fcasa.rbCasaFinde.Checked)
-                {
+				{
 					casa = new CasaFinde(Convert.ToInt32(fcasa.nudNroPropiedad.Text),
-										 fcasa.tbDireccionCasa.Text, 3,
-										 Convert.ToInt32(fcasa.nudDNI.Value),
-										 fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel.Value),
-										 fcasa.tbApellido.Text,
-										 new Image[] { });
+											fcasa.tbDireccionCasa.Text, 3,
+											Convert.ToInt32(fcasa.nudDNI.Value),
+											fcasa.tbNombre.Text,Convert.ToInt64(fcasa.nudTel.Value),
+											fcasa.tbApellido.Text,
+											fcasa.Imágenes);
 				}
 
 				if (fcasa.chbGarage.Checked) casa.AgregarServicio("Cochera");
@@ -87,7 +89,8 @@ namespace tp2 {
 
 				sistema.AgregarPropiedad(casa);
 				cbPropiedades.Items.Add(casa);
-			}
+				
+            }
         }
 
 		private void btnAgregarHotel_Click_1(object sender, EventArgs e) {

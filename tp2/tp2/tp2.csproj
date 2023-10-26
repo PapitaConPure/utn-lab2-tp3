@@ -127,6 +127,10 @@
       <Project>{c3b9cb44-4048-45be-8269-36473e678183}</Project>
       <Name>AlquilerLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VisorImágenes\VisorImágenes.csproj">
+      <Project>{C5516CBE-8771-4A83-BE74-57BB38EF5E08}</Project>
+      <Name>VisorImágenes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -57,6 +57,7 @@ namespace tp2
             this.nudNroPropiedad = new System.Windows.Forms.NumericUpDown();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAgregarImágen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinDias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantCamas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDNI)).BeginInit();
@@ -369,6 +370,7 @@ namespace tp2
             this.btnCrear.TabIndex = 31;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnCancelar
             // 
@@ -381,11 +383,22 @@ namespace tp2
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnAgregarImágen
+            // 
+            this.btnAgregarImágen.Location = new System.Drawing.Point(41, 135);
+            this.btnAgregarImágen.Name = "btnAgregarImágen";
+            this.btnAgregarImágen.Size = new System.Drawing.Size(97, 23);
+            this.btnAgregarImágen.TabIndex = 33;
+            this.btnAgregarImágen.Text = "Agregar Imagen";
+            this.btnAgregarImágen.UseVisualStyleBackColor = true;
+            this.btnAgregarImágen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
+            // 
             // FAgregarCasa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(361, 561);
+            this.Controls.Add(this.btnAgregarImágen);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.nudNroPropiedad);
@@ -455,5 +468,6 @@ namespace tp2
         public System.Windows.Forms.CheckBox chbPermiteMascotas;
         public System.Windows.Forms.CheckBox chbLimpieza;
         public System.Windows.Forms.CheckBox chbDesayuno;
+        private System.Windows.Forms.Button btnAgregarImágen;
     }
 }
