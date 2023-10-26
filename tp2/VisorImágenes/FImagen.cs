@@ -10,26 +10,24 @@ using System.Windows.Forms;
 
 namespace cargandoImagenes
 {
-    public partial class Form1 : Form
+    public partial class FImagen : Form
     {
-        public Form1()
+        public FImagen()
         {
             InitializeComponent();
         }
-        private PictureBox[] imagenes = new PictureBox[3];
+        private PictureBox[] imagenes = new PictureBox[2];
         private int cont = 0; 
-        public Image this[int idx]
+        public Image[] Imágenes
         {
             get
             {
-                if (idx >= 0 && idx < imagenes.Length)
-                {
-                    return imagenes[idx].Image;
-                }
-                else
-                {
-                    return null; 
-                }
+				Image[] ret = new Image[2];
+
+				for(int i = 0; i < this.imagenes.Length && this.imagenes[i] != null; i++)
+					ret[i] = this.imagenes[i].Image;
+
+                return ret;
             }
         }                 
         private void btnCargarImagen_Click(object sender, EventArgs e)
