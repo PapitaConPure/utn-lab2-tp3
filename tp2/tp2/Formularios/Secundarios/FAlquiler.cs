@@ -71,8 +71,8 @@ namespace tp2 {
 					this.calendario.DíaSeleccionado,
 					checkIn,
 					checkOut,
-					cliente
-				);
+					cliente,
+					this.sistema.PrecioBase);
 
 				MessageBox.Show(
 					$"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}",

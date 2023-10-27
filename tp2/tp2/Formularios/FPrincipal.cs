@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using AlquilerLib;
+using System.Runtime.Serialization;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
@@ -24,6 +25,7 @@ namespace tp2 {
 			this.InitializeComponent();
 		}
 
+		#region Persistencia de Sistema
 		private void FPrincipal_Load(object sender, EventArgs e) {
 			string rutaDir = Application.StartupPath;
 			this.rutaBin = Path.Combine(rutaDir, "config.dat");
@@ -43,16 +45,29 @@ namespace tp2 {
 				MessageBox.Show("No se pudieron cargar los datos previos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			} catch(UnauthorizedAccessException) {
 				MessageBox.Show("No se pudieron cargar los datos previos", "Error de Permisos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			} catch(SerializationException) {
+				MessageBox.Show("No se pudieron cargar los datos previos", "Error de Deserialización", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			} finally {
 				if(fs != null)
 					fs.Close();
 			}
 
-			if(this.sistema == null)
-				this.sistema = new Sistema();
+			if(this.sistema == null) {
+				FNuevoSistema fNuevoSistema = new FNuevoSistema();
+
+				if(fNuevoSistema.ShowDialog() == DialogResult.OK)
+					this.sistema = fNuevoSistema.Sistema;
+				else
+					Application.Exit();
+
+				fNuevoSistema.Dispose();
+			}
 		}
 
 		private void FPrincipal_FormClosed(object sender, FormClosedEventArgs e) {
+			if(this.sistema is null)
+				return;
+
 			FileStream fs = null;
 			try {
 				fs = new FileStream(this.rutaBin, FileMode.OpenOrCreate, FileAccess.Write);
@@ -67,6 +82,7 @@ namespace tp2 {
 					fs.Close();
 			}
 		}
+		#endregion
 
 		#region ABC de Propiedades
 		private void BtnAgregarCasa_Click(object sender, EventArgs e) {
@@ -248,8 +264,9 @@ namespace tp2 {
 							Convert.ToDateTime(datos[4]),
 							Convert.ToDateTime(datos[5]),
 							//PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE
-							new Cliente(Convert.ToInt32(datos[2]), 0, 0, "", "", 0));
+							new Cliente(Convert.ToInt32(datos[2]), 0, 0, "", "", 0),
 							//PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE
+							this.sistema.PrecioBase);
 
 						residencia.Alquilar(alquiler);
 					} else
