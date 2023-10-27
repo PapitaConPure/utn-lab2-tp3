@@ -11,19 +11,21 @@ namespace AlquilerLib {
 	/// </summary>
 	[Serializable]
 	public class Sistema {
-		/// <summary>
-		/// El precio base con el que trabajan todas las propiedades del sistema
-		/// </summary>
-		public static double PrecioBase;
-
 		private List<Residencia> residencias;
 
 		/// <summary>
-		/// Crea un sistema de propiedades con una lista de propiedades vacía
+		/// Crea un sistema de alquileres con una lista de residencias vacía
 		/// </summary>
-		public Sistema() {
+		/// <param name="precioBase">Residencia a incorporar</param>
+		public Sistema(double precioBase) {
 			this.residencias = new List<Residencia>();
+			this.PrecioBase = precioBase;
 		}
+
+		/// <summary>
+		/// El precio base con el que trabajan todas las residencias del sistema
+		/// </summary>
+		public double PrecioBase { get; private set; }
 
 		/// <summary>
 		/// Vector de todos los objetos <see cref="Residencia"/> actuales del sistema
@@ -34,9 +36,9 @@ namespace AlquilerLib {
 		}
 
 		/// <summary>
-		/// Agrega una propiedad al sistema
+		/// Agrega una residencia al sistema
 		/// </summary>
-		/// <param name="propiedad">propiedad a incorporar</param>
+		/// <param name="propiedad">Residencia a incorporar</param>
 		public void AgregarResidencia(Residencia propiedad) {
 			this.residencias.Add(propiedad);
 		}
@@ -57,14 +59,14 @@ namespace AlquilerLib {
 		}
 
 		/// <summary>
-		/// Consulta una propiedad por número de propiedad
+		/// Consulta una propiedad por número de residencia
 		/// </summary>
-		/// <param name="nroPropiedad">número de propiedad a buscar</param>
+		/// <param name="nroResidencia">Número de residencia a buscar</param>
 		/// <returns>La <see cref="Residencia"/> bajo el número indicado, o <see langword="null"/> si no se encuentra</returns>
-		public Residencia VerResidencia(int número) {
+		public Residencia VerResidencia(int nroResidencia) {
 			this.residencias.Sort();
 
-			Residencia buscada = new Casa(número, "",0,0,0,"",0,"", new Image[] { });
+			Residencia buscada = new Casa(nroResidencia, "",0,0,0,"",0,"", new Image[0]);
 			int idx = this.residencias.BinarySearch(buscada);
 
 			if(idx < 0)
@@ -76,8 +78,8 @@ namespace AlquilerLib {
 		/// <summary>
 		/// Alquila la <see cref="Residencia"/> bajo el número indicado si existe
 		/// </summary>
-		/// <param name="nroResidencia">número de la residencia a alquilar</param>
-		/// <param name="alquiler">alquiler a relacionar con la propiedad</param>
+		/// <param name="nroResidencia">Número de la residencia a alquilar</param>
+		/// <param name="alquiler">Alquiler a relacionar con la propiedad</param>
 		/// <returns><see langword="true"/> si se pudo alquilar la <see cref="Residencia"/></returns>
 		public bool AlquilarResidencia(int nroResidencia, Alquiler alquiler) {
 			Residencia propiedad = this.VerResidencia(nroResidencia);

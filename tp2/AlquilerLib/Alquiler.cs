@@ -45,7 +45,7 @@ namespace AlquilerLib {
 			}
 		}
 
-		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Cliente cliente)
+		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Cliente cliente, double precioBase)
 		{
 			this.Número = número;
 			this.FechaReserva= fechaReserva;
@@ -58,7 +58,7 @@ namespace AlquilerLib {
 
 			this.CheckIn= checkIn;
 			this.CheckOut = checkOut;
-			this.PrecioBase = Sistema.PrecioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
+			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
 			this.cliente = cliente;
 		}
 
