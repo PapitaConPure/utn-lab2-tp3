@@ -4,15 +4,18 @@ using System.Drawing;
 namespace AlquilerLib {
 	[Serializable]
 	public class Casa: Residencia, IImprimible {
-		public int MínimoPermitido { get; set; }
-		public int CamasDisponibles { get; set; }
-		public Persona Propietario;
 		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido, Image[] imágenes): base(número, dirección, imágenes) 
 		{
 			this.CamasDisponibles= camasDisponibles;
 			this.MínimoPermitido = mínimoPermitido;
 			this.Propietario = new Persona(dni, nombre, tel, apellido);
-        }
+		}
+
+		public int MínimoPermitido { get; set; }
+
+		public int CamasDisponibles { get; set; }
+
+		public Persona Propietario { get; set; }
 
 		public override double PrecioPorDía(int nroAlquiler) {
 			//Alquiler alquiler = this.VerAlquiler(nroAlquiler);
