@@ -169,8 +169,8 @@ namespace tp2 {
 
 				if(fcasa.ShowDialog() == DialogResult.OK) {
 					Casa casa = aModificar as Casa;
-					casa.ModificarCamas((int)fcasa.nudCantCamas.Value);
-					casa.ModificarDias((int)fcasa.nudMinDias.Value);
+					casa.CamasDisponibles = (int)fcasa.nudCantCamas.Value;
+					casa.MínimoPermitido = (int)fcasa.nudMinDias.Value;
 
 					if (fcasa.chbGarage.Checked)          aModificar.AgregarServicio("Cochera");
 					if (fcasa.chbDesayuno.Checked)        aModificar.AgregarServicio("Desayuno");

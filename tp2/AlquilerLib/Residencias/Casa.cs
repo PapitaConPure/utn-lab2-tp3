@@ -4,8 +4,8 @@ using System.Drawing;
 namespace AlquilerLib {
 	[Serializable]
 	public class Casa: Residencia, IImprimible {
-		public int MínimoPermitido { get; private set; }
-		public int CamasDisponibles { get; private set; }
+		public int MínimoPermitido { get; set; }
+		public int CamasDisponibles { get; set; }
 		public Persona Propietario;
 		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido, Image[] imágenes): base(número, dirección, imágenes) 
 		{
@@ -30,15 +30,6 @@ namespace AlquilerLib {
 
         public override bool PuedeAlquilar(Alquiler alquiler) {
 			return base.PuedeAlquilar(alquiler);
-		}
-
-		public void ModificarDias(int dias)
-        {
-			this.MínimoPermitido = dias;
-        }
-		public void ModificarCamas(int camas)
-        {
-			this.CamasDisponibles = camas;
 		}
 
 		public override string ToString()
