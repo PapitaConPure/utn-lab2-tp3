@@ -53,17 +53,17 @@
 			this.btnCancelar.Text = "Cancelar";
 			this.btnCancelar.UseVisualStyleBackColor = true;
 			// 
-			// calindario
+			// calendario
 			// 
 			this.calendario.CalendarDimensions = new System.Drawing.Size(2, 1);
 			this.calendario.Location = new System.Drawing.Point(7, 18);
 			this.calendario.MaxDate = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
 			this.calendario.MaxSelectionCount = 31;
-			this.calendario.Name = "calindario";
+			this.calendario.Name = "calendario";
 			this.calendario.TabIndex = 3;
 			this.calendario.TodayDate = new System.DateTime(((long)(0)));
 			// 
-			// FAlquiler
+			// FFechaAlquiler
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,7 +71,7 @@
 			this.Controls.Add(this.calendario);
 			this.Controls.Add(this.btnCancelar);
 			this.Controls.Add(this.btnAceptar);
-			this.Name = "FAlquiler";
+			this.Name = "FFechaAlquiler";
 			this.Text = "FM1";
 			this.ResumeLayout(false);
 

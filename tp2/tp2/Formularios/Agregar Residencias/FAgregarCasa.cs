@@ -88,23 +88,9 @@ namespace tp2 {
 			}
 		}
 
-		private void RbCasa_CheckedChanged(object sender, EventArgs e)
-        {
-            this.gbMinDías.Enabled = true;
-        }
-
-        private void RbCasaFinde_CheckedChanged(object sender, EventArgs e)
-        {
-            this.gbMinDías.Enabled = false;
-        }
-
-        private void BtnAgregarImagen_Click(object sender, EventArgs e) {
-			this.fImagen.ShowDialog();
-        }
-
-        private void BtnCrear_Click(object sender, EventArgs e) {
-			if(this.casa is null) {
-				try {
+		private void BtnCrear_Click(object sender, EventArgs e) {
+			try {
+				if(this.casa is null) {
 					#region Copipegar despué'
 					//if(this.tbDirección.TextLength == 0) {
 					//	this.tbDirección.Focus();
@@ -155,23 +141,37 @@ namespace tp2 {
 					}
 
 					this.sistema.AgregarResidencia(this.casa);
-				} catch(Exception ex) {
-					MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					this.DialogResult = DialogResult.None;
-				}
-			} else {
-				this.casa.CamasDisponibles = (int)this.nudCantCamas.Value;
-				this.casa.MínimoPermitido = (int)this.nudMinDias.Value;
-				this.casa.Propietario.Nombre = this.tbNombre.Text;
-				this.casa.Propietario.Teléfono = (int)this.nudTel.Value;
+				} else {
+					this.casa.CamasDisponibles = (int)this.nudCantCamas.Value;
+					this.casa.MínimoPermitido = (int)this.nudMinDias.Value;
+					this.casa.Propietario.Nombre = this.tbNombre.Text;
+					this.casa.Propietario.Teléfono = (int)this.nudTel.Value;
 
-				this.casa.LimpiarServicios();
-				foreach(CheckBox servicio in this.servicios) {
-					if(servicio.Checked)
-						this.casa.AgregarServicio(servicio.Text);
+					this.casa.LimpiarServicios();
+					foreach(CheckBox servicio in this.servicios) {
+						if(servicio.Checked)
+							this.casa.AgregarServicio(servicio.Text);
+					}
 				}
+			} catch(Exception ex) {
+				MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				this.DialogResult = DialogResult.None;
 			}
 		}
+
+		private void RbCasa_CheckedChanged(object sender, EventArgs e)
+        {
+            this.gbMinDías.Enabled = true;
+        }
+
+        private void RbCasaFinde_CheckedChanged(object sender, EventArgs e)
+        {
+            this.gbMinDías.Enabled = false;
+        }
+
+        private void BtnAgregarImagen_Click(object sender, EventArgs e) {
+			this.fImagen.ShowDialog();
+        }
 
 		#region Calidad de vida
 		private void SeleccionarTextBox(object sender, EventArgs e) {

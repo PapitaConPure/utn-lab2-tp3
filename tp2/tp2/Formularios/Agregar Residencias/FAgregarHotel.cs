@@ -69,8 +69,8 @@ namespace tp2 {
 		}
 
 		private void BtnCrear_Click(object sender, EventArgs e) {
-			if(this.hotel is null) {
-				try {
+			try {
+				if(this.hotel is null) {
 					this.hotel = new Hotel(
 						(int)this.nudNroPropiedad.Value,
 						this.tbDireccionHotel.Text,
@@ -86,20 +86,20 @@ namespace tp2 {
 					}
 
 					this.sistema.AgregarResidencia(this.hotel);
-				} catch(Exception ex) {
-					MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					this.DialogResult = DialogResult.None;
-				}
-			} else {
-				this.hotel.CntSimple += (int)this.nudSimples.Value;
-				this.hotel.CntDoble += (int)this.nudDobles.Value;
-				this.hotel.CntTriple += (int)this.nudTriples.Value;
+				} else {
+					this.hotel.CntSimple += (int)this.nudSimples.Value;
+					this.hotel.CntDoble += (int)this.nudDobles.Value;
+					this.hotel.CntTriple += (int)this.nudTriples.Value;
 
-				this.hotel.LimpiarServicios();
-				foreach(CheckBox servicio in this.servicios) {
-					if(servicio.Checked)
-						this.hotel.AgregarServicio(servicio.Text);
+					this.hotel.LimpiarServicios();
+					foreach(CheckBox servicio in this.servicios) {
+						if(servicio.Checked)
+							this.hotel.AgregarServicio(servicio.Text);
+					}
 				}
+			} catch(Exception ex) {
+				MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				this.DialogResult = DialogResult.None;
 			}
 		}
 

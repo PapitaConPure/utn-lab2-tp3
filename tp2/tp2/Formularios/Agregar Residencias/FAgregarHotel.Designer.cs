@@ -159,7 +159,7 @@ namespace tp2
 			this.btnAceptar.TabIndex = 0;
 			this.btnAceptar.Text = "Aceptar";
 			this.btnAceptar.UseVisualStyleBackColor = false;
-			this.btnAceptar.Click += new System.EventHandler(this.FAgregarHotel_Shown);
+			this.btnAceptar.Click += new System.EventHandler(this.BtnCrear_Click);
 			// 
 			// tableLayoutPanel1
 			// 
