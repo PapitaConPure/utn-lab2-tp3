@@ -2,7 +2,7 @@
 name: Petición de Cambio
 about: Sugiere una idea para el proyecto
 title: "[MEJORA] nombre de mejora acá"
-labels: mejora
+labels: bug, mejora
 assignees: ''
 
 ---
