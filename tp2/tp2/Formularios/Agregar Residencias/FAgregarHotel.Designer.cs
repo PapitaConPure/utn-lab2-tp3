@@ -119,6 +119,8 @@ namespace tp2
 			this.nudSimples.Name = "nudSimples";
 			this.nudSimples.Size = new System.Drawing.Size(275, 27);
 			this.nudSimples.TabIndex = 0;
+			this.nudSimples.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudSimples.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// nudDobles
 			// 
@@ -128,6 +130,8 @@ namespace tp2
 			this.nudDobles.Name = "nudDobles";
 			this.nudDobles.Size = new System.Drawing.Size(275, 27);
 			this.nudDobles.TabIndex = 1;
+			this.nudDobles.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudDobles.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// nudTriples
 			// 
@@ -137,6 +141,8 @@ namespace tp2
 			this.nudTriples.Name = "nudTriples";
 			this.nudTriples.Size = new System.Drawing.Size(275, 27);
 			this.nudTriples.TabIndex = 2;
+			this.nudTriples.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudTriples.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// btnAceptar
 			// 
@@ -153,6 +159,7 @@ namespace tp2
 			this.btnAceptar.TabIndex = 0;
 			this.btnAceptar.Text = "Aceptar";
 			this.btnAceptar.UseVisualStyleBackColor = false;
+			this.btnAceptar.Click += new System.EventHandler(this.FAgregarHotel_Shown);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -211,6 +218,7 @@ namespace tp2
 			this.btnAgregarImágen.TabIndex = 0;
 			this.btnAgregarImágen.Text = "Elegir Imágenes";
 			this.btnAgregarImágen.UseVisualStyleBackColor = false;
+			this.btnAgregarImágen.Click += new System.EventHandler(this.BtnAgregarImagen_Click);
 			// 
 			// gbServicios
 			// 
@@ -354,6 +362,8 @@ namespace tp2
 			this.tbDireccionHotel.Name = "tbDireccionHotel";
 			this.tbDireccionHotel.Size = new System.Drawing.Size(188, 27);
 			this.tbDireccionHotel.TabIndex = 0;
+			this.tbDireccionHotel.Click += new System.EventHandler(this.SeleccionarTextBox);
+			this.tbDireccionHotel.Enter += new System.EventHandler(this.SeleccionarTextBox);
 			// 
 			// lbDirec
 			// 
@@ -400,6 +410,8 @@ namespace tp2
             0,
             0,
             0});
+			this.nudNroPropiedad.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudNroPropiedad.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// trbEstrellas
 			// 

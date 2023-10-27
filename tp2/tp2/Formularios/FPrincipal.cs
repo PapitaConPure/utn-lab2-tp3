@@ -17,8 +17,6 @@ using System.Runtime.Serialization;
 namespace tp2 {
 	public partial class FPrincipal: Form {
 		private Sistema sistema;
-		private Hotel hotel;
-		private Casa casa;
 		private string rutaBin;
 
         public FPrincipal() {
@@ -84,68 +82,42 @@ namespace tp2 {
 		}
 		#endregion
 
-		#region ABC de Propiedades
+		#region ABM de Propiedades
 		private void BtnAgregarCasa_Click(object sender, EventArgs e) {
-			FAgregarCasa fCasa = new FAgregarCasa();
+			FAgregarCasa fCasa = new FAgregarCasa(this.sistema);
+
             if(fCasa.ShowDialog() == DialogResult.OK) {
-				if(fCasa.rbCasa.Checked) {
-					this.casa = new Casa(
-						(int)fCasa.nudNroResidencia.Value,
-						fCasa.tbDirección.Text,
-						(int)fCasa.nudMinDias.Value,
-						(int)fCasa.nudCantCamas.Value,
-						(int)fCasa.nudDNI.Value,
-						fCasa.tbNombre.Text,
-						(long)fCasa.nudTel.Value,
-						fCasa.tbApellido.Text,
-						fCasa.Imágenes);
-				} else if(fCasa.rbCasaFinde.Checked) {
-					this.casa = new CasaFinde(
-						(int)fCasa.nudNroResidencia.Value,
-						fCasa.tbDirección.Text, 3,
-						(int)fCasa.nudDNI.Value,
-						fCasa.tbNombre.Text,
-						(long)fCasa.nudTel.Value,
-						fCasa.tbApellido.Text,
-						fCasa.Imágenes);
-				}
+				MessageBox.Show(
+					"La casa fue registrada exitosamente",
+					"Casa agregada",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Information);
 
-				if(fCasa.chbGarage.Checked) this.casa.AgregarServicio("Cochera");
-				if(fCasa.chbDesayuno.Checked) this.casa.AgregarServicio("Desayuno");
-				if(fCasa.chbLimpieza.Checked) this.casa.AgregarServicio("Limpieza");
-				if(fCasa.chbPermiteMascotas.Checked) this.casa.AgregarServicio("Mascotas");
-				if(fCasa.chbPileta.Checked) this.casa.AgregarServicio("Pileta");
-				if(fCasa.chbWIFI.Checked) this.casa.AgregarServicio("Wi-Fi");
-
-				this.sistema.AgregarResidencia(this.casa);
-				this.cmbResidencias.Items.Add(this.casa);
-            }
-        }
-
-		private void BtnAgregarHotel_Click(object sender, EventArgs e) {
-			FAgregarHotel fHotel = new FAgregarHotel();
-			if(fHotel.ShowDialog() == DialogResult.OK) {
-				this.hotel = new Hotel(
-					(int)fHotel.nudNroPropiedad.Value,
-					fHotel.tbDireccionHotel.Text,
-					fHotel.trbEstrellas.Value,
-					(int)fHotel.nudSimples.Value,
-					(int)fHotel.nudDobles.Value,
-					(int)fHotel.nudTriples.Value,
-					fHotel.Imágenes);
-				if (fHotel.chbGarage.Checked) this.hotel.AgregarServicio("Cochera");
-				if (fHotel.chbDesayuno.Checked) this.hotel.AgregarServicio("Desayuno");
-				if (fHotel.chbLimpieza.Checked) this.hotel.AgregarServicio("Limpieza");
-				if (fHotel.chbPermiteMascotas.Checked) this.hotel.AgregarServicio("Mascotas");
-				if (fHotel.chbPileta.Checked) this.hotel.AgregarServicio("Pileta");
-				if (fHotel.chbWIFI.Checked) this.hotel.AgregarServicio("Wi-Fi");
-
-				this.sistema.AgregarResidencia(this.hotel);
-				this.cmbResidencias.Items.Add(this.hotel);
+				this.ActualizarListaResidencias();
+				this.cmbResidencias.SelectedIndex = this.cmbResidencias.Items.Count - 1;
 			}
+
+			fCasa.Dispose();
 		}
 
-        private void BtnBorrarPropiedad_Click(object sender, EventArgs e) {
+		private void BtnAgregarHotel_Click(object sender, EventArgs e) {
+			FAgregarHotel fHotel = new FAgregarHotel(this.sistema);
+
+			if(fHotel.ShowDialog() == DialogResult.OK) {
+				MessageBox.Show(
+					"El hotel fue registrado exitosamente",
+					"Hotel agregado",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Information);
+
+				this.ActualizarListaResidencias();
+				this.cmbResidencias.SelectedIndex = this.cmbResidencias.Items.Count - 1;
+			}
+
+			fHotel.Dispose();
+		}
+
+		private void BtnBorrarPropiedad_Click(object sender, EventArgs e) {
 			Residencia aBorrar = this.cmbResidencias.SelectedItem as Residencia;
 
             if(aBorrar is Residencia) {
@@ -158,49 +130,26 @@ namespace tp2 {
 			} else {
 				MessageBox.Show("No existe la residencia");
             }
-			
 		}
 
         private void BtnModificarPropiedad_Click(object sender, EventArgs e) {
 			Residencia aModificar = this.cmbResidencias.SelectedItem as Residencia;
+			Form fModif = null;
 
-			if(aModificar is Hotel) {
-				FAgregarHotel fhotel = new FAgregarHotel(aModificar as Hotel);
+			if(aModificar is Hotel)
+				fModif = new FAgregarHotel(this.sistema, aModificar as Hotel);
+			else if(aModificar is Casa)
+				fModif = new FAgregarCasa(this.sistema, aModificar as Casa);
 
-				if(fhotel.ShowDialog() == DialogResult.OK) {
-					Hotel hotel = aModificar as Hotel;
-					hotel.CntSimple += (int)fhotel.nudSimples.Value;
-					hotel.CntDoble += (int)fhotel.nudDobles.Value;
-					hotel.CntTriple += (int)fhotel.nudTriples.Value;
-
-					if(fhotel.chbGarage.Checked)          aModificar.AgregarServicio("Cochera");
-					if(fhotel.chbDesayuno.Checked)        aModificar.AgregarServicio("Desayuno");
-					if(fhotel.chbLimpieza.Checked)        aModificar.AgregarServicio("Limpieza");
-					if(fhotel.chbPermiteMascotas.Checked) aModificar.AgregarServicio("Mascotas");
-					if(fhotel.chbPileta.Checked)          aModificar.AgregarServicio("Pileta");
-					if(fhotel.chbWIFI.Checked)            aModificar.AgregarServicio("WIFI");
-				}
-			} else if(aModificar is Casa) {
-				FAgregarCasa fcasa = new FAgregarCasa(aModificar as Casa);
-
-				if(fcasa.ShowDialog() == DialogResult.OK) {
-					Casa casa = aModificar as Casa;
-					casa.CamasDisponibles = (int)fcasa.nudCantCamas.Value;
-					casa.MínimoPermitido = (int)fcasa.nudMinDias.Value;
-
-					if (fcasa.chbGarage.Checked)          aModificar.AgregarServicio("Cochera");
-					if (fcasa.chbDesayuno.Checked)        aModificar.AgregarServicio("Desayuno");
-					if (fcasa.chbLimpieza.Checked)        aModificar.AgregarServicio("Limpieza");
-					if (fcasa.chbPermiteMascotas.Checked) aModificar.AgregarServicio("Mascotas");
-					if (fcasa.chbPileta.Checked)          aModificar.AgregarServicio("Pileta");
-					if (fcasa.chbWIFI.Checked)            aModificar.AgregarServicio("WIFI");
-				}
+			if(fModif != null) {
+				fModif.ShowDialog();
+				fModif.Dispose();
 			}
-        }
+		}
 
         private void BtnVerPropiedad_Click(object sender, EventArgs e) {
 			FDetalles detail = new FDetalles();
-			Residencia aVer = this.cmbResidencias.SelectedItem as Residencia;
+			Residencia aVer = (Residencia)this.cmbResidencias.SelectedItem;
 
 			if(aVer is null)
 				return;
@@ -221,7 +170,7 @@ namespace tp2 {
 				detail.lbDetalles.Items.Add($"Cantidad de camas: {casa.CamasDisponibles}");
 				detail.lbDetalles.Items.Add($"Propietario:");
 				detail.lbDetalles.Items.Add($"Apellido: {casa.Propietario.Apellido}, Nombre: {casa.Propietario.Nombre}");
-				detail.lbDetalles.Items.Add($"Dni: {casa.Propietario.Dni}, Tel:{casa.Propietario.Tel}");
+				detail.lbDetalles.Items.Add($"Dni: {casa.Propietario.Dni}, Tel:{casa.Propietario.Teléfono}");
 			}
 
 			detail.lbDetalles.Items.Add($"Servicios:");
@@ -263,6 +212,7 @@ namespace tp2 {
 							Convert.ToDateTime(datos[3]),
 							Convert.ToDateTime(datos[4]),
 							Convert.ToDateTime(datos[5]),
+							//(Acá iría un cliente que se carga antes de los alquileres, en el mismo CSV. Como les mostré en WhatsApp)
 							//PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE
 							new Cliente(Convert.ToInt32(datos[2]), 0, 0, "", "", 0),
 							//PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE
@@ -320,6 +270,15 @@ namespace tp2 {
 					fs.Close();
 				}
 			}
+		}
+		#endregion
+
+		#region Utilidades
+		private void ActualizarListaResidencias() {
+			this.cmbResidencias.Items.Clear();
+
+			foreach(Residencia residencia in this.sistema.Residencias)
+				this.cmbResidencias.Items.Add(residencia);
 		}
 		#endregion
 

@@ -86,14 +86,19 @@ namespace AlquilerLib {
 
         public abstract double PrecioTotal(int nroAlquiler);
 
-        public string[] VerServicios()
-        {
-            return this.servicios;
-        }
         public void AgregarServicio(string servicio)
 		{
 			if(!this.servicios.Contains(servicio))
 				this.servicios[this.cServicios++]= servicio;
+		}
+
+		public void LimpiarServicios() {
+			this.servicios = new string[6];
+			this.cServicios = 0;
+		}
+
+		public string[] VerServicios() {
+			return this.servicios;
 		}
 
 		public string Imprimir() {

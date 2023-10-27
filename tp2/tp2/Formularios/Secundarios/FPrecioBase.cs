@@ -18,7 +18,7 @@ namespace tp2 {
 
 		public Sistema Sistema { get; private set; }
 
-		private void btnAceptar_Click(object sender, EventArgs e) {
+		private void BtnAceptar_Click(object sender, EventArgs e) {
 			double precioBase = (double)this.nudPrecioBase.Value;
 			this.Sistema = new Sistema(precioBase);
 		}

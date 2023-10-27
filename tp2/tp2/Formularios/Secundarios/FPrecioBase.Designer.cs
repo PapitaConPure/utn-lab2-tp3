@@ -102,7 +102,7 @@ namespace tp2 {
 			this.btnAceptar.TabIndex = 6;
 			this.btnAceptar.Text = "Confirmar";
 			this.btnAceptar.UseVisualStyleBackColor = false;
-			this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+			this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
 			// 
 			// FPrecioBase
 			// 

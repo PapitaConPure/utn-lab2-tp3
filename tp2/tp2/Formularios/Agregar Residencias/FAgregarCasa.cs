@@ -12,16 +12,42 @@ using AlquilerLib;
 
 namespace tp2 {
     public partial class FAgregarCasa: Form {
+		private readonly Sistema sistema;
 		private readonly FImagen fImagen;
+		private CheckBox[] servicios;
+		private Casa casa;
 
 		public FAgregarCasa() {
-			this.Inicializar();
+			this.InitializeComponent();
+
+			this.servicios = new CheckBox[] {
+				this.chbGarage,
+				this.chbDesayuno,
+				this.chbLimpieza,
+				this.chbPermiteMascotas,
+				this.chbPileta,
+				this.chbWIFI,
+			};
+
+			this.rbCasa.Enabled = true;
+			this.rbCasaFinde.Enabled = true;
+			this.tbDirección.Enabled = true;
+			this.nudNroResidencia.Enabled = true;
+			this.nudDNI.Enabled = true;
+			this.nudTel.Enabled = true;
+			this.tbApellido.Enabled = true;
+			this.tbNombre.Enabled = true;
+		}
+
+		public FAgregarCasa(Sistema sistema): this() {
+			this.sistema = sistema;
 			this.fImagen = new FImagen();
 		}
 
-		public FAgregarCasa(Casa casa) {
-			this.Inicializar();
+		public FAgregarCasa(Sistema sistema, Casa casa): this() {
+			this.sistema = sistema;
 			this.fImagen = new FImagen(casa.Imágenes);
+			this.casa = casa;
 
 			this.gbDatos.Enabled
 			= this.tlpTipoCasa.Enabled
@@ -38,14 +64,31 @@ namespace tp2 {
 			this.nudDNI.Value = casa.Propietario.Dni;
 			this.tbApellido.Text = casa.Propietario.Apellido;
 			this.tbNombre.Text = casa.Propietario.Nombre;
-			this.nudTel.Value = casa.Propietario.Tel;
+			this.nudTel.Value = casa.Propietario.Teléfono;
+
+			string[] serviciosCasa = casa.VerServicios();
+			foreach(CheckBox servicio in this.servicios) {
+				servicio.Checked = serviciosCasa.Contains(servicio.Text);
+			}
 		}
 
 		public Image[] Imágenes {
             get { return this.fImagen.Imágenes; }
-        }
+		}
 
-        private void RbCasa_CheckedChanged(object sender, EventArgs e)
+		public List<string> ServiciosCargados {
+			get {
+				List<string> resultado = new List<string>();
+
+				foreach(CheckBox servicio in this.servicios)
+					if(servicio.Checked)
+						resultado.Add(servicio.Text);
+
+				return resultado;
+			}
+		}
+
+		private void RbCasa_CheckedChanged(object sender, EventArgs e)
         {
             this.gbMinDías.Enabled = true;
         }
@@ -60,54 +103,74 @@ namespace tp2 {
         }
 
         private void BtnCrear_Click(object sender, EventArgs e) {
-			//Tal vez pasar el arroje de errores a las propiedades al crear una residencia
-			try {
-				if(this.tbDirección.TextLength == 0) {
-					this.tbDirección.Focus();
-					throw new InvalidOperationException("Debes ingresar una dirección de residencia válida");
+			if(this.casa is null) {
+				try {
+					#region Copipegar despué'
+					//if(this.tbDirección.TextLength == 0) {
+					//	this.tbDirección.Focus();
+					//	throw new InvalidOperationException("Debes ingresar una dirección de residencia válida");
+					//}
+
+					//if(this.tbApellido.TextLength == 0) {
+					//	this.tbApellido.Focus();
+					//	throw new InvalidOperationException("Debes ingresar el apellido del propietario de la casa");
+					//}
+
+					//if(this.tbNombre.TextLength == 0) {
+					//	this.tbNombre.Focus();
+					//	throw new InvalidOperationException("Debes ingresar el/los nombre/s del propietario de la casa");
+					//}
+
+					//if(!this.fImagen.CargóTodas) {
+					//	this.btnAgregarImágen.Focus();
+					//	throw new InvalidOperationException("Debes cargar 2 imágenes para la residencia");
+					//}
+					#endregion
+
+					if(this.rbCasa.Checked) {
+						this.casa = new Casa(
+							(int)this.nudNroResidencia.Value,
+							this.tbDirección.Text,
+							(int)this.nudMinDias.Value,
+							(int)this.nudCantCamas.Value,
+							(int)this.nudDNI.Value,
+							this.tbNombre.Text,
+							(long)this.nudTel.Value,
+							this.tbApellido.Text,
+							this.Imágenes);
+					} else {
+						this.casa = new CasaFinde(
+							(int)this.nudNroResidencia.Value,
+							this.tbDirección.Text, 3,
+							(int)this.nudDNI.Value,
+							this.tbNombre.Text,
+							(long)this.nudTel.Value,
+							this.tbApellido.Text,
+							this.Imágenes);
+					}
+
+					foreach(CheckBox servicio in this.servicios) {
+						if(servicio.Checked)
+							this.casa.AgregarServicio(servicio.Text);
+					}
+
+					this.sistema.AgregarResidencia(this.casa);
+				} catch(Exception ex) {
+					MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					this.DialogResult = DialogResult.None;
 				}
+			} else {
+				this.casa.CamasDisponibles = (int)this.nudCantCamas.Value;
+				this.casa.MínimoPermitido = (int)this.nudMinDias.Value;
+				this.casa.Propietario.Nombre = this.tbNombre.Text;
+				this.casa.Propietario.Teléfono = (int)this.nudTel.Value;
 
-				if(this.tbApellido.TextLength == 0) {
-					this.tbApellido.Focus();
-					throw new InvalidOperationException("Debes ingresar el apellido del propietario de la casa");
+				this.casa.LimpiarServicios();
+				foreach(CheckBox servicio in this.servicios) {
+					if(servicio.Checked)
+						this.casa.AgregarServicio(servicio.Text);
 				}
-
-				if(this.tbNombre.TextLength == 0) {
-					this.tbNombre.Focus();
-					throw new InvalidOperationException("Debes ingresar el/los nombre/s del propietario de la casa");
-				}
-
-				if(!this.fImagen.CargóTodas) {
-					this.btnAgregarImágen.Focus();
-					throw new InvalidOperationException("Debes cargar 2 imágenes para la residencia");
-				}
-
-				MessageBox.Show(
-					"La residencia fue registrada exitosamente",
-					"Residencia agregada",
-					MessageBoxButtons.OK,
-					MessageBoxIcon.Information);
-			} catch(InvalidOperationException ex) {
-				MessageBox.Show(
-					ex.Message,
-					"Datos incompletos",
-					MessageBoxButtons.OK,
-					MessageBoxIcon.Warning);
-
-				this.DialogResult = DialogResult.None;
 			}
-        }
-
-		private void Inicializar() {
-			this.InitializeComponent();
-			this.rbCasa.Enabled = true;
-			this.rbCasaFinde.Enabled = true;
-			this.tbDirección.Enabled = true;
-			this.nudNroResidencia.Enabled = true;
-			this.nudDNI.Enabled = true;
-			this.nudTel.Enabled = true;
-			this.tbApellido.Enabled = true;
-			this.tbNombre.Enabled = true;
 		}
 
 		#region Calidad de vida

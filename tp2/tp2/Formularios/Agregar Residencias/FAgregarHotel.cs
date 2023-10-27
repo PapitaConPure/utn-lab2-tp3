@@ -12,16 +12,37 @@ using cargandoImagenes;
 
 namespace tp2 {
     public partial class FAgregarHotel : Form {
+		private readonly Sistema sistema;
 		private readonly FImagen fImagen;
+		private CheckBox[] servicios;
+		private Hotel hotel;
 
 		public FAgregarHotel() {
-			this.Inicializar();
+			this.InitializeComponent();
+
+			this.servicios = new CheckBox[] {
+				this.chbGarage,
+				this.chbDesayuno,
+				this.chbLimpieza,
+				this.chbPermiteMascotas,
+				this.chbPileta,
+				this.chbWIFI,
+			};
+
+			this.tbDireccionHotel.Enabled = true;
+			this.nudNroPropiedad.Enabled = true;
+			this.trbEstrellas.Enabled = true;
+		}
+
+		public FAgregarHotel(Sistema sistema): this() {
+			this.sistema = sistema;
 			this.fImagen = new FImagen();
 		}
 
-		public FAgregarHotel(Hotel hotel) {
-			this.Inicializar();
+		public FAgregarHotel(Sistema sistema, Hotel hotel): this() {
+			this.sistema = sistema;
 			this.fImagen = new FImagen(hotel.Imágenes);
+			this.hotel = hotel;
 
 			this.gbDatos.Enabled
 			= this.gbEstrellas.Enabled
@@ -48,15 +69,38 @@ namespace tp2 {
 		}
 
 		private void BtnCrear_Click(object sender, EventArgs e) {
-			if(this.fImagen.CargóTodas)
-				this.DialogResult = DialogResult.None;
-		}
+			if(this.hotel is null) {
+				try {
+					this.hotel = new Hotel(
+						(int)this.nudNroPropiedad.Value,
+						this.tbDireccionHotel.Text,
+						this.trbEstrellas.Value,
+						(int)this.nudSimples.Value,
+						(int)this.nudDobles.Value,
+						(int)this.nudTriples.Value,
+						this.Imágenes);
 
-		private void Inicializar() {
-			this.InitializeComponent();
-			this.tbDireccionHotel.Enabled = true;
-			this.nudNroPropiedad.Enabled = true;
-			this.trbEstrellas.Enabled = true;
+					foreach(CheckBox servicio in this.servicios) {
+						if(servicio.Checked)
+							this.hotel.AgregarServicio(servicio.Text);
+					}
+
+					this.sistema.AgregarResidencia(this.hotel);
+				} catch(Exception ex) {
+					MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					this.DialogResult = DialogResult.None;
+				}
+			} else {
+				this.hotel.CntSimple += (int)this.nudSimples.Value;
+				this.hotel.CntDoble += (int)this.nudDobles.Value;
+				this.hotel.CntTriple += (int)this.nudTriples.Value;
+
+				this.hotel.LimpiarServicios();
+				foreach(CheckBox servicio in this.servicios) {
+					if(servicio.Checked)
+						this.hotel.AgregarServicio(servicio.Text);
+				}
+			}
 		}
 
 		#region Calidad de vida

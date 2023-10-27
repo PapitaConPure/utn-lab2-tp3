@@ -6,23 +6,25 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib {
 	[Serializable]
-	public class Persona: IImprimible
-    {
-        public int Dni { get; }
-        public string Nombre { get; }
-        public string Apellido { get; }
-        public long Tel { get; }
+	public class Persona: IImprimible {
+        public int Dni { get; private set; }
+
+        public string Apellido { get; private set; }
+
+        public string Nombre { get; set; }
+
+        public long Teléfono { get; set; }
 
         public Persona(int dni,string nombre, long tel, string apellido)
         {
-            Dni = dni;
-            Nombre = nombre;
-            Tel = tel;
-            Apellido = apellido;
+            this.Dni = dni;
+            this.Nombre = nombre;
+            this.Teléfono = tel;
+            this.Apellido = apellido;
         }
 
 		public virtual string Imprimir() {
-			return string.Join(";", this.Dni, this.Nombre, this.Apellido, this.Tel);
+			return string.Join(";", this.Dni, this.Nombre, this.Apellido, this.Teléfono);
 		}
 	}
 }
