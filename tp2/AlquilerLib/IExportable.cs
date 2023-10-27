@@ -1,5 +1,5 @@
 ﻿namespace AlquilerLib {
-	public interface IImprimible {
+	public interface IExportable {
 		string Imprimir();
 	}
 }

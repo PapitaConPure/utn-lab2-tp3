@@ -14,7 +14,20 @@ namespace AlquilerLib {
 			Triple = 150,
 		}
 
-		public Hotel(int número, string dirección,  int estrellas, int cntSimple, int cntDoble, int cntTriple, Image[] imágenes) : base(número, dirección, imágenes) {
+		/// <summary>
+		/// Crea un nuevo hotel con los datos de residencia especificados y la categoría indicada.
+		/// También se indica el tipo y cantidad de camas disponibles
+		/// </summary>
+		/// <param name="número">Número del hotel</param>
+		/// <param name="dirección">Dirección del hotel</param>
+		/// <param name="estrellas">Categoría del hotel, en estrellas</param>
+		/// <param name="cntSimple">Cantidad de camas simples del hotel</param>
+		/// <param name="cntDoble">Cantidad de camas dobles del hotel</param>
+		/// <param name="cntTriple">Cantidad de camas triples del hotel</param>
+		/// <param name="imágenes">Imágenes de muestra del hotel del hotel</param>
+		/// <exception cref="ArgumentException"></exception>
+		public Hotel(int número, string dirección, int estrellas, int cntSimple, int cntDoble, int cntTriple, Image[] imágenes)
+		: base(número, dirección, imágenes) {
 			this.Estrellas = estrellas;
 			this.CntSimple = cntSimple;
 			this.CntDoble = cntDoble;

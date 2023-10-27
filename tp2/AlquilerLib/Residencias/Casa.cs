@@ -3,13 +3,33 @@ using System.Drawing;
 
 namespace AlquilerLib {
 	[Serializable]
-	public class Casa: Residencia, IImprimible {
-		public Casa(int número,string dirección,int mínimoPermitido,int camasDisponibles, int dni, string nombre, long tel ,string apellido, Image[] imágenes): base(número, dirección, imágenes) 
-		{
-			this.CamasDisponibles= camasDisponibles;
-			this.MínimoPermitido = mínimoPermitido;
+	public class Casa: Residencia, IExportable {
+		/// <summary>
+		/// Crea una nueva casa con los datos de residencia, el mínimo de días, las camas disponibles y los datos del propietario especificados
+		/// </summary>
+		/// <param name="número">Número de casa</param>
+		/// <param name="dirección">Dirección de la casa</param>
+		/// <param name="mínimoDías">Mínimo de días permitido para alquilar la casa</param>
+		/// <param name="camas">Camas disponibles para los alquileres de la casa</param>
+		/// <param name="dni">DNI del propietario de la casa</param>
+		/// <param name="nombre">Nombre/s del propietario de la casa</param>
+		/// <param name="tel">Teléfono del propietario de la casa</param>
+		/// <param name="apellido">Apellido/s del propietario de la casa</param>
+		/// <param name="imágenes">Imágenes de muestra de la casa</param>
+		/// <exception cref="ArgumentException"></exception>
+		/// <exception cref="FormatException"></exception>
+		public Casa(int número, string dirección, int mínimoDías, int camas, int dni, string nombre, long tel, string apellido, Image[] imágenes)
+		: base(número, dirección, imágenes) {
+			this.CamasDisponibles= camas;
+			this.MínimoPermitido = mínimoDías;
 			this.Propietario = new Persona(dni, nombre, tel, apellido);
 		}
+
+		/// <summary>
+		/// Solamente para búsqueda binaria
+		/// </summary>
+		/// <param name="número">Número de residencia a buscar</param>
+		internal Casa(int número): base(número) {}
 
 		public int MínimoPermitido { get; set; }
 

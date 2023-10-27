@@ -48,7 +48,7 @@
     <Compile Include="Residencias\CasaFinde.cs" />
     <Compile Include="Personas\Cliente.cs" />
     <Compile Include="Residencias\Hotel.cs" />
-    <Compile Include="IImprimible.cs" />
+    <Compile Include="IExportable.cs" />
     <Compile Include="Personas\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Residencia.cs" />

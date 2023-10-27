@@ -66,7 +66,7 @@ namespace AlquilerLib {
 		public Residencia VerResidencia(int nroResidencia) {
 			this.residencias.Sort();
 
-			Residencia buscada = new Casa(nroResidencia, "",0,0,0,"",0,"", new Image[0]);
+			Residencia buscada = new Casa(nroResidencia);
 			int idx = this.residencias.BinarySearch(buscada);
 
 			if(idx < 0)

@@ -7,19 +7,43 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib {
 	[Serializable]
-	public abstract class Residencia : IImprimible, IComparable {
+	public abstract class Residencia: IExportable, IComparable {
 		protected string[] servicios;
 		protected double precioDía;
 		private int cServicios = 0;
 		private List<Alquiler> alquileres = new List<Alquiler>();
 
-		public Residencia(int número, string dirección, Image[] imágenes) //Persona propietario
-		{
+		/// <summary>
+		/// Crea una nueva residencia con el número, la dirección y las imágenes especificadas
+		/// </summary>
+		/// <param name="número">Número de residencia</param>
+		/// <param name="dirección">Dirección de la residencia</param>
+		/// <param name="imágenes">Imágenes de muestra de la residencia</param>
+		/// <exception cref="ArgumentException"></exception>
+		public Residencia(int número, string dirección, Image[] imágenes) {
+			if(dirección.Length == 0)
+				throw new ArgumentException("La dirección de la residencia no puede estar vacía");
+
+			if(imágenes.Length != 2)
+				throw new ArgumentException("La residencia debe tener 2 imágenes");
+
+			foreach(Image imagen in imágenes)
+				if(imagen is null)
+					throw new ArgumentException("La residencia debe tener 2 imágenes");
+
 			this.Número = número;
 			this.Dirección = dirección;
 			this.alquileres = new List<Alquiler>();
             this.servicios = new string[6];
 			this.Imágenes = imágenes;
+		}
+
+		/// <summary>
+		/// Solamente para búsqueda binaria
+		/// </summary>
+		/// <param name="número">Número de residencia a buscar</param>
+		internal Residencia(int número) {
+			this.Número = número;
 		}
 
 		public int CServicios { get { return this.cServicios; } }

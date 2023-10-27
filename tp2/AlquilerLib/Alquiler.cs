@@ -6,9 +6,25 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib {
 	[Serializable]
-	public class Alquiler: IComparable, IImprimible {
+	public class Alquiler: IComparable, IExportable {
 		private Residencia residencia;
 		private Cliente cliente;
+
+		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Cliente cliente, double precioBase) {
+			this.Número = número;
+			this.FechaReserva = fechaReserva;
+
+			if(checkIn > checkOut) {
+				DateTime fechaAuxiliar = checkIn;
+				checkIn = checkOut;
+				checkOut = fechaAuxiliar;
+			}
+
+			this.CheckIn = checkIn;
+			this.CheckOut = checkOut;
+			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
+			this.cliente = cliente;
+		}
 
 		public int Número{ get;private set; }
 
@@ -43,23 +59,6 @@ namespace AlquilerLib {
 				if(value is Hotel)
 					this.TipoHabitación = (value as Hotel).VerTipoHabitación(this.cliente.CantPasajeros);
 			}
-		}
-
-		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Cliente cliente, double precioBase)
-		{
-			this.Número = número;
-			this.FechaReserva= fechaReserva;
-
-			if(checkIn > checkOut) {
-				DateTime fechaAuxiliar = checkIn;
-				checkIn = checkOut;
-				checkOut = fechaAuxiliar;
-			}
-
-			this.CheckIn= checkIn;
-			this.CheckOut = checkOut;
-			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
-			this.cliente = cliente;
 		}
 
 		public int CompareTo(object obj) {
