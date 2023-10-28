@@ -42,10 +42,7 @@ namespace tp2 {
 			this.gbDatos = new System.Windows.Forms.GroupBox();
 			this.gbBuscar = new System.Windows.Forms.GroupBox();
 			this.lsbResidencias = new System.Windows.Forms.ListBox();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.pnlTérmino = new System.Windows.Forms.Panel();
-			this.cmbTérmino = new System.Windows.Forms.ComboBox();
-			this.lblTérmino = new System.Windows.Forms.Label();
+			this.panel1 = new System.Windows.Forms.Panel();
 			this.tbBúsqueda = new System.Windows.Forms.TextBox();
 			this.tlpBotonesPropiedades.SuspendLayout();
 			this.gbResidencias.SuspendLayout();
@@ -54,8 +51,7 @@ namespace tp2 {
 			this.tlpBotonesDatos.SuspendLayout();
 			this.gbDatos.SuspendLayout();
 			this.gbBuscar.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
-			this.pnlTérmino.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// btnAgregarCasa
@@ -283,7 +279,7 @@ namespace tp2 {
 			// gbBuscar
 			// 
 			this.gbBuscar.Controls.Add(this.lsbResidencias);
-			this.gbBuscar.Controls.Add(this.tableLayoutPanel2);
+			this.gbBuscar.Controls.Add(this.panel1);
 			this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbBuscar.Location = new System.Drawing.Point(0, 164);
 			this.gbBuscar.Name = "gbBuscar";
@@ -297,64 +293,29 @@ namespace tp2 {
 			this.lsbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lsbResidencias.FormattingEnabled = true;
 			this.lsbResidencias.ItemHeight = 20;
-			this.lsbResidencias.Location = new System.Drawing.Point(3, 58);
+			this.lsbResidencias.Location = new System.Drawing.Point(3, 63);
 			this.lsbResidencias.Name = "lsbResidencias";
-			this.lsbResidencias.Size = new System.Drawing.Size(740, 192);
+			this.lsbResidencias.Size = new System.Drawing.Size(740, 187);
 			this.lsbResidencias.TabIndex = 1;
 			// 
-			// tableLayoutPanel2
+			// panel1
 			// 
-			this.tableLayoutPanel2.ColumnCount = 2;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Controls.Add(this.pnlTérmino, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.tbBúsqueda, 1, 0);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 23);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(740, 35);
-			this.tableLayoutPanel2.TabIndex = 0;
-			// 
-			// pnlTérmino
-			// 
-			this.pnlTérmino.Controls.Add(this.cmbTérmino);
-			this.pnlTérmino.Controls.Add(this.lblTérmino);
-			this.pnlTérmino.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlTérmino.Location = new System.Drawing.Point(3, 3);
-			this.pnlTérmino.Name = "pnlTérmino";
-			this.pnlTérmino.Size = new System.Drawing.Size(172, 29);
-			this.pnlTérmino.TabIndex = 0;
-			// 
-			// cmbTérmino
-			// 
-			this.cmbTérmino.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cmbTérmino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbTérmino.FormattingEnabled = true;
-			this.cmbTérmino.Location = new System.Drawing.Point(63, 0);
-			this.cmbTérmino.Name = "cmbTérmino";
-			this.cmbTérmino.Size = new System.Drawing.Size(109, 28);
-			this.cmbTérmino.TabIndex = 0;
-			// 
-			// lblTérmino
-			// 
-			this.lblTérmino.Dock = System.Windows.Forms.DockStyle.Left;
-			this.lblTérmino.Location = new System.Drawing.Point(0, 0);
-			this.lblTérmino.Name = "lblTérmino";
-			this.lblTérmino.Size = new System.Drawing.Size(63, 29);
-			this.lblTérmino.TabIndex = 4;
-			this.lblTérmino.Text = "Término";
-			this.lblTérmino.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.panel1.Controls.Add(this.tbBúsqueda);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel1.Location = new System.Drawing.Point(3, 23);
+			this.panel1.Name = "panel1";
+			this.panel1.Padding = new System.Windows.Forms.Padding(6);
+			this.panel1.Size = new System.Drawing.Size(740, 40);
+			this.panel1.TabIndex = 2;
 			// 
 			// tbBúsqueda
 			// 
 			this.tbBúsqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.tbBúsqueda.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tbBúsqueda.Location = new System.Drawing.Point(181, 3);
+			this.tbBúsqueda.Location = new System.Drawing.Point(6, 6);
 			this.tbBúsqueda.Name = "tbBúsqueda";
-			this.tbBúsqueda.Size = new System.Drawing.Size(556, 27);
-			this.tbBúsqueda.TabIndex = 1;
+			this.tbBúsqueda.Size = new System.Drawing.Size(728, 27);
+			this.tbBúsqueda.TabIndex = 2;
 			// 
 			// FPrincipal
 			// 
@@ -381,9 +342,8 @@ namespace tp2 {
 			this.tlpBotonesDatos.ResumeLayout(false);
 			this.gbDatos.ResumeLayout(false);
 			this.gbBuscar.ResumeLayout(false);
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
-			this.pnlTérmino.ResumeLayout(false);
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -406,12 +366,9 @@ namespace tp2 {
 		private System.Windows.Forms.ComboBox cmbResidencias;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.GroupBox gbBuscar;
-		private System.Windows.Forms.TextBox tbBúsqueda;
-		private System.Windows.Forms.ComboBox cmbTérmino;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-		private System.Windows.Forms.Panel pnlTérmino;
-		private System.Windows.Forms.Label lblTérmino;
 		private System.Windows.Forms.ListBox lsbResidencias;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.TextBox tbBúsqueda;
 	}
 }
 
