@@ -10,10 +10,11 @@ namespace AlquilerLib.Utilidades {
 	/// </summary>
 	internal static class Texto {
 		/// <summary>
-		/// Capitaliza la primer letra de cada palabra en el texto indicado y deja en minúsculas el resto de letras
+		/// Deja en mayúscula la primer letra de cada palabra en el texto indicado y en minúsculas el resto
 		/// </summary>
-		/// <param name="texto"></param>
-		/// <returns></returns>
+		/// <param name="texto">El texto a capitalizar</param>
+		/// <returns>Texto indicado con la primer letra de cada palabra en mayúscula y el resto en minúscula</returns>
+		/// <exception cref="NullReferenceException"></exception>
 		public static string CapitalizarPalabras(string texto) {
 			char[] caracteres = texto.ToCharArray();
 			bool esPrimeraLetra = true;
