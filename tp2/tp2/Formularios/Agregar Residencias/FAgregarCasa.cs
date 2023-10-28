@@ -91,28 +91,6 @@ namespace tp2 {
 		private void BtnCrear_Click(object sender, EventArgs e) {
 			try {
 				if(this.casa is null) {
-					#region Copipegar despué'
-					//if(this.tbDirección.TextLength == 0) {
-					//	this.tbDirección.Focus();
-					//	throw new InvalidOperationException("Debes ingresar una dirección de residencia válida");
-					//}
-
-					//if(this.tbApellido.TextLength == 0) {
-					//	this.tbApellido.Focus();
-					//	throw new InvalidOperationException("Debes ingresar el apellido del propietario de la casa");
-					//}
-
-					//if(this.tbNombre.TextLength == 0) {
-					//	this.tbNombre.Focus();
-					//	throw new InvalidOperationException("Debes ingresar el/los nombre/s del propietario de la casa");
-					//}
-
-					//if(!this.fImagen.CargóTodas) {
-					//	this.btnAgregarImágen.Focus();
-					//	throw new InvalidOperationException("Debes cargar 2 imágenes para la residencia");
-					//}
-					#endregion
-
 					if(this.rbCasa.Checked) {
 						this.casa = new Casa(
 							(int)this.nudNroResidencia.Value,
