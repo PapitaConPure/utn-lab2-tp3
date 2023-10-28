@@ -5,7 +5,7 @@ Trabajo Práctico N°2 de Laboratorio II (UTN)
 ### Revisión más reciente
 ![Diagrama de clases nuevo](https://github.com/PapitaConPure/utn-lab2-tp2/blob/main/UML/ClassDiagram4.jpg)
 
-## Versiones anteriores
+### Versiones anteriores
 Puedes verlas [aquí](https://github.com//PapitaConPure/utn-lab2-tp2/blob/main/UML/DiagramasViejos.md)
 
 ## Diagrama de casos de uso
