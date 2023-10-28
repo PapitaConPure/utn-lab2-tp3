@@ -42,10 +42,10 @@ namespace AlquilerLib {
 
 		public int CntTriple { get; set; }
 
-		public override bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, Cliente cliente, double precioBase, out Alquiler nuevo) {
-			bool puedeAlquilar = base.Alquilar(hoy, ingreso, salida, cliente, precioBase, out nuevo);
+		public override bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase, out Alquiler nuevo) {
+			bool puedeAlquilar = base.Alquilar(hoy, ingreso, salida, cantPasajeros, dni, nombre, apellido, tel, precioBase, out nuevo);
 
-			nuevo.TipoHabitación = this.VerTipoHabitación(cliente.CantPasajeros);
+			nuevo.TipoHabitación = this.VerTipoHabitación(cantPasajeros);
 
 			return puedeAlquilar;
 		}

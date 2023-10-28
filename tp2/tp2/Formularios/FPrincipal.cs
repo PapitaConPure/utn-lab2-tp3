@@ -82,7 +82,7 @@ namespace tp2 {
 		}
 		#endregion
 
-		#region ABM de Propiedades
+		#region ABM de Residencias
 		private void BtnAgregarCasa_Click(object sender, EventArgs e) {
 			FAgregarCasa fCasa = new FAgregarCasa(this.sistema);
 
@@ -190,53 +190,18 @@ namespace tp2 {
 			if(this.ofdDatos.ShowDialog() != DialogResult.OK)
 				return;
 
-			FileStream fs = null;
-			StreamReader sr = null;
-			int n = 1;
-
 			try {
-				fs = new FileStream(this.ofdDatos.FileName, FileMode.Open, FileAccess.Read);
-				sr = new StreamReader(fs);
-
-				Residencia residencia;
-				Alquiler alquiler;
-				string linea;
-				while(!sr.EndOfStream) {
-					linea = sr.ReadLine();
-					n++;
-					string[] datos = linea.Split(';');
-					if(datos.Length == 8) {
-						residencia = this.sistema.VerResidencia(Convert.ToInt32(datos[0]));
-						alquiler = new Alquiler(
-							Convert.ToInt32(datos[1]),
-							Convert.ToDateTime(datos[3]),
-							Convert.ToDateTime(datos[4]),
-							Convert.ToDateTime(datos[5]),
-							//(Acá iría un cliente que se carga antes de los alquileres, en el mismo CSV. Como les mostré en WhatsApp)
-							//PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE
-							new Cliente(Convert.ToInt32(datos[2]), 0, 0, "", "", 0),
-							//PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE PENDIENTE
-							this.sistema.PrecioBase);
-
-						residencia.Alquilar(alquiler);
-					} else
-						throw new ArgumentException("Cantidad de datos inválida");
-				}
-			} catch(FormatException ex) {
-				MessageBox.Show($"Línea {n}: {ex.Message}", "Error de Conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				this.sistema.ImportarAlquileres(this.ofdDatos.FileName);
 			} catch(IOException ex) {
-				MessageBox.Show($"Línea {n}: {ex.Message}", "Error de Lectura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error de Lectura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 			} catch(UnauthorizedAccessException ex) {
-				MessageBox.Show($"Línea {n}: {ex.Message}", "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+			} catch(FormatException ex) {
+				MessageBox.Show(ex.Message, "Error de Conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			} catch(InvalidOperationException ex) {
+				MessageBox.Show(ex.Message, "Error de Operación", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			} catch(ArgumentException ex) {
-				MessageBox.Show($"Línea {n}: {ex.Message}", "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			} finally {
-				if(fs != null) {
-					if(sr != null)
-						sr.Close();
-
-					fs.Close();
-				}
+				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -244,31 +209,14 @@ namespace tp2 {
 			if(this.sfdDatos.ShowDialog() != DialogResult.OK)
 				return;
 
-			FileStream fs = null;
-			StreamWriter sw = null;
-
 			try {
-				fs = new FileStream(this.sfdDatos.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-				sw = new StreamWriter(fs);
-
-				foreach(Residencia residencia in this.sistema.Residencias) {
-					foreach(Alquiler alquiler in residencia.Alquileres) {
-						sw.WriteLine(alquiler.Imprimir());
-					}
-				}
+				this.sistema.ExportarAlquileres(this.sfdDatos.FileName);
 			} catch(IOException ex) {
 				MessageBox.Show(ex.Message, "Error de Escritura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 			} catch(UnauthorizedAccessException ex) {
 				MessageBox.Show(ex.Message, "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 			} catch(ArgumentException ex) {
 				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			} finally {
-				if(fs != null) {
-					if(sw != null)
-						sw.Close();
-
-					fs.Close();
-				}
 			}
 		}
 		#endregion

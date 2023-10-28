@@ -62,28 +62,16 @@ namespace tp2 {
 				DateTime checkIn = ventana.calendario.SelectionStart;
 				DateTime checkOut = ventana.calendario.SelectionEnd;
 
-				//PENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTE
-				Cliente cliente = new Cliente(0, 0, 0, "", "", 0);
-				//PENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTEPENDIENTE
-
-				Alquiler alquiler = new Alquiler(
-					(int)this.nudNroAlquiler.Value,
-					this.calendario.DíaSeleccionado,
-					checkIn,
-					checkOut,
-					cliente,
-					this.sistema.PrecioBase);
-
 				MessageBox.Show(
 					$"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}",
 					"Residencia alquilada",
 					MessageBoxButtons.OK,
 					MessageBoxIcon.Information);
 
-				if(this.sistema.AlquilarResidencia((int)this.nudNroPropiedadAlquiler.Value, alquiler))
-					MessageBox.Show("Propiedad Alquilada.");
-				else
-					MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
+				//if(this.sistema.AlquilarResidencia((int)this.nudNroPropiedadAlquiler.Value,  alquiler))
+				//	MessageBox.Show("Propiedad Alquilada.");
+				//else
+				//	MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
 			}
 		}
 

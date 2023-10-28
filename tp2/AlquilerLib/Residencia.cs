@@ -65,9 +65,10 @@ namespace AlquilerLib {
 
         public virtual bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase, out Alquiler nuevo)
         {
-			nuevo = new Alquiler(contAlquileres++, hoy, ingreso, salida, this, cantPasajeros, dni, nombre, apellido, tel, precioBase);
+			nuevo = new Alquiler(this.contAlquileres++, hoy, ingreso, salida, this, cantPasajeros, dni, nombre, apellido, tel, precioBase);
 			bool puedeAlquilar = this.PuedeAlquilar(nuevo);
-			if(puedeAlquilar)this.alquileres.Add(nuevo);
+			if(puedeAlquilar)
+				this.alquileres.Add(nuevo);
 			return puedeAlquilar;
         }
 
@@ -80,17 +81,9 @@ namespace AlquilerLib {
         {
             this.alquileres.Sort();
 
-            Alquiler buscado = new Alquiler(
-                nroAlquiler,
-                new DateTime(2023, 01, 05),
-                new DateTime(2023, 01, 06),
-                new DateTime(2023, 01, 08),
-				this,
-				new Cliente(0, 0, 0, "", "", 0),
-				0);
+            Alquiler buscado = new Alquiler(nroAlquiler);
 
             int idx = this.alquileres.BinarySearch(buscado);
-
             if (idx < 0)
                 return null;
 

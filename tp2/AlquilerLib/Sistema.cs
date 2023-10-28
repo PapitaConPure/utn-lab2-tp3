@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,13 +82,13 @@ namespace AlquilerLib {
 		/// <param name="nroResidencia">Número de la residencia a alquilar</param>
 		/// <param name="alquiler">Alquiler a relacionar con la propiedad</param>
 		/// <returns><see langword="true"/> si se pudo alquilar la <see cref="Residencia"/></returns>
-		public bool AlquilarResidencia(int nroResidencia, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Cliente cliente) {
-			Residencia propiedad = this.VerResidencia(nroResidencia);
+		public bool AlquilarResidencia(int nroResidencia, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, int cantPasajeros, int dni, string nombre, string apellido, long tel) {
+			Residencia residencia = this.VerResidencia(nroResidencia);
 
-            if(propiedad is null)
+            if(residencia is null)
                 return false;
 
-			return propiedad.Alquilar(fechaReserva, checkIn, checkOut, cliente, this.PrecioBase, out _);
+			return residencia.Alquilar(fechaReserva, checkIn, checkOut, cantPasajeros, dni, nombre, apellido, tel, this.PrecioBase, out _);
 		}
 
 		/// <summary>
@@ -104,6 +105,69 @@ namespace AlquilerLib {
 
 			propiedad.QuitarAlquiler(nroAlquiler);
 			return true;
+		}
+
+		public void ImportarAlquileres(string ruta) {
+			FileStream fs = null;
+			StreamReader sr = null;
+
+			try {
+				fs = new FileStream(ruta, FileMode.Open, FileAccess.Read);
+				sr = new StreamReader(fs);
+
+				int n = 0;
+				string linea;
+				while(!sr.EndOfStream) {
+					linea = sr.ReadLine();
+					n++;
+					string[] datos = linea.Split(';');
+					if(datos.Length == 8) {
+						if(!this.AlquilarResidencia(
+						Convert.ToInt32(datos[0]),
+						Convert.ToDateTime(datos[6]),
+						Convert.ToDateTime(datos[7]),
+						Convert.ToDateTime(datos[8]),
+						Convert.ToInt32(datos[5]),
+						Convert.ToInt32(datos[1]),
+						datos[2],
+						datos[3],
+						Convert.ToInt64(datos[4]))) {
+							throw new InvalidOperationException($"El alquiler ya existe (Línea {n})");
+						}
+					} else
+						throw new ArgumentException($"Cantidad de datos inválida (Línea {n})");
+				}
+			} finally {
+				if(fs != null) {
+					if(sr != null)
+						sr.Close();
+
+					fs.Close();
+				}
+			}
+		}
+
+		public void ExportarAlquileres(string ruta) {
+			FileStream fs = null;
+			StreamWriter sw = null;
+
+			try {
+				fs = new FileStream(ruta, FileMode.OpenOrCreate, FileAccess.Write);
+				sw = new StreamWriter(fs);
+
+				foreach(Residencia residencia in this.Residencias) {
+					foreach(Alquiler alquiler in residencia.Alquileres) {
+						sw.WriteLine(alquiler.Imprimir());
+					}
+				}
+			} finally {
+				if(fs != null) {
+					if(sw != null)
+						sw.Close();
+
+					fs.Close();
+				}
+			}
 		}
 	}
 }

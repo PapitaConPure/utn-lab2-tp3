@@ -61,7 +61,6 @@ namespace AlquilerLib {
 		public string Imprimir() {
 			return string.Join(";",
 				this.residencia.Número,
-				this.Número,
 				this.cliente.Imprimir(),
 				this.FechaReserva.Ticks,
 				this.CheckIn.Ticks,
