@@ -24,7 +24,6 @@ namespace tp2 {
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent() {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPrincipal));
 			this.btnAgregarCasa = new System.Windows.Forms.Button();
 			this.btnAgregarHotel = new System.Windows.Forms.Button();
 			this.btnBorrarPropiedad = new System.Windows.Forms.Button();
@@ -43,7 +42,6 @@ namespace tp2 {
 			this.gbDatos = new System.Windows.Forms.GroupBox();
 			this.gbBuscar = new System.Windows.Forms.GroupBox();
 			this.lsbResidencias = new System.Windows.Forms.ListBox();
-			this.label1 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.pnlTérmino = new System.Windows.Forms.Panel();
 			this.cmbTérmino = new System.Windows.Forms.ComboBox();
@@ -285,7 +283,6 @@ namespace tp2 {
 			// gbBuscar
 			// 
 			this.gbBuscar.Controls.Add(this.lsbResidencias);
-			this.gbBuscar.Controls.Add(this.label1);
 			this.gbBuscar.Controls.Add(this.tableLayoutPanel2);
 			this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbBuscar.Location = new System.Drawing.Point(0, 164);
@@ -300,22 +297,10 @@ namespace tp2 {
 			this.lsbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lsbResidencias.FormattingEnabled = true;
 			this.lsbResidencias.ItemHeight = 20;
-			this.lsbResidencias.Location = new System.Drawing.Point(3, 146);
+			this.lsbResidencias.Location = new System.Drawing.Point(3, 58);
 			this.lsbResidencias.Name = "lsbResidencias";
-			this.lsbResidencias.Size = new System.Drawing.Size(740, 104);
+			this.lsbResidencias.Size = new System.Drawing.Size(740, 192);
 			this.lsbResidencias.TabIndex = 1;
-			// 
-			// label1
-			// 
-			this.label1.BackColor = System.Drawing.Color.Red;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(3, 58);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(740, 88);
-			this.label1.TabIndex = 0;
-			this.label1.Text = resources.GetString("label1.Text");
 			// 
 			// tableLayoutPanel2
 			// 
@@ -421,7 +406,6 @@ namespace tp2 {
 		private System.Windows.Forms.ComboBox cmbResidencias;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.GroupBox gbBuscar;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox tbBúsqueda;
 		private System.Windows.Forms.ComboBox cmbTérmino;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

@@ -14,7 +14,7 @@ namespace tp2
     {
         public FFechaAlquiler()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

@@ -24,8 +24,8 @@ namespace tp2 {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tlpCalendario = new System.Windows.Forms.TableLayoutPanel();
 			this.dgvCalendario = new System.Windows.Forms.DataGridView();
 			this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,23 +36,13 @@ namespace tp2 {
 			this.Sábado = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Domingo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cmbMes = new System.Windows.Forms.ComboBox();
-			this.tlpNrosAlquiler = new System.Windows.Forms.TableLayoutPanel();
-			this.nudNroAlquiler = new System.Windows.Forms.NumericUpDown();
 			this.tlpBotonesAlquiler = new System.Windows.Forms.TableLayoutPanel();
 			this.btnAlquilar = new System.Windows.Forms.Button();
 			this.btnCancelarAlquiler = new System.Windows.Forms.Button();
-			this.gbNroPropiedad = new System.Windows.Forms.GroupBox();
-			this.nudNroPropiedadAlquiler = new System.Windows.Forms.NumericUpDown();
-			this.gbNroAlquiler = new System.Windows.Forms.GroupBox();
 			this.btnCerrar = new System.Windows.Forms.Button();
 			this.tlpCalendario.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).BeginInit();
-			this.tlpNrosAlquiler.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudNroAlquiler)).BeginInit();
 			this.tlpBotonesAlquiler.SuspendLayout();
-			this.gbNroPropiedad.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedadAlquiler)).BeginInit();
-			this.gbNroAlquiler.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tlpCalendario
@@ -64,13 +54,13 @@ namespace tp2 {
 			this.tlpCalendario.Controls.Add(this.dgvCalendario, 1, 1);
 			this.tlpCalendario.Controls.Add(this.cmbMes, 0, 1);
 			this.tlpCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tlpCalendario.Location = new System.Drawing.Point(0, 60);
+			this.tlpCalendario.Location = new System.Drawing.Point(0, 0);
 			this.tlpCalendario.Name = "tlpCalendario";
 			this.tlpCalendario.RowCount = 3;
 			this.tlpCalendario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tlpCalendario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 156F));
 			this.tlpCalendario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tlpCalendario.Size = new System.Drawing.Size(380, 165);
+			this.tlpCalendario.Size = new System.Drawing.Size(380, 205);
 			this.tlpCalendario.TabIndex = 1;
 			// 
 			// dgvCalendario
@@ -82,14 +72,14 @@ namespace tp2 {
 			this.dgvCalendario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
 			this.dgvCalendario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvCalendario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvCalendario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lunes,
@@ -99,17 +89,17 @@ namespace tp2 {
             this.Viernes,
             this.Sábado,
             this.Domingo});
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvCalendario.EnableHeadersVisualStyles = false;
-			this.dgvCalendario.Location = new System.Drawing.Point(183, 7);
+			this.dgvCalendario.Location = new System.Drawing.Point(183, 27);
 			this.dgvCalendario.MultiSelect = false;
 			this.dgvCalendario.Name = "dgvCalendario";
 			this.dgvCalendario.ReadOnly = true;
@@ -189,43 +179,12 @@ namespace tp2 {
 			this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbMes.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.cmbMes.FormattingEnabled = true;
-			this.cmbMes.Location = new System.Drawing.Point(8, 7);
+			this.cmbMes.Location = new System.Drawing.Point(8, 27);
 			this.cmbMes.Margin = new System.Windows.Forms.Padding(8, 3, 8, 8);
 			this.cmbMes.Name = "cmbMes";
 			this.cmbMes.Size = new System.Drawing.Size(164, 28);
 			this.cmbMes.TabIndex = 1;
 			this.cmbMes.SelectedIndexChanged += new System.EventHandler(this.CmbMes_SelectedIndexChanged);
-			// 
-			// tlpNrosAlquiler
-			// 
-			this.tlpNrosAlquiler.ColumnCount = 2;
-			this.tlpNrosAlquiler.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tlpNrosAlquiler.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tlpNrosAlquiler.Controls.Add(this.gbNroAlquiler, 1, 0);
-			this.tlpNrosAlquiler.Controls.Add(this.gbNroPropiedad, 0, 0);
-			this.tlpNrosAlquiler.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tlpNrosAlquiler.Location = new System.Drawing.Point(0, 0);
-			this.tlpNrosAlquiler.Name = "tlpNrosAlquiler";
-			this.tlpNrosAlquiler.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-			this.tlpNrosAlquiler.RowCount = 1;
-			this.tlpNrosAlquiler.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tlpNrosAlquiler.Size = new System.Drawing.Size(380, 60);
-			this.tlpNrosAlquiler.TabIndex = 1;
-			// 
-			// nudNroAlquiler
-			// 
-			this.nudNroAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.nudNroAlquiler.Location = new System.Drawing.Point(3, 23);
-			this.nudNroAlquiler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.nudNroAlquiler.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-			this.nudNroAlquiler.Name = "nudNroAlquiler";
-			this.nudNroAlquiler.Size = new System.Drawing.Size(172, 27);
-			this.nudNroAlquiler.TabIndex = 5;
-			this.nudNroAlquiler.ThousandsSeparator = true;
 			// 
 			// tlpBotonesAlquiler
 			// 
@@ -237,7 +196,7 @@ namespace tp2 {
 			this.tlpBotonesAlquiler.Controls.Add(this.btnCancelarAlquiler, 1, 0);
 			this.tlpBotonesAlquiler.Controls.Add(this.btnCerrar, 2, 0);
 			this.tlpBotonesAlquiler.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.tlpBotonesAlquiler.Location = new System.Drawing.Point(0, 225);
+			this.tlpBotonesAlquiler.Location = new System.Drawing.Point(0, 205);
 			this.tlpBotonesAlquiler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tlpBotonesAlquiler.Name = "tlpBotonesAlquiler";
 			this.tlpBotonesAlquiler.RowCount = 1;
@@ -257,7 +216,7 @@ namespace tp2 {
 			this.btnAlquilar.Name = "btnAlquilar";
 			this.btnAlquilar.Size = new System.Drawing.Size(118, 48);
 			this.btnAlquilar.TabIndex = 1;
-			this.btnAlquilar.Text = "Alquilar Propiedad";
+			this.btnAlquilar.Text = "Alquilar Residencia";
 			this.btnAlquilar.UseVisualStyleBackColor = false;
 			this.btnAlquilar.Click += new System.EventHandler(this.BtnAlquilar_Click);
 			// 
@@ -277,45 +236,6 @@ namespace tp2 {
 			this.btnCancelarAlquiler.Text = "Cancelar Alquiler";
 			this.btnCancelarAlquiler.UseVisualStyleBackColor = false;
 			this.btnCancelarAlquiler.Click += new System.EventHandler(this.BtnCancelarAlquiler_Click);
-			// 
-			// gbNroPropiedad
-			// 
-			this.gbNroPropiedad.Controls.Add(this.nudNroPropiedadAlquiler);
-			this.gbNroPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gbNroPropiedad.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.gbNroPropiedad.Location = new System.Drawing.Point(9, 3);
-			this.gbNroPropiedad.Name = "gbNroPropiedad";
-			this.gbNroPropiedad.Size = new System.Drawing.Size(178, 54);
-			this.gbNroPropiedad.TabIndex = 9;
-			this.gbNroPropiedad.TabStop = false;
-			this.gbNroPropiedad.Text = "Nro. Propiedad";
-			// 
-			// nudNroPropiedadAlquiler
-			// 
-			this.nudNroPropiedadAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.nudNroPropiedadAlquiler.Location = new System.Drawing.Point(3, 23);
-			this.nudNroPropiedadAlquiler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.nudNroPropiedadAlquiler.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-			this.nudNroPropiedadAlquiler.Name = "nudNroPropiedadAlquiler";
-			this.nudNroPropiedadAlquiler.Size = new System.Drawing.Size(172, 27);
-			this.nudNroPropiedadAlquiler.TabIndex = 9;
-			this.nudNroPropiedadAlquiler.ThousandsSeparator = true;
-			// 
-			// gbNroAlquiler
-			// 
-			this.gbNroAlquiler.Controls.Add(this.nudNroAlquiler);
-			this.gbNroAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gbNroAlquiler.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.gbNroAlquiler.Location = new System.Drawing.Point(193, 3);
-			this.gbNroAlquiler.Name = "gbNroAlquiler";
-			this.gbNroAlquiler.Size = new System.Drawing.Size(178, 54);
-			this.gbNroAlquiler.TabIndex = 6;
-			this.gbNroAlquiler.TabStop = false;
-			this.gbNroAlquiler.Text = "Nro. Alquiler";
 			// 
 			// btnCerrar
 			// 
@@ -337,22 +257,16 @@ namespace tp2 {
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(380, 281);
+			this.ClientSize = new System.Drawing.Size(380, 261);
 			this.Controls.Add(this.tlpCalendario);
 			this.Controls.Add(this.tlpBotonesAlquiler);
-			this.Controls.Add(this.tlpNrosAlquiler);
 			this.MinimumSize = new System.Drawing.Size(380, 300);
 			this.Name = "FAlquiler";
 			this.Text = "Alquiler";
 			this.Load += new System.EventHandler(this.FAlquilar_Load);
 			this.tlpCalendario.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).EndInit();
-			this.tlpNrosAlquiler.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.nudNroAlquiler)).EndInit();
 			this.tlpBotonesAlquiler.ResumeLayout(false);
-			this.gbNroPropiedad.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.nudNroPropiedadAlquiler)).EndInit();
-			this.gbNroAlquiler.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -368,14 +282,9 @@ namespace tp2 {
 		private System.Windows.Forms.DataGridViewTextBoxColumn Sábado;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Domingo;
 		private System.Windows.Forms.ComboBox cmbMes;
-		private System.Windows.Forms.TableLayoutPanel tlpNrosAlquiler;
-		private System.Windows.Forms.NumericUpDown nudNroAlquiler;
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesAlquiler;
 		private System.Windows.Forms.Button btnAlquilar;
 		private System.Windows.Forms.Button btnCancelarAlquiler;
-		private System.Windows.Forms.GroupBox gbNroPropiedad;
-		private System.Windows.Forms.NumericUpDown nudNroPropiedadAlquiler;
-		private System.Windows.Forms.GroupBox gbNroAlquiler;
 		private System.Windows.Forms.Button btnCerrar;
 	}
 }

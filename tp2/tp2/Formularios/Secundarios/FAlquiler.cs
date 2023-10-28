@@ -12,6 +12,7 @@ using System.Windows.Forms;
 namespace tp2 {
 	public partial class FAlquiler: Form {
 		private readonly Sistema sistema;
+		private readonly Residencia residencia;
 		private Calendario calendario;
 		private DateTime[] meses;
 
@@ -19,8 +20,9 @@ namespace tp2 {
 			this.InitializeComponent();
 		}
 
-		public FAlquiler(Sistema sistema, Residencia _): this() {
+		public FAlquiler(Sistema sistema, Residencia residencia): this() {
 			this.sistema = sistema;
+			this.residencia = residencia;
 		}
 
 		private void FAlquilar_Load(object sender, EventArgs e) {
@@ -35,18 +37,9 @@ namespace tp2 {
 			this.calendario = new Calendario(this.dgvCalendario);
 		}
 
-		private void BtnConsultarAlquiler_Click(object sender, EventArgs e) {
-			Residencia propiedad = this.sistema.VerResidencia(Convert.ToInt32(this.nudNroPropiedadAlquiler.Value));
-
-			if(propiedad != null) {
-				MessageBox.Show("La propiedad existe.");
-			} else
-				MessageBox.Show("La propiedad no existe.");
-		}
-
 		private void BtnCancelarAlquiler_Click(object sender, EventArgs e) {
-			if(this.sistema.CancelarAlquiler(Convert.ToInt32(this.nudNroPropiedadAlquiler), Convert.ToInt32(this.nudNroAlquiler.Value)))
-				MessageBox.Show("El alquiler fue cancelado con éxito.");
+			//if(this.sistema.CancelarAlquiler(Convert.ToInt32(this.nudNroPropiedadAlquiler), Convert.ToInt32(this.nudNroAlquiler.Value)))
+			//	MessageBox.Show("El alquiler fue cancelado con éxito.");
 		}
 
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
