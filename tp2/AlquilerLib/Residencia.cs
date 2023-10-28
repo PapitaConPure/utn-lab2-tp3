@@ -64,7 +64,7 @@ namespace AlquilerLib {
 			return 0;
 		}
 
-        public bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, Cliente cliente,double precioBase)
+        public virtual bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, Cliente cliente,double precioBase)
         {
 			Alquiler alquiler = new Alquiler(contAlquileres++, hoy, ingreso, salida,this, cliente,precioBase);
 			bool puedeAlquilar = this.PuedeAlquilar(alquiler);
