@@ -157,7 +157,7 @@ namespace AlquilerLib {
 
 				foreach(Residencia residencia in this.Residencias) {
 					foreach(Alquiler alquiler in residencia.Alquileres) {
-						sw.WriteLine(alquiler.Imprimir());
+						sw.WriteLine(alquiler.Exportar());
 					}
 				}
 			} finally {

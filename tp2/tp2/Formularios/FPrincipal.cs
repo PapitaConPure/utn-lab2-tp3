@@ -238,6 +238,53 @@ namespace tp2 {
 		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
 			(sender as NumericUpDown).Select(0, 20);
 		}
-		#endregion
-	}
+        #endregion
+
+
+        
+
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			if (lbResidencias.SelectedItem == null)
+            {
+				MessageBox.Show("Elija una propiedad");
+				return;
+            }
+			Residencia r = lbResidencias.SelectedItem as Residencia;
+			FAlquiler falquilar = new FAlquiler(this.sistema, r);
+			falquilar.ShowDialog();
+			falquilar.Dispose();
+		}
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+
+			lbResidencias.Items.Clear();
+			foreach (Residencia r in sistema.Residencias)
+			{
+				lbResidencias.Items.Add(r);
+			}
+		}
+
+        private void btnVerAlquiler_Click(object sender, EventArgs e)
+        {
+			FDetalles d = new FDetalles();
+			d.lbDetalles.Items.Clear();
+			Residencia elegida = cmbResidencias.SelectedItem as Residencia;
+			foreach(Alquiler al in elegida.Alquileres)
+            {
+				d.lbDetalles.Items.Add($"Nro de alquiler: {al.Número}");
+				d.lbDetalles.Items.Add($"Fecha de checkin: {al.CheckIn}");
+				d.lbDetalles.Items.Add($"Fecha de checkout: {al.CheckOut}");
+				d.lbDetalles.Items.Add($"Fecha de reserva: {al.FechaReserva}");
+				d.lbDetalles.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
+				d.lbDetalles.Items.Add($"Dni: {al.Cliente.Dni}");
+				d.lbDetalles.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
+			}
+			d.ShowDialog();
+			d.Dispose();
+        }
+    }
 }

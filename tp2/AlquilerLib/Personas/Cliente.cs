@@ -14,8 +14,8 @@ namespace AlquilerLib {
 
 		public int CantPasajeros { get; private set; }
 
-		public override string Imprimir() {
-			return string.Join(";", base.Imprimir(), this.CantPasajeros);
+		public override string Exportar() {
+			return string.Join(";", base.Exportar(), this.CantPasajeros);
 		}
 	}
 }

@@ -121,7 +121,7 @@ namespace AlquilerLib {
 			return this.servicios;
 		}
 
-		public string Imprimir() {
+		public string Exportar() {
 			return $"{this.Número}";
 		}
 

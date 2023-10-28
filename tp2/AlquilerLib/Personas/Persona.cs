@@ -64,7 +64,7 @@ namespace AlquilerLib {
 
 		public long Teléfono { get; set; }
 
-		public virtual string Imprimir() {
+		public virtual string Exportar() {
 			return string.Join(";", this.Dni, this.Nombre, this.Apellido, this.Teléfono);
 		}
 	}

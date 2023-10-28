@@ -38,34 +38,47 @@ namespace tp2 {
 		}
 
 		private void BtnCancelarAlquiler_Click(object sender, EventArgs e) {
-			//if(this.sistema.CancelarAlquiler(Convert.ToInt32(this.nudNroPropiedadAlquiler), Convert.ToInt32(this.nudNroAlquiler.Value)))
-			//	MessageBox.Show("El alquiler fue cancelado con éxito.");
+
+		//	if(this.sistema.CancelarAlquiler(Convert.ToInt32(this.nudNroPropiedadAlquiler), Convert.ToInt32(this.nudNroAlquiler.Value)))
+		//		MessageBox.Show("El alquiler fue cancelado con éxito.");
 		}
 
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
-			if(!this.calendario.HayDíaSeleccionado) {
+			if (!this.calendario.HayDíaSeleccionado) {
 				MessageBox.Show("No hay día seleccionado");
 				return;
 			}
 
-			FFechaAlquiler ventana = new FFechaAlquiler();
-			ventana.calendario.TodayDate = this.calendario.DíaSeleccionado;
 
-			if(ventana.ShowDialog() == DialogResult.OK) {
-				DateTime checkIn = ventana.calendario.SelectionStart;
-				DateTime checkOut = ventana.calendario.SelectionEnd;
+			DateTime fechaReserva = DateTime.Now;
+			DateTime checkIn = calendario.DíaSeleccionado;
+			DateTime checkOut = checkIn.AddDays((double)nudCantDias.Value);
 
+			int cantPasajeros = (int)nudCantPasajeros.Value;
+			int telefono = (int)nudTel.Value;
+			int dni = (int)nudDNI.Value;
+			string nom = tbNombre.Text;
+			string apellido = tbApellido.Text;
+
+
+
+			if (this.sistema.AlquilarResidencia(this.residencia.Número, fechaReserva, checkIn, checkOut, cantPasajeros, dni, nom, apellido, telefono))
+			{ 
 				MessageBox.Show(
-					$"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}",
-					"Residencia alquilada",
-					MessageBoxButtons.OK,
-					MessageBoxIcon.Information);
-
-				//if(this.sistema.AlquilarResidencia((int)this.nudNroPropiedadAlquiler.Value,  alquiler))
-				//	MessageBox.Show("Propiedad Alquilada.");
-				//else
-				//	MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
+				$"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}",
+				"Residencia alquilada",
+				MessageBoxButtons.OK,
+				MessageBoxIcon.Information);
 			}
+			else
+				MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
+
+
+			nudCantDias.Value = nudCantDias.Minimum;
+			nudTel.Value = nudTel.Minimum;
+			nudDNI.Value = nudDNI.Minimum;
+			tbApellido.Clear();
+			tbNombre.Clear();
 		}
 
 		private void CmbMes_SelectedIndexChanged(object sender, EventArgs e) {
@@ -76,5 +89,10 @@ namespace tp2 {
 			DateTime mes = this.meses[idx];
 			this.calendario.MostrarMes(mes.Month, mes.Year);
 		}
-	}
+
+        private void dgvCalendario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
 }

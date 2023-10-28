@@ -42,6 +42,8 @@ namespace AlquilerLib {
 
 		public double PrecioBase { get; private set; }
 
+		public Residencia Residencia { get { return this.residencia; } }
+
 		public double PrecioTotal {
 			get {
 				return this.PrecioBase * this.residencia.PrecioTotal(this.Número);
@@ -58,10 +60,10 @@ namespace AlquilerLib {
 			return this.Número.CompareTo((obj as Alquiler).Número);
 		}
 
-		public string Imprimir() {
+		public string Exportar() {
 			return string.Join(";",
 				this.residencia.Número,
-				this.cliente.Imprimir(),
+				this.cliente.Exportar(),
 				this.FechaReserva.Ticks,
 				this.CheckIn.Ticks,
 				this.CheckOut.Ticks,
