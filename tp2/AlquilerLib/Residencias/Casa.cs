@@ -22,7 +22,7 @@ namespace AlquilerLib {
 		: base(número, dirección, imágenes) {
 			this.CamasDisponibles= camas;
 			this.MínimoPermitido = mínimoDías;
-			this.Propietario = new Persona(dni, nombre, tel, apellido);
+			this.Propietario = new Persona(dni, nombre, apellido, tel);
 		}
 
 		/// <summary>

@@ -59,14 +59,13 @@ namespace AlquilerLib {
 			get { return this.alquileres.ToArray(); }
 		}
 
-		public double CalcularPrecioTotal()
-		{
+		public double CalcularPrecioTotal() {
 			return 0;
 		}
 
-        public virtual bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, Cliente cliente,double precioBase, out Alquiler nuevo)
+        public virtual bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase, out Alquiler nuevo)
         {
-			nuevo = new Alquiler(contAlquileres++, hoy, ingreso, salida,this, cliente,precioBase);
+			nuevo = new Alquiler(contAlquileres++, hoy, ingreso, salida, this, cantPasajeros, dni, nombre, apellido, tel, precioBase);
 			bool puedeAlquilar = this.PuedeAlquilar(nuevo);
 			if(puedeAlquilar)this.alquileres.Add(nuevo);
 			return puedeAlquilar;

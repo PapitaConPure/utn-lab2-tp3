@@ -23,7 +23,7 @@ namespace AlquilerLib {
 		/// <param name="apellido">Apellido de la persona</param>
 		/// <exception cref="ArgumentException"></exception>
 		/// <exception cref="FormatException"></exception>
-		public Persona(int dni, string nombre, long tel, string apellido) {
+		public Persona(int dni, string nombre, string apellido, long tel) {
 			this.Dni = dni;
 			this.Nombre = nombre;
 			this.Teléfono = tel;
