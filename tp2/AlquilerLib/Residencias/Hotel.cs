@@ -42,6 +42,14 @@ namespace AlquilerLib {
 
 		public int CntTriple { get; set; }
 
+		public override bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, Cliente cliente, double precioBase, out Alquiler nuevo) {
+			bool puedeAlquilar = base.Alquilar(hoy, ingreso, salida, cliente, precioBase, out nuevo);
+
+			nuevo.TipoHabitación = this.VerTipoHabitación(cliente.CantPasajeros);
+
+			return puedeAlquilar;
+		}
+
 		public override double PrecioPorDía(int nroAlquiler) { ///terminar de codificar
 			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			double precio = 1;
@@ -53,6 +61,7 @@ namespace AlquilerLib {
 
 			return precio;
 		}
+
         public override double PrecioTotal(int nroAlquiler)
         {
             Alquiler alquiler = this.VerAlquiler(nroAlquiler);
@@ -61,6 +70,7 @@ namespace AlquilerLib {
 			double precioFinal = this.PrecioPorDía(nroAlquiler) * (1 + (int)diferencia.TotalDays * 0.03);
 			return precioFinal;
 		}
+
 		public TipoHabitación VerTipoHabitación(int cantPasajeros) {
 			if(cantPasajeros > 4) {
 				return TipoHabitación.Triple;

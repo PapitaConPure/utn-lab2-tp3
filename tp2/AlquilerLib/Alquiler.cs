@@ -47,23 +47,10 @@ namespace AlquilerLib {
 			}
 		}
 
-		public Hotel.TipoHabitación TipoHabitación { get; private set; }
+		public Hotel.TipoHabitación TipoHabitación { get; set; }
 
 		public Cliente Cliente {
 			get { return this.cliente; }
-		}
-
-		public Residencia Residencia {
-			get { return this.residencia; }
-			set {
-				if(this.residencia != null)
-					throw new InvalidOperationException("No se puede cambiar la residencia de un alquiler ya emitido");
-
-				this.residencia = value;
-
-				if(value is Hotel)
-					this.TipoHabitación = (value as Hotel).VerTipoHabitación(this.cliente.CantPasajeros);
-			}
 		}
 
 		public int CompareTo(object obj) {
