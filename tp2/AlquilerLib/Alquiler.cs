@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AlquilerLib.Constructores;
 
 namespace AlquilerLib {
 	[Serializable]
@@ -25,7 +22,7 @@ namespace AlquilerLib {
 			this.CheckOut = checkOut;
 			this.residencia = residencia;
 			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
-			this.cliente = new Cliente(cantPasajeros, dni, nombre, apellido, tel);
+			this.cliente = new Cliente(new DatosPersona(dni, nombre, apellido, tel), cantPasajeros);
 		}
 		public Alquiler(int número)
 		{

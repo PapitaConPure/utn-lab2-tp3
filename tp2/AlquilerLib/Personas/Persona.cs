@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using AlquilerLib.Constructores;
 using AlquilerLib.Utilidades;
 
 namespace AlquilerLib {
@@ -23,11 +20,11 @@ namespace AlquilerLib {
 		/// <param name="apellido">Apellido de la persona</param>
 		/// <exception cref="ArgumentException"></exception>
 		/// <exception cref="FormatException"></exception>
-		public Persona(int dni, string nombre, string apellido, long tel) {
-			this.Dni = dni;
-			this.Nombre = nombre;
-			this.Teléfono = tel;
-			this.Apellido = apellido;
+		public Persona(DatosPersona datos) {
+			this.Dni = datos.Dni;
+			this.Nombre = datos.Nombre;
+			this.Teléfono = datos.Teléfono;
+			this.Apellido = datos.Apellido;
 		}
 
 		public int Dni { get; private set; }

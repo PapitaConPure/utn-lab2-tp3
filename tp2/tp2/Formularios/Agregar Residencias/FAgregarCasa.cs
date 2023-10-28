@@ -1,14 +1,11 @@
 ﻿using cargandoImagenes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AlquilerLib;
+using AlquilerLib.Constructores;
 
 namespace tp2 {
     public partial class FAgregarCasa: Form {
@@ -91,26 +88,21 @@ namespace tp2 {
 		private void BtnCrear_Click(object sender, EventArgs e) {
 			try {
 				if(this.casa is null) {
+					int nroResidencia = (int)this.nudNroResidencia.Value;
+					string dirección = this.tbDirección.Text;
+
+					int dni = (int)this.nudDNI.Value;
+					string nombre = this.tbNombre.Text;
+					string apellido = this.tbApellido.Text;
+					long teléfono = (long)this.nudTel.Value;
+					DatosPersona datosPropietario = new DatosPersona(dni, nombre, apellido, teléfono);
+
 					if(this.rbCasa.Checked) {
-						this.casa = new Casa(
-							(int)this.nudNroResidencia.Value,
-							this.tbDirección.Text,
-							(int)this.nudMinDias.Value,
-							(int)this.nudCantCamas.Value,
-							(int)this.nudDNI.Value,
-							this.tbNombre.Text,
-							(long)this.nudTel.Value,
-							this.tbApellido.Text,
-							this.Imágenes);
+						int minDías = (int)this.nudMinDias.Value;
+						int cantCamas = (int)this.nudCantCamas.Value;
+						this.casa = new Casa(nroResidencia, dirección, minDías, cantCamas, datosPropietario, this.Imágenes);
 					} else {
-						this.casa = new CasaFinde(
-							(int)this.nudNroResidencia.Value,
-							this.tbDirección.Text, 3,
-							(int)this.nudDNI.Value,
-							this.tbNombre.Text,
-							(long)this.nudTel.Value,
-							this.tbApellido.Text,
-							this.Imágenes);
+						this.casa = new CasaFinde(nroResidencia, dirección, 3, datosPropietario, this.Imágenes);
 					}
 
 					foreach(CheckBox servicio in this.servicios) {

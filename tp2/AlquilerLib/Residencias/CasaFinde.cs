@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using AlquilerLib.Constructores;
 
 namespace AlquilerLib {
 	[Serializable]
@@ -17,8 +18,8 @@ namespace AlquilerLib {
 		/// <param name="imágenes">Imágenes de muestra de la casa</param>
 		/// <exception cref="ArgumentException"></exception>
 		/// <exception cref="FormatException"></exception>
-		public CasaFinde(int número, string dirección, int camas, int dni, string nombre, long tel, string apellido, Image[] imágenes)
-		: base(número, dirección, 3, camas, dni, nombre, tel, apellido, imágenes) {}
+		public CasaFinde(int número, string dirección, int camas, DatosPersona datosPropietario, Image[] imágenes)
+		: base(número, dirección, 3, camas, datosPropietario, imágenes) {}
 
 		public override bool PuedeAlquilar(Alquiler alquiler) {
 			return base.PuedeAlquilar(alquiler)
