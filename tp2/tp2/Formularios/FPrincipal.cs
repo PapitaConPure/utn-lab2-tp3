@@ -37,7 +37,11 @@ namespace tp2 {
 					this.sistema = bf.Deserialize(fs) as Sistema;
 
 					foreach(Residencia residencia in this.sistema.Residencias)
+                    {
 						this.cmbResidencias.Items.Add(residencia);
+						if(!cbDestinos.Items.Contains(residencia.Dirección))
+							this.cbDestinos.Items.Add(residencia.Dirección);
+					}
 				}
 			} catch(IOException) {
 				MessageBox.Show("No se pudieron cargar los datos previos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -224,9 +228,13 @@ namespace tp2 {
 		#region Utilidades
 		private void ActualizarListaResidencias() {
 			this.cmbResidencias.Items.Clear();
-
-			foreach(Residencia residencia in this.sistema.Residencias)
-				this.cmbResidencias.Items.Add(residencia);
+			this.cbDestinos.Items.Clear();
+			foreach (Residencia residencia in this.sistema.Residencias)
+            {
+				this.cmbResidencias.Items.Add(residencia); 
+				if (!cbDestinos.Items.Contains(residencia.Dirección))
+					this.cbDestinos.Items.Add(residencia.Dirección);
+			}
 		}
 		#endregion
 
@@ -258,16 +266,127 @@ namespace tp2 {
 			falquilar.Dispose();
 		}
 
+		//Perdon por esto
+		//estoy re quemado, hice todo para el recontra ojete
+		//le tengo que poner mucho mas cerebro
         private void btnVer_Click(object sender, EventArgs e)
         {
-
 			lbResidencias.Items.Clear();
-			foreach (Residencia r in sistema.Residencias)
+
+			List<Residencia> resultado = new List<Residencia>();
+			
+			bool casa,hotel, dest, maxi, mini, viaj;
+			casa = hotel = dest = maxi = mini = viaj = false;
+
+			double max=0, min=0;
+			if (nudMaxPrice.Value != 0) max = (double)nudMaxPrice.Value;
+			if (nudMinPrice.Value != 0) min = (double)nudMinPrice.Value;
+
+			string destino = "";
+			if (cbDestinos.SelectedItem != null) destino = cbDestinos.SelectedItem as string;
+
+			int viajantes = 0;
+
+			if (rbSimple.Checked)
+			{
+				casa = false;
+				viajantes = 2;
+			}
+			if (rbDoble.Checked)
+			{
+				casa = false;
+				viajantes = 4;
+			}
+
+			if (rbTriple.Checked)
+			{
+				casa = false;
+				viajantes = 6;
+			}
+			if (nudCantPersonas.Value != 0) viajantes = (int)nudCantPersonas.Value; ;
+
+			if (!rbCasa.Checked && !rbCasaFinde.Checked) hotel = true;
+
+			if (destino == "") dest = true;
+			if (max == 0) maxi = true;
+			if (min == 0) mini = true;
+			if (viajantes == 0) viaj = true;
+
+			foreach(Residencia re in this.sistema.Residencias)
+            {
+
+				if (casa)
+                {
+					if (re is Casa)
+					{
+						casa = true;
+						hotel = false;
+					}
+                    else
+                    {
+						if (casa)
+						{
+							if (re is CasaFinde)
+							{
+								casa = true;
+								hotel = false;
+							}
+						}
+						else
+						{
+							if(re is Hotel)
+                            {
+								hotel = true;
+								casa = false;
+							}
+						}
+					}
+				}
+				else
+                {
+				}	
+
+				if(cbDestinos.SelectedItem != null && !dest)
+                {
+					if(re.Dirección == cbDestinos.SelectedItem.ToString().ToUpper())
+                    {
+						dest = true;
+                    }
+                }
+
+                if (!maxi)
+                {
+					if (re.CalcularPrecioTotal() <= max) maxi = true;
+                }
+                if (!mini)
+                {
+					if (re.CalcularPrecioTotal() >= min) mini = true;
+                }
+
+                if (!viaj)
+                {
+					if (re is Casa && casa)
+						if (((Casa)re).CamasDisponibles >= viajantes) viaj = true;
+					if(re is Hotel && hotel)
+                    {
+						if (viajantes >= 5 && ((Hotel)re).CntTriple > 0) viaj = true;
+						else if (viajantes >= 3 && ((Hotel)re).CntDoble > 0) viaj = true;
+						else if (viajantes >= 1 && ((Hotel)re).CntSimple > 0) viaj = true;
+					}
+						
+                }
+				if ((casa ^ hotel) && dest && maxi && mini && viaj)
+					resultado.Add(re);
+            }
+
+			if(resultado.Count==0) lbResidencias.Items.Add("No hay resultados");
+			foreach (Residencia r in resultado)
 			{
 				lbResidencias.Items.Add(r);
 			}
 		}
 
+		//Deberiamos poder seleccionar un alquiler de alguna forma para poder eliminarlo posteriormente
         private void btnVerAlquiler_Click(object sender, EventArgs e)
         {
 			FDetalles d = new FDetalles();
@@ -275,16 +394,31 @@ namespace tp2 {
 			Residencia elegida = cmbResidencias.SelectedItem as Residencia;
 			foreach(Alquiler al in elegida.Alquileres)
             {
-				d.lbDetalles.Items.Add($"Nro de alquiler: {al.Número}");
-				d.lbDetalles.Items.Add($"Fecha de checkin: {al.CheckIn}");
-				d.lbDetalles.Items.Add($"Fecha de checkout: {al.CheckOut}");
-				d.lbDetalles.Items.Add($"Fecha de reserva: {al.FechaReserva}");
-				d.lbDetalles.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
-				d.lbDetalles.Items.Add($"Dni: {al.Cliente.Dni}");
-				d.lbDetalles.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
+				//d.lbDetalles.Items.Add($"Nro de alquiler: {al.Número}");
+				//d.lbDetalles.Items.Add($"Fecha de checkin: {al.CheckIn}");
+				//d.lbDetalles.Items.Add($"Fecha de checkout: {al.CheckOut}");
+				//d.lbDetalles.Items.Add($"Fecha de reserva: {al.FechaReserva}");
+				//d.lbDetalles.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
+				//d.lbDetalles.Items.Add($"Dni: {al.Cliente.Dni}");
+				//d.lbDetalles.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
+				MessageBox.Show($"Nro de alquiler: {al.Número}\nFecha de checkin: { al.CheckIn}\nFecha de checkout: {al.CheckOut}\nNombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
 			}
+			
 			d.ShowDialog();
 			d.Dispose();
+        }
+
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+			cbDestinos.SelectedIndex = -1;
+			nudCantPersonas.Value = nudCantPersonas.Minimum;
+			nudMaxPrice.Value = nudMaxPrice.Minimum;
+			nudMinPrice.Value = nudMinPrice.Minimum;
+			rbCasa.Checked = false;
+			rbCasaFinde.Checked = false;
+			rbSimple.Checked = false;
+			rbDoble.Checked = false;
+			rbTriple.Checked = false;
         }
     }
 }

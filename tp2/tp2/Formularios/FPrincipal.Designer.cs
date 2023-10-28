@@ -47,6 +47,21 @@ namespace tp2 {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbBúsqueda = new System.Windows.Forms.TextBox();
             this.btnVerAlquiler = new System.Windows.Forms.Button();
+            this.rbCasa = new System.Windows.Forms.RadioButton();
+            this.rbCasaFinde = new System.Windows.Forms.RadioButton();
+            this.rbSimple = new System.Windows.Forms.RadioButton();
+            this.rbDoble = new System.Windows.Forms.RadioButton();
+            this.rbTriple = new System.Windows.Forms.RadioButton();
+            this.cbDestinos = new System.Windows.Forms.ComboBox();
+            this.lbDestino = new System.Windows.Forms.Label();
+            this.nudMaxPrice = new System.Windows.Forms.NumericUpDown();
+            this.nudMinPrice = new System.Windows.Forms.NumericUpDown();
+            this.lbMax = new System.Windows.Forms.Label();
+            this.lbMin = new System.Windows.Forms.Label();
+            this.lbPrecio = new System.Windows.Forms.Label();
+            this.lbCantPasajeros = new System.Windows.Forms.Label();
+            this.nudCantPersonas = new System.Windows.Forms.NumericUpDown();
+            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.tlpBotonesPropiedades.SuspendLayout();
             this.gbResidencias.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -55,6 +70,9 @@ namespace tp2 {
             this.gbDatos.SuspendLayout();
             this.gbBuscar.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregarCasa
@@ -272,7 +290,7 @@ namespace tp2 {
             // 
             this.gbDatos.Controls.Add(this.tlpBotonesDatos);
             this.gbDatos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbDatos.Location = new System.Drawing.Point(0, 422);
+            this.gbDatos.Location = new System.Drawing.Point(0, 524);
             this.gbDatos.Name = "gbDatos";
             this.gbDatos.Size = new System.Drawing.Size(746, 63);
             this.gbDatos.TabIndex = 3;
@@ -281,6 +299,21 @@ namespace tp2 {
             // 
             // gbBuscar
             // 
+            this.gbBuscar.Controls.Add(this.btnLimpiarFiltros);
+            this.gbBuscar.Controls.Add(this.nudCantPersonas);
+            this.gbBuscar.Controls.Add(this.lbCantPasajeros);
+            this.gbBuscar.Controls.Add(this.lbPrecio);
+            this.gbBuscar.Controls.Add(this.lbMin);
+            this.gbBuscar.Controls.Add(this.lbMax);
+            this.gbBuscar.Controls.Add(this.nudMinPrice);
+            this.gbBuscar.Controls.Add(this.nudMaxPrice);
+            this.gbBuscar.Controls.Add(this.lbDestino);
+            this.gbBuscar.Controls.Add(this.cbDestinos);
+            this.gbBuscar.Controls.Add(this.rbTriple);
+            this.gbBuscar.Controls.Add(this.rbDoble);
+            this.gbBuscar.Controls.Add(this.rbSimple);
+            this.gbBuscar.Controls.Add(this.rbCasaFinde);
+            this.gbBuscar.Controls.Add(this.rbCasa);
             this.gbBuscar.Controls.Add(this.btnVerAlquiler);
             this.gbBuscar.Controls.Add(this.btnVer);
             this.gbBuscar.Controls.Add(this.btnAlquilar);
@@ -289,14 +322,14 @@ namespace tp2 {
             this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbBuscar.Location = new System.Drawing.Point(0, 164);
             this.gbBuscar.Name = "gbBuscar";
-            this.gbBuscar.Size = new System.Drawing.Size(746, 258);
+            this.gbBuscar.Size = new System.Drawing.Size(746, 360);
             this.gbBuscar.TabIndex = 2;
             this.gbBuscar.TabStop = false;
             this.gbBuscar.Text = "Búsqueda de Residencias";
             // 
             // btnVer
             // 
-            this.btnVer.Location = new System.Drawing.Point(282, 213);
+            this.btnVer.Location = new System.Drawing.Point(643, 94);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(91, 30);
             this.btnVer.TabIndex = 4;
@@ -306,7 +339,7 @@ namespace tp2 {
             // 
             // btnAlquilar
             // 
-            this.btnAlquilar.Location = new System.Drawing.Point(73, 213);
+            this.btnAlquilar.Location = new System.Drawing.Point(12, 312);
             this.btnAlquilar.Name = "btnAlquilar";
             this.btnAlquilar.Size = new System.Drawing.Size(118, 30);
             this.btnAlquilar.TabIndex = 3;
@@ -318,9 +351,9 @@ namespace tp2 {
             // 
             this.lbResidencias.FormattingEnabled = true;
             this.lbResidencias.ItemHeight = 20;
-            this.lbResidencias.Location = new System.Drawing.Point(3, 63);
+            this.lbResidencias.Location = new System.Drawing.Point(6, 202);
             this.lbResidencias.Name = "lbResidencias";
-            this.lbResidencias.Size = new System.Drawing.Size(740, 124);
+            this.lbResidencias.Size = new System.Drawing.Size(740, 104);
             this.lbResidencias.TabIndex = 1;
             // 
             // panel1
@@ -344,7 +377,7 @@ namespace tp2 {
             // 
             // btnVerAlquiler
             // 
-            this.btnVerAlquiler.Location = new System.Drawing.Point(546, 203);
+            this.btnVerAlquiler.Location = new System.Drawing.Point(584, 324);
             this.btnVerAlquiler.Name = "btnVerAlquiler";
             this.btnVerAlquiler.Size = new System.Drawing.Size(162, 30);
             this.btnVerAlquiler.TabIndex = 5;
@@ -352,11 +385,150 @@ namespace tp2 {
             this.btnVerAlquiler.UseVisualStyleBackColor = true;
             this.btnVerAlquiler.Click += new System.EventHandler(this.btnVerAlquiler_Click);
             // 
+            // rbCasa
+            // 
+            this.rbCasa.AutoSize = true;
+            this.rbCasa.Location = new System.Drawing.Point(28, 69);
+            this.rbCasa.Name = "rbCasa";
+            this.rbCasa.Size = new System.Drawing.Size(58, 24);
+            this.rbCasa.TabIndex = 6;
+            this.rbCasa.TabStop = true;
+            this.rbCasa.Text = "Casa";
+            this.rbCasa.UseVisualStyleBackColor = true;
+            // 
+            // rbCasaFinde
+            // 
+            this.rbCasaFinde.AutoSize = true;
+            this.rbCasaFinde.Location = new System.Drawing.Point(104, 70);
+            this.rbCasaFinde.Name = "rbCasaFinde";
+            this.rbCasaFinde.Size = new System.Drawing.Size(94, 24);
+            this.rbCasaFinde.TabIndex = 7;
+            this.rbCasaFinde.TabStop = true;
+            this.rbCasaFinde.Text = "CasaFinde";
+            this.rbCasaFinde.UseVisualStyleBackColor = true;
+            // 
+            // rbSimple
+            // 
+            this.rbSimple.AutoSize = true;
+            this.rbSimple.Location = new System.Drawing.Point(28, 156);
+            this.rbSimple.Name = "rbSimple";
+            this.rbSimple.Size = new System.Drawing.Size(150, 24);
+            this.rbSimple.TabIndex = 8;
+            this.rbSimple.TabStop = true;
+            this.rbSimple.Text = "Habitacion Simple";
+            this.rbSimple.UseVisualStyleBackColor = true;
+            // 
+            // rbDoble
+            // 
+            this.rbDoble.AutoSize = true;
+            this.rbDoble.Location = new System.Drawing.Point(28, 100);
+            this.rbDoble.Name = "rbDoble";
+            this.rbDoble.Size = new System.Drawing.Size(145, 24);
+            this.rbDoble.TabIndex = 9;
+            this.rbDoble.TabStop = true;
+            this.rbDoble.Text = "Habitacion Doble";
+            this.rbDoble.UseVisualStyleBackColor = true;
+            // 
+            // rbTriple
+            // 
+            this.rbTriple.AutoSize = true;
+            this.rbTriple.Location = new System.Drawing.Point(28, 126);
+            this.rbTriple.Name = "rbTriple";
+            this.rbTriple.Size = new System.Drawing.Size(141, 24);
+            this.rbTriple.TabIndex = 10;
+            this.rbTriple.TabStop = true;
+            this.rbTriple.Text = "Habitacion Triple";
+            this.rbTriple.UseVisualStyleBackColor = true;
+            // 
+            // cbDestinos
+            // 
+            this.cbDestinos.FormattingEnabled = true;
+            this.cbDestinos.Location = new System.Drawing.Point(487, 91);
+            this.cbDestinos.Name = "cbDestinos";
+            this.cbDestinos.Size = new System.Drawing.Size(121, 28);
+            this.cbDestinos.TabIndex = 11;
+            // 
+            // lbDestino
+            // 
+            this.lbDestino.AutoSize = true;
+            this.lbDestino.Location = new System.Drawing.Point(382, 94);
+            this.lbDestino.Name = "lbDestino";
+            this.lbDestino.Size = new System.Drawing.Size(66, 20);
+            this.lbDestino.TabIndex = 12;
+            this.lbDestino.Text = "Destinos";
+            // 
+            // nudMaxPrice
+            // 
+            this.nudMaxPrice.Location = new System.Drawing.Point(298, 140);
+            this.nudMaxPrice.Name = "nudMaxPrice";
+            this.nudMaxPrice.Size = new System.Drawing.Size(66, 27);
+            this.nudMaxPrice.TabIndex = 13;
+            // 
+            // nudMinPrice
+            // 
+            this.nudMinPrice.Location = new System.Drawing.Point(298, 114);
+            this.nudMinPrice.Name = "nudMinPrice";
+            this.nudMinPrice.Size = new System.Drawing.Size(66, 27);
+            this.nudMinPrice.TabIndex = 14;
+            // 
+            // lbMax
+            // 
+            this.lbMax.AutoSize = true;
+            this.lbMax.Location = new System.Drawing.Point(226, 144);
+            this.lbMax.Name = "lbMax";
+            this.lbMax.Size = new System.Drawing.Size(63, 20);
+            this.lbMax.TabIndex = 15;
+            this.lbMax.Text = "Maximo";
+            // 
+            // lbMin
+            // 
+            this.lbMin.AutoSize = true;
+            this.lbMin.Location = new System.Drawing.Point(226, 116);
+            this.lbMin.Name = "lbMin";
+            this.lbMin.Size = new System.Drawing.Size(60, 20);
+            this.lbMin.TabIndex = 16;
+            this.lbMin.Text = "Minimo";
+            // 
+            // lbPrecio
+            // 
+            this.lbPrecio.AutoSize = true;
+            this.lbPrecio.Location = new System.Drawing.Point(226, 91);
+            this.lbPrecio.Name = "lbPrecio";
+            this.lbPrecio.Size = new System.Drawing.Size(50, 20);
+            this.lbPrecio.TabIndex = 17;
+            this.lbPrecio.Text = "Precio";
+            // 
+            // lbCantPasajeros
+            // 
+            this.lbCantPasajeros.AutoSize = true;
+            this.lbCantPasajeros.Location = new System.Drawing.Point(382, 129);
+            this.lbCantPasajeros.Name = "lbCantPasajeros";
+            this.lbCantPasajeros.Size = new System.Drawing.Size(100, 20);
+            this.lbCantPasajeros.TabIndex = 18;
+            this.lbCantPasajeros.Text = "Cant Personas";
+            // 
+            // nudCantPersonas
+            // 
+            this.nudCantPersonas.Location = new System.Drawing.Point(488, 126);
+            this.nudCantPersonas.Name = "nudCantPersonas";
+            this.nudCantPersonas.Size = new System.Drawing.Size(120, 27);
+            this.nudCantPersonas.TabIndex = 19;
+            // 
+            // btnLimpiarFiltros
+            // 
+            this.btnLimpiarFiltros.Location = new System.Drawing.Point(643, 129);
+            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+            this.btnLimpiarFiltros.Size = new System.Drawing.Size(91, 35);
+            this.btnLimpiarFiltros.TabIndex = 20;
+            this.btnLimpiarFiltros.Text = "Limpiar";
+            this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
+            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 485);
+            this.ClientSize = new System.Drawing.Size(746, 587);
             this.Controls.Add(this.gbBuscar);
             this.Controls.Add(this.gbResidencias);
             this.Controls.Add(this.gbDatos);
@@ -377,8 +549,12 @@ namespace tp2 {
             this.tlpBotonesDatos.ResumeLayout(false);
             this.gbDatos.ResumeLayout(false);
             this.gbBuscar.ResumeLayout(false);
+            this.gbBuscar.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -407,6 +583,21 @@ namespace tp2 {
         private System.Windows.Forms.Button btnAlquilar;
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnVerAlquiler;
+        private System.Windows.Forms.RadioButton rbTriple;
+        private System.Windows.Forms.RadioButton rbDoble;
+        private System.Windows.Forms.RadioButton rbSimple;
+        private System.Windows.Forms.RadioButton rbCasaFinde;
+        private System.Windows.Forms.RadioButton rbCasa;
+        private System.Windows.Forms.Label lbDestino;
+        private System.Windows.Forms.ComboBox cbDestinos;
+        private System.Windows.Forms.Label lbMin;
+        private System.Windows.Forms.Label lbMax;
+        private System.Windows.Forms.NumericUpDown nudMinPrice;
+        private System.Windows.Forms.NumericUpDown nudMaxPrice;
+        private System.Windows.Forms.NumericUpDown nudCantPersonas;
+        private System.Windows.Forms.Label lbCantPasajeros;
+        private System.Windows.Forms.Label lbPrecio;
+        private System.Windows.Forms.Button btnLimpiarFiltros;
     }
 }
 

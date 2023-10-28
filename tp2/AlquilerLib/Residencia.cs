@@ -33,7 +33,7 @@ namespace AlquilerLib {
 					throw new ArgumentException("La residencia debe tener 2 imágenes");
 
 			this.Número = número;
-			this.Dirección = dirección;
+			this.Dirección = dirección.ToUpper();
 			this.alquileres = new List<Alquiler>();
             this.servicios = new string[6];
 			this.Imágenes = imágenes;
