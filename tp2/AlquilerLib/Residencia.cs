@@ -12,6 +12,7 @@ namespace AlquilerLib {
 		protected double precioDía;
 		private int cServicios = 0;
 		private List<Alquiler> alquileres = new List<Alquiler>();
+		private int contAlquileres = 0;
 
 		/// <summary>
 		/// Crea una nueva residencia con el número, la dirección y las imágenes especificadas
@@ -63,10 +64,12 @@ namespace AlquilerLib {
 			return 0;
 		}
 
-        public void Alquilar(Alquiler alquiler)
+        public bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, Cliente cliente,double precioBase)
         {
-            this.alquileres.Add(alquiler);
-			alquiler.Residencia = this;
+			Alquiler alquiler = new Alquiler(contAlquileres++, hoy, ingreso, salida,this, cliente,precioBase);
+			bool puedeAlquilar = this.PuedeAlquilar(alquiler);
+			if(puedeAlquilar)this.alquileres.Add(alquiler);
+			return puedeAlquilar;
         }
 
         public void QuitarAlquiler(int nroAlquiler)
