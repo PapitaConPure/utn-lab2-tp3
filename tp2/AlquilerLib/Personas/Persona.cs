@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using AlquilerLib.Utilidades;
 
 namespace AlquilerLib {
 	[Serializable]
@@ -42,7 +43,7 @@ namespace AlquilerLib {
 				if(!regexLetras.IsMatch(value))
 					throw new FormatException("El apellido solo puede tener letras");
 
-				this.apellido = this.Capitalizar(value);
+				this.apellido = Texto.CapitalizarPalabras(value);
 			}
 		}
 
@@ -57,7 +58,7 @@ namespace AlquilerLib {
 				if(!regexLetras.IsMatch(value))
 					throw new FormatException("El nombre solo puede tener letras");
 
-				this.nombre = this.Capitalizar(value);
+				this.nombre = Texto.CapitalizarPalabras(value);
 			}
 		}
 
@@ -65,24 +66,6 @@ namespace AlquilerLib {
 
 		public virtual string Imprimir() {
 			return string.Join(";", this.Dni, this.Nombre, this.Apellido, this.Teléfono);
-		}
-
-		private string Capitalizar(string valor) {
-			char[] caracteres = valor.ToCharArray();
-			bool esPrimeraLetra = true;
-
-			for(int i = 0; i < caracteres.Length; i++) {
-				if(char.IsWhiteSpace(caracteres[i])) {
-					esPrimeraLetra = true;
-				} else if(esPrimeraLetra) {
-					caracteres[i] = char.ToUpper(caracteres[i]);
-					esPrimeraLetra = false;
-				} else {
-					caracteres[i] = char.ToLower(caracteres[i]);
-				}
-			}
-
-			return new string(caracteres);
 		}
 	}
 }
