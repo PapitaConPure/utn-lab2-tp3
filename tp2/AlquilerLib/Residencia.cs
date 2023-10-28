@@ -86,6 +86,7 @@ namespace AlquilerLib {
                 new DateTime(2023, 01, 05),
                 new DateTime(2023, 01, 06),
                 new DateTime(2023, 01, 08),
+				this,
 				new Cliente(0, 0, 0, "", "", 0),
 				0);
 

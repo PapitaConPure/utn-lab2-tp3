@@ -26,6 +26,10 @@ namespace AlquilerLib {
 			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
 			this.cliente = cliente;
 		}
+		public Alquiler(int número)
+		{
+			this.Número = número;
+		}
 
 		public int Número{ get;private set; }
 
