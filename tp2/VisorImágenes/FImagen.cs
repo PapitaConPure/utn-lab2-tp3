@@ -30,13 +30,8 @@ namespace cargandoImagenes
 
 			if(this.cantidadImágenes > 0) {
 				this.pbVisor.Image = this.Imágenes[0];
-
-				if(this.cantidadImágenes == this.Imágenes.Length)
-					this.CargóTodas = true;
 			}
 		}
-
-		public bool CargóTodas { get; private set; }
 
 		public Image[] Imágenes { get; private set; }
 
@@ -44,16 +39,18 @@ namespace cargandoImagenes
 			if(this.cantidadImágenes == this.Imágenes.Length)
 				return;
 
-			OpenFileDialog abrirImagen = new OpenFileDialog();
-            if(abrirImagen.ShowDialog() == DialogResult.OK)
-            {
-                this.Imágenes[this.cantidadImágenes] = Image.FromFile(abrirImagen.FileName);
-				this.pbVisor.Image = this.Imágenes[this.cantidadImágenes];
+            if(this.ofdElegirImagen.ShowDialog() == DialogResult.OK) {
+				try {
+					this.Imágenes[this.cantidadImágenes] = Image.FromFile(this.ofdElegirImagen.FileName);
+					this.pbVisor.Image = this.Imágenes[this.cantidadImágenes];
 
-				if(this.cantidadImágenes > 0)
-					this.imagenActual++;
+					if(this.cantidadImágenes > 0)
+						this.imagenActual++;
 
-				this.cantidadImágenes++;
+					this.cantidadImágenes++;
+				} catch(OutOfMemoryException) {
+					MessageBox.Show("La imagen es demasiado grande o no es de un formato de imagen reconocible", "Archivo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
@@ -90,10 +87,6 @@ namespace cargandoImagenes
 
         private void FImagen_FormClosed(object sender, FormClosedEventArgs e)
         {
-			if(this.cantidadImágenes == this.Imágenes.Length)
-				this.CargóTodas = true;
-			else
-				this.CargóTodas = false;
         }
 	}
 }

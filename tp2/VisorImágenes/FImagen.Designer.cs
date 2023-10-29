@@ -137,7 +137,8 @@
 			// ofdElegirImagen
 			// 
 			this.ofdElegirImagen.DefaultExt = "*.png";
-			this.ofdElegirImagen.Filter = "Imagen PNG (*.png)|*.png|Imagen JPG (*.jpg)|*.jpg|Todos los archivos (*.*)|*.*";
+			this.ofdElegirImagen.Filter = "Imagen PNG (*.png)|*.png|Imagen JPG (*.jpg;*.jpeg;*.jpe;*.jfif)|*.jpg;*.jpeg;*.jp" +
+    "e;*.jfif|Secuencia GIF (*.gif)|*.gif|Todos los archivos (*.*)|*.*";
 			this.ofdElegirImagen.InitialDirectory = ".";
 			this.ofdElegirImagen.Title = "Elegir imagen";
 			// 
