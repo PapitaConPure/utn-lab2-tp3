@@ -2799,9 +2799,10 @@ que estos est&#225;n asociados siempre a una residencia.
 </XPD:OBJ>
 <XPD:ATTR name="#TypedFeatures" type="integer">1</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">/tNz4v6K3kWgvXCtq5TUOgAA</XPD:REF>
-<XPD:ATTR name="#TypedParameters" type="integer">2</XPD:ATTR>
-<XPD:REF name="TypedParameters[0]">BXxN2aQii0G6AM8NmOxp9AAA</XPD:REF>
+<XPD:ATTR name="#TypedParameters" type="integer">3</XPD:ATTR>
+<XPD:REF name="TypedParameters[0]" pathname="propiedad">BXxN2aQii0G6AM8NmOxp9AAA</XPD:REF>
 <XPD:REF name="TypedParameters[1]">Cb2ADfu+jkKQAxZ/hu9meAAA</XPD:REF>
+<XPD:REF name="TypedParameters[2]">al04x4gaFE6IUb9TBgyFzwAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">3</XPD:ATTR>
 <XPD:REF name="Associations[0]">1LBiwj5QrkKmNtTFV7BXUAAA</XPD:REF>
 <XPD:REF name="Associations[1]">ofZAw4mxvESEyw90YMH+rwAA</XPD:REF>
@@ -2883,8 +2884,8 @@ que estos est&#225;n asociados siempre a una residencia.
 <XPD:ATTR name="Name" type="string">AgregarResidencia</XPD:ATTR>
 <XPD:REF name="Owner">rU8Tq5xHNUOQZdpGzcBJwgAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="BXxN2aQii0G6AM8NmOxp9AAA">
-<XPD:ATTR name="Name" type="string">propiedad</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="al04x4gaFE6IUb9TBgyFzwAA">
+<XPD:ATTR name="Name" type="string">residencia</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">hfh55R3UC0akRFkhkdza3wAA</XPD:REF>
 <XPD:REF name="Type_">S3+7NEZvcUa99zon0LbyMQAA</XPD:REF>
 </XPD:OBJ>
@@ -3031,14 +3032,12 @@ que estos est&#225;n asociados siempre a una residencia.
 <XPD:REF name="BehavioralFeature">H0Il68OOIUiyn8BBMq2BlAAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#TypedParameters" type="integer">7</XPD:ATTR>
-<XPD:REF name="TypedParameters[0]" pathname="alquiler">B2hbx61f0Uy0042i5pAClAAA</XPD:REF>
-<XPD:REF name="TypedParameters[1]">3EkMfVhmKEa/SuA6MGJFHwAA</XPD:REF>
-<XPD:REF name="TypedParameters[2]">0r3bZ3MGAEGmHsPHID4SdAAA</XPD:REF>
-<XPD:REF name="TypedParameters[3]">5UuL1i5Psk+BamGbQ42YZAAA</XPD:REF>
-<XPD:REF name="TypedParameters[4]">W4Ua0WNJ+0ylxAae5wwinAAA</XPD:REF>
-<XPD:REF name="TypedParameters[5]">a3p20EKG7Uq0msMSRuQ2UwAA</XPD:REF>
-<XPD:REF name="TypedParameters[6]" pathname="reserva">+m5savYlBUqSJjY7ykIuqQAA</XPD:REF>
+<XPD:ATTR name="#TypedParameters" type="integer">5</XPD:ATTR>
+<XPD:REF name="TypedParameters[0]">3EkMfVhmKEa/SuA6MGJFHwAA</XPD:REF>
+<XPD:REF name="TypedParameters[1]">0r3bZ3MGAEGmHsPHID4SdAAA</XPD:REF>
+<XPD:REF name="TypedParameters[2]">5UuL1i5Psk+BamGbQ42YZAAA</XPD:REF>
+<XPD:REF name="TypedParameters[3]">W4Ua0WNJ+0ylxAae5wwinAAA</XPD:REF>
+<XPD:REF name="TypedParameters[4]">a3p20EKG7Uq0msMSRuQ2UwAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">4</XPD:ATTR>
 <XPD:REF name="Associations[0]">ktDw3Z4hf0u6TT9tfddbLgAA</XPD:REF>
 <XPD:REF name="Associations[1]">WSvHwb3dqkmAtMExRJPMxAAA</XPD:REF>
