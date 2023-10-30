@@ -160,6 +160,7 @@ namespace tp2 {
 
 			detail.lbDetalles.Items.Add($"Nro Propiedad: {aVer.Número}");
 			detail.lbDetalles.Items.Add($"Direccion: {aVer.Dirección}");
+			detail.lbDetalles.Items.Add($"Precio: {aVer.CalcularPrecioTotal()}");
 
 			if(aVer is Hotel) {
 				Hotel hotel = aVer as Hotel;
@@ -275,8 +276,7 @@ namespace tp2 {
 
 			List<Residencia> resultado = new List<Residencia>();
 			
-			bool casa,hotel, dest, maxi, mini, viaj;
-			casa = hotel = dest = maxi = mini = viaj = false;
+			
 
 			double max=0, min=0;
 			if (nudMaxPrice.Value != 0) max = (double)nudMaxPrice.Value;
@@ -286,100 +286,21 @@ namespace tp2 {
 			if (cbDestinos.SelectedItem != null) destino = cbDestinos.SelectedItem as string;
 
 			int viajantes = 0;
+			if (nudCantPersonas.Value != 0) viajantes = (int)nudCantPersonas.Value;
 
-			if (rbSimple.Checked)
-			{
-				casa = false;
-				viajantes = 2;
-			}
-			if (rbDoble.Checked)
-			{
-				casa = false;
-				viajantes = 4;
-			}
-
-			if (rbTriple.Checked)
-			{
-				casa = false;
-				viajantes = 6;
-			}
-			if (nudCantPersonas.Value != 0) viajantes = (int)nudCantPersonas.Value; ;
-
-			if (!rbCasa.Checked && !rbCasaFinde.Checked) hotel = true;
-
-			if (destino == "") dest = true;
-			if (max == 0) maxi = true;
-			if (min == 0) mini = true;
-			if (viajantes == 0) viaj = true;
 
 			foreach(Residencia re in this.sistema.Residencias)
             {
-
-				if (casa)
-                {
-					if (re is Casa)
-					{
-						casa = true;
-						hotel = false;
-					}
-                    else
-                    {
-						if (casa)
-						{
-							if (re is CasaFinde)
-							{
-								casa = true;
-								hotel = false;
-							}
-						}
-						else
-						{
-							if(re is Hotel)
-                            {
-								hotel = true;
-								casa = false;
-							}
-						}
-					}
-				}
-				else
-                {
-				}	
-
-				if(cbDestinos.SelectedItem != null && !dest)
-                {
-					if(re.Dirección == cbDestinos.SelectedItem.ToString().ToUpper())
-                    {
-						dest = true;
-                    }
-                }
-
-                if (!maxi)
-                {
-					if (re.CalcularPrecioTotal() <= max) maxi = true;
-                }
-                if (!mini)
-                {
-					if (re.CalcularPrecioTotal() >= min) mini = true;
-                }
-
-                if (!viaj)
-                {
-					if (re is Casa && casa)
-						if (((Casa)re).CamasDisponibles >= viajantes) viaj = true;
-					if(re is Hotel && hotel)
-                    {
-						if (viajantes >= 5 && ((Hotel)re).CntTriple > 0) viaj = true;
-						else if (viajantes >= 3 && ((Hotel)re).CntDoble > 0) viaj = true;
-						else if (viajantes >= 1 && ((Hotel)re).CntSimple > 0) viaj = true;
-					}
-						
-                }
-				if ((casa ^ hotel) && dest && maxi && mini && viaj)
+				if (VerificarTipo(re) && 
+					(destino==""||destino==re.Dirección) && 
+					(re.CalcularPrecioTotal()>=max || max==0) && 
+					(re.CalcularPrecioTotal()<=min || min==0)) //&& 
+					//(((Casa)re).CamasDisponibles>=viajantes||viajantes==0))
 					resultado.Add(re);
             }
 
 			if(resultado.Count==0) lbResidencias.Items.Add("No hay resultados");
+
 			foreach (Residencia r in resultado)
 			{
 				lbResidencias.Items.Add(r);
@@ -394,14 +315,14 @@ namespace tp2 {
 			Residencia elegida = cmbResidencias.SelectedItem as Residencia;
 			foreach(Alquiler al in elegida.Alquileres)
             {
-				//d.lbDetalles.Items.Add($"Nro de alquiler: {al.Número}");
-				//d.lbDetalles.Items.Add($"Fecha de checkin: {al.CheckIn}");
-				//d.lbDetalles.Items.Add($"Fecha de checkout: {al.CheckOut}");
-				//d.lbDetalles.Items.Add($"Fecha de reserva: {al.FechaReserva}");
-				//d.lbDetalles.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
-				//d.lbDetalles.Items.Add($"Dni: {al.Cliente.Dni}");
-				//d.lbDetalles.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
-				MessageBox.Show($"Nro de alquiler: {al.Número}\nFecha de checkin: { al.CheckIn}\nFecha de checkout: {al.CheckOut}\nNombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
+				d.lbDetalles.Items.Add($"Nro de alquiler: {al.Número}");
+				d.lbDetalles.Items.Add($"Fecha de checkin: {al.CheckIn:D}");
+				d.lbDetalles.Items.Add($"Fecha de checkout: {al.CheckOut:D}");
+				d.lbDetalles.Items.Add($"Fecha de reserva: {al.FechaReserva:g}");
+				d.lbDetalles.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
+				d.lbDetalles.Items.Add($"Dni: {al.Cliente.Dni}");
+				d.lbDetalles.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
+				d.lbDetalles.Items.Add("----------------------------------------------------------------");
 			}
 			
 			d.ShowDialog();
@@ -416,9 +337,31 @@ namespace tp2 {
 			nudMinPrice.Value = nudMinPrice.Minimum;
 			rbCasa.Checked = false;
 			rbCasaFinde.Checked = false;
-			rbSimple.Checked = false;
-			rbDoble.Checked = false;
-			rbTriple.Checked = false;
+			rbHotel.Checked = false;
+        }
+
+		private bool VerificarTipo(Residencia r)
+        {
+			bool valido = false;
+            if (rbHotel.Checked)
+            {
+				if (r is Hotel) valido = true;
+            }
+			else
+            {
+				if (rbCasaFinde.Checked)
+					if (r is CasaFinde) valido = true;
+					else { }
+				else
+				{
+					if (rbCasa.Checked)
+						if ((r is Casa) && !(r is CasaFinde)) valido = true;
+				}
+			}
+			if (!valido && !rbHotel.Checked && !rbCasa.Checked && !rbCasaFinde.Checked)
+				valido = true;
+
+			return valido;
         }
     }
 }

@@ -30,5 +30,9 @@ namespace AlquilerLib {
 		private bool EsFinde(DateTime fecha) {
 			return fecha.DayOfWeek == DayOfWeek.Friday;
 		}
-	}
+        public override string ToString()
+        {
+            return $"Casa Finde: {this.Dirección}, {this.Número}";
+        }
+    }
 }
