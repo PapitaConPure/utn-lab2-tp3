@@ -336,7 +336,7 @@ namespace tp2 {
             // 
             // nudCantPersonas
             // 
-            this.nudCantPersonas.Location = new System.Drawing.Point(488, 126);
+            this.nudCantPersonas.Location = new System.Drawing.Point(436, 137);
             this.nudCantPersonas.Name = "nudCantPersonas";
             this.nudCantPersonas.Size = new System.Drawing.Size(120, 27);
             this.nudCantPersonas.TabIndex = 19;
@@ -344,7 +344,7 @@ namespace tp2 {
             // lbCantPasajeros
             // 
             this.lbCantPasajeros.AutoSize = true;
-            this.lbCantPasajeros.Location = new System.Drawing.Point(382, 129);
+            this.lbCantPasajeros.Location = new System.Drawing.Point(330, 142);
             this.lbCantPasajeros.Name = "lbCantPasajeros";
             this.lbCantPasajeros.Size = new System.Drawing.Size(100, 20);
             this.lbCantPasajeros.TabIndex = 18;
@@ -353,7 +353,7 @@ namespace tp2 {
             // lbPrecio
             // 
             this.lbPrecio.AutoSize = true;
-            this.lbPrecio.Location = new System.Drawing.Point(226, 91);
+            this.lbPrecio.Location = new System.Drawing.Point(162, 89);
             this.lbPrecio.Name = "lbPrecio";
             this.lbPrecio.Size = new System.Drawing.Size(50, 20);
             this.lbPrecio.TabIndex = 17;
@@ -362,7 +362,7 @@ namespace tp2 {
             // lbMin
             // 
             this.lbMin.AutoSize = true;
-            this.lbMin.Location = new System.Drawing.Point(226, 116);
+            this.lbMin.Location = new System.Drawing.Point(162, 114);
             this.lbMin.Name = "lbMin";
             this.lbMin.Size = new System.Drawing.Size(60, 20);
             this.lbMin.TabIndex = 16;
@@ -371,7 +371,7 @@ namespace tp2 {
             // lbMax
             // 
             this.lbMax.AutoSize = true;
-            this.lbMax.Location = new System.Drawing.Point(226, 144);
+            this.lbMax.Location = new System.Drawing.Point(162, 142);
             this.lbMax.Name = "lbMax";
             this.lbMax.Size = new System.Drawing.Size(63, 20);
             this.lbMax.TabIndex = 15;
@@ -379,14 +379,14 @@ namespace tp2 {
             // 
             // nudMinPrice
             // 
-            this.nudMinPrice.Location = new System.Drawing.Point(298, 114);
+            this.nudMinPrice.Location = new System.Drawing.Point(234, 112);
             this.nudMinPrice.Name = "nudMinPrice";
             this.nudMinPrice.Size = new System.Drawing.Size(66, 27);
             this.nudMinPrice.TabIndex = 14;
             // 
             // nudMaxPrice
             // 
-            this.nudMaxPrice.Location = new System.Drawing.Point(298, 140);
+            this.nudMaxPrice.Location = new System.Drawing.Point(234, 138);
             this.nudMaxPrice.Name = "nudMaxPrice";
             this.nudMaxPrice.Size = new System.Drawing.Size(66, 27);
             this.nudMaxPrice.TabIndex = 13;
@@ -394,7 +394,7 @@ namespace tp2 {
             // lbDestino
             // 
             this.lbDestino.AutoSize = true;
-            this.lbDestino.Location = new System.Drawing.Point(382, 94);
+            this.lbDestino.Location = new System.Drawing.Point(330, 91);
             this.lbDestino.Name = "lbDestino";
             this.lbDestino.Size = new System.Drawing.Size(66, 20);
             this.lbDestino.TabIndex = 12;
@@ -403,7 +403,7 @@ namespace tp2 {
             // cbDestinos
             // 
             this.cbDestinos.FormattingEnabled = true;
-            this.cbDestinos.Location = new System.Drawing.Point(487, 91);
+            this.cbDestinos.Location = new System.Drawing.Point(435, 88);
             this.cbDestinos.Name = "cbDestinos";
             this.cbDestinos.Size = new System.Drawing.Size(121, 28);
             this.cbDestinos.TabIndex = 11;
@@ -411,7 +411,7 @@ namespace tp2 {
             // rbHotel
             // 
             this.rbHotel.AutoSize = true;
-            this.rbHotel.Location = new System.Drawing.Point(28, 129);
+            this.rbHotel.Location = new System.Drawing.Point(27, 147);
             this.rbHotel.Name = "rbHotel";
             this.rbHotel.Size = new System.Drawing.Size(64, 24);
             this.rbHotel.TabIndex = 9;
@@ -422,7 +422,7 @@ namespace tp2 {
             // rbCasaFinde
             // 
             this.rbCasaFinde.AutoSize = true;
-            this.rbCasaFinde.Location = new System.Drawing.Point(28, 100);
+            this.rbCasaFinde.Location = new System.Drawing.Point(27, 118);
             this.rbCasaFinde.Name = "rbCasaFinde";
             this.rbCasaFinde.Size = new System.Drawing.Size(94, 24);
             this.rbCasaFinde.TabIndex = 7;
@@ -433,7 +433,7 @@ namespace tp2 {
             // rbCasa
             // 
             this.rbCasa.AutoSize = true;
-            this.rbCasa.Location = new System.Drawing.Point(28, 69);
+            this.rbCasa.Location = new System.Drawing.Point(27, 87);
             this.rbCasa.Name = "rbCasa";
             this.rbCasa.Size = new System.Drawing.Size(58, 24);
             this.rbCasa.TabIndex = 6;

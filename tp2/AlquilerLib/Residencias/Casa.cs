@@ -38,9 +38,12 @@ namespace AlquilerLib {
 
 		public Persona Propietario { get; set; }
 
-		public override double PrecioPorDía(int nroAlquiler) {
-			//Alquiler alquiler = this.VerAlquiler(nroAlquiler);
-			//TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn); //Es lo mismo que fechasalida-fechaentrada
+        public override double CalcularPrecioTotal()
+        {
+            return this.PrecioPorDía(0);
+        }
+
+        public override double PrecioPorDía(int nroAlquiler) {
 			return (1 + this.CamasDisponibles * 0.07) * (1 + this.CServicios * 0.14);
 		}
 

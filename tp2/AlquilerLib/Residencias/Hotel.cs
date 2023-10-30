@@ -50,7 +50,12 @@ namespace AlquilerLib {
 			return puedeAlquilar;
 		}
 
-		public override double PrecioPorDía(int nroAlquiler) { ///terminar de codificar
+        public override double CalcularPrecioTotal()
+        {
+            return 1000;
+        }
+
+        public override double PrecioPorDía(int nroAlquiler) { ///terminar de codificar
 			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			double precio = 1;
 

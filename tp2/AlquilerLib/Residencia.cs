@@ -57,7 +57,7 @@ namespace AlquilerLib {
 			get { return this.alquileres.ToArray(); }
 		}
 
-		public double CalcularPrecioTotal() {
+		virtual public double CalcularPrecioTotal() {
 			return 0;
 		}
 

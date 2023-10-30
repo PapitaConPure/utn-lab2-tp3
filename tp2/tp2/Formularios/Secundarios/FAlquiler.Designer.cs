@@ -38,7 +38,6 @@ namespace tp2 {
             this.cmbMes = new System.Windows.Forms.ComboBox();
             this.tlpBotonesAlquiler = new System.Windows.Forms.TableLayoutPanel();
             this.btnAlquilar = new System.Windows.Forms.Button();
-            this.btnCancelarAlquiler = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.gbPropietario = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -213,7 +212,6 @@ namespace tp2 {
             this.tlpBotonesAlquiler.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotonesAlquiler.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotonesAlquiler.Controls.Add(this.btnAlquilar, 0, 0);
-            this.tlpBotonesAlquiler.Controls.Add(this.btnCancelarAlquiler, 1, 0);
             this.tlpBotonesAlquiler.Controls.Add(this.btnCerrar, 2, 0);
             this.tlpBotonesAlquiler.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tlpBotonesAlquiler.Location = new System.Drawing.Point(0, 420);
@@ -240,23 +238,6 @@ namespace tp2 {
             this.btnAlquilar.UseVisualStyleBackColor = false;
             this.btnAlquilar.Click += new System.EventHandler(this.BtnAlquilar_Click);
             // 
-            // btnCancelarAlquiler
-            // 
-            this.btnCancelarAlquiler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(67)))));
-            this.btnCancelarAlquiler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCancelarAlquiler.FlatAppearance.BorderSize = 0;
-            this.btnCancelarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarAlquiler.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnCancelarAlquiler.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarAlquiler.Location = new System.Drawing.Point(262, 4);
-            this.btnCancelarAlquiler.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelarAlquiler.Name = "btnCancelarAlquiler";
-            this.btnCancelarAlquiler.Size = new System.Drawing.Size(250, 48);
-            this.btnCancelarAlquiler.TabIndex = 0;
-            this.btnCancelarAlquiler.Text = "Cancelar Alquiler";
-            this.btnCancelarAlquiler.UseVisualStyleBackColor = false;
-            this.btnCancelarAlquiler.Click += new System.EventHandler(this.BtnCancelarAlquiler_Click);
-            // 
             // btnCerrar
             // 
             this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
@@ -272,6 +253,7 @@ namespace tp2 {
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // gbPropietario
             // 
@@ -283,7 +265,7 @@ namespace tp2 {
             this.gbPropietario.Size = new System.Drawing.Size(352, 343);
             this.gbPropietario.TabIndex = 3;
             this.gbPropietario.TabStop = false;
-            this.gbPropietario.Text = "Propietario";
+            this.gbPropietario.Text = "Datos del cliente";
             // 
             // tableLayoutPanel3
             // 
@@ -505,7 +487,6 @@ namespace tp2 {
 		private System.Windows.Forms.ComboBox cmbMes;
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesAlquiler;
 		private System.Windows.Forms.Button btnAlquilar;
-		private System.Windows.Forms.Button btnCancelarAlquiler;
 		private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.GroupBox gbPropietario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
