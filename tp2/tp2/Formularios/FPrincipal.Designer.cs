@@ -42,6 +42,7 @@ namespace tp2 {
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+            this.btnVerAlquiler = new System.Windows.Forms.Button();
             this.nudCantPersonas = new System.Windows.Forms.NumericUpDown();
             this.lbCantPasajeros = new System.Windows.Forms.Label();
             this.lbPrecio = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@ namespace tp2 {
             this.rbHotel = new System.Windows.Forms.RadioButton();
             this.rbCasaFinde = new System.Windows.Forms.RadioButton();
             this.rbCasa = new System.Windows.Forms.RadioButton();
-            this.btnVerAlquiler = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnAlquilar = new System.Windows.Forms.Button();
             this.lbResidencias = new System.Windows.Forms.ListBox();
@@ -245,7 +245,7 @@ namespace tp2 {
             this.cmbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbResidencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbResidencias.FormattingEnabled = true;
-            this.cmbResidencias.Location = new System.Drawing.Point(3, 17);
+            this.cmbResidencias.Location = new System.Drawing.Point(3, 10);
             this.cmbResidencias.Name = "cmbResidencias";
             this.cmbResidencias.Size = new System.Drawing.Size(734, 28);
             this.cmbResidencias.TabIndex = 6;
@@ -330,6 +330,16 @@ namespace tp2 {
             this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
             this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
             // 
+            // btnVerAlquiler
+            // 
+            this.btnVerAlquiler.Location = new System.Drawing.Point(300, 3);
+            this.btnVerAlquiler.Name = "btnVerAlquiler";
+            this.btnVerAlquiler.Size = new System.Drawing.Size(162, 30);
+            this.btnVerAlquiler.TabIndex = 5;
+            this.btnVerAlquiler.Text = "Ver alquiler";
+            this.btnVerAlquiler.UseVisualStyleBackColor = true;
+            this.btnVerAlquiler.Click += new System.EventHandler(this.btnVerAlquiler_Click);
+            // 
             // nudCantPersonas
             // 
             this.nudCantPersonas.Location = new System.Drawing.Point(436, 137);
@@ -376,6 +386,11 @@ namespace tp2 {
             // nudMinPrice
             // 
             this.nudMinPrice.Location = new System.Drawing.Point(234, 112);
+            this.nudMinPrice.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.nudMinPrice.Name = "nudMinPrice";
             this.nudMinPrice.Size = new System.Drawing.Size(66, 27);
             this.nudMinPrice.TabIndex = 14;
@@ -383,6 +398,11 @@ namespace tp2 {
             // nudMaxPrice
             // 
             this.nudMaxPrice.Location = new System.Drawing.Point(234, 138);
+            this.nudMaxPrice.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.nudMaxPrice.Name = "nudMaxPrice";
             this.nudMaxPrice.Size = new System.Drawing.Size(66, 27);
             this.nudMaxPrice.TabIndex = 13;
@@ -436,16 +456,6 @@ namespace tp2 {
             this.rbCasa.TabStop = true;
             this.rbCasa.Text = "Casa";
             this.rbCasa.UseVisualStyleBackColor = true;
-            // 
-            // btnVerAlquiler
-            // 
-            this.btnVerAlquiler.Location = new System.Drawing.Point(572, 166);
-            this.btnVerAlquiler.Name = "btnVerAlquiler";
-            this.btnVerAlquiler.Size = new System.Drawing.Size(162, 30);
-            this.btnVerAlquiler.TabIndex = 5;
-            this.btnVerAlquiler.Text = "Ver alquiler";
-            this.btnVerAlquiler.UseVisualStyleBackColor = true;
-            this.btnVerAlquiler.Click += new System.EventHandler(this.btnVerAlquiler_Click);
             // 
             // btnVer
             // 

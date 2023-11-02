@@ -9,7 +9,8 @@ namespace AlquilerLib {
 	[Serializable]
 	public class Sistema {
 		private List<Residencia> residencias;
-
+		static int nroResidencia;
+		public int NroResidencia { get { return nroResidencia; } set { nroResidencia = value; } }
 		/// <summary>
 		/// Crea un sistema de alquileres con una lista de residencias vacía
 		/// </summary>

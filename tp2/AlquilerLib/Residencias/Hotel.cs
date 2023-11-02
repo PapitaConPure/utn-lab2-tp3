@@ -37,19 +37,19 @@ namespace AlquilerLib {
 			Habitación nueva;
 			for ( i = 0; i < cntSimple; i++)
             {
-				nueva = new Habitación(j++, TipoHabitación.Simple);
+				nueva = new Habitación(j++, TipoHabitación.Simple,this);
 				habitaciones.Add(nueva);
             }
 			this.CntDoble = cntDoble;
 			for (i = 0; i < cntDoble; i++)
 			{
-				nueva = new Habitación(j++, TipoHabitación.Doble);
+				nueva = new Habitación(j++, TipoHabitación.Doble,this);
 				habitaciones.Add(nueva);
 			}
 			this.CntTriple = cntTriple;
 			for (i = 0; i < cntTriple; i++)
 			{
-				nueva = new Habitación(j++, TipoHabitación.Triple);
+				nueva = new Habitación(j++, TipoHabitación.Triple,this);
 				habitaciones.Add(nueva);
 			}
 		}
@@ -72,10 +72,16 @@ namespace AlquilerLib {
 
         public override double CalcularPrecioTotal()
         {
-            return 1000;
-        }
+			double precio = 1;
 
-        public override double PorcentajePorDía(int nroAlquiler) { ///terminar de codificar
+			precio += (int)this.VerTipoHabitación(2) / 100;
+
+			if (this.Estrellas >= 3)
+				precio *= 1.4;
+			return precio;
+		}
+
+        public override double PorcentajePorDía(int nroAlquiler) {
 			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			double precio = 1;
 

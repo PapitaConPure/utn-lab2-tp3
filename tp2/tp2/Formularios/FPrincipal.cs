@@ -160,7 +160,7 @@ namespace tp2 {
 
 			detail.lbDetalles.Items.Add($"Nro Propiedad: {aVer.Número}");
 			detail.lbDetalles.Items.Add($"Direccion: {aVer.Dirección}");
-			detail.lbDetalles.Items.Add($"Precio: {aVer.CalcularPrecioTotal()}");
+			detail.lbDetalles.Items.Add($"Precio: {aVer.CalcularPrecioTotal()*sistema.PrecioBase}");
 
 			if(aVer is Hotel) {
 				Hotel hotel = aVer as Hotel;
@@ -168,7 +168,7 @@ namespace tp2 {
 				detail.lbDetalles.Items.Add($"Cantidad de habitaciones:");
 				detail.lbDetalles.Items.Add($"Simples: {hotel.CntSimple}");
 				detail.lbDetalles.Items.Add($"Dobles: {hotel.CntDoble}");
-				detail.lbDetalles.Items.Add($"triples: {hotel.CntTriple}");
+				detail.lbDetalles.Items.Add($"Triples: {hotel.CntTriple}");
 			} else if(aVer is Casa) {
 				Casa casa = aVer as Casa;
 				detail.lbDetalles.Items.Add($"Minimo de dias: {casa.MínimoPermitido}");
@@ -293,9 +293,9 @@ namespace tp2 {
             {
 				if (VerificarTipo(re) && 
 					(destino==""||destino==re.Dirección) && 
-					(re.CalcularPrecioTotal()>=max || max==0) && 
-					(re.CalcularPrecioTotal()<=min || min==0)) //&& 
-					//(((Casa)re).CamasDisponibles>=viajantes||viajantes==0))
+					(re.CalcularPrecioTotal()*sistema.PrecioBase<=max || max==0) && 
+					(re.CalcularPrecioTotal()*sistema.PrecioBase>=min || min==0) && 
+					VerificarPlazas(re))
 					resultado.Add(re);
             }
 
@@ -365,6 +365,31 @@ namespace tp2 {
 			if (!valido && !rbHotel.Checked && !rbCasa.Checked && !rbCasaFinde.Checked)
 				valido = true;
 
+			return valido;
+        }
+		private bool VerificarPlazas(Residencia r)
+        {
+			int cant = (int)nudCantPersonas.Value;
+			bool valido = false;
+			if (nudCantPersonas.Value == 0)
+				valido = true;
+            else
+            {
+				if (r is Casa)
+				{
+					if (((Casa)r).CamasDisponibles >= cant)
+						valido = true;
+				}
+				else if (r is Hotel)
+				{
+					if (cant <= 2 && ((Hotel)r).CntSimple > 0)
+						valido = true;
+					else if (cant <= 4 && ((Hotel)r).CntDoble > 0)
+						valido = true;
+					else if (cant <= 6 && ((Hotel)r).CntTriple > 0)
+						valido = true;
+				}
+			}
 			return valido;
         }
     }
