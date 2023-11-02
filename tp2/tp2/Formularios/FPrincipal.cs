@@ -178,6 +178,7 @@ namespace tp2 {
 			this.rbCasa.Checked = false;
 			this.rbCasaFinde.Checked = false;
 			this.rbHotel.Checked = false;
+			this.ActualizarListadoResidencias();
 		}
 
 		private bool VerificarTipo(Residencia r) {

@@ -125,7 +125,7 @@ namespace tp2
 				this.lsbAlquileres.Items.Add($"Fecha de Reserva: {al.FechaReserva:g}");
 				this.lsbAlquileres.Items.Add($"Precio Total: ${al.PrecioTotal:F2}");
 				this.lsbAlquileres.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
-				this.lsbAlquileres.Items.Add($"Dni: {al.Cliente.Dni:00.000.000}");
+				this.lsbAlquileres.Items.Add($"Dni: {al.Cliente.Dni:00,000,000}");
 				this.lsbAlquileres.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
 				this.lsbAlquileres.Items.Add("----------------------------------------------------------------");
 			}

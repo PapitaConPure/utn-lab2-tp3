@@ -54,7 +54,7 @@ namespace tp2 {
 				dataGridView.Rows[i].Height = altoFilas;
 
 			DateTime fecha = DateTime.Now;
-			this.MostrarMes(fecha.Month, fecha.Year);
+			this.CargarMes(fecha.Month, fecha.Year);
 		}
 
 		/// <summary>
@@ -85,11 +85,11 @@ namespace tp2 {
 		}
 
 		/// <summary>
-		/// Muestra el mes especificado del año indicado en el calendario
+		/// Carga el mes especificado del año indicado en el calendario
 		/// </summary>
 		/// <param name="mes">El mes a mostrar</param>
 		/// <param name="año">El año al que pertenece el mes a mostrar</param>
-		public void MostrarMes(int mes, int año) {
+		public void CargarMes(int mes, int año, int[] marcados = null) {
 			this.días = new int[40, 2];
 			this.dataGridView.ClearSelection();
 			this.mes = mes;
@@ -107,7 +107,15 @@ namespace tp2 {
 
 			for(int d = 0; d < this.díasTotales; d++)
 				this.días[this.primerDíaSemana + d, 0] = d + 1;
+		}
 
+
+		/// <summary>
+		/// Muestra el contenido del calendario en el <see cref="DataGridView"/> asociado
+		/// </summary>
+		/// <param name="mes">El mes a mostrar</param>
+		/// <param name="año">El año al que pertenece el mes a mostrar</param>
+		public void Refrescar() {
 			int columna, fila;
 			DataGridViewCell celda;
 			for(int d = 0; d < FILAS * COLUMNAS; d++) {

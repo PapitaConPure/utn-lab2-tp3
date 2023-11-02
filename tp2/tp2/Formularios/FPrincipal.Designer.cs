@@ -24,14 +24,14 @@ namespace tp2 {
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent() {
-			this.btnAgregarCasa = new System.Windows.Forms.Button();
-			this.btnAgregarHotel = new System.Windows.Forms.Button();
 			this.btnImportar = new System.Windows.Forms.Button();
 			this.btnExportar = new System.Windows.Forms.Button();
 			this.ofdDatos = new System.Windows.Forms.OpenFileDialog();
 			this.sfdDatos = new System.Windows.Forms.SaveFileDialog();
 			this.gbAgregar = new System.Windows.Forms.GroupBox();
 			this.tlpBotonesAgregar = new System.Windows.Forms.TableLayoutPanel();
+			this.btnAgregarCasa = new System.Windows.Forms.Button();
+			this.btnAgregarHotel = new System.Windows.Forms.Button();
 			this.tlpBotonesDatos = new System.Windows.Forms.TableLayoutPanel();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
 			this.gbBuscar = new System.Windows.Forms.GroupBox();
@@ -76,44 +76,6 @@ namespace tp2 {
 			this.tlpBotonesPropiedades.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// btnAgregarCasa
-			// 
-			this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
-			this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
-			this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
-			this.btnAgregarCasa.Image = global::tp2.Properties.Resources.plusblack32;
-			this.btnAgregarCasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
-			this.btnAgregarCasa.Name = "btnAgregarCasa";
-			this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-			this.btnAgregarCasa.Size = new System.Drawing.Size(297, 46);
-			this.btnAgregarCasa.TabIndex = 0;
-			this.btnAgregarCasa.Text = "Casa";
-			this.btnAgregarCasa.UseVisualStyleBackColor = false;
-			this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
-			// 
-			// btnAgregarHotel
-			// 
-			this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
-			this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
-			this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
-			this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
-			this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnAgregarHotel.Location = new System.Drawing.Point(318, 3);
-			this.btnAgregarHotel.Name = "btnAgregarHotel";
-			this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
-			this.btnAgregarHotel.Size = new System.Drawing.Size(297, 46);
-			this.btnAgregarHotel.TabIndex = 1;
-			this.btnAgregarHotel.Text = "Hotel";
-			this.btnAgregarHotel.UseVisualStyleBackColor = false;
-			this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
-			// 
 			// btnImportar
 			// 
 			this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
@@ -123,7 +85,7 @@ namespace tp2 {
 			this.btnImportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnImportar.Location = new System.Drawing.Point(3, 3);
 			this.btnImportar.Name = "btnImportar";
-			this.btnImportar.Size = new System.Drawing.Size(272, 31);
+			this.btnImportar.Size = new System.Drawing.Size(272, 42);
 			this.btnImportar.TabIndex = 9;
 			this.btnImportar.Text = "Importar";
 			this.btnImportar.UseVisualStyleBackColor = false;
@@ -138,7 +100,7 @@ namespace tp2 {
 			this.btnExportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnExportar.Location = new System.Drawing.Point(342, 3);
 			this.btnExportar.Name = "btnExportar";
-			this.btnExportar.Size = new System.Drawing.Size(273, 31);
+			this.btnExportar.Size = new System.Drawing.Size(273, 42);
 			this.btnExportar.TabIndex = 10;
 			this.btnExportar.Text = "Exportar";
 			this.btnExportar.UseVisualStyleBackColor = false;
@@ -185,6 +147,44 @@ namespace tp2 {
 			this.tlpBotonesAgregar.Size = new System.Drawing.Size(618, 52);
 			this.tlpBotonesAgregar.TabIndex = 0;
 			// 
+			// btnAgregarCasa
+			// 
+			this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+			this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
+			this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
+			this.btnAgregarCasa.Image = global::tp2.Properties.Resources.plusblack32;
+			this.btnAgregarCasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
+			this.btnAgregarCasa.Name = "btnAgregarCasa";
+			this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+			this.btnAgregarCasa.Size = new System.Drawing.Size(297, 46);
+			this.btnAgregarCasa.TabIndex = 0;
+			this.btnAgregarCasa.Text = "Casa";
+			this.btnAgregarCasa.UseVisualStyleBackColor = false;
+			this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
+			// 
+			// btnAgregarHotel
+			// 
+			this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+			this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
+			this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
+			this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
+			this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnAgregarHotel.Location = new System.Drawing.Point(318, 3);
+			this.btnAgregarHotel.Name = "btnAgregarHotel";
+			this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+			this.btnAgregarHotel.Size = new System.Drawing.Size(297, 46);
+			this.btnAgregarHotel.TabIndex = 1;
+			this.btnAgregarHotel.Text = "Hotel";
+			this.btnAgregarHotel.UseVisualStyleBackColor = false;
+			this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
+			// 
 			// tlpBotonesDatos
 			// 
 			this.tlpBotonesDatos.ColumnCount = 3;
@@ -198,16 +198,16 @@ namespace tp2 {
 			this.tlpBotonesDatos.Name = "tlpBotonesDatos";
 			this.tlpBotonesDatos.RowCount = 1;
 			this.tlpBotonesDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tlpBotonesDatos.Size = new System.Drawing.Size(618, 37);
+			this.tlpBotonesDatos.Size = new System.Drawing.Size(618, 48);
 			this.tlpBotonesDatos.TabIndex = 13;
 			// 
 			// gbDatos
 			// 
 			this.gbDatos.Controls.Add(this.tlpBotonesDatos);
 			this.gbDatos.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.gbDatos.Location = new System.Drawing.Point(0, 458);
+			this.gbDatos.Location = new System.Drawing.Point(0, 447);
 			this.gbDatos.Name = "gbDatos";
-			this.gbDatos.Size = new System.Drawing.Size(624, 63);
+			this.gbDatos.Size = new System.Drawing.Size(624, 74);
 			this.gbDatos.TabIndex = 3;
 			this.gbDatos.TabStop = false;
 			this.gbDatos.Text = "Alquileres";
@@ -220,7 +220,7 @@ namespace tp2 {
 			this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbBuscar.Location = new System.Drawing.Point(0, 79);
 			this.gbBuscar.Name = "gbBuscar";
-			this.gbBuscar.Size = new System.Drawing.Size(624, 379);
+			this.gbBuscar.Size = new System.Drawing.Size(624, 368);
 			this.gbBuscar.TabIndex = 2;
 			this.gbBuscar.TabStop = false;
 			this.gbBuscar.Text = "Administrar Residencias";
@@ -233,7 +233,7 @@ namespace tp2 {
 			this.lsbResidencias.ItemHeight = 20;
 			this.lsbResidencias.Location = new System.Drawing.Point(3, 109);
 			this.lsbResidencias.Name = "lsbResidencias";
-			this.lsbResidencias.Size = new System.Drawing.Size(618, 224);
+			this.lsbResidencias.Size = new System.Drawing.Size(618, 208);
 			this.lsbResidencias.TabIndex = 1;
 			// 
 			// pnlFiltro
@@ -487,11 +487,11 @@ namespace tp2 {
 			this.tlpBotonesPropiedades.Controls.Add(this.btnModificarPropiedad, 0, 0);
 			this.tlpBotonesPropiedades.Controls.Add(this.btnConsultarPropiedad, 1, 0);
 			this.tlpBotonesPropiedades.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.tlpBotonesPropiedades.Location = new System.Drawing.Point(3, 333);
+			this.tlpBotonesPropiedades.Location = new System.Drawing.Point(3, 317);
 			this.tlpBotonesPropiedades.Name = "tlpBotonesPropiedades";
 			this.tlpBotonesPropiedades.RowCount = 1;
 			this.tlpBotonesPropiedades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tlpBotonesPropiedades.Size = new System.Drawing.Size(618, 43);
+			this.tlpBotonesPropiedades.Size = new System.Drawing.Size(618, 48);
 			this.tlpBotonesPropiedades.TabIndex = 22;
 			// 
 			// btnBorrarPropiedad
@@ -502,9 +502,12 @@ namespace tp2 {
 			this.btnBorrarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnBorrarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
+			this.btnBorrarPropiedad.Image = global::tp2.Properties.Resources.xwhite32;
+			this.btnBorrarPropiedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnBorrarPropiedad.Location = new System.Drawing.Point(415, 3);
 			this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
-			this.btnBorrarPropiedad.Size = new System.Drawing.Size(200, 37);
+			this.btnBorrarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+			this.btnBorrarPropiedad.Size = new System.Drawing.Size(200, 42);
 			this.btnBorrarPropiedad.TabIndex = 2;
 			this.btnBorrarPropiedad.Text = "Eliminar";
 			this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
@@ -519,7 +522,7 @@ namespace tp2 {
 			this.btnModificarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnModificarPropiedad.Location = new System.Drawing.Point(3, 3);
 			this.btnModificarPropiedad.Name = "btnModificarPropiedad";
-			this.btnModificarPropiedad.Size = new System.Drawing.Size(200, 37);
+			this.btnModificarPropiedad.Size = new System.Drawing.Size(200, 42);
 			this.btnModificarPropiedad.TabIndex = 0;
 			this.btnModificarPropiedad.Text = "Modificar";
 			this.btnModificarPropiedad.UseVisualStyleBackColor = false;
@@ -535,7 +538,7 @@ namespace tp2 {
 			this.btnConsultarPropiedad.ForeColor = System.Drawing.Color.White;
 			this.btnConsultarPropiedad.Location = new System.Drawing.Point(209, 3);
 			this.btnConsultarPropiedad.Name = "btnConsultarPropiedad";
-			this.btnConsultarPropiedad.Size = new System.Drawing.Size(200, 37);
+			this.btnConsultarPropiedad.Size = new System.Drawing.Size(200, 42);
 			this.btnConsultarPropiedad.TabIndex = 1;
 			this.btnConsultarPropiedad.Text = "Consultar";
 			this.btnConsultarPropiedad.UseVisualStyleBackColor = false;

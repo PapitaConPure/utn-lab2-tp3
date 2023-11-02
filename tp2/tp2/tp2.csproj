@@ -65,18 +65,6 @@
     <Compile Include="Formularios\Secundarios\FAlquiler.Designer.cs">
       <DependentUpon>FAlquiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Secundarios\FFechaAlquiler.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Secundarios\FFechaAlquiler.Designer.cs">
-      <DependentUpon>FFechaAlquiler.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Secundarios\FBusqueda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Secundarios\FBusqueda.Designer.cs">
-      <DependentUpon>FBusqueda.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\Secundarios\FDetalles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,12 +93,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Secundarios\FAlquiler.resx">
       <DependentUpon>FAlquiler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Secundarios\FBusqueda.resx">
-      <DependentUpon>FBusqueda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Secundarios\FFechaAlquiler.resx">
-      <DependentUpon>FFechaAlquiler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Secundarios\FDetalles.resx">
       <DependentUpon>FDetalles.cs</DependentUpon>
@@ -168,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plusblack32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xwhite32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

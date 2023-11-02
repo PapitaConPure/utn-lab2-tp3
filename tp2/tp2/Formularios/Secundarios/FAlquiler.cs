@@ -43,6 +43,7 @@ namespace tp2 {
 			}
 			this.cmbMes.SelectedIndex = 0;
 			this.calendario = new Calendario(this.dgvCalendario);
+			this.RefrescarCalendario();
 		}
 
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
@@ -78,16 +79,30 @@ namespace tp2 {
 		}
 
 		private void CmbMes_SelectedIndexChanged(object sender, EventArgs e) {
-			if(this.calendario == null)
-				return;
-
-			int idx = this.cmbMes.SelectedIndex;
-			DateTime mes = this.meses[idx];
-			this.calendario.MostrarMes(mes.Month, mes.Year);
+			this.RefrescarCalendario();
 		}
 
         private void BtnCerrar_Click(object sender, EventArgs e) {
 			this.Close();
-        }
-    }
+		}
+
+		private void RefrescarCalendario() {
+			if(this.calendario is null || this.sistema is null || this.residencia is null)
+				return;
+
+			int idx = this.cmbMes.SelectedIndex;
+			DateTime mes = this.meses[idx];
+			this.calendario.CargarMes(mes.Month, mes.Year);
+
+			foreach(Alquiler alquiler in this.residencia.Alquileres) {
+				DateTime fin = alquiler.CheckOut;
+
+				for(DateTime día = alquiler.CheckIn; día < fin; día = día.AddDays(1))
+					if(día.Month == mes.Month)
+						this.calendario.Marcar(día.Day);
+			}
+
+			this.calendario.Refrescar();
+		}
+	}
 }
