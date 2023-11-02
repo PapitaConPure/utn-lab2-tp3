@@ -100,7 +100,7 @@ namespace AlquilerLib {
             return puede;
         }
 
-        public abstract double PrecioPorDía(int nroAlquiler);
+        public abstract double PorcentajePorDía(int nroAlquiler);
 
         public abstract double PrecioTotal(int nroAlquiler);
 

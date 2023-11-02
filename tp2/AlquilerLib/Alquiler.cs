@@ -61,10 +61,10 @@ namespace AlquilerLib {
 			return string.Join(";",
 				this.residencia.Número,
 				this.cliente.Exportar(),
-				this.FechaReserva.Ticks,
-				this.CheckIn.Ticks,
-				this.CheckOut.Ticks,
-				this.residencia.PrecioPorDía(this.Número),
+				this.FechaReserva.ToString(),
+				this.CheckIn.ToShortDateString(),
+				this.CheckOut.ToShortDateString(),
+				this.residencia.PorcentajePorDía(this.Número)*this.PrecioBase,
 				this.PrecioTotal);
         }
     }

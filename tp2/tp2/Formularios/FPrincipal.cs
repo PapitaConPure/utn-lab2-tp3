@@ -319,6 +319,7 @@ namespace tp2 {
 				d.lbDetalles.Items.Add($"Fecha de checkin: {al.CheckIn:D}");
 				d.lbDetalles.Items.Add($"Fecha de checkout: {al.CheckOut:D}");
 				d.lbDetalles.Items.Add($"Fecha de reserva: {al.FechaReserva:g}");
+				d.lbDetalles.Items.Add($"Precio Total: {al.PrecioTotal}");
 				d.lbDetalles.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
 				d.lbDetalles.Items.Add($"Dni: {al.Cliente.Dni}");
 				d.lbDetalles.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");

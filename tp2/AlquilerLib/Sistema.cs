@@ -117,7 +117,7 @@ namespace AlquilerLib {
 					linea = sr.ReadLine();
 					n++;
 					string[] datos = linea.Split(';');
-					if(datos.Length == 8) {
+					if(datos.Length == 11) {
 						if(!this.AlquilarResidencia(
 						Convert.ToInt32(datos[0]),
 						Convert.ToDateTime(datos[6]),

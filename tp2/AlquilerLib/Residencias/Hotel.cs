@@ -55,7 +55,7 @@ namespace AlquilerLib {
             return 1000;
         }
 
-        public override double PrecioPorDía(int nroAlquiler) { ///terminar de codificar
+        public override double PorcentajePorDía(int nroAlquiler) { ///terminar de codificar
 			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			double precio = 1;
 
@@ -72,7 +72,7 @@ namespace AlquilerLib {
             Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn);
 			//double precioFinal = PrecioPorDía(nroAlquiler) * diferencia.Days;
-			double precioFinal = this.PrecioPorDía(nroAlquiler) * (1 + (int)diferencia.TotalDays * 0.03);
+			double precioFinal = this.PorcentajePorDía(nroAlquiler) * (1 + (int)diferencia.TotalDays * 0.03);
 			return precioFinal;
 		}
 
