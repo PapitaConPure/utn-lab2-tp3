@@ -163,18 +163,6 @@ namespace tp2 {
 			fDetalles.ShowDialog();
 			fDetalles.Dispose();
 		}
-
-		private void BtnAlquilar_Click(object sender, EventArgs e) {
-			//if(this.lbResidencias.SelectedItem == null) {
-			//	MessageBox.Show("Elija una propiedad");
-			//	return;
-			//}
-
-			//Residencia r = this.lbResidencias.SelectedItem as Residencia;
-			//FAlquiler falquilar = new FAlquiler(this.sistema, this.residencia);
-			//falquilar.ShowDialog();
-			//falquilar.Dispose();
-		}
 		#endregion
 
 		#region Filtro
@@ -227,6 +215,8 @@ namespace tp2 {
 
 			try {
 				this.sistema.ImportarAlquileres(this.ofdDatos.FileName);
+				MessageBox.Show("Se importaron los alquileres", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				this.ActualizarListadoResidencias();
 			} catch(IOException ex) {
 				MessageBox.Show(ex.Message, "Error de Lectura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 			} catch(UnauthorizedAccessException ex) {
@@ -246,6 +236,7 @@ namespace tp2 {
 
 			try {
 				this.sistema.ExportarAlquileres(this.sfdDatos.FileName);
+				MessageBox.Show("Se exportaron los alquileres.\nTambién fueron limpiados de la aplicación", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			} catch(IOException ex) {
 				MessageBox.Show(ex.Message, "Error de Escritura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 			} catch(UnauthorizedAccessException ex) {
