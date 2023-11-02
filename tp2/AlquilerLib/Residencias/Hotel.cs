@@ -37,19 +37,19 @@ namespace AlquilerLib {
 			Habitación nueva;
 			for ( i = 0; i < cntSimple; i++)
             {
-				nueva = new Habitación(j++, TipoHabitación.Simple,this);
+				nueva = new Habitación(TipoHabitación.Simple,this);
 				habitaciones.Add(nueva);
             }
 			this.CntDoble = cntDoble;
 			for (i = 0; i < cntDoble; i++)
 			{
-				nueva = new Habitación(j++, TipoHabitación.Doble,this);
+				nueva = new Habitación(TipoHabitación.Doble,this);
 				habitaciones.Add(nueva);
 			}
 			this.CntTriple = cntTriple;
 			for (i = 0; i < cntTriple; i++)
 			{
-				nueva = new Habitación(j++, TipoHabitación.Triple,this);
+				nueva = new Habitación(TipoHabitación.Triple,this);
 				habitaciones.Add(nueva);
 			}
 		}
@@ -63,11 +63,24 @@ namespace AlquilerLib {
 		public int CntTriple { get; set; }
 
 		public override bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase, out Alquiler nuevo) {
-			bool puedeAlquilar = base.Alquilar(hoy, ingreso, salida, cantPasajeros, dni, nombre, apellido, tel, precioBase, out nuevo);
-
-			nuevo.TipoHabitación = this.VerTipoHabitación(cantPasajeros);
-
-			return puedeAlquilar;
+			//bool puedeAlquilar = base.Alquilar(hoy, ingreso, salida, cantPasajeros, dni, nombre, apellido, tel, precioBase, out nuevo);
+			Alquiler alquiler = new Alquiler(ingreso,salida);
+			bool encontro = false;
+			int i = 0;
+            while (!encontro && i < this.habitaciones.Count)
+            {
+                if (habitaciones[i].PuedeAlquilar(alquiler))
+                {
+					alquiler = new Alquiler(0, hoy, ingreso, salida, this,habitaciones[i], cantPasajeros, dni, nombre, apellido, tel, precioBase);
+					habitaciones[i].Alquilar(alquiler);
+					this.AgregarAlquiler(alquiler);
+					encontro = true;
+				}
+				i++;
+            }
+			alquiler.TipoHabitación = this.VerTipoHabitación(cantPasajeros);
+			nuevo = alquiler;
+			return encontro;
 		}
 
         public override double CalcularPrecioTotal()

@@ -6,6 +6,7 @@ namespace AlquilerLib {
 	public class Alquiler: IComparable, IExportable {
 		private Residencia residencia;
 		private Cliente cliente;
+		private Habitación habitacion;
 
 		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Residencia residencia,
 		int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase) {
@@ -24,10 +25,36 @@ namespace AlquilerLib {
 			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
 			this.cliente = new Cliente(new DatosPersona(dni, nombre, apellido, tel), cantPasajeros);
 		}
+
+		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Residencia residencia,Habitación unaHabitacion,
+		int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase)
+		{
+			this.Número = número;
+			this.FechaReserva = fechaReserva;
+
+			if (checkIn > checkOut)
+			{
+				DateTime fechaAuxiliar = checkIn;
+				checkIn = checkOut;
+				checkOut = fechaAuxiliar;
+			}
+
+			this.CheckIn = checkIn;
+			this.CheckOut = checkOut;
+			this.residencia = residencia;
+			this.habitacion = unaHabitacion;
+			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
+			this.cliente = new Cliente(new DatosPersona(dni, nombre, apellido, tel), cantPasajeros);
+		}
 		public Alquiler(int número)
 		{
 			this.Número = número;
 		}
+		public Alquiler(DateTime entrada, DateTime salida)
+        {
+			this.CheckIn = entrada;
+			this.CheckOut = salida;
+        }
 
 		public int Número{ get;private set; }
 
@@ -40,6 +67,7 @@ namespace AlquilerLib {
 		public double PrecioBase { get; private set; }
 
 		public Residencia Residencia { get { return this.residencia; } }
+		public Habitación Habitacion { get { return this.habitacion; } }
 
 		public double PrecioTotal {
 			get {

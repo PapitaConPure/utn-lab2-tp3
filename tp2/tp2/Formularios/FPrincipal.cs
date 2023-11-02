@@ -267,9 +267,7 @@ namespace tp2 {
 			falquilar.Dispose();
 		}
 
-		//Perdon por esto
-		//estoy re quemado, hice todo para el recontra ojete
-		//le tengo que poner mucho mas cerebro
+		
         private void btnVer_Click(object sender, EventArgs e)
         {
 			lbResidencias.Items.Clear();
@@ -307,7 +305,6 @@ namespace tp2 {
 			}
 		}
 
-		//Deberiamos poder seleccionar un alquiler de alguna forma para poder eliminarlo posteriormente
         private void btnVerAlquiler_Click(object sender, EventArgs e)
         {
 			Residencia elegida = cmbResidencias.SelectedItem as Residencia;
@@ -319,6 +316,10 @@ namespace tp2 {
 			foreach(Alquiler al in elegida.Alquileres)
             {
 				d.lbDetalles.Items.Add($"Nro de alquiler: {al.Número}");
+				if (elegida is Hotel)
+				{
+					d.lbDetalles.Items.Add($"Habitacion: {al.Habitacion.Tipo}");
+				}
 				d.lbDetalles.Items.Add($"Fecha de checkin: {al.CheckIn:D}");
 				d.lbDetalles.Items.Add($"Fecha de checkout: {al.CheckOut:D}");
 				d.lbDetalles.Items.Add($"Fecha de reserva: {al.FechaReserva:g}");

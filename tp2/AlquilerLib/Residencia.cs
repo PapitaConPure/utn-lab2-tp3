@@ -30,7 +30,7 @@ namespace AlquilerLib {
 				if(imagen is null)
 					throw new ArgumentException("La residencia debe tener 2 imágenes");
 
-			//this.Número = número;
+			this.Número = número;
 			this.Dirección = dirección.ToUpper();
 			this.alquileres = new List<Alquiler>();
             this.servicios = new string[6];
@@ -70,7 +70,7 @@ namespace AlquilerLib {
 			nuevo = new Alquiler(this.contAlquileres++, hoy, ingreso, salida, this, cantPasajeros, dni, nombre, apellido, tel, precioBase);
 			bool puedeAlquilar = this.PuedeAlquilar(nuevo);
 			if(puedeAlquilar)
-				this.alquileres.Add(nuevo);
+				this.AgregarAlquiler(nuevo);
 			return puedeAlquilar;
         }
 
@@ -113,6 +113,10 @@ namespace AlquilerLib {
 			if(!this.servicios.Contains(servicio))
 				this.servicios[this.cServicios++]= servicio;
 		}
+		public void AgregarAlquiler(Alquiler alquiler)
+        {
+			this.alquileres.Add(alquiler);
+        }
 
 		public void LimpiarServicios() {
 			this.servicios = new string[6];
