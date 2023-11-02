@@ -181,6 +181,7 @@ namespace AlquilerLib {
 					foreach(Alquiler alquiler in residencia.Alquileres) {
 						sw.WriteLine(alquiler.Exportar());
 					}
+					residencia.LimpiarAlquileres();
 				}
 			} finally {
 				if(fs != null) {

@@ -113,6 +113,8 @@ namespace tp2
 			this.lsbDetalles.ItemHeight = 20;
 			this.lsbDetalles.Location = new System.Drawing.Point(3, 23);
 			this.lsbDetalles.Name = "lsbDetalles";
+			this.lsbDetalles.ScrollAlwaysVisible = true;
+			this.lsbDetalles.SelectionMode = System.Windows.Forms.SelectionMode.None;
 			this.lsbDetalles.Size = new System.Drawing.Size(398, 129);
 			this.lsbDetalles.TabIndex = 0;
 			// 
@@ -137,6 +139,8 @@ namespace tp2
 			this.lsbAlquileres.ItemHeight = 20;
 			this.lsbAlquileres.Location = new System.Drawing.Point(3, 23);
 			this.lsbAlquileres.Name = "lsbAlquileres";
+			this.lsbAlquileres.ScrollAlwaysVisible = true;
+			this.lsbAlquileres.SelectionMode = System.Windows.Forms.SelectionMode.None;
 			this.lsbAlquileres.Size = new System.Drawing.Size(398, 179);
 			this.lsbAlquileres.TabIndex = 0;
 			// 
@@ -146,7 +150,7 @@ namespace tp2
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
 			this.tableLayoutPanel3.Controls.Add(this.btnAlquilar, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.btnModificarAlquiler, 1, 0);
 			this.tableLayoutPanel3.Controls.Add(this.btnCancelarAlquiler, 2, 0);
@@ -168,7 +172,7 @@ namespace tp2
 			this.btnAlquilar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnAlquilar.Location = new System.Drawing.Point(3, 3);
 			this.btnAlquilar.Name = "btnAlquilar";
-			this.btnAlquilar.Size = new System.Drawing.Size(106, 51);
+			this.btnAlquilar.Size = new System.Drawing.Size(105, 51);
 			this.btnAlquilar.TabIndex = 0;
 			this.btnAlquilar.Text = "Alquilar";
 			this.btnAlquilar.UseVisualStyleBackColor = false;
@@ -181,7 +185,7 @@ namespace tp2
 			this.btnModificarAlquiler.FlatAppearance.BorderSize = 0;
 			this.btnModificarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnModificarAlquiler.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnModificarAlquiler.Location = new System.Drawing.Point(115, 3);
+			this.btnModificarAlquiler.Location = new System.Drawing.Point(114, 3);
 			this.btnModificarAlquiler.Name = "btnModificarAlquiler";
 			this.btnModificarAlquiler.Size = new System.Drawing.Size(106, 51);
 			this.btnModificarAlquiler.TabIndex = 1;
@@ -197,7 +201,7 @@ namespace tp2
 			this.btnCancelarAlquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnCancelarAlquiler.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnCancelarAlquiler.ForeColor = System.Drawing.Color.White;
-			this.btnCancelarAlquiler.Location = new System.Drawing.Point(227, 3);
+			this.btnCancelarAlquiler.Location = new System.Drawing.Point(226, 3);
 			this.btnCancelarAlquiler.Name = "btnCancelarAlquiler";
 			this.btnCancelarAlquiler.Size = new System.Drawing.Size(106, 51);
 			this.btnCancelarAlquiler.TabIndex = 2;
@@ -208,7 +212,7 @@ namespace tp2
 			// gbNroAlquiler
 			// 
 			this.gbNroAlquiler.Controls.Add(this.nudNroAlquiler);
-			this.gbNroAlquiler.Location = new System.Drawing.Point(339, 3);
+			this.gbNroAlquiler.Location = new System.Drawing.Point(338, 3);
 			this.gbNroAlquiler.Name = "gbNroAlquiler";
 			this.gbNroAlquiler.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
 			this.gbNroAlquiler.Size = new System.Drawing.Size(55, 51);

@@ -118,7 +118,11 @@ namespace AlquilerLib {
 		public void AgregarAlquiler(Alquiler alquiler)
         {
 			this.alquileres.Add(alquiler);
-        }
+		}
+
+		public void LimpiarAlquileres() {
+			this.alquileres.Clear();
+		}
 
 		public void LimpiarServicios() {
 			this.servicios = new string[6];
@@ -136,7 +140,5 @@ namespace AlquilerLib {
 		public int CompareTo(object obj) {
 			return this.Número.CompareTo((obj as Residencia).Número);
 		}
-
-        
     }
 }

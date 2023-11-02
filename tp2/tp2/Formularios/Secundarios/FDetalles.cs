@@ -41,26 +41,32 @@ namespace tp2
 			bool pudo = this.residencia.QuitarAlquiler((int)this.nudNroAlquiler.Value);
 
 			if(pudo)
-				MessageBox.Show("El alquiler ha sido cancelado");
+				MessageBox.Show("El alquiler ha sido cancelado", "Alquiler cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			else
-				MessageBox.Show("El alquiler no se ha podido cancelar");
+				MessageBox.Show("El alquiler no se ha podido cancelar", "Sin cambios", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			this.RefrescarListaAlquileres();
 		}
 
 		private void BtnModificarAlquiler_Click(object sender, EventArgs e) {
             Alquiler alquiler = this.residencia.VerAlquiler(Convert.ToInt32(this.nudNroAlquiler.Value));
+
+			if(alquiler is null) {
+				MessageBox.Show("No se encontró el alquiler", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
             FAlquiler nuevo = new FAlquiler(this.sistema, this.residencia, alquiler);
 
             if(nuevo.ShowDialog() != DialogResult.OK)
-                MessageBox.Show("No se ha podido modificar el alquiler");
+                MessageBox.Show("No se ha modificado el alquiler", "Sin cambios", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			this.sistema.ModificarAlquiler(
 				this.residencia.Número,
 				alquiler.Número,nuevo.Calendario.DíaSeleccionado,
 				nuevo.Calendario.DíaSeleccionado.AddDays(Convert.ToInt32(nuevo.nudCantDias.Value)));
 
-            MessageBox.Show($"Alquiler modificado");
+            MessageBox.Show($"Se aplicaron los cambios", "Alquiler modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             nuevo.Dispose();
 
 			this.RefrescarListaAlquileres();

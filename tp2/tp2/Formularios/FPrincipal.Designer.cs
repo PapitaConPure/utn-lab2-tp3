@@ -265,7 +265,7 @@ namespace tp2 {
 			this.tableLayoutPanel4.RowCount = 2;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(201, 86);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(277, 86);
 			this.tableLayoutPanel4.TabIndex = 23;
 			// 
 			// lbDestino
@@ -292,7 +292,7 @@ namespace tp2 {
 			this.cbDestinos.FormattingEnabled = true;
 			this.cbDestinos.Location = new System.Drawing.Point(79, 9);
 			this.cbDestinos.Name = "cbDestinos";
-			this.cbDestinos.Size = new System.Drawing.Size(119, 28);
+			this.cbDestinos.Size = new System.Drawing.Size(195, 28);
 			this.cbDestinos.TabIndex = 11;
 			// 
 			// nudCantPersonas
@@ -300,7 +300,7 @@ namespace tp2 {
 			this.nudCantPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.nudCantPersonas.Location = new System.Drawing.Point(79, 46);
 			this.nudCantPersonas.Name = "nudCantPersonas";
-			this.nudCantPersonas.Size = new System.Drawing.Size(119, 27);
+			this.nudCantPersonas.Size = new System.Drawing.Size(195, 27);
 			this.nudCantPersonas.TabIndex = 19;
 			// 
 			// gbPrecio
@@ -438,12 +438,12 @@ namespace tp2 {
 			this.tableLayoutPanel5.Controls.Add(this.btnMostrarResidencias, 0, 0);
 			this.tableLayoutPanel5.Controls.Add(this.btnLimpiarFiltros, 0, 1);
 			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Right;
-			this.tableLayoutPanel5.Location = new System.Drawing.Point(427, 0);
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(503, 0);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
 			this.tableLayoutPanel5.RowCount = 2;
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel5.Size = new System.Drawing.Size(188, 86);
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(112, 86);
 			this.tableLayoutPanel5.TabIndex = 24;
 			// 
 			// btnMostrarResidencias
@@ -455,7 +455,7 @@ namespace tp2 {
 			this.btnMostrarResidencias.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnMostrarResidencias.Location = new System.Drawing.Point(3, 3);
 			this.btnMostrarResidencias.Name = "btnMostrarResidencias";
-			this.btnMostrarResidencias.Size = new System.Drawing.Size(182, 37);
+			this.btnMostrarResidencias.Size = new System.Drawing.Size(106, 37);
 			this.btnMostrarResidencias.TabIndex = 4;
 			this.btnMostrarResidencias.Text = "Buscar";
 			this.btnMostrarResidencias.UseVisualStyleBackColor = false;
@@ -470,7 +470,7 @@ namespace tp2 {
 			this.btnLimpiarFiltros.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnLimpiarFiltros.Location = new System.Drawing.Point(3, 46);
 			this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-			this.btnLimpiarFiltros.Size = new System.Drawing.Size(182, 37);
+			this.btnLimpiarFiltros.Size = new System.Drawing.Size(106, 37);
 			this.btnLimpiarFiltros.TabIndex = 20;
 			this.btnLimpiarFiltros.Text = "Limpiar";
 			this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
