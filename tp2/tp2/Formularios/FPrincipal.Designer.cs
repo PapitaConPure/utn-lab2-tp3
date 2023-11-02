@@ -235,6 +235,7 @@ namespace tp2 {
 			this.lsbResidencias.Name = "lsbResidencias";
 			this.lsbResidencias.Size = new System.Drawing.Size(618, 208);
 			this.lsbResidencias.TabIndex = 1;
+			this.lsbResidencias.DoubleClick += new System.EventHandler(this.BtnConsultarPropiedad_Click);
 			// 
 			// pnlFiltro
 			// 
