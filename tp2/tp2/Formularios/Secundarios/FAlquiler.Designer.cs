@@ -24,8 +24,8 @@ namespace tp2 {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tlpCalendario = new System.Windows.Forms.TableLayoutPanel();
 			this.dgvCalendario = new System.Windows.Forms.DataGridView();
 			this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,14 +98,14 @@ namespace tp2 {
 			this.dgvCalendario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
 			this.dgvCalendario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvCalendario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-			dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvCalendario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lunes,
@@ -115,14 +115,14 @@ namespace tp2 {
             this.Viernes,
             this.Sábado,
             this.Domingo});
-			dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-			dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvCalendario.EnableHeadersVisualStyles = false;
 			this.dgvCalendario.Location = new System.Drawing.Point(6, 151);

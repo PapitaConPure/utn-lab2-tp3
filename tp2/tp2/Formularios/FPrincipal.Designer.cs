@@ -40,7 +40,7 @@ namespace tp2 {
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.lbDestino = new System.Windows.Forms.Label();
 			this.lbCantPasajeros = new System.Windows.Forms.Label();
-			this.cbDestinos = new System.Windows.Forms.ComboBox();
+			this.cmbDestinos = new System.Windows.Forms.ComboBox();
 			this.nudCantPersonas = new System.Windows.Forms.NumericUpDown();
 			this.gbPrecio = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -256,7 +256,7 @@ namespace tp2 {
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel4.Controls.Add(this.lbDestino, 0, 0);
 			this.tableLayoutPanel4.Controls.Add(this.lbCantPasajeros, 0, 1);
-			this.tableLayoutPanel4.Controls.Add(this.cbDestinos, 1, 0);
+			this.tableLayoutPanel4.Controls.Add(this.cmbDestinos, 1, 0);
 			this.tableLayoutPanel4.Controls.Add(this.nudCantPersonas, 1, 1);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel4.Location = new System.Drawing.Point(226, 0);
@@ -286,14 +286,15 @@ namespace tp2 {
 			this.lbCantPasajeros.TabIndex = 18;
 			this.lbCantPasajeros.Text = "Pasajeros";
 			// 
-			// cbDestinos
+			// cmbDestinos
 			// 
-			this.cbDestinos.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbDestinos.FormattingEnabled = true;
-			this.cbDestinos.Location = new System.Drawing.Point(79, 9);
-			this.cbDestinos.Name = "cbDestinos";
-			this.cbDestinos.Size = new System.Drawing.Size(195, 28);
-			this.cbDestinos.TabIndex = 11;
+			this.cmbDestinos.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cmbDestinos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbDestinos.FormattingEnabled = true;
+			this.cmbDestinos.Location = new System.Drawing.Point(79, 9);
+			this.cmbDestinos.Name = "cmbDestinos";
+			this.cmbDestinos.Size = new System.Drawing.Size(195, 28);
+			this.cmbDestinos.TabIndex = 11;
 			// 
 			// nudCantPersonas
 			// 
@@ -602,7 +603,7 @@ namespace tp2 {
         private System.Windows.Forms.RadioButton rbCasaFinde;
         private System.Windows.Forms.RadioButton rbCasa;
         private System.Windows.Forms.Label lbDestino;
-        private System.Windows.Forms.ComboBox cbDestinos;
+        private System.Windows.Forms.ComboBox cmbDestinos;
         private System.Windows.Forms.NumericUpDown nudMinPrice;
         private System.Windows.Forms.NumericUpDown nudMaxPrice;
         private System.Windows.Forms.NumericUpDown nudCantPersonas;

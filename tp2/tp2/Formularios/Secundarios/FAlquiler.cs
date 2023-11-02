@@ -97,7 +97,7 @@ namespace tp2 {
 			foreach(Alquiler alquiler in this.residencia.Alquileres) {
 				DateTime fin = alquiler.CheckOut;
 
-				for(DateTime día = alquiler.CheckIn; día < fin; día = día.AddDays(1))
+				for(DateTime día = alquiler.CheckIn; día <= fin; día = día.AddDays(1))
 					if(día.Month == mes.Month)
 						this.calendario.Marcar(día.Day);
 			}

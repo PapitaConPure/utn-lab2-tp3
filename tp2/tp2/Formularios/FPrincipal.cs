@@ -132,6 +132,7 @@ namespace tp2 {
 				MessageBox.Show("No se ha podido eliminar la residencia");
 
 			MessageBox.Show("Residencia eliminada");
+			this.cmbDestinos.Items.Clear();
 			this.ActualizarListadoResidencias();
 		}
 
@@ -176,7 +177,7 @@ namespace tp2 {
 		}
 
 		private void BtnLimpiarFiltros_Click(object sender, EventArgs e) {
-			this.cbDestinos.SelectedIndex = -1;
+			this.cmbDestinos.SelectedIndex = -1;
 			this.nudCantPersonas.Value = this.nudCantPersonas.Minimum;
 			this.nudMaxPrice.Value = this.nudMaxPrice.Minimum;
 			this.nudMinPrice.Value = this.nudMinPrice.Minimum;
@@ -255,25 +256,25 @@ namespace tp2 {
 
 		#region Utilidades
 		private void ActualizarListadoResidencias() {
-			this.cbDestinos.Items.Clear();
+			Residencia[] residencias = this.sistema.Residencias;
+
+			foreach(Residencia residencia in residencias)
+				if(!this.cmbDestinos.Items.Contains(residencia.Dirección))
+					this.cmbDestinos.Items.Add(residencia.Dirección);
+
 			this.lsbResidencias.Items.Clear();
 
+			string destino = this.cmbDestinos.SelectedItem as string;
 			double max = (double)this.nudMaxPrice.Value;
 			double min = (double)this.nudMinPrice.Value;
 
-			string destino = "";
-			if(this.cbDestinos.SelectedItem != null) destino = this.cbDestinos.SelectedItem as string;
-
-			foreach(Residencia residencia in this.sistema.Residencias) {
+			foreach(Residencia residencia in residencias) {
 				if(this.VerificarTipo(residencia)
-				&& (destino == "" || destino == residencia.Dirección)
+				&& (destino is null || destino == residencia.Dirección)
 				&& (max == 0 || residencia.CalcularPrecioTotal() * this.sistema.PrecioBase <= max)
 				&& (min == 0 || residencia.CalcularPrecioTotal() * this.sistema.PrecioBase >= min)
 				&& this.VerificarPlazas(residencia))
 					this.lsbResidencias.Items.Add(residencia);
-
-				if(!this.cbDestinos.Items.Contains(residencia.Dirección))
-					this.cbDestinos.Items.Add(residencia.Dirección);
 			}
 
 			if(this.lsbResidencias.Items.Count == 0)
