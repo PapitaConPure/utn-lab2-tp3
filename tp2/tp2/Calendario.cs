@@ -11,7 +11,7 @@ namespace tp2 {
 	/// Representa un calendario personalizado que edita un <see cref="DataGridView"/> relacionado para representarse
 	/// </summary>
 	class Calendario {
-		private DataGridView dataGridView;
+		private readonly DataGridView dataGridView;
 		private int[,] días;
 		private const int FILAS = 6;
 		private const int COLUMNAS = 7;
@@ -89,7 +89,7 @@ namespace tp2 {
 		/// </summary>
 		/// <param name="mes">El mes a mostrar</param>
 		/// <param name="año">El año al que pertenece el mes a mostrar</param>
-		public void CargarMes(int mes, int año, int[] marcados = null) {
+		public void CargarMes(int mes, int año) {
 			this.días = new int[40, 2];
 			this.dataGridView.ClearSelection();
 			this.mes = mes;
@@ -133,7 +133,7 @@ namespace tp2 {
 					celda.Style.ForeColor = Color.FromArgb(22, 22, 22);
 				} else {
 					if(d < this.primerDíaSemana)
-						celda.Value = d + 1 + DateTime.DaysInMonth(año, mes - 1) - this.primerDíaSemana;
+						celda.Value = d + 1 + DateTime.DaysInMonth(this.año, this.mes - 1) - this.primerDíaSemana;
 					else
 						celda.Value = d + 1 - this.díasTotales - this.primerDíaSemana;
 
