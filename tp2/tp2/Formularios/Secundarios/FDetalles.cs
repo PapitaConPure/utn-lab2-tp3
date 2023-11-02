@@ -15,17 +15,17 @@ namespace tp2
         private readonly Sistema sistema;
         private readonly Residencia residencia;
 
-        public FDetalles()
-        {
+        public FDetalles() {
             this.InitializeComponent();
         }
 
-        public FDetalles(Sistema sist, Residencia res): this()
-        {
-            this.sistema = sist;
-            this.residencia = res;
+        public FDetalles(Sistema sistema, Residencia residencia): this() {
+            this.sistema = sistema;
+            this.residencia = residencia;
 			this.RefrescarDetalles();
 			this.RefrescarListaAlquileres();
+			this.pbImagen1.Image = residencia.Imágenes[0];
+			this.pbImagen2.Image = residencia.Imágenes[1];
 		}
 
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
@@ -40,11 +40,10 @@ namespace tp2
 		private void BtnCancelarAlquiler_Click(object sender, EventArgs e) {
 			bool pudo = this.residencia.QuitarAlquiler((int)this.nudNroAlquiler.Value);
 
-			if(pudo) {
+			if(pudo)
 				MessageBox.Show("El alquiler ha sido cancelado");
-			} else {
+			else
 				MessageBox.Show("El alquiler no se ha podido cancelar");
-			}
 
 			this.RefrescarListaAlquileres();
 		}

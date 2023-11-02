@@ -31,13 +31,11 @@ namespace tp2 {
 			this.ofdDatos = new System.Windows.Forms.OpenFileDialog();
 			this.sfdDatos = new System.Windows.Forms.SaveFileDialog();
 			this.gbAgregar = new System.Windows.Forms.GroupBox();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.cmbResidencias = new System.Windows.Forms.ComboBox();
 			this.tlpBotonesAgregar = new System.Windows.Forms.TableLayoutPanel();
 			this.tlpBotonesDatos = new System.Windows.Forms.TableLayoutPanel();
 			this.gbDatos = new System.Windows.Forms.GroupBox();
 			this.gbBuscar = new System.Windows.Forms.GroupBox();
-			this.lbResidencias = new System.Windows.Forms.ListBox();
+			this.lsbResidencias = new System.Windows.Forms.ListBox();
 			this.pnlFiltro = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.lbDestino = new System.Windows.Forms.Label();
@@ -60,9 +58,8 @@ namespace tp2 {
 			this.tlpBotonesPropiedades = new System.Windows.Forms.TableLayoutPanel();
 			this.btnBorrarPropiedad = new System.Windows.Forms.Button();
 			this.btnModificarPropiedad = new System.Windows.Forms.Button();
-			this.btnVerPropiedad = new System.Windows.Forms.Button();
+			this.btnConsultarPropiedad = new System.Windows.Forms.Button();
 			this.gbAgregar.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
 			this.tlpBotonesAgregar.SuspendLayout();
 			this.tlpBotonesDatos.SuspendLayout();
 			this.gbDatos.SuspendLayout();
@@ -163,39 +160,14 @@ namespace tp2 {
 			// 
 			// gbAgregar
 			// 
-			this.gbAgregar.Controls.Add(this.tableLayoutPanel1);
 			this.gbAgregar.Controls.Add(this.tlpBotonesAgregar);
 			this.gbAgregar.Dock = System.Windows.Forms.DockStyle.Top;
 			this.gbAgregar.Location = new System.Drawing.Point(0, 0);
 			this.gbAgregar.Name = "gbAgregar";
-			this.gbAgregar.Size = new System.Drawing.Size(624, 115);
+			this.gbAgregar.Size = new System.Drawing.Size(624, 79);
 			this.gbAgregar.TabIndex = 0;
 			this.gbAgregar.TabStop = false;
 			this.gbAgregar.Text = "Agregar Residencias";
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 1;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.cmbResidencias, 0, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 75);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(618, 37);
-			this.tableLayoutPanel1.TabIndex = 1;
-			// 
-			// cmbResidencias
-			// 
-			this.cmbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cmbResidencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbResidencias.FormattingEnabled = true;
-			this.cmbResidencias.Location = new System.Drawing.Point(3, 3);
-			this.cmbResidencias.Name = "cmbResidencias";
-			this.cmbResidencias.Size = new System.Drawing.Size(612, 28);
-			this.cmbResidencias.TabIndex = 6;
 			// 
 			// tlpBotonesAgregar
 			// 
@@ -242,27 +214,27 @@ namespace tp2 {
 			// 
 			// gbBuscar
 			// 
-			this.gbBuscar.Controls.Add(this.lbResidencias);
+			this.gbBuscar.Controls.Add(this.lsbResidencias);
 			this.gbBuscar.Controls.Add(this.pnlFiltro);
 			this.gbBuscar.Controls.Add(this.tlpBotonesPropiedades);
 			this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gbBuscar.Location = new System.Drawing.Point(0, 115);
+			this.gbBuscar.Location = new System.Drawing.Point(0, 79);
 			this.gbBuscar.Name = "gbBuscar";
-			this.gbBuscar.Size = new System.Drawing.Size(624, 343);
+			this.gbBuscar.Size = new System.Drawing.Size(624, 379);
 			this.gbBuscar.TabIndex = 2;
 			this.gbBuscar.TabStop = false;
 			this.gbBuscar.Text = "Administrar Residencias";
 			// 
-			// lbResidencias
+			// lsbResidencias
 			// 
-			this.lbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbResidencias.FormattingEnabled = true;
-			this.lbResidencias.IntegralHeight = false;
-			this.lbResidencias.ItemHeight = 20;
-			this.lbResidencias.Location = new System.Drawing.Point(3, 109);
-			this.lbResidencias.Name = "lbResidencias";
-			this.lbResidencias.Size = new System.Drawing.Size(618, 188);
-			this.lbResidencias.TabIndex = 1;
+			this.lsbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lsbResidencias.FormattingEnabled = true;
+			this.lsbResidencias.IntegralHeight = false;
+			this.lsbResidencias.ItemHeight = 20;
+			this.lsbResidencias.Location = new System.Drawing.Point(3, 109);
+			this.lsbResidencias.Name = "lsbResidencias";
+			this.lsbResidencias.Size = new System.Drawing.Size(618, 224);
+			this.lsbResidencias.TabIndex = 1;
 			// 
 			// pnlFiltro
 			// 
@@ -513,9 +485,9 @@ namespace tp2 {
 			this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
 			this.tlpBotonesPropiedades.Controls.Add(this.btnBorrarPropiedad, 2, 0);
 			this.tlpBotonesPropiedades.Controls.Add(this.btnModificarPropiedad, 0, 0);
-			this.tlpBotonesPropiedades.Controls.Add(this.btnVerPropiedad, 1, 0);
+			this.tlpBotonesPropiedades.Controls.Add(this.btnConsultarPropiedad, 1, 0);
 			this.tlpBotonesPropiedades.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.tlpBotonesPropiedades.Location = new System.Drawing.Point(3, 297);
+			this.tlpBotonesPropiedades.Location = new System.Drawing.Point(3, 333);
 			this.tlpBotonesPropiedades.Name = "tlpBotonesPropiedades";
 			this.tlpBotonesPropiedades.RowCount = 1;
 			this.tlpBotonesPropiedades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -536,6 +508,7 @@ namespace tp2 {
 			this.btnBorrarPropiedad.TabIndex = 2;
 			this.btnBorrarPropiedad.Text = "Eliminar";
 			this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
+			this.btnBorrarPropiedad.Click += new System.EventHandler(this.BtnBorrarPropiedad_Click);
 			// 
 			// btnModificarPropiedad
 			// 
@@ -550,21 +523,23 @@ namespace tp2 {
 			this.btnModificarPropiedad.TabIndex = 0;
 			this.btnModificarPropiedad.Text = "Modificar";
 			this.btnModificarPropiedad.UseVisualStyleBackColor = false;
+			this.btnModificarPropiedad.Click += new System.EventHandler(this.BtnModificarPropiedad_Click);
 			// 
-			// btnVerPropiedad
+			// btnConsultarPropiedad
 			// 
-			this.btnVerPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(180)))), ((int)(((byte)(211)))));
-			this.btnVerPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnVerPropiedad.FlatAppearance.BorderSize = 0;
-			this.btnVerPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnVerPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnVerPropiedad.ForeColor = System.Drawing.Color.White;
-			this.btnVerPropiedad.Location = new System.Drawing.Point(209, 3);
-			this.btnVerPropiedad.Name = "btnVerPropiedad";
-			this.btnVerPropiedad.Size = new System.Drawing.Size(200, 37);
-			this.btnVerPropiedad.TabIndex = 1;
-			this.btnVerPropiedad.Text = "Consultar";
-			this.btnVerPropiedad.UseVisualStyleBackColor = false;
+			this.btnConsultarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(180)))), ((int)(((byte)(211)))));
+			this.btnConsultarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnConsultarPropiedad.FlatAppearance.BorderSize = 0;
+			this.btnConsultarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnConsultarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnConsultarPropiedad.ForeColor = System.Drawing.Color.White;
+			this.btnConsultarPropiedad.Location = new System.Drawing.Point(209, 3);
+			this.btnConsultarPropiedad.Name = "btnConsultarPropiedad";
+			this.btnConsultarPropiedad.Size = new System.Drawing.Size(200, 37);
+			this.btnConsultarPropiedad.TabIndex = 1;
+			this.btnConsultarPropiedad.Text = "Consultar";
+			this.btnConsultarPropiedad.UseVisualStyleBackColor = false;
+			this.btnConsultarPropiedad.Click += new System.EventHandler(this.BtnConsultarPropiedad_Click);
 			// 
 			// FPrincipal
 			// 
@@ -585,7 +560,6 @@ namespace tp2 {
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FPrincipal_FormClosed);
 			this.Load += new System.EventHandler(this.FPrincipal_Load);
 			this.gbAgregar.ResumeLayout(false);
-			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tlpBotonesAgregar.ResumeLayout(false);
 			this.tlpBotonesDatos.ResumeLayout(false);
 			this.gbDatos.ResumeLayout(false);
@@ -618,10 +592,8 @@ namespace tp2 {
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesDatos;
 		private System.Windows.Forms.GroupBox gbDatos;
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesAgregar;
-		private System.Windows.Forms.ComboBox cmbResidencias;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.GroupBox gbBuscar;
-		private System.Windows.Forms.ListBox lbResidencias;
+		private System.Windows.Forms.ListBox lsbResidencias;
         private System.Windows.Forms.Button btnMostrarResidencias;
         private System.Windows.Forms.RadioButton rbHotel;
         private System.Windows.Forms.RadioButton rbCasaFinde;
@@ -644,7 +616,7 @@ namespace tp2 {
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesPropiedades;
 		private System.Windows.Forms.Button btnBorrarPropiedad;
 		private System.Windows.Forms.Button btnModificarPropiedad;
-		private System.Windows.Forms.Button btnVerPropiedad;
+		private System.Windows.Forms.Button btnConsultarPropiedad;
 	}
 }
 

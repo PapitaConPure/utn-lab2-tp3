@@ -36,12 +36,7 @@ namespace tp2 {
 					BinaryFormatter bf = new BinaryFormatter();
 					this.sistema = bf.Deserialize(fs) as Sistema;
 					this.sistema.CargarNroResidenciaSerializado();
-
-					foreach(Residencia residencia in this.sistema.Residencias) {
-						this.cmbResidencias.Items.Add(residencia);
-						if(!this.cbDestinos.Items.Contains(residencia.Dirección))
-							this.cbDestinos.Items.Add(residencia.Dirección);
-					}
+					this.ActualizarListadoResidencias();
 				}
 			} catch(IOException) {
 				MessageBox.Show("No se pudieron cargar los datos previos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -98,8 +93,7 @@ namespace tp2 {
 					MessageBoxButtons.OK,
 					MessageBoxIcon.Information);
 
-				this.ActualizarListaResidencias();
-				this.cmbResidencias.SelectedIndex = this.cmbResidencias.Items.Count - 1;
+				this.ActualizarListadoResidencias();
 			}
 
 			fCasa.Dispose();
@@ -115,56 +109,59 @@ namespace tp2 {
 					MessageBoxButtons.OK,
 					MessageBoxIcon.Information);
 
-				this.ActualizarListaResidencias();
-				this.cmbResidencias.SelectedIndex = this.cmbResidencias.Items.Count - 1;
+				this.ActualizarListadoResidencias();
 			}
 
 			fHotel.Dispose();
 		}
 
 		private void BtnBorrarPropiedad_Click(object sender, EventArgs e) {
-			Residencia aBorrar = this.cmbResidencias.SelectedItem as Residencia;
+			Residencia aBorrar = this.lsbResidencias.SelectedItem as Residencia;
 
-            if(aBorrar is Residencia) {
-				if(this.sistema.QuitarResidencia(aBorrar.Número)) {
-					MessageBox.Show("Residencia eliminada");
-					this.cmbResidencias.Items.Remove(aBorrar);
-				} else
-					MessageBox.Show("No se ha podido eliminar la residencia");
-				this.cmbResidencias.SelectedIndex = -1;
-			} else {
-				MessageBox.Show("No existe la residencia");
-            }
+			if(aBorrar is null) {
+				MessageBox.Show("No se encontró una residencia", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			if(!this.sistema.QuitarResidencia(aBorrar.Número))
+				MessageBox.Show("No se ha podido eliminar la residencia");
+
+			MessageBox.Show("Residencia eliminada");
+			this.ActualizarListadoResidencias();
 		}
 
         private void BtnModificarPropiedad_Click(object sender, EventArgs e) {
-			Residencia aModificar = this.cmbResidencias.SelectedItem as Residencia;
-			Form fModif = null;
+			Residencia aModificar = this.lsbResidencias.SelectedItem as Residencia;
+
+			if(aModificar is null) {
+				MessageBox.Show("No se encontró una residencia", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			Form fModificar = null;
 
 			if(aModificar is Hotel)
-				fModif = new FAgregarHotel(this.sistema, aModificar as Hotel);
+				fModificar = new FAgregarHotel(this.sistema, aModificar as Hotel);
 			else if(aModificar is Casa)
-				fModif = new FAgregarCasa(this.sistema, aModificar as Casa);
+				fModificar = new FAgregarCasa(this.sistema, aModificar as Casa);
 
-			if(fModif != null) {
-				fModif.ShowDialog();
-				fModif.Dispose();
+			if(fModificar != null) {
+				fModificar.ShowDialog();
+				fModificar.Dispose();
 			}
 		}
 
-		private void BtnVerPropiedad_Click(object sender, EventArgs e) {
-			Residencia aVer = this.cmbResidencias.SelectedItem as Residencia;
+		private void BtnConsultarPropiedad_Click(object sender, EventArgs e) {
+			Residencia aVer = this.lsbResidencias.SelectedItem as Residencia;
 
-			if(aVer is null)
+			if(aVer is null) {
+				MessageBox.Show("No se encontró una residencia", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
+			}
 
-			FDetalles detail = new FDetalles(this.sistema, aVer);
-
-			detail.pbImagen1.Image = aVer.Imágenes[0];
-			detail.pbImagen2.Image = aVer.Imágenes[1];
-
-			detail.ShowDialog();
-			detail.Close();
+			FDetalles fDetalles = new FDetalles(this.sistema, aVer);
+			fDetalles.ShowDialog();
+			fDetalles.Dispose();
 		}
 
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
@@ -182,7 +179,7 @@ namespace tp2 {
 
 		#region Filtro
 		private void BtnBuscarResidencias_Click(object sender, EventArgs e) {
-			this.ActualizarListaResidencias();
+			this.ActualizarListadoResidencias();
 		}
 
 		private void BtnLimpiarFiltros_Click(object sender, EventArgs e) {
@@ -260,38 +257,30 @@ namespace tp2 {
 		#endregion
 
 		#region Utilidades
-		private void ActualizarListaResidencias() {
-			//Viejo
-			this.cmbResidencias.Items.Clear();
+		private void ActualizarListadoResidencias() {
 			this.cbDestinos.Items.Clear();
-			foreach (Residencia residencia in this.sistema.Residencias)
-            {
-				this.cmbResidencias.Items.Add(residencia); 
-				if (!this.cbDestinos.Items.Contains(residencia.Dirección))
-					this.cbDestinos.Items.Add(residencia.Dirección);
-			}
+			this.lsbResidencias.Items.Clear();
 
-			//Nuevo
-			this.lbResidencias.Items.Clear();
-
-			double max = 0, min = 0;
-			if(this.nudMaxPrice.Value != 0) max = (double)this.nudMaxPrice.Value;
-			if(this.nudMinPrice.Value != 0) min = (double)this.nudMinPrice.Value;
+			double max = (double)this.nudMaxPrice.Value;
+			double min = (double)this.nudMinPrice.Value;
 
 			string destino = "";
 			if(this.cbDestinos.SelectedItem != null) destino = this.cbDestinos.SelectedItem as string;
 
-			foreach(Residencia re in this.sistema.Residencias) {
-				if(this.VerificarTipo(re) &&
-					(destino == "" || destino == re.Dirección) &&
-					(re.CalcularPrecioTotal() * this.sistema.PrecioBase <= max || max == 0) &&
-					(re.CalcularPrecioTotal() * this.sistema.PrecioBase >= min || min == 0) &&
-					this.VerificarPlazas(re))
-					this.lbResidencias.Items.Add(re);
+			foreach(Residencia residencia in this.sistema.Residencias) {
+				if(this.VerificarTipo(residencia)
+				&& (destino == "" || destino == residencia.Dirección)
+				&& (max == 0 || residencia.CalcularPrecioTotal() * this.sistema.PrecioBase <= max)
+				&& (min == 0 || residencia.CalcularPrecioTotal() * this.sistema.PrecioBase >= min)
+				&& this.VerificarPlazas(residencia))
+					this.lsbResidencias.Items.Add(residencia);
+
+				if(!this.cbDestinos.Items.Contains(residencia.Dirección))
+					this.cbDestinos.Items.Add(residencia.Dirección);
 			}
 
-			if(this.lbResidencias.Items.Count == 0)
-				this.lbResidencias.Items.Add("No hay resultados");
+			if(this.lsbResidencias.Items.Count == 0)
+				this.lsbResidencias.Items.Add("No hay resultados...");
 		}
 		#endregion
 
