@@ -103,6 +103,23 @@ namespace AlquilerLib {
 			return true;
 		}
 
+		public bool ModificarAlquiler(int nroResidencia, int nroAlquiler, DateTime checkin, DateTime checkout)
+        {
+			Residencia propiedad = this.VerResidencia(nroResidencia);
+			if (propiedad is null)
+				return false;
+            else
+            {
+				Alquiler alq = propiedad.VerAlquiler(nroAlquiler);
+				if (alq is null)
+					return false;
+
+				alq.Modificar(checkin, checkout);
+				return true;
+            }
+		}
+
+
 		public void ImportarAlquileres(string ruta) {
 			FileStream fs = null;
 			StreamReader sr = null;

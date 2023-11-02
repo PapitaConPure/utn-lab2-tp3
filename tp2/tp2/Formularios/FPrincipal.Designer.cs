@@ -58,8 +58,6 @@ namespace tp2 {
             this.btnVer = new System.Windows.Forms.Button();
             this.btnAlquilar = new System.Windows.Forms.Button();
             this.lbResidencias = new System.Windows.Forms.ListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tbBúsqueda = new System.Windows.Forms.TextBox();
             this.tlpBotonesPropiedades.SuspendLayout();
             this.gbResidencias.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -70,7 +68,6 @@ namespace tp2 {
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAgregarCasa
@@ -248,7 +245,7 @@ namespace tp2 {
             this.cmbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbResidencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbResidencias.FormattingEnabled = true;
-            this.cmbResidencias.Location = new System.Drawing.Point(3, 10);
+            this.cmbResidencias.Location = new System.Drawing.Point(3, 17);
             this.cmbResidencias.Name = "cmbResidencias";
             this.cmbResidencias.Size = new System.Drawing.Size(734, 28);
             this.cmbResidencias.TabIndex = 6;
@@ -299,6 +296,7 @@ namespace tp2 {
             // gbBuscar
             // 
             this.gbBuscar.Controls.Add(this.btnLimpiarFiltros);
+            this.gbBuscar.Controls.Add(this.btnVerAlquiler);
             this.gbBuscar.Controls.Add(this.nudCantPersonas);
             this.gbBuscar.Controls.Add(this.lbCantPasajeros);
             this.gbBuscar.Controls.Add(this.lbPrecio);
@@ -311,11 +309,9 @@ namespace tp2 {
             this.gbBuscar.Controls.Add(this.rbHotel);
             this.gbBuscar.Controls.Add(this.rbCasaFinde);
             this.gbBuscar.Controls.Add(this.rbCasa);
-            this.gbBuscar.Controls.Add(this.btnVerAlquiler);
             this.gbBuscar.Controls.Add(this.btnVer);
             this.gbBuscar.Controls.Add(this.btnAlquilar);
             this.gbBuscar.Controls.Add(this.lbResidencias);
-            this.gbBuscar.Controls.Add(this.panel1);
             this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbBuscar.Location = new System.Drawing.Point(0, 164);
             this.gbBuscar.Name = "gbBuscar";
@@ -443,7 +439,7 @@ namespace tp2 {
             // 
             // btnVerAlquiler
             // 
-            this.btnVerAlquiler.Location = new System.Drawing.Point(584, 324);
+            this.btnVerAlquiler.Location = new System.Drawing.Point(572, 166);
             this.btnVerAlquiler.Name = "btnVerAlquiler";
             this.btnVerAlquiler.Size = new System.Drawing.Size(162, 30);
             this.btnVerAlquiler.TabIndex = 5;
@@ -480,25 +476,6 @@ namespace tp2 {
             this.lbResidencias.Size = new System.Drawing.Size(740, 104);
             this.lbResidencias.TabIndex = 1;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tbBúsqueda);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(6);
-            this.panel1.Size = new System.Drawing.Size(740, 40);
-            this.panel1.TabIndex = 2;
-            // 
-            // tbBúsqueda
-            // 
-            this.tbBúsqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbBúsqueda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBúsqueda.Location = new System.Drawing.Point(6, 6);
-            this.tbBúsqueda.Name = "tbBúsqueda";
-            this.tbBúsqueda.Size = new System.Drawing.Size(728, 27);
-            this.tbBúsqueda.TabIndex = 2;
-            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -528,8 +505,6 @@ namespace tp2 {
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMinPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -553,8 +528,6 @@ namespace tp2 {
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.GroupBox gbBuscar;
 		private System.Windows.Forms.ListBox lbResidencias;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.TextBox tbBúsqueda;
         private System.Windows.Forms.Button btnAlquilar;
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.Button btnVerAlquiler;

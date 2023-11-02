@@ -16,7 +16,9 @@ namespace tp2 {
 		private Calendario calendario;
 		private DateTime[] meses;
 
-		public FAlquiler() {
+        internal Calendario Calendario { get { return this.calendario; } }
+
+        public FAlquiler() {
 			this.InitializeComponent();
 		}
 
@@ -55,7 +57,7 @@ namespace tp2 {
 			DateTime checkOut = checkIn.AddDays((double)nudCantDias.Value);
 
 			int cantPasajeros = (int)nudCantPasajeros.Value;
-			int telefono = (int)nudTel.Value;
+			long telefono = (long)nudTel.Value;
 			int dni = (int)nudDNI.Value;
 			string nom = tbNombre.Text;
 			string apellido = tbApellido.Text;

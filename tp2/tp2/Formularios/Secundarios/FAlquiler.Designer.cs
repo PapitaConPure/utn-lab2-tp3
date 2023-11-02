@@ -53,6 +53,7 @@ namespace tp2 {
             this.nudCantPasajeros = new System.Windows.Forms.NumericUpDown();
             this.lbCantDias = new System.Windows.Forms.Label();
             this.nudCantDias = new System.Windows.Forms.NumericUpDown();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.tlpCalendario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).BeginInit();
             this.tlpBotonesAlquiler.SuspendLayout();
@@ -225,6 +226,7 @@ namespace tp2 {
             // btnAlquilar
             // 
             this.btnAlquilar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+            this.btnAlquilar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAlquilar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAlquilar.FlatAppearance.BorderSize = 0;
             this.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -445,11 +447,22 @@ namespace tp2 {
             0,
             0});
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnAceptar.Location = new System.Drawing.Point(227, 367);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 30;
+            this.btnAceptar.Text = "aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            // 
             // FAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 476);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.nudCantDias);
             this.Controls.Add(this.lbCantDias);
             this.Controls.Add(this.gbPropietario);
@@ -488,7 +501,6 @@ namespace tp2 {
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesAlquiler;
 		private System.Windows.Forms.Button btnAlquilar;
 		private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.GroupBox gbPropietario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label lbDNI;
         public System.Windows.Forms.NumericUpDown nudTel;
@@ -501,6 +513,8 @@ namespace tp2 {
         private System.Windows.Forms.Label lbCantPasajeros;
         public System.Windows.Forms.NumericUpDown nudCantPasajeros;
         private System.Windows.Forms.Label lbCantDias;
-        private System.Windows.Forms.NumericUpDown nudCantDias;
+        public System.Windows.Forms.GroupBox gbPropietario;
+        public System.Windows.Forms.NumericUpDown nudCantDias;
+        public System.Windows.Forms.Button btnAceptar;
     }
 }

@@ -67,5 +67,11 @@ namespace AlquilerLib {
 				this.residencia.PorcentajePorDía(this.Número)*this.PrecioBase,
 				this.PrecioTotal);
         }
+
+		public void Modificar(DateTime checkIn, DateTime checkOut)
+        {
+			this.CheckIn = checkIn;
+			this.CheckOut = checkOut;
+		}
     }
 }

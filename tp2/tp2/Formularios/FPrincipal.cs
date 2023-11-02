@@ -310,9 +310,12 @@ namespace tp2 {
 		//Deberiamos poder seleccionar un alquiler de alguna forma para poder eliminarlo posteriormente
         private void btnVerAlquiler_Click(object sender, EventArgs e)
         {
-			FDetalles d = new FDetalles();
-			d.lbDetalles.Items.Clear();
 			Residencia elegida = cmbResidencias.SelectedItem as Residencia;
+			FDetalles d = new FDetalles(this.sistema,elegida);
+
+
+			d.lbDetalles.Items.Clear();
+			d.btnModificarAlquiler.Visible = d.btnCancelarAlquiler.Visible = true;
 			foreach(Alquiler al in elegida.Alquileres)
             {
 				d.lbDetalles.Items.Add($"Nro de alquiler: {al.Número}");
@@ -325,8 +328,8 @@ namespace tp2 {
 				d.lbDetalles.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
 				d.lbDetalles.Items.Add("----------------------------------------------------------------");
 			}
-			
 			d.ShowDialog();
+			d.btnModificarAlquiler.Visible = d.btnCancelarAlquiler.Visible = false;
 			d.Dispose();
         }
 

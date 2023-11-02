@@ -13,7 +13,9 @@ namespace AlquilerLib {
 			Doble = 80,
 			Triple = 150,
 		}
-
+		
+		List<Habitación> habitaciones;
+		
 		/// <summary>
 		/// Crea un nuevo hotel con los datos de residencia especificados y la categoría indicada.
 		/// También se indica el tipo y cantidad de camas disponibles
@@ -28,10 +30,28 @@ namespace AlquilerLib {
 		/// <exception cref="ArgumentException"></exception>
 		public Hotel(int número, string dirección, int estrellas, int cntSimple, int cntDoble, int cntTriple, Image[] imágenes)
 		: base(número, dirección, imágenes) {
+			habitaciones = new List<Habitación>();
 			this.Estrellas = estrellas;
 			this.CntSimple = cntSimple;
+			int j=0,i;
+			Habitación nueva;
+			for ( i = 0; i < cntSimple; i++)
+            {
+				nueva = new Habitación(j++, TipoHabitación.Simple);
+				habitaciones.Add(nueva);
+            }
 			this.CntDoble = cntDoble;
+			for (i = 0; i < cntDoble; i++)
+			{
+				nueva = new Habitación(j++, TipoHabitación.Doble);
+				habitaciones.Add(nueva);
+			}
 			this.CntTriple = cntTriple;
+			for (i = 0; i < cntTriple; i++)
+			{
+				nueva = new Habitación(j++, TipoHabitación.Triple);
+				habitaciones.Add(nueva);
+			}
 		}
 
 		public int Estrellas { get; set; }
