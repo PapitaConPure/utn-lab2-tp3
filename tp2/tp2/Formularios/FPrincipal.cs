@@ -13,6 +13,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using AlquilerLib;
 using System.Runtime.Serialization;
+using ProyectoSplash;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
@@ -59,6 +60,10 @@ namespace tp2 {
 
 				fNuevoSistema.Dispose();
 			}
+
+			this.Hide();
+			new FSplash(3.25, 50).ShowDialog();
+			this.Show();
 		}
 
 		private void FPrincipal_FormClosed(object sender, FormClosedEventArgs e) {
