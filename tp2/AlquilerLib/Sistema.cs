@@ -8,9 +8,11 @@ namespace AlquilerLib {
 	/// </summary>
 	[Serializable]
 	public class Sistema {
-		private List<Residencia> residencias;
-		static int nroResidencia;
-		public int NroResidencia { get { return nroResidencia; } set { nroResidencia = value; } }
+		static int nroResidencia = 0;
+
+		private readonly List<Residencia> residencias;
+		private int nroResidenciaSerializado;
+
 		/// <summary>
 		/// Crea un sistema de alquileres con una lista de residencias vacía
 		/// </summary>
@@ -100,8 +102,7 @@ namespace AlquilerLib {
 			if(propiedad is null)
 				return false;
 
-			propiedad.QuitarAlquiler(nroAlquiler);
-			return true;
+			return propiedad.QuitarAlquiler(nroAlquiler);
 		}
 
 		public bool ModificarAlquiler(int nroResidencia, int nroAlquiler, DateTime checkin, DateTime checkout)
@@ -120,6 +121,13 @@ namespace AlquilerLib {
             }
 		}
 
+		public void CargarNroResidenciaSerializado() {
+			nroResidencia = this.nroResidenciaSerializado;
+		}
+
+		public void GuardaNúmeroResidenciaSerializado() {
+			this.nroResidenciaSerializado = nroResidencia;
+		}
 
 		public void ImportarAlquileres(string ruta) {
 			FileStream fs = null;

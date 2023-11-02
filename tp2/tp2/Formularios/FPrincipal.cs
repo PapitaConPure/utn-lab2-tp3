@@ -35,11 +35,11 @@ namespace tp2 {
 					fs = new FileStream(this.rutaBin, FileMode.Open, FileAccess.Read);
 					BinaryFormatter bf = new BinaryFormatter();
 					this.sistema = bf.Deserialize(fs) as Sistema;
+					this.sistema.CargarNroResidenciaSerializado();
 
-					foreach(Residencia residencia in this.sistema.Residencias)
-                    {
+					foreach(Residencia residencia in this.sistema.Residencias) {
 						this.cmbResidencias.Items.Add(residencia);
-						if(!cbDestinos.Items.Contains(residencia.Dirección))
+						if(!this.cbDestinos.Items.Contains(residencia.Dirección))
 							this.cbDestinos.Items.Add(residencia.Dirección);
 					}
 				}
@@ -74,6 +74,7 @@ namespace tp2 {
 			try {
 				fs = new FileStream(this.rutaBin, FileMode.OpenOrCreate, FileAccess.Write);
 				BinaryFormatter bf = new BinaryFormatter();
+				this.sistema.GuardaNúmeroResidenciaSerializado();
 				bf.Serialize(fs, this.sistema);
 			} catch(IOException) {
 				MessageBox.Show("No se pudieron guardar los datos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -151,42 +152,74 @@ namespace tp2 {
 			}
 		}
 
-        private void BtnVerPropiedad_Click(object sender, EventArgs e) {
-			FDetalles detail = new FDetalles();
-			Residencia aVer = (Residencia)this.cmbResidencias.SelectedItem;
+		private void BtnVerPropiedad_Click(object sender, EventArgs e) {
+			Residencia aVer = this.cmbResidencias.SelectedItem as Residencia;
 
 			if(aVer is null)
 				return;
 
-			detail.lbDetalles.Items.Add($"Nro Propiedad: {aVer.Número}");
-			detail.lbDetalles.Items.Add($"Direccion: {aVer.Dirección}");
-			detail.lbDetalles.Items.Add($"Precio: {aVer.CalcularPrecioTotal()*sistema.PrecioBase}");
-
-			if(aVer is Hotel) {
-				Hotel hotel = aVer as Hotel;
-				detail.lbDetalles.Items.Add($"Estrellas: {hotel.Estrellas}");
-				detail.lbDetalles.Items.Add($"Cantidad de habitaciones:");
-				detail.lbDetalles.Items.Add($"Simples: {hotel.CntSimple}");
-				detail.lbDetalles.Items.Add($"Dobles: {hotel.CntDoble}");
-				detail.lbDetalles.Items.Add($"Triples: {hotel.CntTriple}");
-			} else if(aVer is Casa) {
-				Casa casa = aVer as Casa;
-				detail.lbDetalles.Items.Add($"Minimo de dias: {casa.MínimoPermitido}");
-				detail.lbDetalles.Items.Add($"Cantidad de camas: {casa.CamasDisponibles}");
-				detail.lbDetalles.Items.Add($"Propietario:");
-				detail.lbDetalles.Items.Add($"Apellido: {casa.Propietario.Apellido}, Nombre: {casa.Propietario.Nombre}");
-				detail.lbDetalles.Items.Add($"Dni: {casa.Propietario.Dni}, Tel:{casa.Propietario.Teléfono}");
-			}
-
-			detail.lbDetalles.Items.Add($"Servicios:");
-			foreach(string s in aVer.VerServicios())
-				if(s != null) detail.lbDetalles.Items.Add(s);
+			FDetalles detail = new FDetalles(this.sistema, aVer);
 
 			detail.pbImagen1.Image = aVer.Imágenes[0];
 			detail.pbImagen2.Image = aVer.Imágenes[1];
 
 			detail.ShowDialog();
 			detail.Close();
+		}
+
+		private void BtnAlquilar_Click(object sender, EventArgs e) {
+			//if(this.lbResidencias.SelectedItem == null) {
+			//	MessageBox.Show("Elija una propiedad");
+			//	return;
+			//}
+
+			//Residencia r = this.lbResidencias.SelectedItem as Residencia;
+			//FAlquiler falquilar = new FAlquiler(this.sistema, this.residencia);
+			//falquilar.ShowDialog();
+			//falquilar.Dispose();
+		}
+		#endregion
+
+		#region Filtro
+		private void BtnBuscarResidencias_Click(object sender, EventArgs e) {
+			this.ActualizarListaResidencias();
+		}
+
+		private void BtnLimpiarFiltros_Click(object sender, EventArgs e) {
+			this.cbDestinos.SelectedIndex = -1;
+			this.nudCantPersonas.Value = this.nudCantPersonas.Minimum;
+			this.nudMaxPrice.Value = this.nudMaxPrice.Minimum;
+			this.nudMinPrice.Value = this.nudMinPrice.Minimum;
+			this.rbCasa.Checked = false;
+			this.rbCasaFinde.Checked = false;
+			this.rbHotel.Checked = false;
+		}
+
+		private bool VerificarTipo(Residencia r) {
+			if(!this.rbHotel.Checked && !this.rbCasa.Checked && !this.rbCasaFinde.Checked)
+				return true;
+
+			return (this.rbHotel.Checked && r is Hotel)
+				|| (this.rbCasaFinde.Checked && r is CasaFinde)
+				|| (this.rbCasa.Checked && r is Casa);
+		}
+
+		private bool VerificarPlazas(Residencia r) {
+			int cant = (int)this.nudCantPersonas.Value;
+			bool valido = false;
+			if(this.nudCantPersonas.Value == 0)
+				valido = true;
+			else {
+				if(r is Casa) {
+					if((r as Casa).CamasDisponibles >= cant)
+						valido = true;
+				} else if(r is Hotel) {
+					valido = (cant <= 2 && (r as Hotel).CntSimple > 0)
+						  || (cant <= 4 && (r as Hotel).CntDoble > 0)
+						  || (cant <= 6 && (r as Hotel).CntTriple > 0);
+				}
+			}
+			return valido;
 		}
 		#endregion
 
@@ -228,14 +261,37 @@ namespace tp2 {
 
 		#region Utilidades
 		private void ActualizarListaResidencias() {
+			//Viejo
 			this.cmbResidencias.Items.Clear();
 			this.cbDestinos.Items.Clear();
 			foreach (Residencia residencia in this.sistema.Residencias)
             {
 				this.cmbResidencias.Items.Add(residencia); 
-				if (!cbDestinos.Items.Contains(residencia.Dirección))
+				if (!this.cbDestinos.Items.Contains(residencia.Dirección))
 					this.cbDestinos.Items.Add(residencia.Dirección);
 			}
+
+			//Nuevo
+			this.lbResidencias.Items.Clear();
+
+			double max = 0, min = 0;
+			if(this.nudMaxPrice.Value != 0) max = (double)this.nudMaxPrice.Value;
+			if(this.nudMinPrice.Value != 0) min = (double)this.nudMinPrice.Value;
+
+			string destino = "";
+			if(this.cbDestinos.SelectedItem != null) destino = this.cbDestinos.SelectedItem as string;
+
+			foreach(Residencia re in this.sistema.Residencias) {
+				if(this.VerificarTipo(re) &&
+					(destino == "" || destino == re.Dirección) &&
+					(re.CalcularPrecioTotal() * this.sistema.PrecioBase <= max || max == 0) &&
+					(re.CalcularPrecioTotal() * this.sistema.PrecioBase >= min || min == 0) &&
+					this.VerificarPlazas(re))
+					this.lbResidencias.Items.Add(re);
+			}
+
+			if(this.lbResidencias.Items.Count == 0)
+				this.lbResidencias.Items.Add("No hay resultados");
 		}
 		#endregion
 
@@ -247,151 +303,7 @@ namespace tp2 {
 		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
 			(sender as NumericUpDown).Select(0, 20);
 		}
-        #endregion
+		#endregion
 
-
-        
-
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-			if (lbResidencias.SelectedItem == null)
-            {
-				MessageBox.Show("Elija una propiedad");
-				return;
-            }
-			Residencia r = lbResidencias.SelectedItem as Residencia;
-			FAlquiler falquilar = new FAlquiler(this.sistema, r);
-			falquilar.ShowDialog();
-			falquilar.Dispose();
-		}
-
-		
-        private void btnVer_Click(object sender, EventArgs e)
-        {
-			lbResidencias.Items.Clear();
-
-			List<Residencia> resultado = new List<Residencia>();
-			
-			
-
-			double max=0, min=0;
-			if (nudMaxPrice.Value != 0) max = (double)nudMaxPrice.Value;
-			if (nudMinPrice.Value != 0) min = (double)nudMinPrice.Value;
-
-			string destino = "";
-			if (cbDestinos.SelectedItem != null) destino = cbDestinos.SelectedItem as string;
-
-			int viajantes = 0;
-			if (nudCantPersonas.Value != 0) viajantes = (int)nudCantPersonas.Value;
-
-
-			foreach(Residencia re in this.sistema.Residencias)
-            {
-				if (VerificarTipo(re) && 
-					(destino==""||destino==re.Dirección) && 
-					(re.CalcularPrecioTotal()*sistema.PrecioBase<=max || max==0) && 
-					(re.CalcularPrecioTotal()*sistema.PrecioBase>=min || min==0) && 
-					VerificarPlazas(re))
-					resultado.Add(re);
-            }
-
-			if(resultado.Count==0) lbResidencias.Items.Add("No hay resultados");
-
-			foreach (Residencia r in resultado)
-			{
-				lbResidencias.Items.Add(r);
-			}
-		}
-
-        private void btnVerAlquiler_Click(object sender, EventArgs e)
-        {
-			Residencia elegida = cmbResidencias.SelectedItem as Residencia;
-			FDetalles d = new FDetalles(this.sistema,elegida);
-
-
-			d.lbDetalles.Items.Clear();
-			d.btnModificarAlquiler.Visible = d.btnCancelarAlquiler.Visible = true;
-			foreach(Alquiler al in elegida.Alquileres)
-            {
-				d.lbDetalles.Items.Add($"Nro de alquiler: {al.Número}");
-				if (elegida is Hotel)
-				{
-					d.lbDetalles.Items.Add($"Habitacion: {al.Habitacion.Tipo}");
-				}
-				d.lbDetalles.Items.Add($"Fecha de checkin: {al.CheckIn:D}");
-				d.lbDetalles.Items.Add($"Fecha de checkout: {al.CheckOut:D}");
-				d.lbDetalles.Items.Add($"Fecha de reserva: {al.FechaReserva:g}");
-				d.lbDetalles.Items.Add($"Precio Total: {al.PrecioTotal}");
-				d.lbDetalles.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
-				d.lbDetalles.Items.Add($"Dni: {al.Cliente.Dni}");
-				d.lbDetalles.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
-				d.lbDetalles.Items.Add("----------------------------------------------------------------");
-			}
-			d.ShowDialog();
-			d.btnModificarAlquiler.Visible = d.btnCancelarAlquiler.Visible = false;
-			d.Dispose();
-        }
-
-        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
-        {
-			cbDestinos.SelectedIndex = -1;
-			nudCantPersonas.Value = nudCantPersonas.Minimum;
-			nudMaxPrice.Value = nudMaxPrice.Minimum;
-			nudMinPrice.Value = nudMinPrice.Minimum;
-			rbCasa.Checked = false;
-			rbCasaFinde.Checked = false;
-			rbHotel.Checked = false;
-        }
-
-		private bool VerificarTipo(Residencia r)
-        {
-			bool valido = false;
-            if (rbHotel.Checked)
-            {
-				if (r is Hotel) valido = true;
-            }
-			else
-            {
-				if (rbCasaFinde.Checked)
-					if (r is CasaFinde) valido = true;
-					else { }
-				else
-				{
-					if (rbCasa.Checked)
-						if ((r is Casa) && !(r is CasaFinde)) valido = true;
-				}
-			}
-			if (!valido && !rbHotel.Checked && !rbCasa.Checked && !rbCasaFinde.Checked)
-				valido = true;
-
-			return valido;
-        }
-		private bool VerificarPlazas(Residencia r)
-        {
-			int cant = (int)nudCantPersonas.Value;
-			bool valido = false;
-			if (nudCantPersonas.Value == 0)
-				valido = true;
-            else
-            {
-				if (r is Casa)
-				{
-					if (((Casa)r).CamasDisponibles >= cant)
-						valido = true;
-				}
-				else if (r is Hotel)
-				{
-					if (cant <= 2 && ((Hotel)r).CntSimple > 0)
-						valido = true;
-					else if (cant <= 4 && ((Hotel)r).CntDoble > 0)
-						valido = true;
-					else if (cant <= 6 && ((Hotel)r).CntTriple > 0)
-						valido = true;
-				}
-			}
-			return valido;
-        }
-    }
+	}
 }

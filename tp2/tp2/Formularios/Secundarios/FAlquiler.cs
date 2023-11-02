@@ -1,12 +1,5 @@
 ﻿using AlquilerLib;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace tp2 {
@@ -25,6 +18,19 @@ namespace tp2 {
 		public FAlquiler(Sistema sistema, Residencia residencia): this() {
 			this.sistema = sistema;
 			this.residencia = residencia;
+			this.btnAlquilar.Visible = true;
+			this.btnModificar.Visible = false;
+		}
+
+		public FAlquiler(Sistema sistema, Residencia residencia, Alquiler alquiler): this(sistema, residencia) {
+			this.gbPropietario.Enabled = false;
+			this.nudCantPasajeros.Value = alquiler.Cliente.CantPasajeros;
+			this.nudDNI.Value = alquiler.Cliente.Dni;
+			this.nudTel.Value = alquiler.Cliente.Teléfono;
+			this.tbApellido.Text = alquiler.Cliente.Apellido;
+			this.tbNombre.Text = alquiler.Cliente.Nombre;
+			this.btnAlquilar.Visible = false;
+			this.btnModificar.Visible = true;
 		}
 
 		private void FAlquilar_Load(object sender, EventArgs e) {
@@ -39,48 +45,36 @@ namespace tp2 {
 			this.calendario = new Calendario(this.dgvCalendario);
 		}
 
-		private void BtnCancelarAlquiler_Click(object sender, EventArgs e) {
-
-		//	if(this.sistema.CancelarAlquiler(Convert.ToInt32(this.nudNroPropiedadAlquiler), Convert.ToInt32(this.nudNroAlquiler.Value)))
-		//		MessageBox.Show("El alquiler fue cancelado con éxito.");
-		}
-
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
-			if (!this.calendario.HayDíaSeleccionado) {
-				MessageBox.Show("No hay día seleccionado");
+			if(!this.calendario.HayDíaSeleccionado) {
+				MessageBox.Show("Selecciona un día");
+				this.DialogResult = DialogResult.None;
 				return;
 			}
 
-
 			DateTime fechaReserva = DateTime.Now;
-			DateTime checkIn = calendario.DíaSeleccionado;
-			DateTime checkOut = checkIn.AddDays((double)nudCantDias.Value);
+			DateTime checkIn = this.calendario.DíaSeleccionado;
+			DateTime checkOut = checkIn.AddDays((double)this.nudCantDias.Value);
 
-			int cantPasajeros = (int)nudCantPasajeros.Value;
-			long telefono = (long)nudTel.Value;
-			int dni = (int)nudDNI.Value;
-			string nom = tbNombre.Text;
-			string apellido = tbApellido.Text;
+			int cantPasajeros = (int)this.nudCantPasajeros.Value;
+			long telefono = (long)this.nudTel.Value;
+			int dni = (int)this.nudDNI.Value;
+			string nom = this.tbNombre.Text;
+			string apellido = this.tbApellido.Text;
+			bool pudoAlquilar =
+				this.sistema.AlquilarResidencia(this.residencia.Número, fechaReserva, checkIn, checkOut, cantPasajeros, dni, nom, apellido, telefono);
 
+			if(!pudoAlquilar) {
+				MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
+				this.DialogResult = DialogResult.None;
+				return;
+			}
 
-
-			if (this.sistema.AlquilarResidencia(this.residencia.Número, fechaReserva, checkIn, checkOut, cantPasajeros, dni, nom, apellido, telefono))
-			{ 
-				MessageBox.Show(
-				$"Desde:{checkIn:dd/MM} hasta {checkOut:dd/MM}",
+			MessageBox.Show(
+				$"Desde:{checkIn:d} hasta {checkOut:d}",
 				"Residencia alquilada",
 				MessageBoxButtons.OK,
 				MessageBoxIcon.Information);
-			}
-			else
-				MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
-
-
-			nudCantDias.Value = nudCantDias.Minimum;
-			nudTel.Value = nudTel.Minimum;
-			nudDNI.Value = nudDNI.Minimum;
-			tbApellido.Clear();
-			tbNombre.Clear();
 		}
 
 		private void CmbMes_SelectedIndexChanged(object sender, EventArgs e) {
@@ -92,13 +86,7 @@ namespace tp2 {
 			this.calendario.MostrarMes(mes.Month, mes.Year);
 		}
 
-        private void dgvCalendario_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
+        private void BtnCerrar_Click(object sender, EventArgs e) {
 			this.Close();
         }
     }

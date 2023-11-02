@@ -14,7 +14,7 @@ namespace AlquilerLib {
 			Triple = 150,
 		}
 		
-		List<Habitación> habitaciones;
+		private readonly List<Habitación> habitaciones;
 		
 		/// <summary>
 		/// Crea un nuevo hotel con los datos de residencia especificados y la categoría indicada.
@@ -30,27 +30,30 @@ namespace AlquilerLib {
 		/// <exception cref="ArgumentException"></exception>
 		public Hotel(int número, string dirección, int estrellas, int cntSimple, int cntDoble, int cntTriple, Image[] imágenes)
 		: base(número, dirección, imágenes) {
-			habitaciones = new List<Habitación>();
+			this.habitaciones = new List<Habitación>();
 			this.Estrellas = estrellas;
 			this.CntSimple = cntSimple;
-			int j=0,i;
+
+			int i;
 			Habitación nueva;
 			for ( i = 0; i < cntSimple; i++)
             {
 				nueva = new Habitación(TipoHabitación.Simple,this);
-				habitaciones.Add(nueva);
+				this.habitaciones.Add(nueva);
             }
+
 			this.CntDoble = cntDoble;
 			for (i = 0; i < cntDoble; i++)
 			{
 				nueva = new Habitación(TipoHabitación.Doble,this);
-				habitaciones.Add(nueva);
+				this.habitaciones.Add(nueva);
 			}
+
 			this.CntTriple = cntTriple;
 			for (i = 0; i < cntTriple; i++)
 			{
 				nueva = new Habitación(TipoHabitación.Triple,this);
-				habitaciones.Add(nueva);
+				this.habitaciones.Add(nueva);
 			}
 		}
 
@@ -69,10 +72,10 @@ namespace AlquilerLib {
 			int i = 0;
             while (!encontro && i < this.habitaciones.Count)
             {
-                if (habitaciones[i].PuedeAlquilar(alquiler))
+                if (this.habitaciones[i].PuedeAlquilar(alquiler))
                 {
-					alquiler = new Alquiler(0, hoy, ingreso, salida, this,habitaciones[i], cantPasajeros, dni, nombre, apellido, tel, precioBase);
-					habitaciones[i].Alquilar(alquiler);
+					alquiler = new Alquiler(0, hoy, ingreso, salida, this, this.habitaciones[i], cantPasajeros, dni, nombre, apellido, tel, precioBase);
+					this.habitaciones[i].Alquilar(alquiler);
 					this.AgregarAlquiler(alquiler);
 					encontro = true;
 				}

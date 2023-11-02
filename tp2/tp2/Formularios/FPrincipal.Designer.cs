@@ -24,513 +24,597 @@ namespace tp2 {
 		/// el contenido de este método con el editor de código.
 		/// </summary>
 		private void InitializeComponent() {
-            this.btnAgregarCasa = new System.Windows.Forms.Button();
-            this.btnAgregarHotel = new System.Windows.Forms.Button();
-            this.btnBorrarPropiedad = new System.Windows.Forms.Button();
-            this.btnModificarPropiedad = new System.Windows.Forms.Button();
-            this.btnVerPropiedad = new System.Windows.Forms.Button();
-            this.btnImportar = new System.Windows.Forms.Button();
-            this.btnExportar = new System.Windows.Forms.Button();
-            this.ofdDatos = new System.Windows.Forms.OpenFileDialog();
-            this.sfdDatos = new System.Windows.Forms.SaveFileDialog();
-            this.tlpBotonesPropiedades = new System.Windows.Forms.TableLayoutPanel();
-            this.gbResidencias = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.cmbResidencias = new System.Windows.Forms.ComboBox();
-            this.tlpBotonesAgregar = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpBotonesDatos = new System.Windows.Forms.TableLayoutPanel();
-            this.gbDatos = new System.Windows.Forms.GroupBox();
-            this.gbBuscar = new System.Windows.Forms.GroupBox();
-            this.btnLimpiarFiltros = new System.Windows.Forms.Button();
-            this.btnVerAlquiler = new System.Windows.Forms.Button();
-            this.nudCantPersonas = new System.Windows.Forms.NumericUpDown();
-            this.lbCantPasajeros = new System.Windows.Forms.Label();
-            this.lbPrecio = new System.Windows.Forms.Label();
-            this.lbMin = new System.Windows.Forms.Label();
-            this.lbMax = new System.Windows.Forms.Label();
-            this.nudMinPrice = new System.Windows.Forms.NumericUpDown();
-            this.nudMaxPrice = new System.Windows.Forms.NumericUpDown();
-            this.lbDestino = new System.Windows.Forms.Label();
-            this.cbDestinos = new System.Windows.Forms.ComboBox();
-            this.rbHotel = new System.Windows.Forms.RadioButton();
-            this.rbCasaFinde = new System.Windows.Forms.RadioButton();
-            this.rbCasa = new System.Windows.Forms.RadioButton();
-            this.btnVer = new System.Windows.Forms.Button();
-            this.btnAlquilar = new System.Windows.Forms.Button();
-            this.lbResidencias = new System.Windows.Forms.ListBox();
-            this.tlpBotonesPropiedades.SuspendLayout();
-            this.gbResidencias.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tlpBotonesAgregar.SuspendLayout();
-            this.tlpBotonesDatos.SuspendLayout();
-            this.gbDatos.SuspendLayout();
-            this.gbBuscar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMinPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // btnAgregarCasa
-            // 
-            this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
-            this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
-            this.btnAgregarCasa.Name = "btnAgregarCasa";
-            this.btnAgregarCasa.Size = new System.Drawing.Size(358, 46);
-            this.btnAgregarCasa.TabIndex = 0;
-            this.btnAgregarCasa.Text = "Agregar Casa";
-            this.btnAgregarCasa.UseVisualStyleBackColor = false;
-            this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
-            // 
-            // btnAgregarHotel
-            // 
-            this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
-            this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
-            this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarHotel.Location = new System.Drawing.Point(379, 3);
-            this.btnAgregarHotel.Name = "btnAgregarHotel";
-            this.btnAgregarHotel.Size = new System.Drawing.Size(358, 46);
-            this.btnAgregarHotel.TabIndex = 1;
-            this.btnAgregarHotel.Text = "Agregar Hotel";
-            this.btnAgregarHotel.UseVisualStyleBackColor = false;
-            this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
-            // 
-            // btnBorrarPropiedad
-            // 
-            this.btnBorrarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(67)))));
-            this.btnBorrarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBorrarPropiedad.FlatAppearance.BorderSize = 0;
-            this.btnBorrarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
-            this.btnBorrarPropiedad.Location = new System.Drawing.Point(495, 3);
-            this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
-            this.btnBorrarPropiedad.Size = new System.Drawing.Size(242, 36);
-            this.btnBorrarPropiedad.TabIndex = 2;
-            this.btnBorrarPropiedad.Text = "Eliminar";
-            this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
-            this.btnBorrarPropiedad.Click += new System.EventHandler(this.BtnBorrarPropiedad_Click);
-            // 
-            // btnModificarPropiedad
-            // 
-            this.btnModificarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.btnModificarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnModificarPropiedad.FlatAppearance.BorderSize = 0;
-            this.btnModificarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnModificarPropiedad.Location = new System.Drawing.Point(3, 3);
-            this.btnModificarPropiedad.Name = "btnModificarPropiedad";
-            this.btnModificarPropiedad.Size = new System.Drawing.Size(240, 36);
-            this.btnModificarPropiedad.TabIndex = 0;
-            this.btnModificarPropiedad.Text = "Modificar";
-            this.btnModificarPropiedad.UseVisualStyleBackColor = false;
-            this.btnModificarPropiedad.Click += new System.EventHandler(this.BtnModificarPropiedad_Click);
-            // 
-            // btnVerPropiedad
-            // 
-            this.btnVerPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(180)))), ((int)(((byte)(211)))));
-            this.btnVerPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnVerPropiedad.FlatAppearance.BorderSize = 0;
-            this.btnVerPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVerPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnVerPropiedad.ForeColor = System.Drawing.Color.White;
-            this.btnVerPropiedad.Location = new System.Drawing.Point(249, 3);
-            this.btnVerPropiedad.Name = "btnVerPropiedad";
-            this.btnVerPropiedad.Size = new System.Drawing.Size(240, 36);
-            this.btnVerPropiedad.TabIndex = 1;
-            this.btnVerPropiedad.Text = "Consultar";
-            this.btnVerPropiedad.UseVisualStyleBackColor = false;
-            this.btnVerPropiedad.Click += new System.EventHandler(this.BtnVerPropiedad_Click);
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.btnImportar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnImportar.FlatAppearance.BorderSize = 0;
-            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnImportar.Location = new System.Drawing.Point(3, 3);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(327, 31);
-            this.btnImportar.TabIndex = 9;
-            this.btnImportar.Text = "Importar Alquileres";
-            this.btnImportar.UseVisualStyleBackColor = false;
-            this.btnImportar.Click += new System.EventHandler(this.BtnImportar_Click);
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.btnExportar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnExportar.FlatAppearance.BorderSize = 0;
-            this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnExportar.Location = new System.Drawing.Point(410, 3);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(327, 31);
-            this.btnExportar.TabIndex = 10;
-            this.btnExportar.Text = "Exportar Alquileres";
-            this.btnExportar.UseVisualStyleBackColor = false;
-            this.btnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
-            // 
-            // ofdDatos
-            // 
-            this.ofdDatos.DefaultExt = "*.csv";
-            this.ofdDatos.FileName = "datos.csv";
-            this.ofdDatos.Filter = "Archivos CSV (*.csv)|*.csv";
-            this.ofdDatos.InitialDirectory = ".";
-            // 
-            // sfdDatos
-            // 
-            this.sfdDatos.DefaultExt = "*.csv";
-            this.sfdDatos.FileName = "alquileres.csv";
-            this.sfdDatos.Filter = "Archivos CSV (*.csv)|*.csv";
-            this.sfdDatos.InitialDirectory = ".";
-            // 
-            // tlpBotonesPropiedades
-            // 
-            this.tlpBotonesPropiedades.ColumnCount = 3;
-            this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpBotonesPropiedades.Controls.Add(this.btnBorrarPropiedad, 2, 0);
-            this.tlpBotonesPropiedades.Controls.Add(this.btnModificarPropiedad, 0, 0);
-            this.tlpBotonesPropiedades.Controls.Add(this.btnVerPropiedad, 1, 0);
-            this.tlpBotonesPropiedades.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tlpBotonesPropiedades.Location = new System.Drawing.Point(3, 119);
-            this.tlpBotonesPropiedades.Name = "tlpBotonesPropiedades";
-            this.tlpBotonesPropiedades.RowCount = 1;
-            this.tlpBotonesPropiedades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBotonesPropiedades.Size = new System.Drawing.Size(740, 42);
-            this.tlpBotonesPropiedades.TabIndex = 2;
-            // 
-            // gbResidencias
-            // 
-            this.gbResidencias.Controls.Add(this.tableLayoutPanel1);
-            this.gbResidencias.Controls.Add(this.tlpBotonesPropiedades);
-            this.gbResidencias.Controls.Add(this.tlpBotonesAgregar);
-            this.gbResidencias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbResidencias.Location = new System.Drawing.Point(0, 0);
-            this.gbResidencias.Name = "gbResidencias";
-            this.gbResidencias.Size = new System.Drawing.Size(746, 164);
-            this.gbResidencias.TabIndex = 0;
-            this.gbResidencias.TabStop = false;
-            this.gbResidencias.Text = "Residencias";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.cmbResidencias, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 75);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 3F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(740, 44);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // cmbResidencias
-            // 
-            this.cmbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbResidencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbResidencias.FormattingEnabled = true;
-            this.cmbResidencias.Location = new System.Drawing.Point(3, 10);
-            this.cmbResidencias.Name = "cmbResidencias";
-            this.cmbResidencias.Size = new System.Drawing.Size(734, 28);
-            this.cmbResidencias.TabIndex = 6;
-            // 
-            // tlpBotonesAgregar
-            // 
-            this.tlpBotonesAgregar.ColumnCount = 3;
-            this.tlpBotonesAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpBotonesAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
-            this.tlpBotonesAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpBotonesAgregar.Controls.Add(this.btnAgregarCasa, 0, 0);
-            this.tlpBotonesAgregar.Controls.Add(this.btnAgregarHotel, 2, 0);
-            this.tlpBotonesAgregar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlpBotonesAgregar.Location = new System.Drawing.Point(3, 23);
-            this.tlpBotonesAgregar.Name = "tlpBotonesAgregar";
-            this.tlpBotonesAgregar.RowCount = 1;
-            this.tlpBotonesAgregar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBotonesAgregar.Size = new System.Drawing.Size(740, 52);
-            this.tlpBotonesAgregar.TabIndex = 0;
-            // 
-            // tlpBotonesDatos
-            // 
-            this.tlpBotonesDatos.ColumnCount = 3;
-            this.tlpBotonesDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.tlpBotonesDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpBotonesDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
-            this.tlpBotonesDatos.Controls.Add(this.btnImportar, 0, 0);
-            this.tlpBotonesDatos.Controls.Add(this.btnExportar, 2, 0);
-            this.tlpBotonesDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpBotonesDatos.Location = new System.Drawing.Point(3, 23);
-            this.tlpBotonesDatos.Name = "tlpBotonesDatos";
-            this.tlpBotonesDatos.RowCount = 1;
-            this.tlpBotonesDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBotonesDatos.Size = new System.Drawing.Size(740, 37);
-            this.tlpBotonesDatos.TabIndex = 13;
-            // 
-            // gbDatos
-            // 
-            this.gbDatos.Controls.Add(this.tlpBotonesDatos);
-            this.gbDatos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbDatos.Location = new System.Drawing.Point(0, 524);
-            this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(746, 63);
-            this.gbDatos.TabIndex = 3;
-            this.gbDatos.TabStop = false;
-            this.gbDatos.Text = "Datos";
-            // 
-            // gbBuscar
-            // 
-            this.gbBuscar.Controls.Add(this.btnLimpiarFiltros);
-            this.gbBuscar.Controls.Add(this.btnVerAlquiler);
-            this.gbBuscar.Controls.Add(this.nudCantPersonas);
-            this.gbBuscar.Controls.Add(this.lbCantPasajeros);
-            this.gbBuscar.Controls.Add(this.lbPrecio);
-            this.gbBuscar.Controls.Add(this.lbMin);
-            this.gbBuscar.Controls.Add(this.lbMax);
-            this.gbBuscar.Controls.Add(this.nudMinPrice);
-            this.gbBuscar.Controls.Add(this.nudMaxPrice);
-            this.gbBuscar.Controls.Add(this.lbDestino);
-            this.gbBuscar.Controls.Add(this.cbDestinos);
-            this.gbBuscar.Controls.Add(this.rbHotel);
-            this.gbBuscar.Controls.Add(this.rbCasaFinde);
-            this.gbBuscar.Controls.Add(this.rbCasa);
-            this.gbBuscar.Controls.Add(this.btnVer);
-            this.gbBuscar.Controls.Add(this.btnAlquilar);
-            this.gbBuscar.Controls.Add(this.lbResidencias);
-            this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbBuscar.Location = new System.Drawing.Point(0, 164);
-            this.gbBuscar.Name = "gbBuscar";
-            this.gbBuscar.Size = new System.Drawing.Size(746, 360);
-            this.gbBuscar.TabIndex = 2;
-            this.gbBuscar.TabStop = false;
-            this.gbBuscar.Text = "Búsqueda de Residencias";
-            // 
-            // btnLimpiarFiltros
-            // 
-            this.btnLimpiarFiltros.Location = new System.Drawing.Point(643, 129);
-            this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
-            this.btnLimpiarFiltros.Size = new System.Drawing.Size(91, 35);
-            this.btnLimpiarFiltros.TabIndex = 20;
-            this.btnLimpiarFiltros.Text = "Limpiar";
-            this.btnLimpiarFiltros.UseVisualStyleBackColor = true;
-            this.btnLimpiarFiltros.Click += new System.EventHandler(this.btnLimpiarFiltros_Click);
-            // 
-            // btnVerAlquiler
-            // 
-            this.btnVerAlquiler.Location = new System.Drawing.Point(300, 3);
-            this.btnVerAlquiler.Name = "btnVerAlquiler";
-            this.btnVerAlquiler.Size = new System.Drawing.Size(162, 30);
-            this.btnVerAlquiler.TabIndex = 5;
-            this.btnVerAlquiler.Text = "Ver alquiler";
-            this.btnVerAlquiler.UseVisualStyleBackColor = true;
-            this.btnVerAlquiler.Click += new System.EventHandler(this.btnVerAlquiler_Click);
-            // 
-            // nudCantPersonas
-            // 
-            this.nudCantPersonas.Location = new System.Drawing.Point(436, 137);
-            this.nudCantPersonas.Name = "nudCantPersonas";
-            this.nudCantPersonas.Size = new System.Drawing.Size(120, 27);
-            this.nudCantPersonas.TabIndex = 19;
-            // 
-            // lbCantPasajeros
-            // 
-            this.lbCantPasajeros.AutoSize = true;
-            this.lbCantPasajeros.Location = new System.Drawing.Point(330, 142);
-            this.lbCantPasajeros.Name = "lbCantPasajeros";
-            this.lbCantPasajeros.Size = new System.Drawing.Size(100, 20);
-            this.lbCantPasajeros.TabIndex = 18;
-            this.lbCantPasajeros.Text = "Cant Personas";
-            // 
-            // lbPrecio
-            // 
-            this.lbPrecio.AutoSize = true;
-            this.lbPrecio.Location = new System.Drawing.Point(162, 89);
-            this.lbPrecio.Name = "lbPrecio";
-            this.lbPrecio.Size = new System.Drawing.Size(50, 20);
-            this.lbPrecio.TabIndex = 17;
-            this.lbPrecio.Text = "Precio";
-            // 
-            // lbMin
-            // 
-            this.lbMin.AutoSize = true;
-            this.lbMin.Location = new System.Drawing.Point(162, 114);
-            this.lbMin.Name = "lbMin";
-            this.lbMin.Size = new System.Drawing.Size(60, 20);
-            this.lbMin.TabIndex = 16;
-            this.lbMin.Text = "Minimo";
-            // 
-            // lbMax
-            // 
-            this.lbMax.AutoSize = true;
-            this.lbMax.Location = new System.Drawing.Point(162, 142);
-            this.lbMax.Name = "lbMax";
-            this.lbMax.Size = new System.Drawing.Size(63, 20);
-            this.lbMax.TabIndex = 15;
-            this.lbMax.Text = "Maximo";
-            // 
-            // nudMinPrice
-            // 
-            this.nudMinPrice.Location = new System.Drawing.Point(234, 112);
-            this.nudMinPrice.Maximum = new decimal(new int[] {
+			this.btnAgregarCasa = new System.Windows.Forms.Button();
+			this.btnAgregarHotel = new System.Windows.Forms.Button();
+			this.btnImportar = new System.Windows.Forms.Button();
+			this.btnExportar = new System.Windows.Forms.Button();
+			this.ofdDatos = new System.Windows.Forms.OpenFileDialog();
+			this.sfdDatos = new System.Windows.Forms.SaveFileDialog();
+			this.gbAgregar = new System.Windows.Forms.GroupBox();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.cmbResidencias = new System.Windows.Forms.ComboBox();
+			this.tlpBotonesAgregar = new System.Windows.Forms.TableLayoutPanel();
+			this.tlpBotonesDatos = new System.Windows.Forms.TableLayoutPanel();
+			this.gbDatos = new System.Windows.Forms.GroupBox();
+			this.gbBuscar = new System.Windows.Forms.GroupBox();
+			this.lbResidencias = new System.Windows.Forms.ListBox();
+			this.pnlFiltro = new System.Windows.Forms.Panel();
+			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+			this.lbDestino = new System.Windows.Forms.Label();
+			this.lbCantPasajeros = new System.Windows.Forms.Label();
+			this.cbDestinos = new System.Windows.Forms.ComboBox();
+			this.nudCantPersonas = new System.Windows.Forms.NumericUpDown();
+			this.gbPrecio = new System.Windows.Forms.GroupBox();
+			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.nudMaxPrice = new System.Windows.Forms.NumericUpDown();
+			this.nudMinPrice = new System.Windows.Forms.NumericUpDown();
+			this.lbMin = new System.Windows.Forms.Label();
+			this.lbMax = new System.Windows.Forms.Label();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.rbCasa = new System.Windows.Forms.RadioButton();
+			this.rbCasaFinde = new System.Windows.Forms.RadioButton();
+			this.rbHotel = new System.Windows.Forms.RadioButton();
+			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnMostrarResidencias = new System.Windows.Forms.Button();
+			this.btnLimpiarFiltros = new System.Windows.Forms.Button();
+			this.tlpBotonesPropiedades = new System.Windows.Forms.TableLayoutPanel();
+			this.btnBorrarPropiedad = new System.Windows.Forms.Button();
+			this.btnModificarPropiedad = new System.Windows.Forms.Button();
+			this.btnVerPropiedad = new System.Windows.Forms.Button();
+			this.gbAgregar.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
+			this.tlpBotonesAgregar.SuspendLayout();
+			this.tlpBotonesDatos.SuspendLayout();
+			this.gbDatos.SuspendLayout();
+			this.gbBuscar.SuspendLayout();
+			this.pnlFiltro.SuspendLayout();
+			this.tableLayoutPanel4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).BeginInit();
+			this.gbPrecio.SuspendLayout();
+			this.tableLayoutPanel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudMinPrice)).BeginInit();
+			this.tableLayoutPanel2.SuspendLayout();
+			this.tableLayoutPanel5.SuspendLayout();
+			this.tlpBotonesPropiedades.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// btnAgregarCasa
+			// 
+			this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+			this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
+			this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
+			this.btnAgregarCasa.Image = global::tp2.Properties.Resources.plusblack32;
+			this.btnAgregarCasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
+			this.btnAgregarCasa.Name = "btnAgregarCasa";
+			this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+			this.btnAgregarCasa.Size = new System.Drawing.Size(297, 46);
+			this.btnAgregarCasa.TabIndex = 0;
+			this.btnAgregarCasa.Text = "Casa";
+			this.btnAgregarCasa.UseVisualStyleBackColor = false;
+			this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
+			// 
+			// btnAgregarHotel
+			// 
+			this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+			this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
+			this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
+			this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
+			this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnAgregarHotel.Location = new System.Drawing.Point(318, 3);
+			this.btnAgregarHotel.Name = "btnAgregarHotel";
+			this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+			this.btnAgregarHotel.Size = new System.Drawing.Size(297, 46);
+			this.btnAgregarHotel.TabIndex = 1;
+			this.btnAgregarHotel.Text = "Hotel";
+			this.btnAgregarHotel.UseVisualStyleBackColor = false;
+			this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
+			// 
+			// btnImportar
+			// 
+			this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.btnImportar.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnImportar.FlatAppearance.BorderSize = 0;
+			this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnImportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnImportar.Location = new System.Drawing.Point(3, 3);
+			this.btnImportar.Name = "btnImportar";
+			this.btnImportar.Size = new System.Drawing.Size(272, 31);
+			this.btnImportar.TabIndex = 9;
+			this.btnImportar.Text = "Importar";
+			this.btnImportar.UseVisualStyleBackColor = false;
+			this.btnImportar.Click += new System.EventHandler(this.BtnImportar_Click);
+			// 
+			// btnExportar
+			// 
+			this.btnExportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.btnExportar.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnExportar.FlatAppearance.BorderSize = 0;
+			this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnExportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnExportar.Location = new System.Drawing.Point(342, 3);
+			this.btnExportar.Name = "btnExportar";
+			this.btnExportar.Size = new System.Drawing.Size(273, 31);
+			this.btnExportar.TabIndex = 10;
+			this.btnExportar.Text = "Exportar";
+			this.btnExportar.UseVisualStyleBackColor = false;
+			this.btnExportar.Click += new System.EventHandler(this.BtnExportar_Click);
+			// 
+			// ofdDatos
+			// 
+			this.ofdDatos.DefaultExt = "*.csv";
+			this.ofdDatos.FileName = "datos.csv";
+			this.ofdDatos.Filter = "Archivos CSV (*.csv)|*.csv";
+			this.ofdDatos.InitialDirectory = ".";
+			// 
+			// sfdDatos
+			// 
+			this.sfdDatos.DefaultExt = "*.csv";
+			this.sfdDatos.FileName = "alquileres.csv";
+			this.sfdDatos.Filter = "Archivos CSV (*.csv)|*.csv";
+			this.sfdDatos.InitialDirectory = ".";
+			// 
+			// gbAgregar
+			// 
+			this.gbAgregar.Controls.Add(this.tableLayoutPanel1);
+			this.gbAgregar.Controls.Add(this.tlpBotonesAgregar);
+			this.gbAgregar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.gbAgregar.Location = new System.Drawing.Point(0, 0);
+			this.gbAgregar.Name = "gbAgregar";
+			this.gbAgregar.Size = new System.Drawing.Size(624, 115);
+			this.gbAgregar.TabIndex = 0;
+			this.gbAgregar.TabStop = false;
+			this.gbAgregar.Text = "Agregar Residencias";
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 1;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.cmbResidencias, 0, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 75);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(618, 37);
+			this.tableLayoutPanel1.TabIndex = 1;
+			// 
+			// cmbResidencias
+			// 
+			this.cmbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cmbResidencias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbResidencias.FormattingEnabled = true;
+			this.cmbResidencias.Location = new System.Drawing.Point(3, 3);
+			this.cmbResidencias.Name = "cmbResidencias";
+			this.cmbResidencias.Size = new System.Drawing.Size(612, 28);
+			this.cmbResidencias.TabIndex = 6;
+			// 
+			// tlpBotonesAgregar
+			// 
+			this.tlpBotonesAgregar.ColumnCount = 3;
+			this.tlpBotonesAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tlpBotonesAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+			this.tlpBotonesAgregar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tlpBotonesAgregar.Controls.Add(this.btnAgregarCasa, 0, 0);
+			this.tlpBotonesAgregar.Controls.Add(this.btnAgregarHotel, 2, 0);
+			this.tlpBotonesAgregar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.tlpBotonesAgregar.Location = new System.Drawing.Point(3, 23);
+			this.tlpBotonesAgregar.Name = "tlpBotonesAgregar";
+			this.tlpBotonesAgregar.RowCount = 1;
+			this.tlpBotonesAgregar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpBotonesAgregar.Size = new System.Drawing.Size(618, 52);
+			this.tlpBotonesAgregar.TabIndex = 0;
+			// 
+			// tlpBotonesDatos
+			// 
+			this.tlpBotonesDatos.ColumnCount = 3;
+			this.tlpBotonesDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+			this.tlpBotonesDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+			this.tlpBotonesDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+			this.tlpBotonesDatos.Controls.Add(this.btnImportar, 0, 0);
+			this.tlpBotonesDatos.Controls.Add(this.btnExportar, 2, 0);
+			this.tlpBotonesDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tlpBotonesDatos.Location = new System.Drawing.Point(3, 23);
+			this.tlpBotonesDatos.Name = "tlpBotonesDatos";
+			this.tlpBotonesDatos.RowCount = 1;
+			this.tlpBotonesDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpBotonesDatos.Size = new System.Drawing.Size(618, 37);
+			this.tlpBotonesDatos.TabIndex = 13;
+			// 
+			// gbDatos
+			// 
+			this.gbDatos.Controls.Add(this.tlpBotonesDatos);
+			this.gbDatos.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.gbDatos.Location = new System.Drawing.Point(0, 458);
+			this.gbDatos.Name = "gbDatos";
+			this.gbDatos.Size = new System.Drawing.Size(624, 63);
+			this.gbDatos.TabIndex = 3;
+			this.gbDatos.TabStop = false;
+			this.gbDatos.Text = "Alquileres";
+			// 
+			// gbBuscar
+			// 
+			this.gbBuscar.Controls.Add(this.lbResidencias);
+			this.gbBuscar.Controls.Add(this.pnlFiltro);
+			this.gbBuscar.Controls.Add(this.tlpBotonesPropiedades);
+			this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gbBuscar.Location = new System.Drawing.Point(0, 115);
+			this.gbBuscar.Name = "gbBuscar";
+			this.gbBuscar.Size = new System.Drawing.Size(624, 343);
+			this.gbBuscar.TabIndex = 2;
+			this.gbBuscar.TabStop = false;
+			this.gbBuscar.Text = "Administrar Residencias";
+			// 
+			// lbResidencias
+			// 
+			this.lbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbResidencias.FormattingEnabled = true;
+			this.lbResidencias.IntegralHeight = false;
+			this.lbResidencias.ItemHeight = 20;
+			this.lbResidencias.Location = new System.Drawing.Point(3, 109);
+			this.lbResidencias.Name = "lbResidencias";
+			this.lbResidencias.Size = new System.Drawing.Size(618, 188);
+			this.lbResidencias.TabIndex = 1;
+			// 
+			// pnlFiltro
+			// 
+			this.pnlFiltro.Controls.Add(this.tableLayoutPanel4);
+			this.pnlFiltro.Controls.Add(this.gbPrecio);
+			this.pnlFiltro.Controls.Add(this.tableLayoutPanel2);
+			this.pnlFiltro.Controls.Add(this.tableLayoutPanel5);
+			this.pnlFiltro.Dock = System.Windows.Forms.DockStyle.Top;
+			this.pnlFiltro.Location = new System.Drawing.Point(3, 23);
+			this.pnlFiltro.Name = "pnlFiltro";
+			this.pnlFiltro.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+			this.pnlFiltro.Size = new System.Drawing.Size(618, 86);
+			this.pnlFiltro.TabIndex = 21;
+			// 
+			// tableLayoutPanel4
+			// 
+			this.tableLayoutPanel4.ColumnCount = 2;
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76F));
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel4.Controls.Add(this.lbDestino, 0, 0);
+			this.tableLayoutPanel4.Controls.Add(this.lbCantPasajeros, 0, 1);
+			this.tableLayoutPanel4.Controls.Add(this.cbDestinos, 1, 0);
+			this.tableLayoutPanel4.Controls.Add(this.nudCantPersonas, 1, 1);
+			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel4.Location = new System.Drawing.Point(226, 0);
+			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+			this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+			this.tableLayoutPanel4.RowCount = 2;
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(201, 86);
+			this.tableLayoutPanel4.TabIndex = 23;
+			// 
+			// lbDestino
+			// 
+			this.lbDestino.AutoSize = true;
+			this.lbDestino.Location = new System.Drawing.Point(3, 6);
+			this.lbDestino.Name = "lbDestino";
+			this.lbDestino.Size = new System.Drawing.Size(66, 20);
+			this.lbDestino.TabIndex = 12;
+			this.lbDestino.Text = "Destinos";
+			// 
+			// lbCantPasajeros
+			// 
+			this.lbCantPasajeros.AutoSize = true;
+			this.lbCantPasajeros.Location = new System.Drawing.Point(3, 43);
+			this.lbCantPasajeros.Name = "lbCantPasajeros";
+			this.lbCantPasajeros.Size = new System.Drawing.Size(70, 20);
+			this.lbCantPasajeros.TabIndex = 18;
+			this.lbCantPasajeros.Text = "Pasajeros";
+			// 
+			// cbDestinos
+			// 
+			this.cbDestinos.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbDestinos.FormattingEnabled = true;
+			this.cbDestinos.Location = new System.Drawing.Point(79, 9);
+			this.cbDestinos.Name = "cbDestinos";
+			this.cbDestinos.Size = new System.Drawing.Size(119, 28);
+			this.cbDestinos.TabIndex = 11;
+			// 
+			// nudCantPersonas
+			// 
+			this.nudCantPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudCantPersonas.Location = new System.Drawing.Point(79, 46);
+			this.nudCantPersonas.Name = "nudCantPersonas";
+			this.nudCantPersonas.Size = new System.Drawing.Size(119, 27);
+			this.nudCantPersonas.TabIndex = 19;
+			// 
+			// gbPrecio
+			// 
+			this.gbPrecio.Controls.Add(this.tableLayoutPanel3);
+			this.gbPrecio.Dock = System.Windows.Forms.DockStyle.Left;
+			this.gbPrecio.Location = new System.Drawing.Point(104, 0);
+			this.gbPrecio.Name = "gbPrecio";
+			this.gbPrecio.Size = new System.Drawing.Size(122, 86);
+			this.gbPrecio.TabIndex = 22;
+			this.gbPrecio.TabStop = false;
+			this.gbPrecio.Text = "Precio";
+			// 
+			// tableLayoutPanel3
+			// 
+			this.tableLayoutPanel3.ColumnCount = 2;
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel3.Controls.Add(this.nudMaxPrice, 1, 1);
+			this.tableLayoutPanel3.Controls.Add(this.nudMinPrice, 1, 0);
+			this.tableLayoutPanel3.Controls.Add(this.lbMin, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.lbMax, 0, 1);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 23);
+			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+			this.tableLayoutPanel3.RowCount = 2;
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(116, 60);
+			this.tableLayoutPanel3.TabIndex = 15;
+			// 
+			// nudMaxPrice
+			// 
+			this.nudMaxPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudMaxPrice.Location = new System.Drawing.Point(50, 33);
+			this.nudMaxPrice.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+			this.nudMaxPrice.Name = "nudMaxPrice";
+			this.nudMaxPrice.Size = new System.Drawing.Size(63, 27);
+			this.nudMaxPrice.TabIndex = 13;
+			this.nudMaxPrice.Value = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+			// 
+			// nudMinPrice
+			// 
+			this.nudMinPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudMinPrice.Location = new System.Drawing.Point(50, 3);
+			this.nudMinPrice.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.nudMinPrice.Name = "nudMinPrice";
-            this.nudMinPrice.Size = new System.Drawing.Size(66, 27);
-            this.nudMinPrice.TabIndex = 14;
-            // 
-            // nudMaxPrice
-            // 
-            this.nudMaxPrice.Location = new System.Drawing.Point(234, 138);
-            this.nudMaxPrice.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.nudMaxPrice.Name = "nudMaxPrice";
-            this.nudMaxPrice.Size = new System.Drawing.Size(66, 27);
-            this.nudMaxPrice.TabIndex = 13;
-            // 
-            // lbDestino
-            // 
-            this.lbDestino.AutoSize = true;
-            this.lbDestino.Location = new System.Drawing.Point(330, 91);
-            this.lbDestino.Name = "lbDestino";
-            this.lbDestino.Size = new System.Drawing.Size(66, 20);
-            this.lbDestino.TabIndex = 12;
-            this.lbDestino.Text = "Destinos";
-            // 
-            // cbDestinos
-            // 
-            this.cbDestinos.FormattingEnabled = true;
-            this.cbDestinos.Location = new System.Drawing.Point(435, 88);
-            this.cbDestinos.Name = "cbDestinos";
-            this.cbDestinos.Size = new System.Drawing.Size(121, 28);
-            this.cbDestinos.TabIndex = 11;
-            // 
-            // rbHotel
-            // 
-            this.rbHotel.AutoSize = true;
-            this.rbHotel.Location = new System.Drawing.Point(27, 147);
-            this.rbHotel.Name = "rbHotel";
-            this.rbHotel.Size = new System.Drawing.Size(64, 24);
-            this.rbHotel.TabIndex = 9;
-            this.rbHotel.TabStop = true;
-            this.rbHotel.Text = "Hotel";
-            this.rbHotel.UseVisualStyleBackColor = true;
-            // 
-            // rbCasaFinde
-            // 
-            this.rbCasaFinde.AutoSize = true;
-            this.rbCasaFinde.Location = new System.Drawing.Point(27, 118);
-            this.rbCasaFinde.Name = "rbCasaFinde";
-            this.rbCasaFinde.Size = new System.Drawing.Size(94, 24);
-            this.rbCasaFinde.TabIndex = 7;
-            this.rbCasaFinde.TabStop = true;
-            this.rbCasaFinde.Text = "CasaFinde";
-            this.rbCasaFinde.UseVisualStyleBackColor = true;
-            // 
-            // rbCasa
-            // 
-            this.rbCasa.AutoSize = true;
-            this.rbCasa.Location = new System.Drawing.Point(27, 87);
-            this.rbCasa.Name = "rbCasa";
-            this.rbCasa.Size = new System.Drawing.Size(58, 24);
-            this.rbCasa.TabIndex = 6;
-            this.rbCasa.TabStop = true;
-            this.rbCasa.Text = "Casa";
-            this.rbCasa.UseVisualStyleBackColor = true;
-            // 
-            // btnVer
-            // 
-            this.btnVer.Location = new System.Drawing.Point(643, 94);
-            this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(91, 30);
-            this.btnVer.TabIndex = 4;
-            this.btnVer.Text = "Mostrar Resultados";
-            this.btnVer.UseVisualStyleBackColor = true;
-            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
-            // 
-            // btnAlquilar
-            // 
-            this.btnAlquilar.Location = new System.Drawing.Point(12, 312);
-            this.btnAlquilar.Name = "btnAlquilar";
-            this.btnAlquilar.Size = new System.Drawing.Size(118, 30);
-            this.btnAlquilar.TabIndex = 3;
-            this.btnAlquilar.Text = "Alquilar";
-            this.btnAlquilar.UseVisualStyleBackColor = true;
-            this.btnAlquilar.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lbResidencias
-            // 
-            this.lbResidencias.FormattingEnabled = true;
-            this.lbResidencias.ItemHeight = 20;
-            this.lbResidencias.Location = new System.Drawing.Point(6, 202);
-            this.lbResidencias.Name = "lbResidencias";
-            this.lbResidencias.Size = new System.Drawing.Size(740, 104);
-            this.lbResidencias.TabIndex = 1;
-            // 
-            // FPrincipal
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 587);
-            this.Controls.Add(this.gbBuscar);
-            this.Controls.Add(this.gbResidencias);
-            this.Controls.Add(this.gbDatos);
-            this.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 360);
-            this.Name = "FPrincipal";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Empresa de Alquileres";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FPrincipal_FormClosed);
-            this.Load += new System.EventHandler(this.FPrincipal_Load);
-            this.tlpBotonesPropiedades.ResumeLayout(false);
-            this.gbResidencias.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tlpBotonesAgregar.ResumeLayout(false);
-            this.tlpBotonesDatos.ResumeLayout(false);
-            this.gbDatos.ResumeLayout(false);
-            this.gbBuscar.ResumeLayout(false);
-            this.gbBuscar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMinPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).EndInit();
-            this.ResumeLayout(false);
+			this.nudMinPrice.Name = "nudMinPrice";
+			this.nudMinPrice.Size = new System.Drawing.Size(63, 27);
+			this.nudMinPrice.TabIndex = 14;
+			// 
+			// lbMin
+			// 
+			this.lbMin.AutoSize = true;
+			this.lbMin.Location = new System.Drawing.Point(3, 0);
+			this.lbMin.Name = "lbMin";
+			this.lbMin.Size = new System.Drawing.Size(37, 20);
+			this.lbMin.TabIndex = 16;
+			this.lbMin.Text = "Mín.";
+			// 
+			// lbMax
+			// 
+			this.lbMax.AutoSize = true;
+			this.lbMax.Location = new System.Drawing.Point(3, 30);
+			this.lbMax.Name = "lbMax";
+			this.lbMax.Size = new System.Drawing.Size(40, 20);
+			this.lbMax.TabIndex = 15;
+			this.lbMax.Text = "Máx.";
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 1;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Controls.Add(this.rbCasa, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.rbCasaFinde, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.rbHotel, 0, 2);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 0);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 3;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(101, 86);
+			this.tableLayoutPanel2.TabIndex = 21;
+			// 
+			// rbCasa
+			// 
+			this.rbCasa.AutoSize = true;
+			this.rbCasa.Location = new System.Drawing.Point(3, 3);
+			this.rbCasa.Name = "rbCasa";
+			this.rbCasa.Size = new System.Drawing.Size(58, 22);
+			this.rbCasa.TabIndex = 6;
+			this.rbCasa.TabStop = true;
+			this.rbCasa.Text = "Casa";
+			this.rbCasa.UseVisualStyleBackColor = true;
+			// 
+			// rbCasaFinde
+			// 
+			this.rbCasaFinde.AutoSize = true;
+			this.rbCasaFinde.Location = new System.Drawing.Point(3, 31);
+			this.rbCasaFinde.Name = "rbCasaFinde";
+			this.rbCasaFinde.Size = new System.Drawing.Size(94, 22);
+			this.rbCasaFinde.TabIndex = 7;
+			this.rbCasaFinde.TabStop = true;
+			this.rbCasaFinde.Text = "CasaFinde";
+			this.rbCasaFinde.UseVisualStyleBackColor = true;
+			// 
+			// rbHotel
+			// 
+			this.rbHotel.AutoSize = true;
+			this.rbHotel.Location = new System.Drawing.Point(3, 59);
+			this.rbHotel.Name = "rbHotel";
+			this.rbHotel.Size = new System.Drawing.Size(64, 24);
+			this.rbHotel.TabIndex = 9;
+			this.rbHotel.TabStop = true;
+			this.rbHotel.Text = "Hotel";
+			this.rbHotel.UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel5
+			// 
+			this.tableLayoutPanel5.ColumnCount = 1;
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.Controls.Add(this.btnMostrarResidencias, 0, 0);
+			this.tableLayoutPanel5.Controls.Add(this.btnLimpiarFiltros, 0, 1);
+			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Right;
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(427, 0);
+			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+			this.tableLayoutPanel5.RowCount = 2;
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(188, 86);
+			this.tableLayoutPanel5.TabIndex = 24;
+			// 
+			// btnMostrarResidencias
+			// 
+			this.btnMostrarResidencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+			this.btnMostrarResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnMostrarResidencias.FlatAppearance.BorderSize = 0;
+			this.btnMostrarResidencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnMostrarResidencias.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnMostrarResidencias.Location = new System.Drawing.Point(3, 3);
+			this.btnMostrarResidencias.Name = "btnMostrarResidencias";
+			this.btnMostrarResidencias.Size = new System.Drawing.Size(182, 37);
+			this.btnMostrarResidencias.TabIndex = 4;
+			this.btnMostrarResidencias.Text = "Buscar";
+			this.btnMostrarResidencias.UseVisualStyleBackColor = false;
+			this.btnMostrarResidencias.Click += new System.EventHandler(this.BtnBuscarResidencias_Click);
+			// 
+			// btnLimpiarFiltros
+			// 
+			this.btnLimpiarFiltros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.btnLimpiarFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnLimpiarFiltros.FlatAppearance.BorderSize = 0;
+			this.btnLimpiarFiltros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnLimpiarFiltros.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnLimpiarFiltros.Location = new System.Drawing.Point(3, 46);
+			this.btnLimpiarFiltros.Name = "btnLimpiarFiltros";
+			this.btnLimpiarFiltros.Size = new System.Drawing.Size(182, 37);
+			this.btnLimpiarFiltros.TabIndex = 20;
+			this.btnLimpiarFiltros.Text = "Limpiar";
+			this.btnLimpiarFiltros.UseVisualStyleBackColor = false;
+			this.btnLimpiarFiltros.Click += new System.EventHandler(this.BtnLimpiarFiltros_Click);
+			// 
+			// tlpBotonesPropiedades
+			// 
+			this.tlpBotonesPropiedades.ColumnCount = 3;
+			this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tlpBotonesPropiedades.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tlpBotonesPropiedades.Controls.Add(this.btnBorrarPropiedad, 2, 0);
+			this.tlpBotonesPropiedades.Controls.Add(this.btnModificarPropiedad, 0, 0);
+			this.tlpBotonesPropiedades.Controls.Add(this.btnVerPropiedad, 1, 0);
+			this.tlpBotonesPropiedades.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.tlpBotonesPropiedades.Location = new System.Drawing.Point(3, 297);
+			this.tlpBotonesPropiedades.Name = "tlpBotonesPropiedades";
+			this.tlpBotonesPropiedades.RowCount = 1;
+			this.tlpBotonesPropiedades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpBotonesPropiedades.Size = new System.Drawing.Size(618, 43);
+			this.tlpBotonesPropiedades.TabIndex = 22;
+			// 
+			// btnBorrarPropiedad
+			// 
+			this.btnBorrarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(67)))));
+			this.btnBorrarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnBorrarPropiedad.FlatAppearance.BorderSize = 0;
+			this.btnBorrarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnBorrarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
+			this.btnBorrarPropiedad.Location = new System.Drawing.Point(415, 3);
+			this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
+			this.btnBorrarPropiedad.Size = new System.Drawing.Size(200, 37);
+			this.btnBorrarPropiedad.TabIndex = 2;
+			this.btnBorrarPropiedad.Text = "Eliminar";
+			this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
+			// 
+			// btnModificarPropiedad
+			// 
+			this.btnModificarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.btnModificarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnModificarPropiedad.FlatAppearance.BorderSize = 0;
+			this.btnModificarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnModificarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnModificarPropiedad.Location = new System.Drawing.Point(3, 3);
+			this.btnModificarPropiedad.Name = "btnModificarPropiedad";
+			this.btnModificarPropiedad.Size = new System.Drawing.Size(200, 37);
+			this.btnModificarPropiedad.TabIndex = 0;
+			this.btnModificarPropiedad.Text = "Modificar";
+			this.btnModificarPropiedad.UseVisualStyleBackColor = false;
+			// 
+			// btnVerPropiedad
+			// 
+			this.btnVerPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(180)))), ((int)(((byte)(211)))));
+			this.btnVerPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnVerPropiedad.FlatAppearance.BorderSize = 0;
+			this.btnVerPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnVerPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnVerPropiedad.ForeColor = System.Drawing.Color.White;
+			this.btnVerPropiedad.Location = new System.Drawing.Point(209, 3);
+			this.btnVerPropiedad.Name = "btnVerPropiedad";
+			this.btnVerPropiedad.Size = new System.Drawing.Size(200, 37);
+			this.btnVerPropiedad.TabIndex = 1;
+			this.btnVerPropiedad.Text = "Consultar";
+			this.btnVerPropiedad.UseVisualStyleBackColor = false;
+			// 
+			// FPrincipal
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(624, 521);
+			this.Controls.Add(this.gbBuscar);
+			this.Controls.Add(this.gbAgregar);
+			this.Controls.Add(this.gbDatos);
+			this.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(600, 480);
+			this.Name = "FPrincipal";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Empresa de Alquileres";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FPrincipal_FormClosed);
+			this.Load += new System.EventHandler(this.FPrincipal_Load);
+			this.gbAgregar.ResumeLayout(false);
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tlpBotonesAgregar.ResumeLayout(false);
+			this.tlpBotonesDatos.ResumeLayout(false);
+			this.gbDatos.ResumeLayout(false);
+			this.gbBuscar.ResumeLayout(false);
+			this.pnlFiltro.ResumeLayout(false);
+			this.tableLayoutPanel4.ResumeLayout(false);
+			this.tableLayoutPanel4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).EndInit();
+			this.gbPrecio.ResumeLayout(false);
+			this.tableLayoutPanel3.ResumeLayout(false);
+			this.tableLayoutPanel3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudMaxPrice)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudMinPrice)).EndInit();
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
+			this.tableLayoutPanel5.ResumeLayout(false);
+			this.tlpBotonesPropiedades.ResumeLayout(false);
+			this.ResumeLayout(false);
 
 		}
 
 		#endregion
         private System.Windows.Forms.Button btnAgregarCasa;
         private System.Windows.Forms.Button btnAgregarHotel;
-        private System.Windows.Forms.Button btnBorrarPropiedad;
-        private System.Windows.Forms.Button btnModificarPropiedad;
-        private System.Windows.Forms.Button btnVerPropiedad;
 		private System.Windows.Forms.Button btnImportar;
 		private System.Windows.Forms.Button btnExportar;
 		private System.Windows.Forms.OpenFileDialog ofdDatos;
 		private System.Windows.Forms.SaveFileDialog sfdDatos;
-		private System.Windows.Forms.TableLayoutPanel tlpBotonesPropiedades;
-		private System.Windows.Forms.GroupBox gbResidencias;
+		private System.Windows.Forms.GroupBox gbAgregar;
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesDatos;
 		private System.Windows.Forms.GroupBox gbDatos;
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesAgregar;
@@ -538,22 +622,29 @@ namespace tp2 {
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.GroupBox gbBuscar;
 		private System.Windows.Forms.ListBox lbResidencias;
-        private System.Windows.Forms.Button btnAlquilar;
-        private System.Windows.Forms.Button btnVer;
-        private System.Windows.Forms.Button btnVerAlquiler;
+        private System.Windows.Forms.Button btnMostrarResidencias;
         private System.Windows.Forms.RadioButton rbHotel;
         private System.Windows.Forms.RadioButton rbCasaFinde;
         private System.Windows.Forms.RadioButton rbCasa;
         private System.Windows.Forms.Label lbDestino;
         private System.Windows.Forms.ComboBox cbDestinos;
-        private System.Windows.Forms.Label lbMin;
-        private System.Windows.Forms.Label lbMax;
         private System.Windows.Forms.NumericUpDown nudMinPrice;
         private System.Windows.Forms.NumericUpDown nudMaxPrice;
         private System.Windows.Forms.NumericUpDown nudCantPersonas;
         private System.Windows.Forms.Label lbCantPasajeros;
-        private System.Windows.Forms.Label lbPrecio;
         private System.Windows.Forms.Button btnLimpiarFiltros;
-    }
+		private System.Windows.Forms.Panel pnlFiltro;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+		private System.Windows.Forms.GroupBox gbPrecio;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+		private System.Windows.Forms.Label lbMin;
+		private System.Windows.Forms.Label lbMax;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+		private System.Windows.Forms.TableLayoutPanel tlpBotonesPropiedades;
+		private System.Windows.Forms.Button btnBorrarPropiedad;
+		private System.Windows.Forms.Button btnModificarPropiedad;
+		private System.Windows.Forms.Button btnVerPropiedad;
+	}
 }
 

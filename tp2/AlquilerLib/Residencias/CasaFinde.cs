@@ -23,15 +23,15 @@ namespace AlquilerLib {
 
 		public override bool PuedeAlquilar(Alquiler alquiler) {
 			return base.PuedeAlquilar(alquiler)
-				&& this.EsFinde(alquiler.CheckIn)
-				&& alquiler.CheckOut.Day < alquiler.CheckIn.Day + 3;
+				&& this.EsFinde(alquiler.CheckIn, alquiler.CheckOut);
 		}
 
-		private bool EsFinde(DateTime fecha) {
-			return fecha.DayOfWeek == DayOfWeek.Friday;
+		private bool EsFinde(DateTime checkIn, DateTime checkOut) {
+			return checkIn.DayOfWeek == DayOfWeek.Friday
+				&& checkOut.DayOfWeek == DayOfWeek.Sunday;
 		}
-        public override string ToString()
-        {
+
+        public override string ToString() {
             return $"Casa Finde: {this.Dirección}, {this.Número}";
         }
     }

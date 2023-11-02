@@ -6,10 +6,10 @@ using System.Linq;
 namespace AlquilerLib {
 	[Serializable]
 	public abstract class Residencia: IExportable, IComparable {
+		private readonly List<Alquiler> alquileres = new List<Alquiler>();
 		protected string[] servicios;
 		protected double precioDía;
 		private int cServicios = 0;
-		private List<Alquiler> alquileres = new List<Alquiler>();
 		private int contAlquileres = 0;
 
 		/// <summary>
@@ -74,13 +74,16 @@ namespace AlquilerLib {
 			return puedeAlquilar;
         }
 
-        public void QuitarAlquiler(int nroAlquiler)
-        {
-            this.alquileres.Remove(this.VerAlquiler(nroAlquiler));
-        }
+        public bool QuitarAlquiler(int nroAlquiler) {
+			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 
-        public Alquiler VerAlquiler(int nroAlquiler)
-        {
+			if(alquiler is null)
+				return false;
+			
+			return this.alquileres.Remove(alquiler);
+		}
+
+        public Alquiler VerAlquiler(int nroAlquiler) {
             this.alquileres.Sort();
 
             Alquiler buscado = new Alquiler(nroAlquiler);
@@ -92,8 +95,7 @@ namespace AlquilerLib {
             return this.alquileres[idx];
         }
 
-        public virtual bool PuedeAlquilar(Alquiler alquiler)
-        {
+        public virtual bool PuedeAlquilar(Alquiler alquiler) {
             bool puede = true;
 
             foreach (Alquiler otro in this.alquileres)

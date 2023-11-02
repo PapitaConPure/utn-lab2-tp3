@@ -129,6 +129,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -152,6 +153,21 @@
       <Project>{C5516CBE-8771-4A83-BE74-57BB38EF5E08}</Project>
       <Name>VisorImágenes</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plusblack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pluswhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xblack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xwhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plusblack32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

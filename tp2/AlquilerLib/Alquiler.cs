@@ -4,9 +4,9 @@ using AlquilerLib.Constructores;
 namespace AlquilerLib {
 	[Serializable]
 	public class Alquiler: IComparable, IExportable {
-		private Residencia residencia;
-		private Cliente cliente;
-		private Habitación habitacion;
+		private readonly Residencia residencia;
+		private readonly Cliente cliente;
+		private readonly Habitación habitacion;
 
 		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Residencia residencia,
 		int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase) {

@@ -12,57 +12,119 @@ namespace tp2
 {
     public partial class FDetalles : Form
     {
-        Sistema sistema;
-        Residencia residencia;
+        private readonly Sistema sistema;
+        private readonly Residencia residencia;
+
         public FDetalles()
         {
-            InitializeComponent();
-        }
-        public FDetalles(Sistema sist, Residencia res)
-        {
-            InitializeComponent();
-            sistema = sist;
-            residencia = res;
+            this.InitializeComponent();
         }
 
-        private void btnCancelarAlquiler_Click(object sender, EventArgs e)
+        public FDetalles(Sistema sist, Residencia res): this()
         {
-            Alquiler alq = residencia.VerAlquiler(Convert.ToInt32(nudNROAlquiler.Value));
-            if (sistema.CancelarAlquiler(alq.Residencia.Número, alq.Número))
-            {
-                MessageBox.Show("El alquiler ha sido cancelado");
-            }
-            else
-            {
-                MessageBox.Show("El alquiler no se ha podido cancelar");
-            }
-            this.Close();
-        }
+            this.sistema = sist;
+            this.residencia = res;
+			this.RefrescarDetalles();
+			this.RefrescarListaAlquileres();
+		}
 
-        private void btnModificarAlquiler_Click(object sender, EventArgs e)
-        {
-            Alquiler alq = residencia.VerAlquiler(Convert.ToInt32(nudNROAlquiler.Value));
-            FAlquiler nuevo = new FAlquiler(this.sistema,residencia);
-            nuevo.gbPropietario.Enabled = false;
-            nuevo.nudCantPasajeros.Value = alq.Cliente.CantPasajeros;
-            nuevo.nudDNI.Value = alq.Cliente.Dni;
-            nuevo.nudTel.Value = alq.Cliente.Teléfono;
-            nuevo.tbApellido.Text = alq.Cliente.Apellido;
-            nuevo.tbNombre.Text = alq.Cliente.Nombre;
-            nuevo.btnAceptar.Visible = true;
-            nuevo.btnAlquilar.Enabled = false;
-            if (nuevo.ShowDialog() == DialogResult.OK)
-            {
-                sistema.ModificarAlquiler(residencia.Número,alq.Número,nuevo.Calendario.DíaSeleccionado,
-                                            nuevo.Calendario.DíaSeleccionado.AddDays(Convert.ToInt32(nuevo.nudCantDias.Value)));
-                MessageBox.Show($"Alquiler modificado");
-            }
-            else
-                MessageBox.Show("No se ha podido modificar el alquier");
-            nuevo.gbPropietario.Enabled = true;
-            nuevo.btnAlquilar.Enabled = true;
-            nuevo.btnAceptar.Visible = false;
+		private void BtnAlquilar_Click(object sender, EventArgs e) {
+			FAlquiler fAlquiler = new FAlquiler(this.sistema, this.residencia);
+
+			fAlquiler.ShowDialog();
+			fAlquiler.Dispose();
+
+			this.RefrescarListaAlquileres();
+		}
+
+		private void BtnCancelarAlquiler_Click(object sender, EventArgs e) {
+			bool pudo = this.residencia.QuitarAlquiler((int)this.nudNroAlquiler.Value);
+
+			if(pudo) {
+				MessageBox.Show("El alquiler ha sido cancelado");
+			} else {
+				MessageBox.Show("El alquiler no se ha podido cancelar");
+			}
+
+			this.RefrescarListaAlquileres();
+		}
+
+		private void BtnModificarAlquiler_Click(object sender, EventArgs e) {
+            Alquiler alquiler = this.residencia.VerAlquiler(Convert.ToInt32(this.nudNroAlquiler.Value));
+            FAlquiler nuevo = new FAlquiler(this.sistema, this.residencia, alquiler);
+
+            if(nuevo.ShowDialog() != DialogResult.OK)
+                MessageBox.Show("No se ha podido modificar el alquiler");
+
+			this.sistema.ModificarAlquiler(
+				this.residencia.Número,
+				alquiler.Número,nuevo.Calendario.DíaSeleccionado,
+				nuevo.Calendario.DíaSeleccionado.AddDays(Convert.ToInt32(nuevo.nudCantDias.Value)));
+
+            MessageBox.Show($"Alquiler modificado");
             nuevo.Dispose();
-        }
-    }
+
+			this.RefrescarListaAlquileres();
+		}
+
+		#region Refrescar Información
+		private void RefrescarDetalles() {
+			this.lsbDetalles.Items.Add($"Nro Propiedad: {this.residencia.Número}");
+			this.lsbDetalles.Items.Add($"Direccion: {this.residencia.Dirección}");
+			this.lsbDetalles.Items.Add($"Precio: {this.residencia.CalcularPrecioTotal() * this.sistema.PrecioBase}");
+
+			if(this.residencia is Hotel) {
+				Hotel hotel = this.residencia as Hotel;
+				this.lsbDetalles.Items.Add($"Estrellas: {hotel.Estrellas}");
+				this.lsbDetalles.Items.Add($"Cantidad de habitaciones:");
+				this.lsbDetalles.Items.Add($"Simples: {hotel.CntSimple}");
+				this.lsbDetalles.Items.Add($"Dobles: {hotel.CntDoble}");
+				this.lsbDetalles.Items.Add($"Triples: {hotel.CntTriple}");
+			} else if(this.residencia is Casa) {
+				Casa casa = this.residencia as Casa;
+				this.lsbDetalles.Items.Add($"Minimo de dias: {casa.MínimoPermitido}");
+				this.lsbDetalles.Items.Add($"Cantidad de camas: {casa.CamasDisponibles}");
+				this.lsbDetalles.Items.Add($"Propietario:");
+				this.lsbDetalles.Items.Add($"Apellido: {casa.Propietario.Apellido}, Nombre: {casa.Propietario.Nombre}");
+				this.lsbDetalles.Items.Add($"Dni: {casa.Propietario.Dni}, Tel:{casa.Propietario.Teléfono}");
+			}
+
+			StringBuilder stringServicios = new StringBuilder();
+			foreach(string s in this.residencia.VerServicios()) {
+				if(s != null) {
+					if(stringServicios.Length > 0)
+						stringServicios.Append(", ");
+
+					stringServicios.Append(s);
+				}
+			}
+			this.lsbDetalles.Items.Add($"Servicios: {stringServicios}");
+		}
+
+		private void RefrescarListaAlquileres() {
+			Alquiler[] alquileres = this.residencia.Alquileres;
+			this.lsbAlquileres.Items.Clear();
+
+			if(alquileres.Length == 0) {
+				this.lsbAlquileres.Items.Add("Esta residencia no ha sido alquilada...");
+				return;
+			}
+
+			foreach(Alquiler al in alquileres) {
+				this.lsbAlquileres.Items.Add($"Nro de alquiler: {al.Número}");
+				if(this.residencia is Hotel) {
+					this.lsbAlquileres.Items.Add($"Habitacion: {al.Habitacion.Tipo}");
+				}
+				this.lsbAlquileres.Items.Add($"Fecha de CheckIn: {al.CheckIn:d}");
+				this.lsbAlquileres.Items.Add($"Fecha de CheckOut: {al.CheckOut:d}");
+				this.lsbAlquileres.Items.Add($"Fecha de Reserva: {al.FechaReserva:g}");
+				this.lsbAlquileres.Items.Add($"Precio Total: ${al.PrecioTotal:F2}");
+				this.lsbAlquileres.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
+				this.lsbAlquileres.Items.Add($"Dni: {al.Cliente.Dni:00.000.000}");
+				this.lsbAlquileres.Items.Add($"Propiedad: {al.Residencia.Dirección} {al.Residencia.Número}");
+				this.lsbAlquileres.Items.Add("----------------------------------------------------------------");
+			}
+		}
+		#endregion
+	}
 }
