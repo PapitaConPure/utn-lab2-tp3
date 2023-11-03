@@ -56,7 +56,8 @@ namespace AlquilerLib {
         }
 
         public override bool PuedeAlquilar(Alquiler alquiler) {
-			return base.PuedeAlquilar(alquiler) && alquiler.Cliente.CantPasajeros<=this.CamasDisponibles;
+			return base.PuedeAlquilar(alquiler)
+				&& alquiler.Cliente.CantPasajeros<=this.CamasDisponibles;
 		}
 
 		public override string ToString()

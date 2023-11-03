@@ -88,6 +88,7 @@ namespace AlquilerLib {
 		public string Exportar() {
 			return string.Join(";",
 				this.residencia.Número,
+				this.Número,
 				this.cliente.Exportar(),
 				this.FechaReserva.ToString(),
 				this.CheckIn.ToShortDateString(),

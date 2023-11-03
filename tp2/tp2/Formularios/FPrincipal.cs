@@ -185,6 +185,7 @@ namespace tp2 {
 			this.rbCasaFinde.Checked = false;
 			this.rbHotel.Checked = false;
 			this.ActualizarListadoResidencias();
+			this.lsbResidencias.Items.Clear();
 		}
 
 		private bool VerificarTipo(Residencia r) {
@@ -193,7 +194,7 @@ namespace tp2 {
 
 			return (this.rbHotel.Checked && r is Hotel)
 				|| (this.rbCasaFinde.Checked && r is CasaFinde)
-				|| (this.rbCasa.Checked && r is Casa);
+				|| (this.rbCasa.Checked && r is Casa && !(r is CasaFinde));
 		}
 
 		private bool VerificarPlazas(Residencia r) {

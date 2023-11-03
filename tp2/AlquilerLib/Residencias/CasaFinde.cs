@@ -28,7 +28,7 @@ namespace AlquilerLib {
 
 		private bool EsFinde(DateTime checkIn, DateTime checkOut) {
 			return checkIn.DayOfWeek == DayOfWeek.Friday
-				&& checkOut.DayOfWeek == DayOfWeek.Sunday;
+				&& checkOut.DayOfWeek == DayOfWeek.Monday;
 		}
 
         public override string ToString() {

@@ -66,7 +66,7 @@ namespace AlquilerLib {
 		public int CntTriple { get; set; }
 
 		public override bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase, out Alquiler nuevo) {
-			//bool puedeAlquilar = base.Alquilar(hoy, ingreso, salida, cantPasajeros, dni, nombre, apellido, tel, precioBase, out nuevo);
+			
 			Alquiler alquiler = new Alquiler(ingreso,salida);
 			bool encontro = false;
 			int i = 0;
@@ -113,7 +113,6 @@ namespace AlquilerLib {
         {
             Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn);
-			//double precioFinal = PrecioPorDía(nroAlquiler) * diferencia.Days;
 			double precioFinal = this.PorcentajePorDía(nroAlquiler) * (1 + (int)diferencia.TotalDays * 0.03);
 			return precioFinal;
 		}

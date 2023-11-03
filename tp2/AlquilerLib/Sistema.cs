@@ -140,24 +140,30 @@ namespace AlquilerLib {
 				int n = 0;
 				string linea;
 				while(!sr.EndOfStream) {
-					linea = sr.ReadLine();
+                    linea = sr.ReadLine();
 					n++;
 					string[] datos = linea.Split(';');
-					if(datos.Length == 11) {
-						if(!this.AlquilarResidencia(
-						Convert.ToInt32(datos[0]),
-						Convert.ToDateTime(datos[6]),
-						Convert.ToDateTime(datos[7]),
-						Convert.ToDateTime(datos[8]),
-						Convert.ToInt32(datos[5]),
-						Convert.ToInt32(datos[1]),
-						datos[2],
-						datos[3],
-						Convert.ToInt64(datos[4]))) {
+
+					Residencia residencia = this.VerResidencia(Convert.ToInt32(datos[0]));
+                    
+                    if (datos.Length == 12 && residencia != null) {
+						if(residencia.Alquilar(
+						  Convert.ToInt32(datos[1]),
+						  Convert.ToDateTime(datos[7]),
+						  Convert.ToDateTime(datos[8]),
+						  Convert.ToDateTime(datos[9]),
+						  Convert.ToInt32(datos[6]),
+						  Convert.ToInt32(datos[2]),
+						  datos[3],
+						  datos[4],
+						  Convert.ToInt64(datos[5]),
+						  this.PrecioBase,
+						  out _)) {
+							
+						} else 
 							throw new InvalidOperationException($"El alquiler ya existe (Línea {n})");
-						}
 					} else
-						throw new ArgumentException($"Cantidad de datos inválida (Línea {n})");
+						throw new ArgumentException($"Residencia o cantidad de datos inválida (Línea {n})");
 				}
 			} finally {
 				if(fs != null) {
@@ -174,7 +180,8 @@ namespace AlquilerLib {
 			StreamWriter sw = null;
 
 			try {
-				fs = new FileStream(ruta, FileMode.OpenOrCreate, FileAccess.Write);
+                if (File.Exists(ruta)) { File.Delete(ruta); }
+                fs = new FileStream(ruta, FileMode.Create, FileAccess.Write);
 				sw = new StreamWriter(fs);
 
 				foreach(Residencia residencia in this.Residencias) {
