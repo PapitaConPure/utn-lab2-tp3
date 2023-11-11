@@ -14,6 +14,7 @@ using System.IO;
 using AlquilerLib;
 using System.Runtime.Serialization;
 using ProyectoSplash;
+using tp2.Formularios;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
@@ -291,7 +292,12 @@ namespace tp2 {
 		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
 			(sender as NumericUpDown).Select(0, 20);
 		}
-		#endregion
+        #endregion
 
-	}
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			AcercaDe fAcercaDe = new AcercaDe();
+			fAcercaDe.Show();
+        }
+    }
 }

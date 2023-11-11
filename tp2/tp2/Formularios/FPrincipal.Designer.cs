@@ -59,6 +59,10 @@ namespace tp2 {
             this.btnBorrarPropiedad = new System.Windows.Forms.Button();
             this.btnModificarPropiedad = new System.Windows.Forms.Button();
             this.btnConsultarPropiedad = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbAgregar.SuspendLayout();
             this.tlpBotonesAgregar.SuspendLayout();
             this.tlpBotonesDatos.SuspendLayout();
@@ -74,6 +78,7 @@ namespace tp2 {
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tlpBotonesPropiedades.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnImportar
@@ -85,7 +90,7 @@ namespace tp2 {
             this.btnImportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
             this.btnImportar.Location = new System.Drawing.Point(3, 3);
             this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(561, 42);
+            this.btnImportar.Size = new System.Drawing.Size(572, 42);
             this.btnImportar.TabIndex = 9;
             this.btnImportar.Text = "Importar";
             this.btnImportar.UseVisualStyleBackColor = false;
@@ -98,9 +103,9 @@ namespace tp2 {
             this.btnExportar.FlatAppearance.BorderSize = 0;
             this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnExportar.Location = new System.Drawing.Point(696, 3);
+            this.btnExportar.Location = new System.Drawing.Point(709, 3);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(561, 42);
+            this.btnExportar.Size = new System.Drawing.Size(574, 42);
             this.btnExportar.TabIndex = 10;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = false;
@@ -124,9 +129,9 @@ namespace tp2 {
             // 
             this.gbAgregar.Controls.Add(this.tlpBotonesAgregar);
             this.gbAgregar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbAgregar.Location = new System.Drawing.Point(0, 0);
+            this.gbAgregar.Location = new System.Drawing.Point(0, 24);
             this.gbAgregar.Name = "gbAgregar";
-            this.gbAgregar.Size = new System.Drawing.Size(1266, 79);
+            this.gbAgregar.Size = new System.Drawing.Size(1292, 79);
             this.gbAgregar.TabIndex = 0;
             this.gbAgregar.TabStop = false;
             this.gbAgregar.Text = "Agregar Residencias";
@@ -144,7 +149,7 @@ namespace tp2 {
             this.tlpBotonesAgregar.Name = "tlpBotonesAgregar";
             this.tlpBotonesAgregar.RowCount = 1;
             this.tlpBotonesAgregar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBotonesAgregar.Size = new System.Drawing.Size(1260, 52);
+            this.tlpBotonesAgregar.Size = new System.Drawing.Size(1286, 52);
             this.tlpBotonesAgregar.TabIndex = 0;
             // 
             // btnAgregarCasa
@@ -160,7 +165,7 @@ namespace tp2 {
             this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
             this.btnAgregarCasa.Name = "btnAgregarCasa";
             this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnAgregarCasa.Size = new System.Drawing.Size(618, 46);
+            this.btnAgregarCasa.Size = new System.Drawing.Size(631, 46);
             this.btnAgregarCasa.TabIndex = 0;
             this.btnAgregarCasa.Text = "Casa";
             this.btnAgregarCasa.UseVisualStyleBackColor = false;
@@ -176,10 +181,10 @@ namespace tp2 {
             this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
             this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
             this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarHotel.Location = new System.Drawing.Point(639, 3);
+            this.btnAgregarHotel.Location = new System.Drawing.Point(652, 3);
             this.btnAgregarHotel.Name = "btnAgregarHotel";
             this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnAgregarHotel.Size = new System.Drawing.Size(618, 46);
+            this.btnAgregarHotel.Size = new System.Drawing.Size(631, 46);
             this.btnAgregarHotel.TabIndex = 1;
             this.btnAgregarHotel.Text = "Hotel";
             this.btnAgregarHotel.UseVisualStyleBackColor = false;
@@ -198,16 +203,16 @@ namespace tp2 {
             this.tlpBotonesDatos.Name = "tlpBotonesDatos";
             this.tlpBotonesDatos.RowCount = 1;
             this.tlpBotonesDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBotonesDatos.Size = new System.Drawing.Size(1260, 48);
+            this.tlpBotonesDatos.Size = new System.Drawing.Size(1286, 48);
             this.tlpBotonesDatos.TabIndex = 13;
             // 
             // gbDatos
             // 
             this.gbDatos.Controls.Add(this.tlpBotonesDatos);
             this.gbDatos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbDatos.Location = new System.Drawing.Point(0, 536);
+            this.gbDatos.Location = new System.Drawing.Point(0, 544);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(1266, 74);
+            this.gbDatos.Size = new System.Drawing.Size(1292, 74);
             this.gbDatos.TabIndex = 3;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Alquileres";
@@ -218,9 +223,9 @@ namespace tp2 {
             this.gbBuscar.Controls.Add(this.pnlFiltro);
             this.gbBuscar.Controls.Add(this.tlpBotonesPropiedades);
             this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbBuscar.Location = new System.Drawing.Point(0, 79);
+            this.gbBuscar.Location = new System.Drawing.Point(0, 103);
             this.gbBuscar.Name = "gbBuscar";
-            this.gbBuscar.Size = new System.Drawing.Size(1266, 457);
+            this.gbBuscar.Size = new System.Drawing.Size(1292, 441);
             this.gbBuscar.TabIndex = 2;
             this.gbBuscar.TabStop = false;
             this.gbBuscar.Text = "Administrar Residencias";
@@ -233,7 +238,7 @@ namespace tp2 {
             this.lsbResidencias.ItemHeight = 20;
             this.lsbResidencias.Location = new System.Drawing.Point(3, 109);
             this.lsbResidencias.Name = "lsbResidencias";
-            this.lsbResidencias.Size = new System.Drawing.Size(1260, 297);
+            this.lsbResidencias.Size = new System.Drawing.Size(1286, 281);
             this.lsbResidencias.TabIndex = 1;
             this.lsbResidencias.DoubleClick += new System.EventHandler(this.BtnConsultarPropiedad_Click);
             // 
@@ -247,7 +252,7 @@ namespace tp2 {
             this.pnlFiltro.Location = new System.Drawing.Point(3, 23);
             this.pnlFiltro.Name = "pnlFiltro";
             this.pnlFiltro.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.pnlFiltro.Size = new System.Drawing.Size(1260, 86);
+            this.pnlFiltro.Size = new System.Drawing.Size(1286, 86);
             this.pnlFiltro.TabIndex = 21;
             // 
             // tableLayoutPanel4
@@ -266,7 +271,7 @@ namespace tp2 {
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(919, 86);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(945, 86);
             this.tableLayoutPanel4.TabIndex = 23;
             // 
             // lbDestino
@@ -294,7 +299,7 @@ namespace tp2 {
             this.cmbDestinos.FormattingEnabled = true;
             this.cmbDestinos.Location = new System.Drawing.Point(79, 9);
             this.cmbDestinos.Name = "cmbDestinos";
-            this.cmbDestinos.Size = new System.Drawing.Size(837, 28);
+            this.cmbDestinos.Size = new System.Drawing.Size(863, 28);
             this.cmbDestinos.TabIndex = 11;
             // 
             // nudCantPersonas
@@ -302,7 +307,7 @@ namespace tp2 {
             this.nudCantPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudCantPersonas.Location = new System.Drawing.Point(79, 46);
             this.nudCantPersonas.Name = "nudCantPersonas";
-            this.nudCantPersonas.Size = new System.Drawing.Size(837, 27);
+            this.nudCantPersonas.Size = new System.Drawing.Size(863, 27);
             this.nudCantPersonas.TabIndex = 19;
             // 
             // gbPrecio
@@ -440,7 +445,7 @@ namespace tp2 {
             this.tableLayoutPanel5.Controls.Add(this.btnMostrarResidencias, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.btnLimpiarFiltros, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(1145, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(1171, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -489,11 +494,11 @@ namespace tp2 {
             this.tlpBotonesPropiedades.Controls.Add(this.btnModificarPropiedad, 0, 0);
             this.tlpBotonesPropiedades.Controls.Add(this.btnConsultarPropiedad, 1, 0);
             this.tlpBotonesPropiedades.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tlpBotonesPropiedades.Location = new System.Drawing.Point(3, 406);
+            this.tlpBotonesPropiedades.Location = new System.Drawing.Point(3, 390);
             this.tlpBotonesPropiedades.Name = "tlpBotonesPropiedades";
             this.tlpBotonesPropiedades.RowCount = 1;
             this.tlpBotonesPropiedades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBotonesPropiedades.Size = new System.Drawing.Size(1260, 48);
+            this.tlpBotonesPropiedades.Size = new System.Drawing.Size(1286, 48);
             this.tlpBotonesPropiedades.TabIndex = 22;
             // 
             // btnBorrarPropiedad
@@ -506,10 +511,10 @@ namespace tp2 {
             this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
             this.btnBorrarPropiedad.Image = global::tp2.Properties.Resources.xwhite32;
             this.btnBorrarPropiedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrarPropiedad.Location = new System.Drawing.Point(843, 3);
+            this.btnBorrarPropiedad.Location = new System.Drawing.Point(859, 3);
             this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
             this.btnBorrarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnBorrarPropiedad.Size = new System.Drawing.Size(414, 42);
+            this.btnBorrarPropiedad.Size = new System.Drawing.Size(424, 42);
             this.btnBorrarPropiedad.TabIndex = 2;
             this.btnBorrarPropiedad.Text = "Eliminar";
             this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
@@ -524,7 +529,7 @@ namespace tp2 {
             this.btnModificarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
             this.btnModificarPropiedad.Location = new System.Drawing.Point(3, 3);
             this.btnModificarPropiedad.Name = "btnModificarPropiedad";
-            this.btnModificarPropiedad.Size = new System.Drawing.Size(414, 42);
+            this.btnModificarPropiedad.Size = new System.Drawing.Size(422, 42);
             this.btnModificarPropiedad.TabIndex = 0;
             this.btnModificarPropiedad.Text = "Modificar";
             this.btnModificarPropiedad.UseVisualStyleBackColor = false;
@@ -538,22 +543,54 @@ namespace tp2 {
             this.btnConsultarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
             this.btnConsultarPropiedad.ForeColor = System.Drawing.Color.White;
-            this.btnConsultarPropiedad.Location = new System.Drawing.Point(423, 3);
+            this.btnConsultarPropiedad.Location = new System.Drawing.Point(431, 3);
             this.btnConsultarPropiedad.Name = "btnConsultarPropiedad";
-            this.btnConsultarPropiedad.Size = new System.Drawing.Size(414, 42);
+            this.btnConsultarPropiedad.Size = new System.Drawing.Size(422, 42);
             this.btnConsultarPropiedad.TabIndex = 1;
             this.btnConsultarPropiedad.Text = "Consultar";
             this.btnConsultarPropiedad.UseVisualStyleBackColor = false;
             this.btnConsultarPropiedad.Click += new System.EventHandler(this.BtnConsultarPropiedad_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inicioToolStripMenuItem,
+            this.ayudaToolStripMenuItem,
+            this.acercaDeToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1292, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // inicioToolStripMenuItem
+            // 
+            this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
+            this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.inicioToolStripMenuItem.Text = "Inicio";
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 610);
+            this.ClientSize = new System.Drawing.Size(1292, 618);
             this.Controls.Add(this.gbBuscar);
             this.Controls.Add(this.gbAgregar);
             this.Controls.Add(this.gbDatos);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -582,7 +619,10 @@ namespace tp2 {
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tlpBotonesPropiedades.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
@@ -622,6 +662,10 @@ namespace tp2 {
 		private System.Windows.Forms.Button btnBorrarPropiedad;
 		private System.Windows.Forms.Button btnModificarPropiedad;
 		private System.Windows.Forms.Button btnConsultarPropiedad;
-	}
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+    }
 }
 
