@@ -15,6 +15,7 @@ namespace tp2.Formularios.Secundarios
     public partial class FBarras : Form
     {
         Sistema unSistema;
+        int c2, c3, c4, c5, c6;
         public FBarras()
         {
             InitializeComponent();
@@ -24,7 +25,43 @@ namespace tp2.Formularios.Secundarios
             InitializeComponent();
             unSistema = sis;
             this.Text = "Cantidad de pasajeros";
+            foreach(Residencia r in unSistema.Residencias)
+            {
+                foreach(Alquiler a in r.Alquileres)
+                {
+                    switch (a.Cliente.CantPasajeros)
+                    {
+                        case 1:
+                            unSistema.CantDos++;
+                            break;
+                        case 2:
+                            unSistema.CantDos++;
+                            break;
+                        case 3:
+                            unSistema.CantTres++;
+                            break;
+                        case 4:
+                            unSistema.CantCuatro++;
+                            break;
+                        case 5:
+                            unSistema.CantCinco++;
+                            break;
+                        case 6:
+                            unSistema.CantSeis++;
+                            break;
+                        default:
+                            unSistema.CantSeis++;
+                            break;
+                    }
+                }
+            }
+            c2 = unSistema.CantDos;
+            c3 = unSistema.CantTres++;
+            c4 = unSistema.CantCuatro++;
+            c5 = unSistema.CantCinco++;
+            c6 = unSistema.CantSeis++;
         }
+        
         //Arreglar
         private void FBarras_Paint(object sender, PaintEventArgs e)
         {
