@@ -30,11 +30,19 @@ namespace tp2 {
             this.sfdDatos = new System.Windows.Forms.SaveFileDialog();
             this.gbAgregar = new System.Windows.Forms.GroupBox();
             this.tlpBotonesAgregar = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAgregarCasa = new System.Windows.Forms.Button();
+            this.btnAgregarHotel = new System.Windows.Forms.Button();
             this.tlpBotonesDatos = new System.Windows.Forms.TableLayoutPanel();
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
             this.lsbResidencias = new System.Windows.Forms.ListBox();
             this.pnlFiltro = new System.Windows.Forms.Panel();
+            this.cbFecha = new System.Windows.Forms.CheckBox();
+            this.gpFecha = new System.Windows.Forms.GroupBox();
+            this.dtpSalida = new System.Windows.Forms.DateTimePicker();
+            this.dtpIngreso = new System.Windows.Forms.DateTimePicker();
+            this.lbSalida = new System.Windows.Forms.Label();
+            this.lbIngreso = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lbDestino = new System.Windows.Forms.Label();
             this.lbCantPasajeros = new System.Windows.Forms.Label();
@@ -54,31 +62,24 @@ namespace tp2 {
             this.btnMostrarResidencias = new System.Windows.Forms.Button();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.tlpBotonesPropiedades = new System.Windows.Forms.TableLayoutPanel();
+            this.btnBorrarPropiedad = new System.Windows.Forms.Button();
             this.btnModificarPropiedad = new System.Windows.Forms.Button();
             this.btnConsultarPropiedad = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gpFecha = new System.Windows.Forms.GroupBox();
-            this.lbIngreso = new System.Windows.Forms.Label();
-            this.lbSalida = new System.Windows.Forms.Label();
-            this.dtpIngreso = new System.Windows.Forms.DateTimePicker();
-            this.dtpSalida = new System.Windows.Forms.DateTimePicker();
-            this.cbFecha = new System.Windows.Forms.CheckBox();
             this.graficarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cantidadPasajaerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesReservadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnBorrarPropiedad = new System.Windows.Forms.Button();
-            this.btnAgregarCasa = new System.Windows.Forms.Button();
-            this.btnAgregarHotel = new System.Windows.Forms.Button();
             this.gbAgregar.SuspendLayout();
             this.tlpBotonesAgregar.SuspendLayout();
             this.tlpBotonesDatos.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.gbBuscar.SuspendLayout();
             this.pnlFiltro.SuspendLayout();
+            this.gpFecha.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).BeginInit();
             this.gbPrecio.SuspendLayout();
@@ -89,7 +90,6 @@ namespace tp2 {
             this.tableLayoutPanel5.SuspendLayout();
             this.tlpBotonesPropiedades.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.gpFecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnImportar
@@ -163,6 +163,44 @@ namespace tp2 {
             this.tlpBotonesAgregar.Size = new System.Drawing.Size(1286, 52);
             this.tlpBotonesAgregar.TabIndex = 0;
             // 
+            // btnAgregarCasa
+            // 
+            this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+            this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+            this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarCasa.Image = global::tp2.Properties.Resources.plusblack32;
+            this.btnAgregarCasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregarCasa.Name = "btnAgregarCasa";
+            this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnAgregarCasa.Size = new System.Drawing.Size(631, 46);
+            this.btnAgregarCasa.TabIndex = 0;
+            this.btnAgregarCasa.Text = "Casa";
+            this.btnAgregarCasa.UseVisualStyleBackColor = false;
+            this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
+            // 
+            // btnAgregarHotel
+            // 
+            this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+            this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
+            this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+            this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
+            this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarHotel.Location = new System.Drawing.Point(652, 3);
+            this.btnAgregarHotel.Name = "btnAgregarHotel";
+            this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnAgregarHotel.Size = new System.Drawing.Size(631, 46);
+            this.btnAgregarHotel.TabIndex = 1;
+            this.btnAgregarHotel.Text = "Hotel";
+            this.btnAgregarHotel.UseVisualStyleBackColor = false;
+            this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
+            // 
             // tlpBotonesDatos
             // 
             this.tlpBotonesDatos.ColumnCount = 3;
@@ -229,6 +267,63 @@ namespace tp2 {
             this.pnlFiltro.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.pnlFiltro.Size = new System.Drawing.Size(1286, 86);
             this.pnlFiltro.TabIndex = 21;
+            // 
+            // cbFecha
+            // 
+            this.cbFecha.AutoSize = true;
+            this.cbFecha.Location = new System.Drawing.Point(560, 31);
+            this.cbFecha.Name = "cbFecha";
+            this.cbFecha.Size = new System.Drawing.Size(138, 24);
+            this.cbFecha.TabIndex = 26;
+            this.cbFecha.Text = "Buscar por fecha";
+            this.cbFecha.UseVisualStyleBackColor = true;
+            this.cbFecha.CheckedChanged += new System.EventHandler(this.cbFecha_CheckedChanged);
+            // 
+            // gpFecha
+            // 
+            this.gpFecha.Controls.Add(this.dtpSalida);
+            this.gpFecha.Controls.Add(this.dtpIngreso);
+            this.gpFecha.Controls.Add(this.lbSalida);
+            this.gpFecha.Controls.Add(this.lbIngreso);
+            this.gpFecha.Enabled = false;
+            this.gpFecha.Location = new System.Drawing.Point(738, 3);
+            this.gpFecha.Name = "gpFecha";
+            this.gpFecha.Size = new System.Drawing.Size(408, 80);
+            this.gpFecha.TabIndex = 25;
+            this.gpFecha.TabStop = false;
+            this.gpFecha.Text = "Fecha";
+            // 
+            // dtpSalida
+            // 
+            this.dtpSalida.Location = new System.Drawing.Point(133, 50);
+            this.dtpSalida.Name = "dtpSalida";
+            this.dtpSalida.Size = new System.Drawing.Size(275, 27);
+            this.dtpSalida.TabIndex = 3;
+            // 
+            // dtpIngreso
+            // 
+            this.dtpIngreso.Location = new System.Drawing.Point(133, 20);
+            this.dtpIngreso.Name = "dtpIngreso";
+            this.dtpIngreso.Size = new System.Drawing.Size(275, 27);
+            this.dtpIngreso.TabIndex = 2;
+            // 
+            // lbSalida
+            // 
+            this.lbSalida.AutoSize = true;
+            this.lbSalida.Location = new System.Drawing.Point(45, 51);
+            this.lbSalida.Name = "lbSalida";
+            this.lbSalida.Size = new System.Drawing.Size(50, 20);
+            this.lbSalida.TabIndex = 1;
+            this.lbSalida.Text = "Salida";
+            // 
+            // lbIngreso
+            // 
+            this.lbIngreso.AutoSize = true;
+            this.lbIngreso.Location = new System.Drawing.Point(45, 25);
+            this.lbIngreso.Name = "lbIngreso";
+            this.lbIngreso.Size = new System.Drawing.Size(58, 20);
+            this.lbIngreso.TabIndex = 0;
+            this.lbIngreso.Text = "Ingreso";
             // 
             // tableLayoutPanel4
             // 
@@ -475,6 +570,25 @@ namespace tp2 {
             this.tlpBotonesPropiedades.Size = new System.Drawing.Size(1286, 48);
             this.tlpBotonesPropiedades.TabIndex = 22;
             // 
+            // btnBorrarPropiedad
+            // 
+            this.btnBorrarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(67)))));
+            this.btnBorrarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBorrarPropiedad.FlatAppearance.BorderSize = 0;
+            this.btnBorrarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+            this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
+            this.btnBorrarPropiedad.Image = global::tp2.Properties.Resources.xwhite32;
+            this.btnBorrarPropiedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBorrarPropiedad.Location = new System.Drawing.Point(859, 3);
+            this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
+            this.btnBorrarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnBorrarPropiedad.Size = new System.Drawing.Size(424, 42);
+            this.btnBorrarPropiedad.TabIndex = 2;
+            this.btnBorrarPropiedad.Text = "Eliminar";
+            this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
+            this.btnBorrarPropiedad.Click += new System.EventHandler(this.BtnBorrarPropiedad_Click);
+            // 
             // btnModificarPropiedad
             // 
             this.btnModificarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
@@ -539,63 +653,6 @@ namespace tp2 {
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
-            // gpFecha
-            // 
-            this.gpFecha.Controls.Add(this.dtpSalida);
-            this.gpFecha.Controls.Add(this.dtpIngreso);
-            this.gpFecha.Controls.Add(this.lbSalida);
-            this.gpFecha.Controls.Add(this.lbIngreso);
-            this.gpFecha.Enabled = false;
-            this.gpFecha.Location = new System.Drawing.Point(738, 3);
-            this.gpFecha.Name = "gpFecha";
-            this.gpFecha.Size = new System.Drawing.Size(408, 80);
-            this.gpFecha.TabIndex = 25;
-            this.gpFecha.TabStop = false;
-            this.gpFecha.Text = "Fecha";
-            // 
-            // lbIngreso
-            // 
-            this.lbIngreso.AutoSize = true;
-            this.lbIngreso.Location = new System.Drawing.Point(45, 25);
-            this.lbIngreso.Name = "lbIngreso";
-            this.lbIngreso.Size = new System.Drawing.Size(58, 20);
-            this.lbIngreso.TabIndex = 0;
-            this.lbIngreso.Text = "Ingreso";
-            // 
-            // lbSalida
-            // 
-            this.lbSalida.AutoSize = true;
-            this.lbSalida.Location = new System.Drawing.Point(45, 51);
-            this.lbSalida.Name = "lbSalida";
-            this.lbSalida.Size = new System.Drawing.Size(50, 20);
-            this.lbSalida.TabIndex = 1;
-            this.lbSalida.Text = "Salida";
-            // 
-            // dtpIngreso
-            // 
-            this.dtpIngreso.Location = new System.Drawing.Point(133, 20);
-            this.dtpIngreso.Name = "dtpIngreso";
-            this.dtpIngreso.Size = new System.Drawing.Size(275, 27);
-            this.dtpIngreso.TabIndex = 2;
-            // 
-            // dtpSalida
-            // 
-            this.dtpSalida.Location = new System.Drawing.Point(133, 50);
-            this.dtpSalida.Name = "dtpSalida";
-            this.dtpSalida.Size = new System.Drawing.Size(275, 27);
-            this.dtpSalida.TabIndex = 3;
-            // 
-            // cbFecha
-            // 
-            this.cbFecha.AutoSize = true;
-            this.cbFecha.Location = new System.Drawing.Point(560, 31);
-            this.cbFecha.Name = "cbFecha";
-            this.cbFecha.Size = new System.Drawing.Size(138, 24);
-            this.cbFecha.TabIndex = 26;
-            this.cbFecha.Text = "Buscar por fecha";
-            this.cbFecha.UseVisualStyleBackColor = true;
-            this.cbFecha.CheckedChanged += new System.EventHandler(this.cbFecha_CheckedChanged);
-            // 
             // graficarToolStripMenuItem
             // 
             this.graficarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -625,63 +682,6 @@ namespace tp2 {
             this.imprimirToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.imprimirToolStripMenuItem.Text = "Imprimir";
             // 
-            // btnBorrarPropiedad
-            // 
-            this.btnBorrarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(67)))));
-            this.btnBorrarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBorrarPropiedad.FlatAppearance.BorderSize = 0;
-            this.btnBorrarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
-            this.btnBorrarPropiedad.Image = global::tp2.Properties.Resources.xwhite32;
-            this.btnBorrarPropiedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrarPropiedad.Location = new System.Drawing.Point(859, 3);
-            this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
-            this.btnBorrarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnBorrarPropiedad.Size = new System.Drawing.Size(424, 42);
-            this.btnBorrarPropiedad.TabIndex = 2;
-            this.btnBorrarPropiedad.Text = "Eliminar";
-            this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
-            this.btnBorrarPropiedad.Click += new System.EventHandler(this.BtnBorrarPropiedad_Click);
-            // 
-            // btnAgregarCasa
-            // 
-            this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
-            this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarCasa.Image = global::tp2.Properties.Resources.plusblack32;
-            this.btnAgregarCasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
-            this.btnAgregarCasa.Name = "btnAgregarCasa";
-            this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnAgregarCasa.Size = new System.Drawing.Size(631, 46);
-            this.btnAgregarCasa.TabIndex = 0;
-            this.btnAgregarCasa.Text = "Casa";
-            this.btnAgregarCasa.UseVisualStyleBackColor = false;
-            this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
-            // 
-            // btnAgregarHotel
-            // 
-            this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
-            this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
-            this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
-            this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarHotel.Location = new System.Drawing.Point(652, 3);
-            this.btnAgregarHotel.Name = "btnAgregarHotel";
-            this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnAgregarHotel.Size = new System.Drawing.Size(631, 46);
-            this.btnAgregarHotel.TabIndex = 1;
-            this.btnAgregarHotel.Text = "Hotel";
-            this.btnAgregarHotel.UseVisualStyleBackColor = false;
-            this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
-            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -708,6 +708,8 @@ namespace tp2 {
             this.gbBuscar.ResumeLayout(false);
             this.pnlFiltro.ResumeLayout(false);
             this.pnlFiltro.PerformLayout();
+            this.gpFecha.ResumeLayout(false);
+            this.gpFecha.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).EndInit();
@@ -722,8 +724,6 @@ namespace tp2 {
             this.tlpBotonesPropiedades.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.gpFecha.ResumeLayout(false);
-            this.gpFecha.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
