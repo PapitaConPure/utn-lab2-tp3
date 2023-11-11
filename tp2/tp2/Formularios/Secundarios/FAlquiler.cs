@@ -1,6 +1,7 @@
 ﻿using AlquilerLib;
 using System;
 using System.Windows.Forms;
+using AlquilerLib.Utilidades;
 
 namespace tp2 {
 	public partial class FAlquiler: Form {
@@ -56,26 +57,39 @@ namespace tp2 {
 			DateTime fechaReserva = DateTime.Now;
 			DateTime checkIn = this.calendario.DíaSeleccionado;
 			DateTime checkOut = checkIn.AddDays((double)this.nudCantDias.Value);
+            try
+            {
+				int dni = 0;
+				if (sistema.VerificarDni((int)this.nudDNI.Value))
+                {
+					dni = (int)this.nudDNI.Value;
+				}
+				int cantPasajeros = (int)this.nudCantPasajeros.Value;
+				long telefono = (long)this.nudTel.Value;
+				
+				string nom = this.tbNombre.Text;
+				string apellido = this.tbApellido.Text;
+				bool pudoAlquilar =
+					this.sistema.AlquilarResidencia(this.residencia.Número, fechaReserva, checkIn, checkOut, cantPasajeros, dni, nom, apellido, telefono);
 
-			int cantPasajeros = (int)this.nudCantPasajeros.Value;
-			long telefono = (long)this.nudTel.Value;
-			int dni = (int)this.nudDNI.Value;
-			string nom = this.tbNombre.Text;
-			string apellido = this.tbApellido.Text;
-			bool pudoAlquilar =
-				this.sistema.AlquilarResidencia(this.residencia.Número, fechaReserva, checkIn, checkOut, cantPasajeros, dni, nom, apellido, telefono);
+				if (!pudoAlquilar)
+				{
+					MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
+					this.DialogResult = DialogResult.None;
+					return;
+				}
 
-			if(!pudoAlquilar) {
-				MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
-				this.DialogResult = DialogResult.None;
-				return;
+				MessageBox.Show(
+					$"Desde:{checkIn:d} hasta {checkOut:d}",
+					"Residencia alquilada",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Information);
 			}
-
-			MessageBox.Show(
-				$"Desde:{checkIn:d} hasta {checkOut:d}",
-				"Residencia alquilada",
-				MessageBoxButtons.OK,
-				MessageBoxIcon.Information);
+			catch(DniException ex)
+            {
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				this.DialogResult = DialogResult.None;
+			}
 		}
 
 		private void CmbMes_SelectedIndexChanged(object sender, EventArgs e) {

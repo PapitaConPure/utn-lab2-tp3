@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using AlquilerLib.Utilidades;
 
 namespace AlquilerLib {
 	/// <summary>
@@ -198,6 +199,16 @@ namespace AlquilerLib {
 					fs.Close();
 				}
 			}
+		}
+
+		public bool VerificarDni(int dni)
+		{
+			if (dni < 10000000 || dni > 80000000)
+			{
+				throw new DniException("El dni es invalido");
+			}
+			else
+				return true;
 		}
 	}
 }

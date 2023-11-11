@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using AlquilerLib;
 using AlquilerLib.Constructores;
+using AlquilerLib.Utilidades;
 
 namespace tp2 {
     public partial class FAgregarCasa: Form {
@@ -88,10 +89,13 @@ namespace tp2 {
 		private void BtnCrear_Click(object sender, EventArgs e) {
 			try {
 				if(this.casa is null) {
+					int dni=0;
 					int nroResidencia = (int)this.nudNroResidencia.Value;
 					string dirección = this.tbDirección.Text;
-
-					int dni = (int)this.nudDNI.Value;
+                    if (sistema.VerificarDni((int)this.nudDNI.Value))
+                    {
+						dni = (int)this.nudDNI.Value;
+					}
 					string nombre = this.tbNombre.Text;
 					string apellido = this.tbApellido.Text;
 					long teléfono = (long)this.nudTel.Value;
@@ -123,7 +127,14 @@ namespace tp2 {
 							this.casa.AgregarServicio(servicio.Text);
 					}
 				}
-			} catch(Exception ex) {
+			} 
+			catch(DniException ex)
+            {
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				this.DialogResult = DialogResult.None;
+			}
+			catch(Exception ex) 
+			{
 				MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				this.DialogResult = DialogResult.None;
 			}
@@ -142,6 +153,8 @@ namespace tp2 {
         private void BtnAgregarImagen_Click(object sender, EventArgs e) {
 			this.fImagen.ShowDialog();
         }
+
+		
 
 		#region Calidad de vida
 		private void SeleccionarTextBox(object sender, EventArgs e) {
