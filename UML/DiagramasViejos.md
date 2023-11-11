@@ -1,4 +1,7 @@
-## Historia de Diagramas de Clase
+## Historia de Diagramas de Clase del TP2
+### Versión final
+![Último diagrama de clases](https://github.com/PapitaConPure/utn-lab2-tp2/blob/main/UML/ClassDiagram4.jpg)
+
 ### Versión original
 ![Diagrama de clases ori](https://github.com/PapitaConPure/utn-lab2-tp2/blob/main/UML/ClassDiagram1.jpg)
 
