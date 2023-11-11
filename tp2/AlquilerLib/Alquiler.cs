@@ -55,6 +55,12 @@ namespace AlquilerLib {
 			this.CheckIn = entrada;
 			this.CheckOut = salida;
         }
+		public Alquiler(DateTime ingreso, DateTime salida, int dni, string n, string ap, int tel, int pas)
+        {
+			this.CheckIn = ingreso;
+			this.CheckOut = salida;
+			this.cliente = new Cliente(new DatosPersona(dni, n, ap, tel), pas);
+        }
 
 		public int Número{ get;private set; }
 

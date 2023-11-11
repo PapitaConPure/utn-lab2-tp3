@@ -63,6 +63,12 @@ namespace tp2 {
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gpFecha = new System.Windows.Forms.GroupBox();
+            this.lbIngreso = new System.Windows.Forms.Label();
+            this.lbSalida = new System.Windows.Forms.Label();
+            this.dtpIngreso = new System.Windows.Forms.DateTimePicker();
+            this.dtpSalida = new System.Windows.Forms.DateTimePicker();
+            this.cbFecha = new System.Windows.Forms.CheckBox();
             this.gbAgregar.SuspendLayout();
             this.tlpBotonesAgregar.SuspendLayout();
             this.tlpBotonesDatos.SuspendLayout();
@@ -79,6 +85,7 @@ namespace tp2 {
             this.tableLayoutPanel5.SuspendLayout();
             this.tlpBotonesPropiedades.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.gpFecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnImportar
@@ -244,6 +251,8 @@ namespace tp2 {
             // 
             // pnlFiltro
             // 
+            this.pnlFiltro.Controls.Add(this.cbFecha);
+            this.pnlFiltro.Controls.Add(this.gpFecha);
             this.pnlFiltro.Controls.Add(this.tableLayoutPanel4);
             this.pnlFiltro.Controls.Add(this.gbPrecio);
             this.pnlFiltro.Controls.Add(this.tableLayoutPanel2);
@@ -264,14 +273,13 @@ namespace tp2 {
             this.tableLayoutPanel4.Controls.Add(this.lbCantPasajeros, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.cmbDestinos, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.nudCantPersonas, 1, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(226, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(945, 86);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(284, 86);
             this.tableLayoutPanel4.TabIndex = 23;
             // 
             // lbDestino
@@ -299,7 +307,7 @@ namespace tp2 {
             this.cmbDestinos.FormattingEnabled = true;
             this.cmbDestinos.Location = new System.Drawing.Point(79, 9);
             this.cmbDestinos.Name = "cmbDestinos";
-            this.cmbDestinos.Size = new System.Drawing.Size(863, 28);
+            this.cmbDestinos.Size = new System.Drawing.Size(202, 28);
             this.cmbDestinos.TabIndex = 11;
             // 
             // nudCantPersonas
@@ -307,7 +315,7 @@ namespace tp2 {
             this.nudCantPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudCantPersonas.Location = new System.Drawing.Point(79, 46);
             this.nudCantPersonas.Name = "nudCantPersonas";
-            this.nudCantPersonas.Size = new System.Drawing.Size(863, 27);
+            this.nudCantPersonas.Size = new System.Drawing.Size(202, 27);
             this.nudCantPersonas.TabIndex = 19;
             // 
             // gbPrecio
@@ -582,6 +590,63 @@ namespace tp2 {
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
+            // gpFecha
+            // 
+            this.gpFecha.Controls.Add(this.dtpSalida);
+            this.gpFecha.Controls.Add(this.dtpIngreso);
+            this.gpFecha.Controls.Add(this.lbSalida);
+            this.gpFecha.Controls.Add(this.lbIngreso);
+            this.gpFecha.Enabled = false;
+            this.gpFecha.Location = new System.Drawing.Point(738, 3);
+            this.gpFecha.Name = "gpFecha";
+            this.gpFecha.Size = new System.Drawing.Size(408, 80);
+            this.gpFecha.TabIndex = 25;
+            this.gpFecha.TabStop = false;
+            this.gpFecha.Text = "Fecha";
+            // 
+            // lbIngreso
+            // 
+            this.lbIngreso.AutoSize = true;
+            this.lbIngreso.Location = new System.Drawing.Point(45, 25);
+            this.lbIngreso.Name = "lbIngreso";
+            this.lbIngreso.Size = new System.Drawing.Size(58, 20);
+            this.lbIngreso.TabIndex = 0;
+            this.lbIngreso.Text = "Ingreso";
+            // 
+            // lbSalida
+            // 
+            this.lbSalida.AutoSize = true;
+            this.lbSalida.Location = new System.Drawing.Point(45, 51);
+            this.lbSalida.Name = "lbSalida";
+            this.lbSalida.Size = new System.Drawing.Size(50, 20);
+            this.lbSalida.TabIndex = 1;
+            this.lbSalida.Text = "Salida";
+            // 
+            // dtpIngreso
+            // 
+            this.dtpIngreso.Location = new System.Drawing.Point(133, 20);
+            this.dtpIngreso.Name = "dtpIngreso";
+            this.dtpIngreso.Size = new System.Drawing.Size(275, 27);
+            this.dtpIngreso.TabIndex = 2;
+            // 
+            // dtpSalida
+            // 
+            this.dtpSalida.Location = new System.Drawing.Point(133, 50);
+            this.dtpSalida.Name = "dtpSalida";
+            this.dtpSalida.Size = new System.Drawing.Size(275, 27);
+            this.dtpSalida.TabIndex = 3;
+            // 
+            // cbFecha
+            // 
+            this.cbFecha.AutoSize = true;
+            this.cbFecha.Location = new System.Drawing.Point(560, 31);
+            this.cbFecha.Name = "cbFecha";
+            this.cbFecha.Size = new System.Drawing.Size(138, 24);
+            this.cbFecha.TabIndex = 26;
+            this.cbFecha.Text = "Buscar por fecha";
+            this.cbFecha.UseVisualStyleBackColor = true;
+            this.cbFecha.CheckedChanged += new System.EventHandler(this.cbFecha_CheckedChanged);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -607,6 +672,7 @@ namespace tp2 {
             this.gbDatos.ResumeLayout(false);
             this.gbBuscar.ResumeLayout(false);
             this.pnlFiltro.ResumeLayout(false);
+            this.pnlFiltro.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).EndInit();
@@ -621,6 +687,8 @@ namespace tp2 {
             this.tlpBotonesPropiedades.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.gpFecha.ResumeLayout(false);
+            this.gpFecha.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,6 +734,12 @@ namespace tp2 {
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cbFecha;
+        private System.Windows.Forms.Label lbSalida;
+        private System.Windows.Forms.Label lbIngreso;
+        public System.Windows.Forms.DateTimePicker dtpSalida;
+        public System.Windows.Forms.DateTimePicker dtpIngreso;
+        public System.Windows.Forms.GroupBox gpFecha;
     }
 }
 

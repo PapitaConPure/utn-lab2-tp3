@@ -177,6 +177,20 @@ namespace tp2 {
 			this.ActualizarListadoResidencias();
 		}
 
+		private bool VerificarFecha(Residencia r,DateTime ingreso, DateTime salida)
+        {
+            if (this.cbFecha.Checked)
+            {
+				Alquiler t = new Alquiler(ingreso, salida,0,"n","ap",0,0);
+				if (r.PuedeAlquilar(t))
+					return true;
+				else
+					return false;
+			}
+			else
+				return true;
+		}
+
 		private void BtnLimpiarFiltros_Click(object sender, EventArgs e) {
 			this.cmbDestinos.SelectedIndex = -1;
 			this.nudCantPersonas.Value = this.nudCantPersonas.Minimum;
@@ -185,6 +199,8 @@ namespace tp2 {
 			this.rbCasa.Checked = false;
 			this.rbCasaFinde.Checked = false;
 			this.rbHotel.Checked = false;
+			this.cbFecha.Checked = false;
+			this.gpFecha.Enabled = false;
 			this.ActualizarListadoResidencias();
 			this.lsbResidencias.Items.Clear();
 		}
@@ -208,9 +224,9 @@ namespace tp2 {
 					if((r as Casa).CamasDisponibles >= cant)
 						valido = true;
 				} else if(r is Hotel) {
-					valido = (cant <= 2 && (r as Hotel).CntSimple > 0)
-						  || (cant <= 4 && (r as Hotel).CntDoble > 0)
-						  || (cant <= 6 && (r as Hotel).CntTriple > 0);
+					valido = (cant >= 5 && (r as Hotel).CntTriple > 0)
+						  || (cant >= 3 && (r as Hotel).CntDoble > 0)
+						  || (cant >= 1 && (r as Hotel).CntSimple > 0);
 				}
 			}
 			return valido;
@@ -275,7 +291,8 @@ namespace tp2 {
 				&& (destino is null || destino == residencia.Dirección)
 				&& (max == 0 || residencia.CalcularPrecioTotal() * this.sistema.PrecioBase <= max)
 				&& (min == 0 || residencia.CalcularPrecioTotal() * this.sistema.PrecioBase >= min)
-				&& this.VerificarPlazas(residencia))
+				&& this.VerificarPlazas(residencia)
+				&& this.VerificarFecha(residencia,this.dtpIngreso.Value, this.dtpSalida.Value))
 					this.lsbResidencias.Items.Add(residencia);
 			}
 
@@ -298,6 +315,11 @@ namespace tp2 {
         {
 			AcercaDe fAcercaDe = new AcercaDe();
 			fAcercaDe.Show();
+        }
+
+        private void cbFecha_CheckedChanged(object sender, EventArgs e)
+        {
+			gpFecha.Enabled = true;
         }
     }
 }
