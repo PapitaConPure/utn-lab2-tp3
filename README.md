@@ -1,5 +1,5 @@
-# utn-lab2-tp2
-Trabajo Práctico N°2 de Laboratorio II (UTN)
+# Trabajo Práctico N°2/3
+> Laboratorio II (UTN)
 
 ## Diagramas de clases
 ### Revisión más reciente
