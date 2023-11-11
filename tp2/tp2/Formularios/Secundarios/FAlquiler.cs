@@ -87,7 +87,17 @@ namespace tp2 {
 			}
 			catch(DniException ex)
             {
+				MessageBox.Show(ex.Message, "Error en el DNI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				this.DialogResult = DialogResult.None;
+			}
+            catch (ArgumentException ex)
+            {
 				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				this.DialogResult = DialogResult.None;
+			}
+			catch(FormatException ex)
+            {
+				MessageBox.Show(ex.Message, "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				this.DialogResult = DialogResult.None;
 			}
 		}
