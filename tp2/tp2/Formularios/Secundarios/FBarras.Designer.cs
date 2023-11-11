@@ -54,7 +54,7 @@ namespace tp2.Formularios.Secundarios
             // lbTres
             // 
             this.lbTres.AutoSize = true;
-            this.lbTres.Location = new System.Drawing.Point(334, 378);
+            this.lbTres.Location = new System.Drawing.Point(344, 378);
             this.lbTres.Name = "lbTres";
             this.lbTres.Size = new System.Drawing.Size(13, 13);
             this.lbTres.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace tp2.Formularios.Secundarios
             // lbCuatro
             // 
             this.lbCuatro.AutoSize = true;
-            this.lbCuatro.Location = new System.Drawing.Point(415, 378);
+            this.lbCuatro.Location = new System.Drawing.Point(431, 378);
             this.lbCuatro.Name = "lbCuatro";
             this.lbCuatro.Size = new System.Drawing.Size(13, 13);
             this.lbCuatro.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace tp2.Formularios.Secundarios
             // lbCinco
             // 
             this.lbCinco.AutoSize = true;
-            this.lbCinco.Location = new System.Drawing.Point(492, 378);
+            this.lbCinco.Location = new System.Drawing.Point(516, 378);
             this.lbCinco.Name = "lbCinco";
             this.lbCinco.Size = new System.Drawing.Size(13, 13);
             this.lbCinco.TabIndex = 3;
@@ -81,7 +81,7 @@ namespace tp2.Formularios.Secundarios
             // lbSeis
             // 
             this.lbSeis.AutoSize = true;
-            this.lbSeis.Location = new System.Drawing.Point(570, 378);
+            this.lbSeis.Location = new System.Drawing.Point(617, 378);
             this.lbSeis.Name = "lbSeis";
             this.lbSeis.Size = new System.Drawing.Size(22, 13);
             this.lbSeis.TabIndex = 4;
@@ -158,6 +158,7 @@ namespace tp2.Formularios.Secundarios
             this.Controls.Add(this.lbTres);
             this.Controls.Add(this.lbDos);
             this.Name = "FBarras";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FBarras";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FBarras_Paint);
             this.ResumeLayout(false);

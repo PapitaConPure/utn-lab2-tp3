@@ -25,6 +25,7 @@ namespace tp2.Formularios.Secundarios
             InitializeComponent();
             unSistema = sis;
             this.Text = "Cantidad de pasajeros";
+            unSistema.CantDos = unSistema.CantTres = unSistema.CantCuatro = unSistema.CantCinco = unSistema.CantSeis = 0;
             foreach(Residencia r in unSistema.Residencias)
             {
                 foreach(Alquiler a in r.Alquileres)
@@ -56,10 +57,15 @@ namespace tp2.Formularios.Secundarios
                 }
             }
             c2 = unSistema.CantDos;
+            lbCant2.Text = c2.ToString();
             c3 = unSistema.CantTres++;
+            lbCant3.Text = c3.ToString();
             c4 = unSistema.CantCuatro++;
+            lbCant4.Text = c4.ToString();
             c5 = unSistema.CantCinco++;
+            lbCant5.Text = c5.ToString();
             c6 = unSistema.CantSeis++;
+            lbCant6.Text = c6.ToString();
         }
         
         //Arreglar
@@ -71,23 +77,34 @@ namespace tp2.Formularios.Secundarios
             Brush ci = new SolidBrush(Color.Blue);
             Brush s = new SolidBrush(Color.Red);
 
-            int x = (int)Math.Truncate(this.Width * 0.25);
-            int y = (int)Math.Truncate(this.Height * 0.1);
-            int w = this.Width / 7;
-            int h = (int)Math.Truncate(this.Height * 0.25);
+            int total = c2 + c3 + c4 + c5 + c6;
+            int x = (int)Math.Truncate(this.Width * 0.30); // esto posiblemente este mal
+            int y = (int)Math.Truncate(this.Height * 0.8); //esto esta mal
+            int w = this.Width / 7; //tengo sueño
+            int h = (int)Math.Truncate(this.Height * 0.25);//esto esta mal
+
             Rectangle dos = new Rectangle(x, y, 15, h);
+            lbCant2.Left = lbDos.Left = x;
             e.Graphics.FillRectangle(d,dos);
             h -= 20;
-            Rectangle tres = new Rectangle(x += w, h, 15, y);
+
+            Rectangle tres = new Rectangle(x += w, y, 15, h);
+            lbCant3.Left = lbTres.Left = x;
             e.Graphics.FillRectangle(t, tres);
             h -= 20;
-            Rectangle cuatro = new Rectangle(x +=w, h, 15, y);
+
+            Rectangle cuatro = new Rectangle(x +=w, y, 15, h);
+            lbCant4.Left = lbCuatro.Left = x;
             e.Graphics.FillRectangle(cu, cuatro);
             h -= 20;
-            Rectangle cinco = new Rectangle(x += w, h, 15, y);
+
+            Rectangle cinco = new Rectangle(x += w, y, 15, h);
+            lbCant5.Left = lbCinco.Left = x;
             e.Graphics.FillRectangle(ci, cinco);
             h -= 20;
-            Rectangle seis = new Rectangle(x += w, h, 15, y);
+
+            Rectangle seis = new Rectangle(x += w, y, 15, y);
+            lbCant6.Left = lbSeis.Left = x;
             e.Graphics.FillRectangle(s, seis);
         }
     }

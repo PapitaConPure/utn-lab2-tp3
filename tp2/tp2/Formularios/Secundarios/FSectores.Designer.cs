@@ -86,6 +86,7 @@ namespace tp2.Formularios.Secundarios
             this.Controls.Add(this.lbCasas);
             this.Controls.Add(this.lbHoteles);
             this.Name = "FSectores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FSectores";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FSectores_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
