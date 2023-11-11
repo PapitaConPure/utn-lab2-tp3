@@ -71,6 +71,12 @@
     <Compile Include="Formularios\Secundarios\FAlquiler.Designer.cs">
       <DependentUpon>FAlquiler.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Secundarios\FBarras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Secundarios\FBarras.Designer.cs">
+      <DependentUpon>FBarras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Secundarios\FDetalles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,12 @@
     <Compile Include="Formularios\FPrincipal.Designer.cs">
       <DependentUpon>FPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Secundarios\FSectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Secundarios\FSectores.Designer.cs">
+      <DependentUpon>FSectores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\AcercaDe.resx">
@@ -103,6 +115,9 @@
     <EmbeddedResource Include="Formularios\Secundarios\FAlquiler.resx">
       <DependentUpon>FAlquiler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Secundarios\FBarras.resx">
+      <DependentUpon>FBarras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Secundarios\FDetalles.resx">
       <DependentUpon>FDetalles.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Secundarios\FSectores.resx">
+      <DependentUpon>FSectores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

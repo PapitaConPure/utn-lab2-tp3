@@ -15,6 +15,7 @@ using AlquilerLib;
 using System.Runtime.Serialization;
 using ProyectoSplash;
 using tp2.Formularios;
+using tp2.Formularios.Secundarios;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
@@ -320,6 +321,20 @@ namespace tp2 {
         private void cbFecha_CheckedChanged(object sender, EventArgs e)
         {
 			gpFecha.Enabled = true;
+        }
+
+        private void propiedadesReservadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			FSectores FS = new FSectores(this.sistema);
+			FS.ShowDialog();
+			FS.Dispose();
+        }
+
+        private void cantidadPasajaerosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			FBarras FB = new FBarras(this.sistema);
+			FB.ShowDialog();
+			FB.Dispose();
         }
     }
 }

@@ -84,6 +84,8 @@ namespace tp2 {
 					"Residencia alquilada",
 					MessageBoxButtons.OK,
 					MessageBoxIcon.Information);
+				if (residencia is Casa) sistema.CantCasas++;
+				else sistema.CantHoteles++;
 			}
 			catch(DniException ex)
             {
