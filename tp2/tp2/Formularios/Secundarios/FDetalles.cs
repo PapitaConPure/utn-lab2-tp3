@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AlquilerLib;
+using System.Drawing.Printing;
 namespace tp2
 {
     public partial class FDetalles : Form
@@ -50,10 +51,77 @@ namespace tp2
 
 			this.RefrescarListaAlquileres();
 		}
+		private void btnImprimir_Click(object sender, EventArgs e)
+		{
+			PrintDocument aImprimir = new PrintDocument();
+			PrintPreviewDialog previo = new PrintPreviewDialog();
+			aImprimir.PrintPage += this.Imprimir;
+			try
+			{
+
+				previo.Document = aImprimir;
+				if (previo.ShowDialog() == DialogResult.OK)
+				{
+
+					aImprimir.Print();
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+            finally
+            {
+				previo.Dispose();
+            }
+
+		}
+		private void Imprimir(object sender, PrintPageEventArgs e)
+        {
+			Graphics g = e.Graphics;
+			Alquiler alq = residencia.VerAlquiler((int)this.nudNroAlquiler.Value);
+			Font encabezado = new Font("Arial", 14, FontStyle.Bold);
+			Font encabezado2 = new Font("Arial", 12, FontStyle.Bold);
+			Font cuerpo = new Font("Arial", 11, FontStyle.Regular);
+			Image foto1 = residencia.Imágenes[0];
+			Image foto2 = residencia.Imágenes[1];
+			Image logo;
+			int ancho = 800;
+			int y = 20;
+
+			Pen lapiz = new Pen(Color.Black);
+			Brush brush = new SolidBrush(Color.Black);
+
+			g.DrawRectangle(lapiz, 50, 50, 750, 1000);
+			g.DrawImage(foto1,60,100,300,150);
+			g.DrawImage(foto2, 480, 100, 300, 150);
+			Image i;
+			g.DrawImage(tp2.Properties.Resources.logo, 255, 550);
+
+			string tipo;
+			if (residencia is Hotel) tipo = "Hotel";
+			else if (residencia is CasaFinde) tipo = "Casa de Fin de semana";
+			else tipo = "Casa";
+			int n = residencia.Número;
+			string d = residencia.Dirección;
+			g.DrawString("Propiedad: "+tipo+", "+n+", "+d, encabezado, brush,
+						new Rectangle(325,y+=40,ancho,y));
+			y = 260;
+			g.DrawString("Fecha entrada: "+alq.CheckIn.ToShortDateString(), encabezado2, brush, 60, y);
+			g.DrawString("Fecha salida: " + alq.CheckOut.ToShortDateString(), encabezado2, brush, 60, y+=30);
+			g.DrawString("Responsable: " + alq.Cliente.Apellido+" "+alq.Cliente.Nombre, encabezado2, brush, 60, y += 30);
+			g.DrawString("Dni: " + alq.Cliente.Dni, encabezado2, brush, 60, y += 30);
+			g.DrawString("Teléfono: " + alq.Cliente.Teléfono, encabezado2, brush, 60, y += 30);
+			g.DrawString("Cantidad de pasajeros: " + alq.Cliente.CantPasajeros, encabezado2, brush, 60, y += 30);
+			g.DrawString("Alquiler realizado el día: " + alq.FechaReserva.ToShortDateString(), encabezado2, brush, 60, y += 30);
+			g.DrawString("Precio Total: $" + alq.PrecioTotal, encabezado2, brush, 60, y += 30);
+
+
+		}
 
 		private void BtnModificarAlquiler_Click(object sender, EventArgs e) {
             Alquiler alquiler = this.residencia.VerAlquiler(Convert.ToInt32(this.nudNroAlquiler.Value));
-
+			
 			if(alquiler is null) {
 				MessageBox.Show("No se encontró el alquiler", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
@@ -135,6 +203,8 @@ namespace tp2
 				this.lsbAlquileres.Items.Add("----------------------------------------------------------------");
 			}
 		}
-		#endregion
-	}
+        #endregion
+
+        
+    }
 }
