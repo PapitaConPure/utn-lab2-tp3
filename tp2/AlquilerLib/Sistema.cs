@@ -10,8 +10,6 @@ namespace AlquilerLib {
 	[Serializable]
 	public class Sistema {
 		static int nroResidencia = 0;
-		public int CantCasas { get; set; }
-		public int CantHoteles { get; set; }
 
 		private readonly List<Residencia> residencias;
 		private int nroResidenciaSerializado;

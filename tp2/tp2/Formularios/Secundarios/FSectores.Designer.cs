@@ -33,7 +33,7 @@ namespace tp2.Formularios.Secundarios
 			this.lbCasas = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.pnlSectores = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
@@ -77,14 +77,17 @@ namespace tp2.Formularios.Secundarios
 			this.pictureBox2.TabIndex = 3;
 			this.pictureBox2.TabStop = false;
 			// 
-			// panel1
+			// pnlSectores
 			// 
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(0, 0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(800, 450);
-			this.panel1.TabIndex = 4;
-			this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.FSectores_Paint);
+			this.pnlSectores.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnlSectores.Location = new System.Drawing.Point(0, 0);
+			this.pnlSectores.Name = "pnlSectores";
+			this.pnlSectores.Size = new System.Drawing.Size(800, 450);
+			this.pnlSectores.TabIndex = 4;
+			this.pnlSectores.BackColorChanged += new System.EventHandler(this.PnlSectores_SizeChanged);
+			this.pnlSectores.SizeChanged += new System.EventHandler(this.PnlSectores_SizeChanged);
+			this.pnlSectores.VisibleChanged += new System.EventHandler(this.PnlSectores_SizeChanged);
+			this.pnlSectores.Paint += new System.Windows.Forms.PaintEventHandler(this.FSectores_Paint);
 			// 
 			// FSectores
 			// 
@@ -95,7 +98,7 @@ namespace tp2.Formularios.Secundarios
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.lbCasas);
 			this.Controls.Add(this.lbHoteles);
-			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.pnlSectores);
 			this.Name = "FSectores";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FSectores";
@@ -112,6 +115,6 @@ namespace tp2.Formularios.Secundarios
         public System.Windows.Forms.Label lbCasas;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel pnlSectores;
 	}
 }

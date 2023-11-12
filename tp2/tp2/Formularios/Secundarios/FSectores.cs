@@ -31,7 +31,7 @@ namespace tp2.Formularios.Secundarios {
 			this.InitializeComponent();
 		}
 
-		public FSectores(Sistema sis) : this() {
+		public FSectores(Sistema sis): this() {
 			this.sistema = sis;
 			this.Text = "Cantidad de Reservas";
 
@@ -46,22 +46,27 @@ namespace tp2.Formularios.Secundarios {
 
 			this.lbCasas.Text = $"{this.sectores[0].Nombre}: {this.sectores[0].Peso}";
 			this.lbHoteles.Text = $"{this.sectores[2].Nombre}: {this.sectores[2].Peso}";
+
+			this.sectores[0].Peso = 3;
+			this.sectores[1].Peso = 2;
+			this.sectores[2].Peso = 1;
 		}
 
 		private void FSectores_Paint(object sender, PaintEventArgs e) {
 			Graphics g = e.Graphics;
 
 			int s;
-			if(this.Width < this.Height)
-				s = this.Width;
+			if(this.pnlSectores.Width < this.pnlSectores.Height)
+				s = this.pnlSectores.Width;
 			else
-				s = this.Height;
+				s = this.pnlSectores.Height;
 
-			int x = (int)(s * 0.2);
-			int y = (int)(s * 0.2);
-			int h = (int)(s * 0.65);
-			int w = (int)(s * 0.55);
-			Rectangle rectangulo = new Rectangle(x, y, w, h);
+			double margen = 0.1;
+			int ss = (int)(s * (1 - margen * 2));
+			int medio = ss / 2;
+			int x = this.pnlSectores.Width / 2 - medio;
+			int y = this.pnlSectores.Height / 2 - medio;
+			Rectangle rectangulo = new Rectangle(x, y, ss, ss);
 
 			int total = 0;
 
@@ -80,12 +85,8 @@ namespace tp2.Formularios.Secundarios {
 			float ángulo;
 			Size tamañoTexto;
 			string texto;
-			Pen penSector = new Pen(this.BackColor, s * 0.01f);
+			Pen penSector = new Pen(this.BackColor, ss * 0.01f);
 			Brush brushSector;
-
-			this.sectores[0].Peso = 3;
-			this.sectores[1].Peso = 2;
-			this.sectores[2].Peso = 1;
 
 			int i = 0;
 			foreach(Sector sector in this.sectores) {
@@ -114,7 +115,11 @@ namespace tp2.Formularios.Secundarios {
 				i++;
 			}
 		}
-    }
+
+		private void PnlSectores_SizeChanged(object sender, EventArgs e) {
+			this.pnlSectores.Invalidate();
+		}
+	}
 
 	//Clase de utilidad para almacenar datos varios de un sector nomás
 	//Se puede hacer sin ella pero queda más cómodo y fácil de trabajar así
