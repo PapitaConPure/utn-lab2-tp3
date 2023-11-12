@@ -12,100 +12,142 @@ using AlquilerLib;
 
 namespace tp2.Formularios.Secundarios
 {
-    public partial class FBarras : Form
-    {
-        Sistema unSistema;
-        int c2, c3, c4, c5, c6;
-        public FBarras()
-        {
-            InitializeComponent();
+    public partial class FBarras : Form {
+		private static readonly Color colorPrimario = Color.FromArgb(255, 190, 70);
+		private static readonly Color colorSecundario = Color.FromArgb(211, 197, 197);
+		private static readonly Color colorInformación = Color.FromArgb(84, 180, 211);
+		private static readonly Color colorFrente = Color.FromArgb(22, 22, 22);
+		private static readonly Font fuenteBarra = new Font("Segoe UI", 11);
+		private static readonly Font fuenteBaseBarra = new Font("Lato Black", 10);
+
+		private readonly Sistema unSistema;
+        private readonly int cnt2, cnt3, cnt4, cnt5, cnt6;
+		private readonly Color colorSombra;
+
+		public FBarras() {
+            this.InitializeComponent();
         }
-        public FBarras(Sistema sis)
-        {
-            InitializeComponent();
-            unSistema = sis;
+
+        public FBarras(Sistema sis): this() {
+            this.unSistema = sis;
             this.Text = "Cantidad de pasajeros";
-            unSistema.CantDos = unSistema.CantTres = unSistema.CantCuatro = unSistema.CantCinco = unSistema.CantSeis = 0;
-            foreach(Residencia r in unSistema.Residencias)
-            {
-                foreach(Alquiler a in r.Alquileres)
-                {
-                    switch (a.Cliente.CantPasajeros)
-                    {
-                        case 1:
-                            unSistema.CantDos++;
-                            break;
-                        case 2:
-                            unSistema.CantDos++;
-                            break;
-                        case 3:
-                            unSistema.CantTres++;
-                            break;
-                        case 4:
-                            unSistema.CantCuatro++;
-                            break;
-                        case 5:
-                            unSistema.CantCinco++;
-                            break;
-                        case 6:
-                            unSistema.CantSeis++;
-                            break;
-                        default:
-                            unSistema.CantSeis++;
-                            break;
+			this.unSistema.CantDos
+			= this.unSistema.CantTres
+			= this.unSistema.CantCuatro
+			= this.unSistema.CantCinco
+			= this.unSistema.CantSeis
+				= 0;
+
+			this.colorSombra = Color.FromArgb(
+				(int)(this.BackColor.R * 0.72),
+				(int)(this.BackColor.G * 0.69),
+				(int)(this.BackColor.B * 0.80));
+
+            foreach(Residencia r in this.unSistema.Residencias) {
+                foreach(Alquiler a in r.Alquileres) {
+                    switch(a.Cliente.CantPasajeros) {
+                    case 1:
+                    case 2:
+                        this.cnt2++;
+                        break;
+
+                    case 3:
+						this.cnt3++;
+                        break;
+
+                    case 4:
+						this.cnt4++;
+                        break;
+
+                    case 5:
+						this.cnt5++;
+                        break;
+
+                    default:
+						if(a.Cliente.CantPasajeros >= 6)
+							this.cnt6++;
+                        break;
                     }
                 }
             }
-            c2 = unSistema.CantDos;
-            lbCant2.Text = c2.ToString();
-            c3 = unSistema.CantTres++;
-            lbCant3.Text = c3.ToString();
-            c4 = unSistema.CantCuatro++;
-            lbCant4.Text = c4.ToString();
-            c5 = unSistema.CantCinco++;
-            lbCant5.Text = c5.ToString();
-            c6 = unSistema.CantSeis++;
-            lbCant6.Text = c6.ToString();
         }
-        
-        //Arreglar
-        private void FBarras_Paint(object sender, PaintEventArgs e)
-        {
-            Brush d = new SolidBrush(Color.Black);
-            Brush t = new SolidBrush(Color.Green);
-            Brush cu = new SolidBrush(Color.Yellow);
-            Brush ci = new SolidBrush(Color.Blue);
-            Brush s = new SolidBrush(Color.Red);
 
-            int total = c2 + c3 + c4 + c5 + c6;
-            int x = (int)Math.Truncate(this.Width * 0.30); // esto posiblemente este mal
-            int y = (int)Math.Truncate(this.Height * 0.8); //esto esta mal
-            int w = this.Width / 7; //tengo sueño
-            int h = (int)Math.Truncate(this.Height * 0.25);//esto esta mal
+        private void PnlBarras_Paint(object sender, PaintEventArgs e) {
+			Graphics g = e.Graphics;
 
-            Rectangle dos = new Rectangle(x, y, 15, h);
-            lbCant2.Left = lbDos.Left = x;
-            e.Graphics.FillRectangle(d,dos);
-            h -= 20;
+			Brush brushRellenoBarras = new SolidBrush(colorPrimario);
+			Brush brushSombraBarras = new SolidBrush(this.colorSombra);
+			Brush brushTextoBarras = new SolidBrush(colorFrente);
+			Brush brushTextoBaseBarras = new SolidBrush(colorInformación);
 
-            Rectangle tres = new Rectangle(x += w, y, 15, h);
-            lbCant3.Left = lbTres.Left = x;
-            e.Graphics.FillRectangle(t, tres);
-            h -= 20;
+			int muestra = 0;
+			float margenH = 0.1f;
+			float margenV = 0.1f;
+			float x = this.pnlBarras.Width * margenH;
+			float y = this.pnlBarras.Height * (1 - margenV);
+			float w = this.pnlBarras.Width * (1 - margenH * 2);
+			float h = this.pnlBarras.Height * (1 - margenV * 2);
+			float anchoBarra = 16;
 
-            Rectangle cuatro = new Rectangle(x +=w, y, 15, h);
-            lbCant4.Left = lbCuatro.Left = x;
-            e.Graphics.FillRectangle(cu, cuatro);
-            h -= 20;
+			string[] textoBase = { "2", "3", "4", "5", "6+" };
+			int[] cantidades = { this.cnt2, this.cnt3, this.cnt4, this.cnt5, this.cnt6 };
+			float espaciadoBarra = w / (cantidades.Length - 1f);
 
-            Rectangle cinco = new Rectangle(x += w, y, 15, h);
-            lbCant5.Left = lbCinco.Left = x;
-            e.Graphics.FillRectangle(ci, cinco);
-            h -= 20;
+			foreach(int cantidad in cantidades)
+				muestra += cantidad;
 
-            Rectangle seis = new Rectangle(x += w, y, 15, y);
-            lbCant6.Left = lbSeis.Left = x;
-            e.Graphics.FillRectangle(s, seis);
-        }
-    }
+			float xBarra, hBarra;
+			Size tamañoTexto;
+			string textoBarra;
+			RectangleF rectBarra, rectSombra;
+			for(int i = 0; i < cantidades.Length; i++) {
+				int cantidad = cantidades[i];
+				xBarra = x + i * espaciadoBarra;
+				hBarra = this.CalcularAltura(cantidad, muestra, h);
+
+				rectBarra = new RectangleF(
+					xBarra - anchoBarra * 0.5f,
+					y - hBarra,
+					anchoBarra,
+					hBarra + 2f);
+
+				rectSombra = rectBarra;
+				rectSombra.Offset(2f, 2f);
+
+				g.FillRectangle(brushSombraBarras, rectSombra);
+				g.FillRectangle(brushRellenoBarras, rectBarra);
+
+				textoBarra = cantidad.ToString();
+				tamañoTexto = TextRenderer.MeasureText(textoBarra, fuenteBarra);
+				g.DrawString(
+					textoBarra,
+					fuenteBarra,
+					brushTextoBarras,
+					new PointF(
+						xBarra + 2f - tamañoTexto.Width * 0.5f,
+						y - hBarra - tamañoTexto.Height));
+
+				textoBarra = textoBase[i];
+				tamañoTexto = TextRenderer.MeasureText(textoBarra, fuenteBaseBarra);
+				g.DrawString(
+					textoBarra,
+					fuenteBaseBarra,
+					brushTextoBaseBarras,
+					new PointF(
+						xBarra + 4f - tamañoTexto.Width * 0.5f,
+						y + 4f));
+			}
+		}
+
+		private void PnlBarras_SizeChanged(object sender, EventArgs e) {
+			this.pnlBarras.Invalidate();
+		}
+
+		private float CalcularAltura(int clase, int muestra, float alturaMáxima) {
+			if(muestra == 0)
+				return 1f;
+
+			return clase * alturaMáxima / muestra;
+		}
+	}
 }

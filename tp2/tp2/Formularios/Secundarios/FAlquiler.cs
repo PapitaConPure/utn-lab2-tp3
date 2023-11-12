@@ -108,10 +108,6 @@ namespace tp2 {
 			this.RefrescarCalendario();
 		}
 
-        private void BtnCerrar_Click(object sender, EventArgs e) {
-			this.Close();
-		}
-
 		private void RefrescarCalendario() {
 			if(this.calendario is null || this.sistema is null || this.residencia is null)
 				return;

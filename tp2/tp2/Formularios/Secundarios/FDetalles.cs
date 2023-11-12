@@ -63,12 +63,15 @@ namespace tp2
 
             FAlquiler nuevo = new FAlquiler(this.sistema, this.residencia, alquiler);
 
-            if(nuevo.ShowDialog() != DialogResult.OK)
+            if(nuevo.ShowDialog() != DialogResult.OK || !nuevo.Calendario.HayDíaSeleccionado) {
                 MessageBox.Show("No se ha modificado el alquiler", "Sin cambios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
 
 			this.sistema.ModificarAlquiler(
 				this.residencia.Número,
-				alquiler.Número,nuevo.Calendario.DíaSeleccionado,
+				alquiler.Número,
+				nuevo.Calendario.DíaSeleccionado,
 				nuevo.Calendario.DíaSeleccionado.AddDays(Convert.ToInt32(nuevo.nudCantDias.Value)));
 
             MessageBox.Show($"Se aplicaron los cambios", "Alquiler modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);

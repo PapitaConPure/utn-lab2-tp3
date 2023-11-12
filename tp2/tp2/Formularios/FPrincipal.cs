@@ -320,7 +320,7 @@ namespace tp2 {
 
         private void cbFecha_CheckedChanged(object sender, EventArgs e)
         {
-			gpFecha.Enabled = true;
+			this.pnlFecha.Enabled = this.cbFecha.Checked;
         }
 
         private void propiedadesReservadasToolStripMenuItem_Click(object sender, EventArgs e)
