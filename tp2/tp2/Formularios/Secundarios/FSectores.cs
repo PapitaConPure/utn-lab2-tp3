@@ -9,19 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using tp2.Formularios;
 using AlquilerLib;
+using System.Drawing.Drawing2D;
 
 namespace tp2.Formularios.Secundarios {
 	public partial class FSectores: Form {
-		private static readonly Color colorPrimario = Color.FromArgb(255, 190, 70);
-		private static readonly Color colorSecundario = Color.FromArgb(211, 197, 197);
-		private static readonly Color colorInformación = Color.FromArgb(84, 180, 211);
-		private static readonly Color colorFrente = Color.FromArgb(22, 22, 22);
+		private static readonly Color colorTextoAlt = Color.FromArgb(22, 22, 22);
 		private static readonly Font fuenteSector = new Font("Segoe UI Semibold", 11);
-		private static readonly Font fuenteDetalle = new Font("Lato Black", 10);
 
 		private readonly Sector[] sectores = {
-			new Sector("Casas", Color.FromArgb(240, 62, 67)),
-			new Sector("Casas Finde", Color.FromArgb(62, 240, 109)),
+			new Sector("Casas", Color.FromArgb(219, 64, 69)),
+			new Sector("Casas Finde", Color.FromArgb(56, 214, 98)),
 			new Sector("Hoteles", Color.FromArgb(84, 180, 211)),
 		};
 
@@ -43,17 +40,11 @@ namespace tp2.Formularios.Secundarios {
 				else if(residencia is Hotel)
 					this.sectores[2].Peso++;
 			}
-
-			this.lbCasas.Text = $"{this.sectores[0].Nombre}: {this.sectores[0].Peso}";
-			this.lbHoteles.Text = $"{this.sectores[2].Nombre}: {this.sectores[2].Peso}";
-
-			this.sectores[0].Peso = 3;
-			this.sectores[1].Peso = 2;
-			this.sectores[2].Peso = 1;
 		}
 
 		private void FSectores_Paint(object sender, PaintEventArgs e) {
 			Graphics g = e.Graphics;
+			g.SmoothingMode = SmoothingMode.AntiAlias; //Le mete borde suavecito :3
 
 			int s;
 			if(this.pnlSectores.Width < this.pnlSectores.Height)
@@ -61,11 +52,11 @@ namespace tp2.Formularios.Secundarios {
 			else
 				s = this.pnlSectores.Height;
 
-			double margen = 0.1;
+			double margen = 0.15;
 			int ss = (int)(s * (1 - margen * 2));
-			int medio = ss / 2;
-			int x = this.pnlSectores.Width / 2 - medio;
-			int y = this.pnlSectores.Height / 2 - medio;
+			int sm = ss / 2;
+			int x = this.pnlSectores.Width / 2 - sm;
+			int y = this.pnlSectores.Height / 2 - sm;
 			Rectangle rectangulo = new Rectangle(x, y, ss, ss);
 
 			int total = 0;
@@ -78,19 +69,18 @@ namespace tp2.Formularios.Secundarios {
 				return;
 			}
 
-			//Desplazamiento del ángulo inicial 0 = Este, 90 = Sur, 180 = Oeste, 270 = Norte
+			//Desplazamiento del ángulo inicial: 0 = Este, 90 = Sur, 180 = Oeste, 270 = Norte
 			float desplazamiento = 270f;
 			float ánguloInicio;
 			float ánguloFin = desplazamiento;
 			float ángulo;
-			Size tamañoTexto;
-			string texto;
-			Pen penSector = new Pen(this.BackColor, ss * 0.01f);
+			Pen penSector = new Pen(this.BackColor, 1f);
 			Brush brushSector;
-
+			Brush brushTextoSector;
 			int i = 0;
+
+			#region Rellenos de torta
 			foreach(Sector sector in this.sectores) {
-				brushSector = new SolidBrush(sector.Color);
 				int cantidad = sector.Peso;
 				ánguloInicio = ánguloFin;
 
@@ -99,21 +89,64 @@ namespace tp2.Formularios.Secundarios {
 				else
 					ánguloFin = desplazamiento + 360f;
 
+				if(ánguloInicio == ánguloFin)
+					continue;
+
 				ángulo = ánguloFin - ánguloInicio;
-
-				texto = sector.Nombre;
-				if(ángulo >= 30) {
-					tamañoTexto = TextRenderer.MeasureText(texto, fuenteSector);
-				}
-
-				if(ánguloInicio != ánguloFin) {
-					g.DrawPie(penSector, rectangulo, ánguloInicio, ánguloFin - ánguloInicio);
-					g.FillPie(brushSector, rectangulo, ánguloInicio, ánguloFin - ánguloInicio);
-				}
-
+				brushSector = new SolidBrush(sector.Color);
+				g.FillPie(brushSector, rectangulo, ánguloInicio, ánguloFin - ánguloInicio);
+				g.DrawPie(penSector, rectangulo, ánguloInicio, ánguloFin - ánguloInicio);
 
 				i++;
 			}
+			#endregion
+
+			#region Textos de Torta
+			float ánguloMedio;
+			float seno, coseno;
+			float radioTextos = 0.6f; // Qué tan alejado está un texto del centro del pastel, del 0 al 1
+			string texto;
+			Size tamañoTexto;
+			PointF puntoTextoSector;
+			ánguloFin = desplazamiento;
+			i = 0;
+			foreach(Sector sector in this.sectores) {
+				int cantidad = sector.Peso;
+				ánguloInicio = ánguloFin;
+
+				if(i < this.sectores.Length - 1)
+					ánguloFin = ánguloInicio + 360f * cantidad / total;
+				else
+					ánguloFin = desplazamiento + 360f;
+
+				if(ánguloInicio == ánguloFin)
+					continue;
+
+				ángulo = ánguloFin - ánguloInicio;
+				ánguloMedio = (ánguloInicio + ánguloFin) * 0.5f;
+				seno = (float)Math.Cos(ánguloMedio * Math.PI / 180);
+				coseno = (float)Math.Sin(ánguloMedio * Math.PI / 180);
+
+				texto = sector.Nombre;
+				tamañoTexto = TextRenderer.MeasureText(texto, fuenteSector);
+
+				if(ángulo >= 12) {
+					brushTextoSector = new SolidBrush(Color.White);
+					puntoTextoSector = new PointF(
+						this.pnlSectores.Width / 2 + sm * radioTextos * seno - tamañoTexto.Width / 2,
+						this.pnlSectores.Height / 2 + sm * radioTextos * coseno - tamañoTexto.Height / 2);
+				} else {
+					brushTextoSector = new SolidBrush(colorTextoAlt);
+					puntoTextoSector = new PointF(
+						this.pnlSectores.Width / 2 + sm * seno - tamañoTexto.Width / 2 + tamañoTexto.Width / 2 * seno,
+						this.pnlSectores.Height / 2 + sm * coseno - tamañoTexto.Height / 2 + tamañoTexto.Height / 2 * coseno);
+				}
+
+				g.DrawString(texto, fuenteSector, brushTextoSector, puntoTextoSector);
+
+				i++;
+			}
+			#endregion
 		}
 
 		private void PnlSectores_SizeChanged(object sender, EventArgs e) {
