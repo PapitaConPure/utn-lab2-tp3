@@ -40,9 +40,12 @@ namespace tp2
 
 		private void BtnCancelarAlquiler_Click(object sender, EventArgs e) {
 			Alquiler alq = residencia.VerAlquiler((int)this.nudNroAlquiler.Value);
-			bool pudo = this.residencia.QuitarAlquiler((int)this.nudNroAlquiler.Value);
+			bool pudo;
 			if (this.sistema.UsuarioActual.Tipo != "Administrador")
 				pudo = false;
+			else
+				 pudo = this.residencia.QuitarAlquiler((int)this.nudNroAlquiler.Value);
+			
             if (pudo)
             {
 				MessageBox.Show("El alquiler ha sido cancelado", "Alquiler cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
