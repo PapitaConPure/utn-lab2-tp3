@@ -20,7 +20,7 @@ namespace tp2.Formularios.Secundarios
 		private static readonly Font fuenteBarra = new Font("Segoe UI", 11);
 		private static readonly Font fuenteBaseBarra = new Font("Lato Black", 10);
 
-		private readonly Sistema unSistema;
+		private readonly Sistema sistema;
         private readonly int cnt2, cnt3, cnt4, cnt5, cnt6;
 		private readonly Color colorSombra;
 
@@ -29,21 +29,15 @@ namespace tp2.Formularios.Secundarios
         }
 
         public FBarras(Sistema sis): this() {
-            this.unSistema = sis;
+            this.sistema = sis;
             this.Text = "Cantidad de pasajeros";
-			this.unSistema.CantDos
-			= this.unSistema.CantTres
-			= this.unSistema.CantCuatro
-			= this.unSistema.CantCinco
-			= this.unSistema.CantSeis
-				= 0;
 
 			this.colorSombra = Color.FromArgb(
 				(int)(this.BackColor.R * 0.72),
 				(int)(this.BackColor.G * 0.69),
 				(int)(this.BackColor.B * 0.80));
 
-            foreach(Residencia r in this.unSistema.Residencias) {
+            foreach(Residencia r in this.sistema.Residencias) {
                 foreach(Alquiler a in r.Alquileres) {
                     switch(a.Cliente.CantPasajeros) {
                     case 1:

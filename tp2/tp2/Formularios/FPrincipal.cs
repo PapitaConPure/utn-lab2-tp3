@@ -64,7 +64,7 @@ namespace tp2 {
 			}
 
 			this.Hide();
-			new FSplash(3.25, 50).ShowDialog();
+			new FSplash(0.001, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
 			this.Show();
 		}
 

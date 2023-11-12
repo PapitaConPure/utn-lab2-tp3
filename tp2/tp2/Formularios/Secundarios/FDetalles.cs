@@ -44,8 +44,6 @@ namespace tp2
             if (pudo)
             {
 				MessageBox.Show("El alquiler ha sido cancelado", "Alquiler cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				if (residencia is Casa) sistema.CantCasas--;
-				else sistema.CantHoteles--;
 			}
 			else
 				MessageBox.Show("El alquiler no se ha podido cancelar", "Sin cambios", MessageBoxButtons.OK, MessageBoxIcon.Information);
