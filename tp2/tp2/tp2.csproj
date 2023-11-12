@@ -107,10 +107,10 @@
     <Compile Include="Formularios\Secundarios\FSectores.Designer.cs">
       <DependentUpon>FSectores.cs</DependentUpon>
     </Compile>
-    <Compile Include="FUsuario.cs">
+    <Compile Include="Formularios\FUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FUsuario.Designer.cs">
+    <Compile Include="Formularios\FUsuario.Designer.cs">
       <DependentUpon>FUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -145,7 +145,7 @@
     <EmbeddedResource Include="Formularios\Secundarios\FSectores.resx">
       <DependentUpon>FSectores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FUsuario.resx">
+    <EmbeddedResource Include="Formularios\FUsuario.resx">
       <DependentUpon>FUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

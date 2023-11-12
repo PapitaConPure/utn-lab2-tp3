@@ -38,12 +38,12 @@ namespace tp2 {
 			this.lsbResidencias = new System.Windows.Forms.ListBox();
 			this.pnlFiltro = new System.Windows.Forms.Panel();
 			this.gpFecha = new System.Windows.Forms.GroupBox();
+			this.cbFecha = new System.Windows.Forms.CheckBox();
 			this.pnlFecha = new System.Windows.Forms.Panel();
 			this.lbIngreso = new System.Windows.Forms.Label();
 			this.dtpSalida = new System.Windows.Forms.DateTimePicker();
 			this.lbSalida = new System.Windows.Forms.Label();
 			this.dtpIngreso = new System.Windows.Forms.DateTimePicker();
-			this.cbFecha = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.lbDestino = new System.Windows.Forms.Label();
 			this.lbCantPasajeros = new System.Windows.Forms.Label();
@@ -68,8 +68,6 @@ namespace tp2 {
 			this.btnConsultarPropiedad = new System.Windows.Forms.Button();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.graficarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cantidadPasajaerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.propiedadesReservadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +75,8 @@ namespace tp2 {
 			this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.barraEstado = new System.Windows.Forms.StatusStrip();
 			this.gbAgregar.SuspendLayout();
 			this.tlpBotonesAgregar.SuspendLayout();
@@ -107,7 +107,7 @@ namespace tp2 {
 			this.btnImportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnImportar.Location = new System.Drawing.Point(3, 3);
 			this.btnImportar.Name = "btnImportar";
-			this.btnImportar.Size = new System.Drawing.Size(572, 39);
+			this.btnImportar.Size = new System.Drawing.Size(424, 39);
 			this.btnImportar.TabIndex = 0;
 			this.btnImportar.Text = "Importar";
 			this.btnImportar.UseVisualStyleBackColor = false;
@@ -120,9 +120,9 @@ namespace tp2 {
 			this.btnExportar.FlatAppearance.BorderSize = 0;
 			this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnExportar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnExportar.Location = new System.Drawing.Point(709, 3);
+			this.btnExportar.Location = new System.Drawing.Point(528, 3);
 			this.btnExportar.Name = "btnExportar";
-			this.btnExportar.Size = new System.Drawing.Size(574, 39);
+			this.btnExportar.Size = new System.Drawing.Size(425, 39);
 			this.btnExportar.TabIndex = 1;
 			this.btnExportar.Text = "Exportar";
 			this.btnExportar.UseVisualStyleBackColor = false;
@@ -148,7 +148,7 @@ namespace tp2 {
 			this.gbAgregar.Dock = System.Windows.Forms.DockStyle.Top;
 			this.gbAgregar.Location = new System.Drawing.Point(0, 24);
 			this.gbAgregar.Name = "gbAgregar";
-			this.gbAgregar.Size = new System.Drawing.Size(1292, 79);
+			this.gbAgregar.Size = new System.Drawing.Size(962, 79);
 			this.gbAgregar.TabIndex = 0;
 			this.gbAgregar.TabStop = false;
 			this.gbAgregar.Text = "Agregar Residencias";
@@ -166,7 +166,7 @@ namespace tp2 {
 			this.tlpBotonesAgregar.Name = "tlpBotonesAgregar";
 			this.tlpBotonesAgregar.RowCount = 1;
 			this.tlpBotonesAgregar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tlpBotonesAgregar.Size = new System.Drawing.Size(1286, 52);
+			this.tlpBotonesAgregar.Size = new System.Drawing.Size(956, 52);
 			this.tlpBotonesAgregar.TabIndex = 0;
 			// 
 			// btnAgregarCasa
@@ -182,7 +182,7 @@ namespace tp2 {
 			this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
 			this.btnAgregarCasa.Name = "btnAgregarCasa";
 			this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-			this.btnAgregarCasa.Size = new System.Drawing.Size(631, 46);
+			this.btnAgregarCasa.Size = new System.Drawing.Size(466, 46);
 			this.btnAgregarCasa.TabIndex = 0;
 			this.btnAgregarCasa.Text = "Casa";
 			this.btnAgregarCasa.UseVisualStyleBackColor = false;
@@ -198,10 +198,10 @@ namespace tp2 {
 			this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
 			this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
 			this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnAgregarHotel.Location = new System.Drawing.Point(652, 3);
+			this.btnAgregarHotel.Location = new System.Drawing.Point(487, 3);
 			this.btnAgregarHotel.Name = "btnAgregarHotel";
 			this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-			this.btnAgregarHotel.Size = new System.Drawing.Size(631, 46);
+			this.btnAgregarHotel.Size = new System.Drawing.Size(466, 46);
 			this.btnAgregarHotel.TabIndex = 1;
 			this.btnAgregarHotel.Text = "Hotel";
 			this.btnAgregarHotel.UseVisualStyleBackColor = false;
@@ -220,7 +220,7 @@ namespace tp2 {
 			this.tlpBotonesDatos.Name = "tlpBotonesDatos";
 			this.tlpBotonesDatos.RowCount = 1;
 			this.tlpBotonesDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tlpBotonesDatos.Size = new System.Drawing.Size(1286, 45);
+			this.tlpBotonesDatos.Size = new System.Drawing.Size(956, 45);
 			this.tlpBotonesDatos.TabIndex = 13;
 			// 
 			// gbDatos
@@ -229,7 +229,7 @@ namespace tp2 {
 			this.gbDatos.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.gbDatos.Location = new System.Drawing.Point(0, 537);
 			this.gbDatos.Name = "gbDatos";
-			this.gbDatos.Size = new System.Drawing.Size(1292, 71);
+			this.gbDatos.Size = new System.Drawing.Size(962, 71);
 			this.gbDatos.TabIndex = 3;
 			this.gbDatos.TabStop = false;
 			this.gbDatos.Text = "Alquileres";
@@ -242,7 +242,7 @@ namespace tp2 {
 			this.gbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbBuscar.Location = new System.Drawing.Point(0, 103);
 			this.gbBuscar.Name = "gbBuscar";
-			this.gbBuscar.Size = new System.Drawing.Size(1292, 434);
+			this.gbBuscar.Size = new System.Drawing.Size(962, 434);
 			this.gbBuscar.TabIndex = 2;
 			this.gbBuscar.TabStop = false;
 			this.gbBuscar.Text = "Administrar Residencias";
@@ -255,14 +255,13 @@ namespace tp2 {
 			this.lsbResidencias.ItemHeight = 20;
 			this.lsbResidencias.Location = new System.Drawing.Point(3, 109);
 			this.lsbResidencias.Name = "lsbResidencias";
-			this.lsbResidencias.Size = new System.Drawing.Size(1286, 274);
+			this.lsbResidencias.Size = new System.Drawing.Size(956, 274);
 			this.lsbResidencias.TabIndex = 1;
 			this.lsbResidencias.DoubleClick += new System.EventHandler(this.BtnConsultarPropiedad_Click);
 			// 
 			// pnlFiltro
 			// 
 			this.pnlFiltro.Controls.Add(this.gpFecha);
-			this.pnlFiltro.Controls.Add(this.cbFecha);
 			this.pnlFiltro.Controls.Add(this.tableLayoutPanel4);
 			this.pnlFiltro.Controls.Add(this.gbPrecio);
 			this.pnlFiltro.Controls.Add(this.tableLayoutPanel2);
@@ -271,19 +270,32 @@ namespace tp2 {
 			this.pnlFiltro.Location = new System.Drawing.Point(3, 23);
 			this.pnlFiltro.Name = "pnlFiltro";
 			this.pnlFiltro.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-			this.pnlFiltro.Size = new System.Drawing.Size(1286, 86);
+			this.pnlFiltro.Size = new System.Drawing.Size(956, 86);
 			this.pnlFiltro.TabIndex = 21;
 			// 
 			// gpFecha
 			// 
+			this.gpFecha.Controls.Add(this.cbFecha);
 			this.gpFecha.Controls.Add(this.pnlFecha);
 			this.gpFecha.Dock = System.Windows.Forms.DockStyle.Left;
 			this.gpFecha.Location = new System.Drawing.Point(510, 0);
 			this.gpFecha.Name = "gpFecha";
-			this.gpFecha.Size = new System.Drawing.Size(348, 86);
+			this.gpFecha.Size = new System.Drawing.Size(179, 86);
 			this.gpFecha.TabIndex = 3;
 			this.gpFecha.TabStop = false;
 			this.gpFecha.Text = "Disponibilidad";
+			// 
+			// cbFecha
+			// 
+			this.cbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.cbFecha.AutoSize = true;
+			this.cbFecha.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.cbFecha.Location = new System.Drawing.Point(160, 4);
+			this.cbFecha.Name = "cbFecha";
+			this.cbFecha.Size = new System.Drawing.Size(15, 14);
+			this.cbFecha.TabIndex = 26;
+			this.cbFecha.UseVisualStyleBackColor = true;
+			this.cbFecha.CheckedChanged += new System.EventHandler(this.cbFecha_CheckedChanged);
 			// 
 			// pnlFecha
 			// 
@@ -296,7 +308,7 @@ namespace tp2 {
 			this.pnlFecha.Location = new System.Drawing.Point(3, 23);
 			this.pnlFecha.Margin = new System.Windows.Forms.Padding(0);
 			this.pnlFecha.Name = "pnlFecha";
-			this.pnlFecha.Size = new System.Drawing.Size(342, 60);
+			this.pnlFecha.Size = new System.Drawing.Size(173, 60);
 			this.pnlFecha.TabIndex = 4;
 			// 
 			// lbIngreso
@@ -312,9 +324,10 @@ namespace tp2 {
 			// 
 			this.dtpSalida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.dtpSalida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 			this.dtpSalida.Location = new System.Drawing.Point(73, 33);
 			this.dtpSalida.Name = "dtpSalida";
-			this.dtpSalida.Size = new System.Drawing.Size(266, 27);
+			this.dtpSalida.Size = new System.Drawing.Size(97, 27);
 			this.dtpSalida.TabIndex = 1;
 			// 
 			// lbSalida
@@ -330,22 +343,11 @@ namespace tp2 {
 			// 
 			this.dtpIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.dtpIngreso.Location = new System.Drawing.Point(76, 4);
+			this.dtpIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			this.dtpIngreso.Location = new System.Drawing.Point(73, 4);
 			this.dtpIngreso.Name = "dtpIngreso";
-			this.dtpIngreso.Size = new System.Drawing.Size(266, 27);
+			this.dtpIngreso.Size = new System.Drawing.Size(97, 27);
 			this.dtpIngreso.TabIndex = 0;
-			// 
-			// cbFecha
-			// 
-			this.cbFecha.AutoSize = true;
-			this.cbFecha.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.cbFecha.Location = new System.Drawing.Point(881, 31);
-			this.cbFecha.Name = "cbFecha";
-			this.cbFecha.Size = new System.Drawing.Size(87, 24);
-			this.cbFecha.TabIndex = 26;
-			this.cbFecha.Text = "Activado";
-			this.cbFecha.UseVisualStyleBackColor = true;
-			this.cbFecha.CheckedChanged += new System.EventHandler(this.cbFecha_CheckedChanged);
 			// 
 			// tableLayoutPanel4
 			// 
@@ -443,11 +445,6 @@ namespace tp2 {
 			this.nudMaxPrice.Name = "nudMaxPrice";
 			this.nudMaxPrice.Size = new System.Drawing.Size(63, 27);
 			this.nudMaxPrice.TabIndex = 13;
-			this.nudMaxPrice.Value = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
 			// 
 			// nudMinPrice
 			// 
@@ -537,7 +534,7 @@ namespace tp2 {
 			this.tableLayoutPanel5.Controls.Add(this.btnMostrarResidencias, 0, 0);
 			this.tableLayoutPanel5.Controls.Add(this.btnLimpiarFiltros, 0, 1);
 			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Right;
-			this.tableLayoutPanel5.Location = new System.Drawing.Point(1171, 0);
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(841, 0);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
 			this.tableLayoutPanel5.RowCount = 2;
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -590,7 +587,7 @@ namespace tp2 {
 			this.tlpBotonesPropiedades.Name = "tlpBotonesPropiedades";
 			this.tlpBotonesPropiedades.RowCount = 1;
 			this.tlpBotonesPropiedades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tlpBotonesPropiedades.Size = new System.Drawing.Size(1286, 48);
+			this.tlpBotonesPropiedades.Size = new System.Drawing.Size(956, 48);
 			this.tlpBotonesPropiedades.TabIndex = 22;
 			// 
 			// btnBorrarPropiedad
@@ -603,10 +600,10 @@ namespace tp2 {
 			this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
 			this.btnBorrarPropiedad.Image = global::tp2.Properties.Resources.xwhite32;
 			this.btnBorrarPropiedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnBorrarPropiedad.Location = new System.Drawing.Point(859, 3);
+			this.btnBorrarPropiedad.Location = new System.Drawing.Point(639, 3);
 			this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
 			this.btnBorrarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-			this.btnBorrarPropiedad.Size = new System.Drawing.Size(424, 42);
+			this.btnBorrarPropiedad.Size = new System.Drawing.Size(314, 42);
 			this.btnBorrarPropiedad.TabIndex = 2;
 			this.btnBorrarPropiedad.Text = "Eliminar";
 			this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
@@ -621,7 +618,7 @@ namespace tp2 {
 			this.btnModificarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnModificarPropiedad.Location = new System.Drawing.Point(3, 3);
 			this.btnModificarPropiedad.Name = "btnModificarPropiedad";
-			this.btnModificarPropiedad.Size = new System.Drawing.Size(422, 42);
+			this.btnModificarPropiedad.Size = new System.Drawing.Size(312, 42);
 			this.btnModificarPropiedad.TabIndex = 0;
 			this.btnModificarPropiedad.Text = "Modificar";
 			this.btnModificarPropiedad.UseVisualStyleBackColor = false;
@@ -635,9 +632,9 @@ namespace tp2 {
 			this.btnConsultarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnConsultarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnConsultarPropiedad.ForeColor = System.Drawing.Color.White;
-			this.btnConsultarPropiedad.Location = new System.Drawing.Point(431, 3);
+			this.btnConsultarPropiedad.Location = new System.Drawing.Point(321, 3);
 			this.btnConsultarPropiedad.Name = "btnConsultarPropiedad";
-			this.btnConsultarPropiedad.Size = new System.Drawing.Size(422, 42);
+			this.btnConsultarPropiedad.Size = new System.Drawing.Size(312, 42);
 			this.btnConsultarPropiedad.TabIndex = 1;
 			this.btnConsultarPropiedad.Text = "Consultar";
 			this.btnConsultarPropiedad.UseVisualStyleBackColor = false;
@@ -645,48 +642,40 @@ namespace tp2 {
 			// 
 			// menuStrip1
 			// 
+			this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.menuStrip1.Font = new System.Drawing.Font("Lato Black", 9F);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inicioToolStripMenuItem,
-            this.ayudaToolStripMenuItem,
-            this.acercaDeToolStripMenuItem,
             this.graficarToolStripMenuItem,
-            this.usuarioToolStripMenuItem});
+            this.usuarioToolStripMenuItem,
+            this.ayudaToolStripMenuItem,
+            this.acercaDeToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1292, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(962, 24);
 			this.menuStrip1.TabIndex = 4;
-			this.menuStrip1.Text = "menuStrip1";
+			this.menuStrip1.Text = "menuStrip";
 			// 
 			// inicioToolStripMenuItem
 			// 
+			this.inicioToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
 			this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-			this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-			this.inicioToolStripMenuItem.Text = "Inicio";
-			// 
-			// ayudaToolStripMenuItem
-			// 
-			this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-			this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-			this.ayudaToolStripMenuItem.Text = "Ayuda";
-			// 
-			// acercaDeToolStripMenuItem
-			// 
-			this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-			this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-			this.acercaDeToolStripMenuItem.Text = "Acerca de";
-			this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
+			this.inicioToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+			this.inicioToolStripMenuItem.Text = "ARCHIVO";
 			// 
 			// graficarToolStripMenuItem
 			// 
 			this.graficarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cantidadPasajaerosToolStripMenuItem,
             this.propiedadesReservadasToolStripMenuItem});
+			this.graficarToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
 			this.graficarToolStripMenuItem.Name = "graficarToolStripMenuItem";
-			this.graficarToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-			this.graficarToolStripMenuItem.Text = "Graficar";
+			this.graficarToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+			this.graficarToolStripMenuItem.Text = "GRAFICAR";
 			// 
 			// cantidadPasajaerosToolStripMenuItem
 			// 
+			this.cantidadPasajaerosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.cantidadPasajaerosToolStripMenuItem.Name = "cantidadPasajaerosToolStripMenuItem";
 			this.cantidadPasajaerosToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
 			this.cantidadPasajaerosToolStripMenuItem.Text = "Cantidad Pasajeros";
@@ -694,6 +683,7 @@ namespace tp2 {
 			// 
 			// propiedadesReservadasToolStripMenuItem
 			// 
+			this.propiedadesReservadasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.propiedadesReservadasToolStripMenuItem.Name = "propiedadesReservadasToolStripMenuItem";
 			this.propiedadesReservadasToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
 			this.propiedadesReservadasToolStripMenuItem.Text = "Propiedades Reservadas";
@@ -705,43 +695,64 @@ namespace tp2 {
             this.agregarUsuarioToolStripMenuItem,
             this.eliminarUsuarioToolStripMenuItem,
             this.cambiarContraseñaToolStripMenuItem});
+			this.usuarioToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
 			this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-			this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-			this.usuarioToolStripMenuItem.Text = "Usuario";
+			this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+			this.usuarioToolStripMenuItem.Text = "USUARIO";
 			// 
 			// agregarUsuarioToolStripMenuItem
 			// 
+			this.agregarUsuarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
 			this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
 			this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
-			this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
+			this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.AgregarUsuarioToolStripMenuItem_Click);
 			// 
 			// eliminarUsuarioToolStripMenuItem
 			// 
+			this.eliminarUsuarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
 			this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
 			this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
-			this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.eliminarUsuarioToolStripMenuItem_Click);
+			this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.EliminarUsuarioToolStripMenuItem_Click);
 			// 
 			// cambiarContraseñaToolStripMenuItem
 			// 
+			this.cambiarContraseñaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
 			this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
 			this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar Contraseña";
-			this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
+			this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.CambiarContraseñaToolStripMenuItem_Click);
+			// 
+			// ayudaToolStripMenuItem
+			// 
+			this.ayudaToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+			this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+			this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+			this.ayudaToolStripMenuItem.Text = "AYUDA";
+			// 
+			// acercaDeToolStripMenuItem
+			// 
+			this.acercaDeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+			this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+			this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+			this.acercaDeToolStripMenuItem.Text = "ACERCA DE...";
+			this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
 			// 
 			// barraEstado
 			// 
+			this.barraEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.barraEstado.Font = new System.Drawing.Font("Lato Black", 9F);
 			this.barraEstado.Location = new System.Drawing.Point(0, 608);
 			this.barraEstado.Name = "barraEstado";
-			this.barraEstado.Size = new System.Drawing.Size(1292, 22);
+			this.barraEstado.Size = new System.Drawing.Size(962, 22);
 			this.barraEstado.TabIndex = 5;
 			// 
 			// FPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1292, 630);
+			this.ClientSize = new System.Drawing.Size(962, 630);
 			this.Controls.Add(this.gbBuscar);
 			this.Controls.Add(this.gbAgregar);
 			this.Controls.Add(this.gbDatos);
@@ -751,7 +762,7 @@ namespace tp2 {
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.MinimizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(600, 480);
+			this.MinimumSize = new System.Drawing.Size(826, 480);
 			this.Name = "FPrincipal";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Empresa de Alquileres";
@@ -763,8 +774,8 @@ namespace tp2 {
 			this.gbDatos.ResumeLayout(false);
 			this.gbBuscar.ResumeLayout(false);
 			this.pnlFiltro.ResumeLayout(false);
-			this.pnlFiltro.PerformLayout();
 			this.gpFecha.ResumeLayout(false);
+			this.gpFecha.PerformLayout();
 			this.pnlFecha.ResumeLayout(false);
 			this.pnlFecha.PerformLayout();
 			this.tableLayoutPanel4.ResumeLayout(false);
@@ -842,6 +853,6 @@ namespace tp2 {
         private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
-    }
+	}
 }
 

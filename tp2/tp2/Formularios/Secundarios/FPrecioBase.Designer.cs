@@ -37,26 +37,31 @@ namespace tp2 {
 			// 
 			this.gbPrecioBase.Controls.Add(this.nudPrecioBase);
 			this.gbPrecioBase.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gbPrecioBase.Location = new System.Drawing.Point(16, 18);
+			this.gbPrecioBase.Font = new System.Drawing.Font("Lato Black", 9F);
+			this.gbPrecioBase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+			this.gbPrecioBase.Location = new System.Drawing.Point(12, 12);
 			this.gbPrecioBase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbPrecioBase.Name = "gbPrecioBase";
 			this.gbPrecioBase.Padding = new System.Windows.Forms.Padding(4, 2, 4, 5);
-			this.gbPrecioBase.Size = new System.Drawing.Size(252, 55);
+			this.gbPrecioBase.Size = new System.Drawing.Size(276, 50);
 			this.gbPrecioBase.TabIndex = 0;
 			this.gbPrecioBase.TabStop = false;
-			this.gbPrecioBase.Text = "Precio Base de Residencias";
+			this.gbPrecioBase.Text = "PRECIO BASE DE RESIDENCIAS";
 			// 
 			// nudPrecioBase
 			// 
+			this.nudPrecioBase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
 			this.nudPrecioBase.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.nudPrecioBase.DecimalPlaces = 2;
 			this.nudPrecioBase.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudPrecioBase.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.nudPrecioBase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
 			this.nudPrecioBase.Increment = new decimal(new int[] {
             100,
             0,
             0,
             0});
-			this.nudPrecioBase.Location = new System.Drawing.Point(4, 22);
+			this.nudPrecioBase.Location = new System.Drawing.Point(4, 17);
 			this.nudPrecioBase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.nudPrecioBase.Maximum = new decimal(new int[] {
             999999,
@@ -69,7 +74,7 @@ namespace tp2 {
             0,
             0});
 			this.nudPrecioBase.Name = "nudPrecioBase";
-			this.nudPrecioBase.Size = new System.Drawing.Size(244, 27);
+			this.nudPrecioBase.Size = new System.Drawing.Size(268, 27);
 			this.nudPrecioBase.TabIndex = 4;
 			this.nudPrecioBase.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.nudPrecioBase.Value = new decimal(new int[] {
@@ -82,10 +87,10 @@ namespace tp2 {
 			// 
 			this.pnlAceptar.Controls.Add(this.btnAceptar);
 			this.pnlAceptar.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pnlAceptar.Location = new System.Drawing.Point(16, 73);
+			this.pnlAceptar.Location = new System.Drawing.Point(12, 62);
 			this.pnlAceptar.Name = "pnlAceptar";
 			this.pnlAceptar.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.pnlAceptar.Size = new System.Drawing.Size(252, 42);
+			this.pnlAceptar.Size = new System.Drawing.Size(276, 42);
 			this.pnlAceptar.TabIndex = 6;
 			// 
 			// btnAceptar
@@ -96,9 +101,10 @@ namespace tp2 {
 			this.btnAceptar.FlatAppearance.BorderSize = 0;
 			this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnAceptar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+			this.btnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
 			this.btnAceptar.Location = new System.Drawing.Point(4, 5);
 			this.btnAceptar.Name = "btnAceptar";
-			this.btnAceptar.Size = new System.Drawing.Size(244, 32);
+			this.btnAceptar.Size = new System.Drawing.Size(268, 32);
 			this.btnAceptar.TabIndex = 6;
 			this.btnAceptar.Text = "Confirmar";
 			this.btnAceptar.UseVisualStyleBackColor = false;
@@ -108,17 +114,19 @@ namespace tp2 {
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 133);
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+			this.ClientSize = new System.Drawing.Size(300, 116);
 			this.ControlBox = false;
 			this.Controls.Add(this.gbPrecioBase);
 			this.Controls.Add(this.pnlAceptar);
 			this.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.MaximumSize = new System.Drawing.Size(300, 172);
-			this.MinimumSize = new System.Drawing.Size(300, 172);
+			this.MaximumSize = new System.Drawing.Size(300, 116);
+			this.MinimumSize = new System.Drawing.Size(300, 116);
 			this.Name = "FNuevoSistema";
-			this.Padding = new System.Windows.Forms.Padding(16, 18, 16, 18);
+			this.Padding = new System.Windows.Forms.Padding(12);
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Base del Sistema";
 			this.gbPrecioBase.ResumeLayout(false);

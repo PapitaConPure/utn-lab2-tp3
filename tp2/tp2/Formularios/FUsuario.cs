@@ -14,6 +14,8 @@ namespace tp2
 {
     public partial class FUsuario : Form
     {
+		bool esperarEntrada = false;
+
         public FUsuario()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace tp2
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            string usuario = tbUsuario.Text, contraseña=tbContraseña.Text;
+            string usuario = tbUsuario.Text, contraseña = tbContraseña.Text;
             Usuario aux;
             bool encontro=false;
             bool admin = false;
@@ -58,6 +60,21 @@ namespace tp2
                 this.DialogResult = DialogResult.None;
                 MessageBox.Show("Contraseña o usuario invalido", "Error");
             }
-        }
-    }
+		}
+
+		private void FUsuario_KeyDown(object sender, KeyEventArgs e) {
+			esperarEntrada = true;
+		}
+
+		private void FUsuario_KeyUp(object sender, KeyEventArgs e) {
+			if(!esperarEntrada)
+				return;
+
+			if(this.btnIngresar.Visible && e.KeyCode == Keys.Enter) {
+				this.btnIngresar.PerformClick();
+			}
+
+			esperarEntrada = false;
+		}
+	}
 }

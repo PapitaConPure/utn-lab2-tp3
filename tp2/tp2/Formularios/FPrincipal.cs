@@ -26,7 +26,7 @@ namespace tp2 {
 			this.InitializeComponent();
 		}
 
-		#region Persistencia de Sistema
+		#region Persistencia de Sistema y Carga de Formulario
 		private void FPrincipal_Load(object sender, EventArgs e) {
 			string rutaDir = Application.StartupPath;
 			this.rutaBin = Path.Combine(rutaDir, "config.dat");
@@ -82,10 +82,22 @@ namespace tp2 {
 				this.btnModificarPropiedad.Enabled = this.btnBorrarPropiedad.Enabled = false;
 				agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = false;
 			}
+
 			sistema.UsuarioActual = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
 			f.Dispose();
+
+			if(sistema.UsuarioActual is null) {
+				Application.Exit();
+				return;
+			}
+
 			barraEstado.Items.Clear();
-            barraEstado.Items.Add("Usuario: " + sistema.UsuarioActual.Nombre+" - "+tipoUsuario);
+			ToolStripStatusLabel labelTipoUsuario = new ToolStripStatusLabel(tipoUsuario.ToUpper());
+			ToolStripStatusLabel labelNombreUsuario = new ToolStripStatusLabel(this.sistema.UsuarioActual.Nombre.ToUpper());
+			labelTipoUsuario.ForeColor = Color.FromArgb(211, 197, 197);
+			labelNombreUsuario.ForeColor = Color.FromArgb(168, 146, 146);
+			this.barraEstado.Items.Add(labelTipoUsuario);
+			this.barraEstado.Items.Add(labelNombreUsuario);
             this.Show();
 		}
 
@@ -222,9 +234,7 @@ namespace tp2 {
 			this.rbCasaFinde.Checked = false;
 			this.rbHotel.Checked = false;
 			this.cbFecha.Checked = false;
-			this.gpFecha.Enabled = false;
 			this.ActualizarListadoResidencias();
-			this.lsbResidencias.Items.Clear();
 		}
 
 		private bool VerificarTipo(Residencia r) {
@@ -336,7 +346,7 @@ namespace tp2 {
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 			AcercaDe fAcercaDe = new AcercaDe();
-			fAcercaDe.Show();
+			fAcercaDe.ShowDialog();
         }
 
         private void cbFecha_CheckedChanged(object sender, EventArgs e)
@@ -358,12 +368,16 @@ namespace tp2 {
 			FB.Dispose();
         }
 
-        private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AgregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 			FUsuario f = new FUsuario(this.sistema);
 			f.btnIngresar.Visible = false;
-			f.btnAceptar.Visible = f.btnCancelar.Visible = true;
-			f.rbAdministrador.Visible = f.rbEmpleado.Visible = f.lbTipoUsuario.Visible = true;
+			f.tlpBotonesAlt.Visible = true;
+			f.tlpTipoUsuario.Visible = true;
+
+			f.lblTítulo.Text = "Agregar Usuario";
+			f.btnAceptar.Text = "Agregar";
+
 			if(f.ShowDialog() == DialogResult.No)
             {
 				string tipo="";
@@ -380,11 +394,17 @@ namespace tp2 {
             }
         }
 
-        private void eliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 			FUsuario f = new FUsuario(this.sistema);
             f.btnIngresar.Visible = false;
-			f.btnAceptar.Visible = f.btnCancelar.Visible = true;
+			f.tlpBotonesAlt.Visible = true;
+
+			f.lblTítulo.Text = "Eliminar Usuario";
+			f.btnAceptar.BackColor = Color.FromArgb(240, 62, 67);
+			f.btnAceptar.ForeColor = Color.White;
+			f.btnAceptar.Text = "Eliminar";
+
 			if (f.ShowDialog() == DialogResult.No)
 			{
 				Usuario aux = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
@@ -401,13 +421,16 @@ namespace tp2 {
 			}
 		}
 
-        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 			FUsuario f = new FUsuario(this.sistema);
 			f.btnIngresar.Visible = false;
-			f.btnAceptar.Visible = f.btnCancelar.Visible = true;
+			f.tlpBotonesAlt.Visible = true;
 			f.tbUsuario.Text = sistema.UsuarioActual.Nombre;
-			f.tbUsuario.Enabled = false;
+			f.gbUsuario.Enabled = false;
+
+			f.lblTítulo.Text = "Cambiar contraseña";
+
 			if(f.ShowDialog() == DialogResult.No)
             {
 				sistema.UsuarioActual.CambiarContraseña(f.tbContraseña.Text);

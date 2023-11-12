@@ -15,6 +15,7 @@ namespace tp2
     {
         private readonly Sistema sistema;
         private readonly Residencia residencia;
+		private Alquiler alquiler;
 
         public FDetalles() {
             this.InitializeComponent();
@@ -57,12 +58,17 @@ namespace tp2
 		}
 		private void btnImprimir_Click(object sender, EventArgs e)
 		{
+			this.alquiler = this.residencia.VerAlquiler((int)this.nudNroAlquiler.Value);
+			if(this.alquiler is null) {
+				MessageBox.Show("No se encontró el alquiler", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
 			PrintDocument aImprimir = new PrintDocument();
 			PrintPreviewDialog previo = new PrintPreviewDialog();
 			aImprimir.PrintPage += this.Imprimir_PrintPage;
 			try
 			{
-
 				previo.Document = aImprimir;
 				if (previo.ShowDialog() == DialogResult.OK)
 				{
@@ -84,7 +90,6 @@ namespace tp2
 		private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
         {
 			Graphics g = e.Graphics;
-			Alquiler alq = residencia.VerAlquiler((int)this.nudNroAlquiler.Value);
 			Font encabezado = new Font("Arial", 14, FontStyle.Bold);
 			Font encabezado2 = new Font("Arial", 12, FontStyle.Bold);
 			Font cuerpo = new Font("Arial", 11, FontStyle.Regular);
@@ -114,7 +119,7 @@ namespace tp2
 			if (residencia is Hotel)
 			{
 				tipo = "Hotel";
-				g.DrawString("Tipo Habitación: "+ alq.Habitacion.Tipo, encabezado2, brush, 60, 540);
+				g.DrawString("Tipo Habitación: "+ alquiler.Habitacion.Tipo, encabezado2, brush, 60, 540);
 			}
 			else if (residencia is CasaFinde) tipo = "Casa de Fin de semana";
 			else tipo = "Casa";
@@ -126,14 +131,14 @@ namespace tp2
 			g.DrawString(t, encabezado, brush,
 						new Rectangle(x,y+=40,ancho,y));
 			y = 300;
-			g.DrawString("Fecha entrada: "+alq.CheckIn.ToShortDateString(), encabezado2, brush, 60, y);
-			g.DrawString("Fecha salida: " + alq.CheckOut.ToShortDateString(), encabezado2, brush, 60, y+=30);
-			g.DrawString("Responsable: " + alq.Cliente.Apellido+" "+alq.Cliente.Nombre, encabezado2, brush, 60, y += 30);
-			g.DrawString("Dni: " + alq.Cliente.Dni, encabezado2, brush, 60, y += 30);
-			g.DrawString("Teléfono: " + alq.Cliente.Teléfono, encabezado2, brush, 60, y += 30);
-			g.DrawString("Cantidad de pasajeros: " + alq.Cliente.CantPasajeros, encabezado2, brush, 60, y += 30);
-			g.DrawString("Alquiler realizado el día: " + alq.FechaReserva.ToShortDateString(), encabezado2, brush, 60, y += 30);
-			g.DrawString("Precio Total: $" + alq.PrecioTotal, encabezado2, brush, 60, y += 30);
+			g.DrawString("Fecha entrada: "+alquiler.CheckIn.ToShortDateString(), encabezado2, brush, 60, y);
+			g.DrawString("Fecha salida: " + alquiler.CheckOut.ToShortDateString(), encabezado2, brush, 60, y+=30);
+			g.DrawString("Responsable: " + alquiler.Cliente.Apellido+" "+alquiler.Cliente.Nombre, encabezado2, brush, 60, y += 30);
+			g.DrawString("Dni: " + alquiler.Cliente.Dni, encabezado2, brush, 60, y += 30);
+			g.DrawString("Teléfono: " + alquiler.Cliente.Teléfono, encabezado2, brush, 60, y += 30);
+			g.DrawString("Cantidad de pasajeros: " + alquiler.Cliente.CantPasajeros, encabezado2, brush, 60, y += 30);
+			g.DrawString("Alquiler realizado el día: " + alquiler.FechaReserva.ToShortDateString(), encabezado2, brush, 60, y += 30);
+			g.DrawString("Precio Total: $" + alquiler.PrecioTotal, encabezado2, brush, 60, y += 30);
 
 			t = "Firma de la empresa";
 			s = TextRenderer.MeasureText(t, cuerpo);

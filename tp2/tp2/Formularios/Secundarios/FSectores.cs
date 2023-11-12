@@ -33,12 +33,12 @@ namespace tp2.Formularios.Secundarios {
 			this.Text = "Cantidad de Reservas";
 
 			foreach(Residencia residencia in this.sistema.Residencias) {
-				if(residencia is Casa)
-					this.sectores[0].Peso++;
-				else if(residencia is CasaFinde)
-					this.sectores[1].Peso++;
+				if(residencia is CasaFinde)
+					this.sectores[1].Peso += residencia.Alquileres.Length;
+				else if(residencia is Casa)
+					this.sectores[0].Peso += residencia.Alquileres.Length;
 				else if(residencia is Hotel)
-					this.sectores[2].Peso++;
+					this.sectores[2].Peso += residencia.Alquileres.Length;
 			}
 		}
 
