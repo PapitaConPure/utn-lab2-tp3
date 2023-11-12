@@ -84,6 +84,7 @@ namespace tp2.Formularios.Secundarios
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(800, 450);
 			this.panel1.TabIndex = 4;
+			this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.FSectores_Paint);
 			// 
 			// FSectores
 			// 
@@ -98,7 +99,6 @@ namespace tp2.Formularios.Secundarios
 			this.Name = "FSectores";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FSectores";
-			this.Paint += new System.Windows.Forms.PaintEventHandler(this.FSectores_Paint);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
