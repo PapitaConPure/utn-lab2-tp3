@@ -55,14 +55,13 @@ namespace tp2
 		{
 			PrintDocument aImprimir = new PrintDocument();
 			PrintPreviewDialog previo = new PrintPreviewDialog();
-			aImprimir.PrintPage += this.Imprimir;
+			aImprimir.PrintPage += this.Imprimir_PrintPage;
 			try
 			{
 
 				previo.Document = aImprimir;
 				if (previo.ShowDialog() == DialogResult.OK)
 				{
-
 					aImprimir.Print();
 				}
 			}
@@ -73,10 +72,12 @@ namespace tp2
             finally
             {
 				previo.Dispose();
-            }
+				esPrimera = true;
+			}
 
 		}
-		private void Imprimir(object sender, PrintPageEventArgs e)
+		public bool esPrimera=true;
+		private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
         {
 			Graphics g = e.Graphics;
 			Alquiler alq = residencia.VerAlquiler((int)this.nudNroAlquiler.Value);
@@ -85,28 +86,42 @@ namespace tp2
 			Font cuerpo = new Font("Arial", 11, FontStyle.Regular);
 			Image foto1 = residencia.Imágenes[0];
 			Image foto2 = residencia.Imágenes[1];
-			Image logo;
 			int ancho = 800;
 			int y = 20;
 
 			Pen lapiz = new Pen(Color.Black);
 			Brush brush = new SolidBrush(Color.Black);
+			string str;
+			if (esPrimera)
+			{
+				str = "Original";
+				e.HasMorePages = true;
+			}
+			else str = "Copia";
 
+			g.DrawString(str, encabezado,brush,380,20);
 			g.DrawRectangle(lapiz, 50, 50, 750, 1000);
-			g.DrawImage(foto1,60,100,300,150);
-			g.DrawImage(foto2, 480, 100, 300, 150);
-			Image i;
-			g.DrawImage(tp2.Properties.Resources.logo, 255, 550);
+			g.DrawImage(foto1,60,100,300,180);
+			g.DrawImage(foto2, 480, 100, 300, 180);
+			Image i = global::tp2.Properties.Resources.logo;
+			g.DrawImage(i, 255, 550);
 
 			string tipo;
-			if (residencia is Hotel) tipo = "Hotel";
+			if (residencia is Hotel)
+			{
+				tipo = "Hotel";
+				g.DrawString("Tipo Habitación: "+ alq.Habitacion.Tipo, encabezado2, brush, 60, 540);
+			}
 			else if (residencia is CasaFinde) tipo = "Casa de Fin de semana";
 			else tipo = "Casa";
 			int n = residencia.Número;
 			string d = residencia.Dirección;
-			g.DrawString("Propiedad: "+tipo+", "+n+", "+d, encabezado, brush,
-						new Rectangle(325,y+=40,ancho,y));
-			y = 260;
+			string t = "Propiedad: " + tipo + ", Nro: " + n + ", Dirección: " + d;
+			Size s = TextRenderer.MeasureText(t, encabezado);
+			int x = e.PageBounds.Width / 2 - s.Width / 2;
+			g.DrawString(t, encabezado, brush,
+						new Rectangle(x,y+=40,ancho,y));
+			y = 300;
 			g.DrawString("Fecha entrada: "+alq.CheckIn.ToShortDateString(), encabezado2, brush, 60, y);
 			g.DrawString("Fecha salida: " + alq.CheckOut.ToShortDateString(), encabezado2, brush, 60, y+=30);
 			g.DrawString("Responsable: " + alq.Cliente.Apellido+" "+alq.Cliente.Nombre, encabezado2, brush, 60, y += 30);
@@ -116,7 +131,17 @@ namespace tp2
 			g.DrawString("Alquiler realizado el día: " + alq.FechaReserva.ToShortDateString(), encabezado2, brush, 60, y += 30);
 			g.DrawString("Precio Total: $" + alq.PrecioTotal, encabezado2, brush, 60, y += 30);
 
+			t = "Firma de la empresa";
+			s = TextRenderer.MeasureText(t, cuerpo);
+			g.DrawLine(lapiz, 100, 980, s.Width+100, 980);
+			g.DrawString(t, cuerpo, brush, 100, 980);
 
+			t = "Firma del cliente";
+			s = TextRenderer.MeasureText(t, cuerpo);
+			g.DrawLine(lapiz, 580, 980, s.Width+600, 980);
+			g.DrawString(t, cuerpo, brush, 580, 980);
+
+			esPrimera = false;
 		}
 
 		private void BtnModificarAlquiler_Click(object sender, EventArgs e) {
