@@ -441,5 +441,11 @@ namespace tp2 {
 				f.Dispose();
             }
         }
-    }
+
+		private void ayudaToolStripMenuItem_Click(object sender, EventArgs e) {
+			FAyuda fAyuda = new FAyuda();
+			fAyuda.ShowDialog();
+			fAyuda.Dispose();
+		}
+	}
 }

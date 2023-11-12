@@ -21,8 +21,17 @@ h3 {
     color: white;
 }
 
+p {
+	color: red;
+	border: 1px
+}
+
 .contenido {
     background-color: #1f1f1f;
     margin: 12pt;
     padding: 0pt 8pt 1pt 8pt
+}
+
+.table-head {
+	background-color: #317777
 }

@@ -730,6 +730,7 @@ namespace tp2 {
 			this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
 			this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
 			this.ayudaToolStripMenuItem.Text = "AYUDA";
+			this.ayudaToolStripMenuItem.Click += new System.EventHandler(this.ayudaToolStripMenuItem_Click);
 			// 
 			// acercaDeToolStripMenuItem
 			// 

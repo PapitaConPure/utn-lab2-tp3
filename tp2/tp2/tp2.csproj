@@ -204,15 +204,26 @@
     <None Include="Resources\xwhite32.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo.png" />
+    <Content Include="Ayuda\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ayuda\casa.html" />
-    <Content Include="Ayuda\estilos.css" />
-    <Content Include="Ayuda\hotel.html" />
+    <Content Include="Ayuda\Contenidos\casa.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayuda\Contenidos\estilos.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayuda\Contenidos\hotel.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -25,16 +25,35 @@ namespace tp2.Formularios {
 		/// </summary>
 		private void InitializeComponent() {
 			this.browser = new System.Windows.Forms.WebBrowser();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.SuspendLayout();
 			// 
 			// browser
 			// 
 			this.browser.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.browser.Location = new System.Drawing.Point(12, 12);
+			this.browser.Location = new System.Drawing.Point(0, 41);
 			this.browser.MinimumSize = new System.Drawing.Size(20, 20);
 			this.browser.Name = "browser";
-			this.browser.Size = new System.Drawing.Size(776, 426);
+			this.browser.ScriptErrorsSuppressed = true;
+			this.browser.Size = new System.Drawing.Size(800, 409);
 			this.browser.TabIndex = 0;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.tableLayoutPanel1.ColumnCount = 4;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.tableLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 41);
+			this.tableLayoutPanel1.TabIndex = 1;
 			// 
 			// FAyuda
 			// 
@@ -42,10 +61,10 @@ namespace tp2.Formularios {
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.browser);
+			this.Controls.Add(this.tableLayoutPanel1);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "FAyuda";
-			this.Padding = new System.Windows.Forms.Padding(12);
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Ayuda";
@@ -56,5 +75,6 @@ namespace tp2.Formularios {
 		#endregion
 
 		private System.Windows.Forms.WebBrowser browser;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 	}
 }
