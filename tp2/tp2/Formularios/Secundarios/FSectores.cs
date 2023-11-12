@@ -12,6 +12,13 @@ using AlquilerLib;
 
 namespace tp2.Formularios.Secundarios {
 	public partial class FSectores: Form {
+		private static readonly Color colorPrimario = Color.FromArgb(255, 190, 70);
+		private static readonly Color colorSecundario = Color.FromArgb(211, 197, 197);
+		private static readonly Color colorInformación = Color.FromArgb(84, 180, 211);
+		private static readonly Color colorFrente = Color.FromArgb(22, 22, 22);
+		private static readonly Font fuenteSector = new Font("Segoe UI Semibold", 11);
+		private static readonly Font fuenteDetalle = new Font("Lato Black", 10);
+
 		private readonly Sector[] sectores = {
 			new Sector("Casas", Color.FromArgb(240, 62, 67)),
 			new Sector("Casas Finde", Color.FromArgb(62, 240, 109)),
@@ -44,10 +51,16 @@ namespace tp2.Formularios.Secundarios {
 		private void FSectores_Paint(object sender, PaintEventArgs e) {
 			Graphics g = e.Graphics;
 
-			int x = (int)(this.Width * 0.2);
-			int y = (int)(this.Height * 0.2);
-			int h = (int)(this.Height * 0.65);
-			int w = (int)(this.Width * 0.55);
+			int s;
+			if(this.Width < this.Height)
+				s = this.Width;
+			else
+				s = this.Height;
+
+			int x = (int)(s * 0.2);
+			int y = (int)(s * 0.2);
+			int h = (int)(s * 0.65);
+			int w = (int)(s * 0.55);
 			Rectangle rectangulo = new Rectangle(x, y, w, h);
 
 			int total = 0;
@@ -60,12 +73,22 @@ namespace tp2.Formularios.Secundarios {
 				return;
 			}
 
-			Brush brushSector;
+			//Desplazamiento del ángulo inicial 0 = Este, 90 = Sur, 180 = Oeste, 270 = Norte
+			float desplazamiento = 270f;
 			float ánguloInicio;
-			float ánguloFin = 0f;
+			float ánguloFin = desplazamiento;
+			float ángulo;
+			Size tamañoTexto;
+			string texto;
+			Pen penSector = new Pen(this.BackColor, s * 0.01f);
+			Brush brushSector;
+
+			this.sectores[0].Peso = 3;
+			this.sectores[1].Peso = 2;
+			this.sectores[2].Peso = 1;
+
 			int i = 0;
 			foreach(Sector sector in this.sectores) {
-				if(i > 1) break;
 				brushSector = new SolidBrush(sector.Color);
 				int cantidad = sector.Peso;
 				ánguloInicio = ánguloFin;
@@ -73,10 +96,20 @@ namespace tp2.Formularios.Secundarios {
 				if(i < this.sectores.Length - 1)
 					ánguloFin = ánguloInicio + 360f * cantidad / total;
 				else
-					ánguloFin = 360f;
+					ánguloFin = desplazamiento + 360f;
 
-				if(ánguloInicio != ánguloFin)
-					g.FillPie(brushSector, rectangulo, ánguloInicio, ánguloFin);
+				ángulo = ánguloFin - ánguloInicio;
+
+				texto = sector.Nombre;
+				if(ángulo >= 30) {
+					tamañoTexto = TextRenderer.MeasureText(texto, fuenteSector);
+				}
+
+				if(ánguloInicio != ánguloFin) {
+					g.DrawPie(penSector, rectangulo, ánguloInicio, ánguloFin - ánguloInicio);
+					g.FillPie(brushSector, rectangulo, ánguloInicio, ánguloFin - ánguloInicio);
+				}
+
 
 				i++;
 			}
