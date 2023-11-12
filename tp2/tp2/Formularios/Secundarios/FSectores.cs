@@ -65,7 +65,7 @@ namespace tp2.Formularios.Secundarios {
 				total += sector.Peso;
 
 			if(total == 0) {
-				g.FillPie(new SolidBrush(Color.Gray), rectangulo, 0, 360);
+				g.FillEllipse(new SolidBrush(Color.Gray), rectangulo);
 				return;
 			}
 
