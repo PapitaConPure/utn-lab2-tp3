@@ -11,6 +11,9 @@ namespace AlquilerLib {
 	public class Sistema {
 		static int nroResidencia = 0;
 
+		List<Usuario> usuarios;
+		public List<Usuario> Usuarios { get { return this.usuarios; } }
+
 		private readonly List<Residencia> residencias;
 		private int nroResidenciaSerializado;
 
@@ -21,6 +24,7 @@ namespace AlquilerLib {
 		public Sistema(double precioBase) {
 			this.residencias = new List<Residencia>();
 			this.PrecioBase = precioBase;
+			this.usuarios = new List<Usuario>();
 		}
 
 		/// <summary>

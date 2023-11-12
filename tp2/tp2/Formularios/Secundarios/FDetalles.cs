@@ -225,6 +225,7 @@ namespace tp2
 				this.lsbAlquileres.Items.Add($"Precio Total: ${al.PrecioTotal:F2}");
 				this.lsbAlquileres.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
 				this.lsbAlquileres.Items.Add($"Dni: {al.Cliente.Dni:00,000,000}");
+				this.lsbAlquileres.Items.Add($"Inquilinos: {al.Cliente.CantPasajeros}");
 				this.lsbAlquileres.Items.Add("----------------------------------------------------------------");
 			}
 		}

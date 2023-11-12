@@ -65,7 +65,14 @@ namespace tp2 {
 
 			this.Hide();
 			new FSplash(0.001, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
-			this.Show();
+			FUsuario f = new FUsuario();
+			DialogResult dr = f.ShowDialog();
+			string tipoUsuario;
+			if (dr == DialogResult.OK) tipoUsuario = "Administrador";
+			else tipoUsuario = "Usuario";
+			barraEstado.Items.Clear();
+            barraEstado.Items.Add("Usuario: " + f.tbUsuario.Text+"- "+tipoUsuario);
+            this.Show();
 		}
 
 		private void FPrincipal_FormClosed(object sender, FormClosedEventArgs e) {
@@ -336,5 +343,7 @@ namespace tp2 {
 			FB.ShowDialog();
 			FB.Dispose();
         }
+
+        
     }
 }
