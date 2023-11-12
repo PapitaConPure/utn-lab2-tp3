@@ -1,0 +1,84 @@
+:root {
+    --c-text: #e8e8e8;
+    --c-background: #0f0f0f;
+    --c-primary: #f4b134;
+    --c-secondary: #3A2C2C;
+    --c-accent: #56B4B4;
+
+    --c-info: #54b4d3;
+    --c-success: #1ba345;
+    --c-warning: #eed001;
+    --c-danger: #f03e43;
+
+    --f-sans: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    --f-serif: Garamond, 'Lucida Bright', 'Times New Roman', serif;
+    --f-gothic: 'Century Gothic', 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--c-background);
+}
+
+* {
+    font-family: var(--f-sans);
+    color: var(--c-text);
+}
+
+h1, h3 {
+    color: white;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+h3 {
+    font-family: var(--f-gothic);
+    font-weight: lighter;
+    color: white;
+}
+
+p {
+	border: 1px
+}
+
+a {
+    color: var(--c-accent)
+}
+
+#nombre-empresa {
+    color: var(--c-primary);
+    font-family: var(--f-serif);
+    font-size: 26pt;
+    font-weight: 900;
+}
+
+.contenido {
+    background-color: #1f1f1f;
+    border-radius: 5pt;
+    margin: 12pt;
+    padding: 0pt 8pt 1pt 8pt;
+}
+
+table {
+    display: table;
+}
+
+th {
+    color: var(--c-background);
+    background-color: var(--c-primary);
+    border-radius: 3pt;
+    padding: 3pt;
+    margin: 3pt;
+}
+
+td {
+    text-align: center;
+}
+
+.énfasis {
+    background-color: #352727;
+    border-radius: 5pt;
+    margin: 3pt;
+    padding: 5pt;
+}

@@ -204,6 +204,9 @@
     <None Include="Resources\xwhite32.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ayuda\estilos.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Ayuda\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -216,9 +219,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ayuda\Contenidos\casa.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Ayuda\Contenidos\estilos.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Ayuda\Contenidos\hotel.html">
