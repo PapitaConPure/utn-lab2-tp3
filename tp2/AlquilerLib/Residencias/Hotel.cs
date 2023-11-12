@@ -73,7 +73,7 @@ namespace AlquilerLib {
 			int i = 0;
             while (!encontro && i < this.habitaciones.Count)
             {
-                if (this.habitaciones[i].PuedeAlquilar(alquiler))
+                if (this.habitaciones[i].PuedeAlquilar(alquiler, cantPasajeros))
                 {
 					alquiler = new Alquiler(this.contAlquileres++, hoy, ingreso, salida, this, this.habitaciones[i], cantPasajeros, dni, nombre, apellido, tel, precioBase);
 					this.habitaciones[i].Alquilar(alquiler);

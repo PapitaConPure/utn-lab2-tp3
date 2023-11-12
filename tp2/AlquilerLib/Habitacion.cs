@@ -24,15 +24,20 @@ namespace AlquilerLib
             this.Reservas = new List<Alquiler>();
         }
 
-        public bool PuedeAlquilar(Alquiler alquiler)
+        public bool PuedeAlquilar(Alquiler alquiler, int pasajeros)
         {
             bool puede = true;
 
             foreach (Alquiler otro in this.Reservas)
+            { 
                 puede &=
                     alquiler.CheckOut.CompareTo(otro.CheckIn) < 0
                     || alquiler.CheckIn.CompareTo(otro.CheckOut) > 0;
-
+            }
+            puede &=
+                    (pasajeros > 4 && this.Tipo == Hotel.TipoHabitación.Triple)
+                    || (pasajeros > 2 && pasajeros < 5 && this.Tipo == Hotel.TipoHabitación.Doble)
+                    || (pasajeros > 0 && pasajeros < 3 && this.Tipo == Hotel.TipoHabitación.Simple);
             return puede;
         }
         public void Alquilar(Alquiler alq)
