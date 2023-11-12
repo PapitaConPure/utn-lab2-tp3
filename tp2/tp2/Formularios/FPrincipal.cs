@@ -28,8 +28,6 @@ namespace tp2 {
 
 		#region Persistencia de Sistema
 		private void FPrincipal_Load(object sender, EventArgs e) {
-			new FAyuda().ShowDialog();
-
 			string rutaDir = Application.StartupPath;
 			this.rutaBin = Path.Combine(rutaDir, "config.dat");
 

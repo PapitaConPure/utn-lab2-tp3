@@ -12,6 +12,7 @@ namespace tp2.Formularios {
 	public partial class FAyuda: Form {
 		public FAyuda() {
 			this.InitializeComponent();
+			this.browser.DocumentText = Properties.Resources.casa;
 		}
 	}
 }

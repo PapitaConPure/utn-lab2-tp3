@@ -209,5 +209,10 @@
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ayuda\casa.html" />
+    <Content Include="Ayuda\estilos.css" />
+    <Content Include="Ayuda\hotel.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
