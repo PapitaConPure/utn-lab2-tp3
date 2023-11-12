@@ -16,6 +16,7 @@ using System.Runtime.Serialization;
 using ProyectoSplash;
 using tp2.Formularios;
 using tp2.Formularios.Secundarios;
+using System.Diagnostics;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
@@ -443,9 +444,11 @@ namespace tp2 {
         }
 
 		private void ayudaToolStripMenuItem_Click(object sender, EventArgs e) {
-			FAyuda fAyuda = new FAyuda();
-			fAyuda.ShowDialog();
-			fAyuda.Dispose();
+			//FAyuda fAyuda = new FAyuda();
+			//fAyuda.ShowDialog();
+			//fAyuda.Dispose();
+			string ruta = Path.Combine(Application.StartupPath, "Ayuda", "index.html");
+			Process.Start(ruta);
 		}
 	}
 }
