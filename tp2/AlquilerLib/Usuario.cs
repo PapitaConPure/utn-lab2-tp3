@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlquilerLib
 {
+    [Serializable]
     public class Usuario
     {
         public string Nombre { get; }

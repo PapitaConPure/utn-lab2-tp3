@@ -74,6 +74,10 @@ namespace tp2 {
             this.cantidadPasajaerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesReservadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barraEstado = new System.Windows.Forms.StatusStrip();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbAgregar.SuspendLayout();
             this.tlpBotonesAgregar.SuspendLayout();
             this.tlpBotonesDatos.SuspendLayout();
@@ -645,7 +649,8 @@ namespace tp2 {
             this.inicioToolStripMenuItem,
             this.ayudaToolStripMenuItem,
             this.acercaDeToolStripMenuItem,
-            this.graficarToolStripMenuItem});
+            this.graficarToolStripMenuItem,
+            this.usuarioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1292, 24);
@@ -700,6 +705,37 @@ namespace tp2 {
             this.barraEstado.Name = "barraEstado";
             this.barraEstado.Size = new System.Drawing.Size(1292, 22);
             this.barraEstado.TabIndex = 5;
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarUsuarioToolStripMenuItem,
+            this.eliminarUsuarioToolStripMenuItem,
+            this.cambiarContraseñaToolStripMenuItem});
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.usuarioToolStripMenuItem.Text = "Usuario";
+            // 
+            // agregarUsuarioToolStripMenuItem
+            // 
+            this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.agregarUsuarioToolStripMenuItem.Text = "Agregar Usuario";
+            this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
+            // 
+            // eliminarUsuarioToolStripMenuItem
+            // 
+            this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
+            this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.eliminarUsuarioToolStripMenuItem_Click);
+            // 
+            // cambiarContraseñaToolStripMenuItem
+            // 
+            this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
+            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar Contraseña";
+            this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
             // 
             // FPrincipal
             // 
@@ -802,6 +838,10 @@ namespace tp2 {
         private System.Windows.Forms.ToolStripMenuItem imprimirToolStripMenuItem;
 		private System.Windows.Forms.Panel pnlFecha;
         public System.Windows.Forms.StatusStrip barraEstado;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
     }
 }
 

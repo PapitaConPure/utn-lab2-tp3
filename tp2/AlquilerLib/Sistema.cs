@@ -11,8 +11,33 @@ namespace AlquilerLib {
 	public class Sistema {
 		static int nroResidencia = 0;
 
-		List<Usuario> usuarios;
+		public Usuario UsuarioActual { get; set; }
+		List<Usuario> usuarios = new List<Usuario>();
 		public List<Usuario> Usuarios { get { return this.usuarios; } }
+		public Usuario VerUsuario(string n, string c)
+        {
+			Usuario usuario=null;
+			bool encontro = false;
+			int i=0;
+			while(!encontro && i < Usuarios.Count)
+            {
+				if (Usuarios[i].Nombre == n && Usuarios[i].Contraseña == c)
+				{ 
+					encontro = true;
+					usuario = Usuarios[i];
+				}
+				i++;
+            }
+			return usuario;
+        }
+		public void AgregarUsuario(Usuario nuevo)
+        {
+			usuarios.Add(nuevo);
+        }
+		public void EliminarUsuario(Usuario aEliminar)
+        {
+			usuarios.Remove(aEliminar);
+        }
 
 		private readonly List<Residencia> residencias;
 		private int nroResidenciaSerializado;

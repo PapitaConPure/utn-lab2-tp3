@@ -65,20 +65,27 @@ namespace tp2 {
 
 			this.Hide();
 			new FSplash(0.001, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
-			FUsuario f = new FUsuario();
+			FUsuario f = new FUsuario(this.sistema);
 			DialogResult dr = f.ShowDialog();
 			string tipoUsuario;
 			if (dr == DialogResult.OK)
 			{
 				tipoUsuario = "Administrador";
+				this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
+				agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = true;
+				this.btnBorrarPropiedad.Enabled = true;
 			}
 			else 
 			{ 
-				tipoUsuario = "Empleado"; 
+				tipoUsuario = "Empleado";
+				this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = 
+				this.btnModificarPropiedad.Enabled = this.btnBorrarPropiedad.Enabled = false;
+				agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = false;
 			}
-			barraEstado.Items.Clear();
-            barraEstado.Items.Add("Usuario: " + f.tbUsuario.Text+"- "+tipoUsuario);
+			sistema.UsuarioActual = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
 			f.Dispose();
+			barraEstado.Items.Clear();
+            barraEstado.Items.Add("Usuario: " + sistema.UsuarioActual.Nombre+" - "+tipoUsuario);
             this.Show();
 		}
 
@@ -351,6 +358,65 @@ namespace tp2 {
 			FB.Dispose();
         }
 
-        
+        private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			FUsuario f = new FUsuario(this.sistema);
+			f.btnIngresar.Visible = false;
+			f.btnAceptar.Visible = f.btnCancelar.Visible = true;
+			f.rbAdministrador.Visible = f.rbEmpleado.Visible = f.lbTipoUsuario.Visible = true;
+			if(f.ShowDialog() == DialogResult.No)
+            {
+				string tipo="";
+				if (f.rbAdministrador.Checked) tipo = "Administrador";
+				else tipo = "Empleado";
+				
+				Usuario nuevo = new Usuario(f.tbUsuario.Text, f.tbContraseña.Text, tipo);
+				sistema.AgregarUsuario(nuevo);
+				MessageBox.Show("Usuario agregado");
+            }
+            else
+            {
+				f.Dispose();
+            }
+        }
+
+        private void eliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			FUsuario f = new FUsuario(this.sistema);
+            f.btnIngresar.Visible = false;
+			f.btnAceptar.Visible = f.btnCancelar.Visible = true;
+			if (f.ShowDialog() == DialogResult.No)
+			{
+				Usuario aux = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
+				if(aux == null)
+                {
+					MessageBox.Show("El usuario no existe");
+					return;
+                }
+                else
+                {
+					sistema.EliminarUsuario(aux);
+					MessageBox.Show("El usuario "+ aux.Nombre +" a sido eliminado");
+				}
+			}
+		}
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			FUsuario f = new FUsuario(this.sistema);
+			f.btnIngresar.Visible = false;
+			f.btnAceptar.Visible = f.btnCancelar.Visible = true;
+			f.tbUsuario.Text = sistema.UsuarioActual.Nombre;
+			f.tbUsuario.Enabled = false;
+			if(f.ShowDialog() == DialogResult.No)
+            {
+				sistema.UsuarioActual.CambiarContraseña(f.tbContraseña.Text);
+				MessageBox.Show("La contraseña ha sido actualizada correctamente");
+            }
+            else
+            {
+				f.Dispose();
+            }
+        }
     }
 }
