@@ -15,7 +15,8 @@ namespace AlquilerLib {
 		}
 		
 		private readonly List<Habitación> habitaciones;
-		
+		public List<Habitación> Habitaciones { get { return this.habitaciones; } }
+
 		/// <summary>
 		/// Crea un nuevo hotel con los datos de residencia especificados y la categoría indicada.
 		/// También se indica el tipo y cantidad de camas disponibles
@@ -74,7 +75,7 @@ namespace AlquilerLib {
             {
                 if (this.habitaciones[i].PuedeAlquilar(alquiler))
                 {
-					alquiler = new Alquiler(0, hoy, ingreso, salida, this, this.habitaciones[i], cantPasajeros, dni, nombre, apellido, tel, precioBase);
+					alquiler = new Alquiler(this.contAlquileres++, hoy, ingreso, salida, this, this.habitaciones[i], cantPasajeros, dni, nombre, apellido, tel, precioBase);
 					this.habitaciones[i].Alquilar(alquiler);
 					this.AgregarAlquiler(alquiler);
 					encontro = true;

@@ -14,7 +14,7 @@ namespace AlquilerLib
         public Hotel.TipoHabitación Tipo { get; }
         //public int Camas { get; }
         //public bool noDisponible { get; set; }
-        public List<Alquiler> Reservas { get; }
+        public List<Alquiler> Reservas { get; set; }
 
         public Habitación(Hotel.TipoHabitación tipo, Hotel unHotel)
         {
@@ -38,6 +38,10 @@ namespace AlquilerLib
         public void Alquilar(Alquiler alq)
         {
             this.Reservas.Add(alq);
+        }
+        public void QuitarAlquiler(Alquiler alq)
+        {
+            this.Reservas.Remove(alq);
         }
         //public int CompareTo(object obj)
         //{

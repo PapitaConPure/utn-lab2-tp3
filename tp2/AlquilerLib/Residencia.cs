@@ -10,7 +10,7 @@ namespace AlquilerLib {
 		protected string[] servicios;
 		protected double precioDía;
 		private int cServicios = 0;
-		private int contAlquileres = 0;
+		protected int contAlquileres = 0;
 
 		/// <summary>
 		/// Crea una nueva residencia con el número, la dirección y las imágenes especificadas
@@ -85,11 +85,18 @@ namespace AlquilerLib {
 
         public bool QuitarAlquiler(int nroAlquiler) {
 			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
-
+			bool pudo = false;
 			if(alquiler is null)
 				return false;
-			
-			return this.alquileres.Remove(alquiler);
+			pudo = this.alquileres.Remove(alquiler);
+            if (pudo)
+            {
+				if(this is Hotel)
+                {
+					alquiler.Habitacion.QuitarAlquiler(alquiler);
+                }
+            }
+			return pudo;
 		}
 
         public Alquiler VerAlquiler(int nroAlquiler) {

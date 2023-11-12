@@ -91,7 +91,7 @@ namespace tp2 {
 				Application.Exit();
 				return;
 			}
-
+            
 			barraEstado.Items.Clear();
 			ToolStripStatusLabel labelTipoUsuario = new ToolStripStatusLabel(tipoUsuario.ToUpper());
 			ToolStripStatusLabel labelNombreUsuario = new ToolStripStatusLabel(this.sistema.UsuarioActual.Nombre.ToUpper());
