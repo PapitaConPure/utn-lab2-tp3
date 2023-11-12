@@ -68,10 +68,17 @@ namespace tp2 {
 			FUsuario f = new FUsuario();
 			DialogResult dr = f.ShowDialog();
 			string tipoUsuario;
-			if (dr == DialogResult.OK) tipoUsuario = "Administrador";
-			else tipoUsuario = "Usuario";
+			if (dr == DialogResult.OK)
+			{
+				tipoUsuario = "Administrador";
+			}
+			else 
+			{ 
+				tipoUsuario = "Empleado"; 
+			}
 			barraEstado.Items.Clear();
             barraEstado.Items.Add("Usuario: " + f.tbUsuario.Text+"- "+tipoUsuario);
+			f.Dispose();
             this.Show();
 		}
 
