@@ -1,14 +1,16 @@
 :root {
-    --c-text: #e8e8e8;
-    --c-background: #0f0f0f;
-    --c-primary: #f4b134;
-    --c-secondary: #3A2C2C;
-    --c-accent: #56B4B4;
+    --c-text: rgb(232, 232, 232);
+    --c-background: rgb(15, 15, 15);
+    --c-background-light1: rgb(31, 31, 31);
+    --c-primary: rgb(245, 177, 51);
+    --c-secondary: rgb(59, 43, 43);
+    --c-accent: rgb(84, 181, 181);
 
-    --c-info: #54b4d3;
-    --c-success: #1ba345;
-    --c-warning: #eed001;
-    --c-danger: #f03e43;
+    --c-info: rgb(84, 180, 212);
+    --c-success: rgb(26, 163, 69);
+    --c-warning: rgb(240, 208, 0);
+    --c-warning-dark: rgb(168, 148, 18);
+    --c-danger: rgb(240, 61, 67);
 
     --f-sans: 'Segoe UI', Tahoma, Verdana, sans-serif;
     --f-serif: Garamond, 'Lucida Bright', 'Times New Roman', serif;
@@ -29,21 +31,38 @@ h1, h3 {
 }
 
 h1 {
+    font-size: 36pt;
     font-weight: 900;
+    margin-top: 0pt;
+    margin-bottom: 1pt;
+}
+
+h2 {
+    font-size: 24pt;
 }
 
 h3 {
+    font-size: 16pt;
     font-family: var(--f-gothic);
-    font-weight: lighter;
+    font-weight: 300;
     color: white;
 }
 
 p {
-	border: 1px
+	border: 1px;
+    margin-top: 4pt;
+    margin-bottom: 16pt;
 }
 
 a {
-    color: var(--c-accent)
+    color: var(--c-accent);
+    font-weight: 500;
+}
+
+#img-empresa {
+    height: 26pt;
+    border-radius: 100%;
+    margin-right: 6pt;
 }
 
 #nombre-empresa {
@@ -54,7 +73,7 @@ a {
 }
 
 .contenido {
-    background-color: #1f1f1f;
+    background-color: var(--c-background-light1);
     border-radius: 5pt;
     margin: 12pt;
     padding: 0pt 8pt 1pt 8pt;
@@ -68,8 +87,7 @@ th {
     color: var(--c-background);
     background-color: var(--c-primary);
     border-radius: 3pt;
-    padding: 3pt;
-    margin: 3pt;
+    padding: 3pt 1pt;
 }
 
 td {
@@ -77,8 +95,24 @@ td {
 }
 
 .énfasis {
-    background-color: #352727;
+    background-color: var(--c-secondary);
     border-radius: 5pt;
     margin: 3pt;
     padding: 5pt;
+}
+
+.énfasis.info {
+    background-color: var(--c-info);
+}
+
+.énfasis.success {
+    background-color: var(--c-success);
+}
+
+.énfasis.warning {
+    background-color: var(--c-warning-dark);
+}
+
+.énfasis.danger {
+    background-color: var(--c-danger);
 }
