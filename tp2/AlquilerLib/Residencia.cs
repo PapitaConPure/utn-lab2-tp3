@@ -11,6 +11,7 @@ namespace AlquilerLib {
 		protected double precioDía;
 		private int cServicios = 0;
 		protected int contAlquileres = 0;
+		public int ContAlquileres { get { return this.contAlquileres; } }
 
 		/// <summary>
 		/// Crea una nueva residencia con el número, la dirección y las imágenes especificadas

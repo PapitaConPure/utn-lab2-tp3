@@ -74,19 +74,18 @@ namespace tp2 {
 				string apellido = this.tbApellido.Text;
 				bool pudoAlquilar =
 					this.sistema.AlquilarResidencia(this.residencia.Número, fechaReserva, checkIn, checkOut, cantPasajeros, dni, nom, apellido, telefono);
-
+				
 				if (!pudoAlquilar)
 				{
 					MessageBox.Show("No se puede alquilar la propiedad en este periodo de tiempo o la propiedad no existe");
 					this.DialogResult = DialogResult.None;
 					return;
 				}
+
 				DatosPersona d;
-				d = new DatosPersona(dni, nom, apellido, telefono);
-				Cliente c = new Cliente(d, cantPasajeros);
+				Alquiler alq = residencia.VerAlquiler(residencia.ContAlquileres-1);
 				FPasajero nuevo;
 				Persona aux;
-				
 				int cont = (int)nudCantPasajeros.Value;
 				for (int i = 0; i < cont-1; i++)
 				{
@@ -94,9 +93,9 @@ namespace tp2 {
 					nuevo.ShowDialog();
 					d = new DatosPersona((int)nuevo.nudDniPasajero.Value,
 										nuevo.tbNombrePasajero.Text, nuevo.tbApellido.Text,
-										0, nuevo.dtpFechaNacimiento.Value);
+										nuevo.dtpFechaNacimiento.Value);
 					aux = new Persona(d);
-					c.AgregarPasajero(aux);
+					alq.Cliente.AgregarPasajero(aux);
 					nuevo.Dispose();
 				}
 				

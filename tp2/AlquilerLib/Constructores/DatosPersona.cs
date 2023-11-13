@@ -23,12 +23,11 @@ namespace AlquilerLib.Constructores {
 			this.Teléfono = teléfono;
 		}
 
-		public DatosPersona(int dni, string nombre, string apellido, long teléfono, DateTime fecha)
+		public DatosPersona(int dni, string nombre, string apellido, DateTime fecha)
 		{
 			this.Dni = dni;
 			this.Nombre = nombre;
 			this.Apellido = apellido;
-			this.Teléfono = teléfono;
 			this.FechaNacimiento = fecha;
 		}
 	}
