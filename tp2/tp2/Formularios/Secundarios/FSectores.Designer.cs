@@ -68,7 +68,7 @@ namespace tp2.Formularios.Secundarios
 			this.btncm.Text = "-";
 			this.btncm.UseVisualStyleBackColor = true;
 			this.btncm.Visible = false;
-			this.btncm.Click += new System.EventHandler(this.btncm_Click);
+			this.btncm.Click += new System.EventHandler(this.Btncm_Click);
 			// 
 			// btnbm
 			// 
@@ -80,7 +80,7 @@ namespace tp2.Formularios.Secundarios
 			this.btnbm.Text = "-";
 			this.btnbm.UseVisualStyleBackColor = true;
 			this.btnbm.Visible = false;
-			this.btnbm.Click += new System.EventHandler(this.btnbm_Click);
+			this.btnbm.Click += new System.EventHandler(this.Btnbm_Click);
 			// 
 			// btnam
 			// 
@@ -92,7 +92,7 @@ namespace tp2.Formularios.Secundarios
 			this.btnam.Text = "-";
 			this.btnam.UseVisualStyleBackColor = true;
 			this.btnam.Visible = false;
-			this.btnam.Click += new System.EventHandler(this.btnam_Click);
+			this.btnam.Click += new System.EventHandler(this.Btnam_Click);
 			// 
 			// btncp
 			// 
@@ -104,7 +104,7 @@ namespace tp2.Formularios.Secundarios
 			this.btncp.Text = "+";
 			this.btncp.UseVisualStyleBackColor = true;
 			this.btncp.Visible = false;
-			this.btncp.Click += new System.EventHandler(this.btncp_Click);
+			this.btncp.Click += new System.EventHandler(this.Btncp_Click);
 			// 
 			// btnbp
 			// 
@@ -116,7 +116,7 @@ namespace tp2.Formularios.Secundarios
 			this.btnbp.Text = "+";
 			this.btnbp.UseVisualStyleBackColor = true;
 			this.btnbp.Visible = false;
-			this.btnbp.Click += new System.EventHandler(this.btnbp_Click);
+			this.btnbp.Click += new System.EventHandler(this.Btnbp_Click);
 			// 
 			// btnap
 			// 
@@ -128,7 +128,7 @@ namespace tp2.Formularios.Secundarios
 			this.btnap.Text = "+";
 			this.btnap.UseVisualStyleBackColor = true;
 			this.btnap.Visible = false;
-			this.btnap.Click += new System.EventHandler(this.btnap_Click);
+			this.btnap.Click += new System.EventHandler(this.Btnap_Click);
 			// 
 			// lbPropReser
 			// 

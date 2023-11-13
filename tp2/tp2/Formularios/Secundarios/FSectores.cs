@@ -40,6 +40,8 @@ namespace tp2.Formularios.Secundarios {
 				else if(residencia is Hotel)
 					this.sectores[2].Peso += residencia.Alquileres.Length;
 			}
+
+			this.OrdenarSectores();
 		}
 
 		private void FSectores_Paint(object sender, PaintEventArgs e) {
@@ -86,8 +88,6 @@ namespace tp2.Formularios.Secundarios {
 
 				return;
 			}
-
-			Sector[] sectores = this.SectoresOrdenados();
 
 			//Desplazamiento del ángulo inicial: 0 = Este, 90 = Sur, 180 = Oeste, 270 = Norte
 			float desplazamiento = 270f;
@@ -174,10 +174,8 @@ namespace tp2.Formularios.Secundarios {
 			#endregion
 		}
 
-		private Sector[] SectoresOrdenados() {
-			Sector[] vec = new Sector[this.sectores.Length];
-			this.sectores.CopyTo(vec, 0);
-
+		private void OrdenarSectores() {
+			Sector[] vec = this.sectores;
 			int l = vec.Length;
 			Sector aux;
 			int i, j;
@@ -192,8 +190,6 @@ namespace tp2.Formularios.Secundarios {
 					}
 				}
 			}
-
-			return vec;
 		}
 
 		#region Para pruebas
@@ -201,34 +197,34 @@ namespace tp2.Formularios.Secundarios {
 			this.pnlSectores.Invalidate();
 		}
 
-		private void btnap_Click(object sender, EventArgs e) {
+		private void Btnap_Click(object sender, EventArgs e) {
 			this.sectores[0].Peso++;
 			this.pnlSectores.Invalidate();
 		}
 
-		private void btnbp_Click(object sender, EventArgs e) {
+		private void Btnbp_Click(object sender, EventArgs e) {
 			this.sectores[1].Peso++;
 			this.pnlSectores.Invalidate();
 		}
 
-		private void btncp_Click(object sender, EventArgs e) {
+		private void Btncp_Click(object sender, EventArgs e) {
 			this.sectores[2].Peso++;
 			this.pnlSectores.Invalidate();
 		}
 
-		private void btnam_Click(object sender, EventArgs e) {
+		private void Btnam_Click(object sender, EventArgs e) {
 			if(this.sectores[0].Peso > 0)
 				this.sectores[0].Peso--;
 			this.pnlSectores.Invalidate();
 		}
 
-		private void btnbm_Click(object sender, EventArgs e) {
+		private void Btnbm_Click(object sender, EventArgs e) {
 			if(this.sectores[1].Peso > 0)
 				this.sectores[1].Peso--;
 			this.pnlSectores.Invalidate();
 		}
 
-		private void btncm_Click(object sender, EventArgs e) {
+		private void Btncm_Click(object sender, EventArgs e) {
 			if(this.sectores[2].Peso > 0)
 				this.sectores[2].Peso--;
 			this.pnlSectores.Invalidate();

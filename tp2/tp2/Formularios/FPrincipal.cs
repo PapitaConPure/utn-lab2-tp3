@@ -90,14 +90,14 @@ namespace tp2 {
 					this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
 					agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = true;
 					this.btnBorrarPropiedad.Enabled = true;
-					this.btnImportar.Enabled = true;
+					this.importarToolStripMenuItem.Enabled = true;
 				}
 				else
 				{
 					tipoUsuario = "Empleado";
 					this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled =
 					this.btnModificarPropiedad.Enabled = this.btnBorrarPropiedad.Enabled = false;
-					this.btnImportar.Enabled = false;
+					this.importarToolStripMenuItem.Enabled = false;
 					agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = false;
 					
 				}
@@ -224,7 +224,7 @@ namespace tp2 {
 			this.ActualizarListadoResidencias();
 		}
 
-        private void BtnModificarPropiedad_Click(object sender, EventArgs e) {
+		private void BtnModificarPropiedad_Click(object sender, EventArgs e) {
 			if(this.dgvResidencias.SelectedCells.Count == 0) {
 				MessageBox.Show("Selecciona una residencia en la tabla", "Selección inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
@@ -249,6 +249,10 @@ namespace tp2 {
 				fModificar.ShowDialog();
 				fModificar.Dispose();
 			}
+		}
+
+		private void dgvResidencias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
+			this.btnConsultarPropiedad.PerformClick();
 		}
 
 		private void BtnConsultarPropiedad_Click(object sender, EventArgs e) {
@@ -295,9 +299,7 @@ namespace tp2 {
 			this.nudCantPersonas.Value = this.nudCantPersonas.Minimum;
 			this.nudMaxPrice.Value = this.nudMaxPrice.Minimum;
 			this.nudMinPrice.Value = this.nudMinPrice.Minimum;
-			this.rbCasa.Checked = false;
-			this.rbCasaFinde.Checked = false;
-			this.rbHotel.Checked = false;
+			this.rbCualquiera.Checked = true;
 			this.cbFecha.Checked = false;
 			this.ActualizarListadoResidencias();
 		}
@@ -335,7 +337,7 @@ namespace tp2 {
 		#endregion
 
 		#region Importar y Exportar CSV
-		private void BtnImportar_Click(object sender, EventArgs e) {
+		private void AlquileresToolStripMenuItem_Click(object sender, EventArgs e) {
 			if(this.ofdDatos.ShowDialog() != DialogResult.OK)
 				return;
 
@@ -356,7 +358,7 @@ namespace tp2 {
 			}
 		}
 
-		private void BtnExportar_Click(object sender, EventArgs e) {
+		private void AlquileresToolStripMenuItem1_Click(object sender, EventArgs e) {
 			if(this.sfdDatos.ShowDialog() != DialogResult.OK)
 				return;
 

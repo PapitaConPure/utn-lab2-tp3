@@ -243,9 +243,13 @@
     <Content Include="Ayuda\logo.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\pencilwhite24.png" />
+    <None Include="Resources\eyewhite24.png" />
     <Content Include="Resources\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\plusblack24.png" />
+    <None Include="Resources\xwhite24.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
