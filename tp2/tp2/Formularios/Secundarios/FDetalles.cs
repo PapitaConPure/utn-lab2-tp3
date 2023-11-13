@@ -124,7 +124,13 @@ namespace tp2
 			g.DrawImage(foto1,60,100,300,180);
 			g.DrawImage(foto2, 480, 100, 300, 180);
 			Image i = global::tp2.Properties.Resources.logo;
-			g.DrawImage(i, 255, 550);
+
+			int tamañoImagen = 640;
+			g.DrawImage(i,
+				e.PageBounds.Width / 2 - tamañoImagen / 2,
+				640 - tamañoImagen / 2,
+				tamañoImagen,
+				tamañoImagen);
 
 			string tipo;
 			if (residencia is Hotel)
