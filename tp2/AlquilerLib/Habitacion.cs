@@ -35,7 +35,7 @@ namespace AlquilerLib
                     || alquiler.CheckIn.CompareTo(otro.CheckOut) > 0;
             }
             puede &=
-                    (pasajeros > 4 && this.Tipo == Hotel.TipoHabitación.Triple)
+                    (pasajeros > 4 && pasajeros < 7 && this.Tipo == Hotel.TipoHabitación.Triple)
                     || (pasajeros > 2 && pasajeros < 5 && this.Tipo == Hotel.TipoHabitación.Doble)
                     || (pasajeros > 0 && pasajeros < 3 && this.Tipo == Hotel.TipoHabitación.Simple);
             return puede;
