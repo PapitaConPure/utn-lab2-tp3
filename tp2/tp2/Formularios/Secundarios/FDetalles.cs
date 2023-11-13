@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AlquilerLib;
 using System.Drawing.Printing;
+using System.Security.Cryptography.X509Certificates;
+
 namespace tp2
 {
     public partial class FDetalles : Form
@@ -16,6 +18,7 @@ namespace tp2
         private readonly Sistema sistema;
         private readonly Residencia residencia;
 		private Alquiler alquiler;
+		private bool esPrimera;
 
         public FDetalles() {
             this.InitializeComponent();
@@ -28,6 +31,7 @@ namespace tp2
 			this.RefrescarListaAlquileres();
 			this.pbImagen1.Image = residencia.Imágenes[0];
 			this.pbImagen2.Image = residencia.Imágenes[1];
+			esPrimera = true;
 		}
 
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
@@ -86,8 +90,9 @@ namespace tp2
 			}
 
 		}
-		public bool esPrimera=true;
-		private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
+
+        
+        private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
         {
 			Graphics g = e.Graphics;
 			Font encabezado = new Font("Arial", 14, FontStyle.Bold);
@@ -105,8 +110,14 @@ namespace tp2
 			{
 				str = "Original";
 				e.HasMorePages = true;
+				esPrimera = false;
 			}
-			else str = "Copia";
+			else
+			{
+				str = "Copia";
+				e.HasMorePages = false;
+				esPrimera = true;
+			}
 
 			g.DrawString(str, encabezado,brush,380,20);
 			g.DrawRectangle(lapiz, 50, 50, 750, 1000);
@@ -149,9 +160,7 @@ namespace tp2
 			s = TextRenderer.MeasureText(t, cuerpo);
 			g.DrawLine(lapiz, 580, 980, s.Width+600, 980);
 			g.DrawString(t, cuerpo, brush, 580, 980);
-
-			esPrimera = false;
-		}
+        }
 
 		private void BtnModificarAlquiler_Click(object sender, EventArgs e) {
             Alquiler alquiler = this.residencia.VerAlquiler(Convert.ToInt32(this.nudNroAlquiler.Value));
