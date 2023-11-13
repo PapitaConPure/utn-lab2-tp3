@@ -70,7 +70,7 @@ namespace tp2 {
 			this.Hide();
 			new FSplash(0.001, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
 			string tipoUsuario="";
-			if (primerInicio)
+			if (primerInicio || sistema.Usuarios.Count==0)
             {
 				agregarUsuarioToolStripMenuItem.PerformClick();
 			}
