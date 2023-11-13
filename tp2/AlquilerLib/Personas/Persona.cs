@@ -25,9 +25,12 @@ namespace AlquilerLib {
 			this.Nombre = datos.Nombre;
 			this.Teléfono = datos.Teléfono;
 			this.Apellido = datos.Apellido;
+			this.FechaNacimiento = datos.FechaNacimiento;
 		}
+		
 
 		public int Dni { get; private set; }
+		public DateTime FechaNacimiento { get; private set; }
 
 		public string Apellido {
 			get { return this.apellido; }

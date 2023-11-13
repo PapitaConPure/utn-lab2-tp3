@@ -7,7 +7,6 @@ namespace AlquilerLib {
 		public Cliente(DatosPersona datosPersona, int cantPasajeros) : base(datosPersona) {
 			this.CantPasajeros = cantPasajeros;
 		}
-
 		public int CantPasajeros { get; private set; }
 
 		public override string Exportar() {

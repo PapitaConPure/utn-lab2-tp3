@@ -14,12 +14,22 @@ namespace AlquilerLib.Constructores {
 		public string Nombre;
 		public string Apellido;
 		public long Teléfono;
+		public DateTime FechaNacimiento;
 
 		public DatosPersona(int dni, string nombre, string apellido, long teléfono) {
 			this.Dni = dni;
 			this.Nombre = nombre;
 			this.Apellido = apellido;
 			this.Teléfono = teléfono;
+		}
+
+		public DatosPersona(int dni, string nombre, string apellido, long teléfono, DateTime fecha)
+		{
+			this.Dni = dni;
+			this.Nombre = nombre;
+			this.Apellido = apellido;
+			this.Teléfono = teléfono;
+			this.FechaNacimiento = fecha;
 		}
 	}
 }

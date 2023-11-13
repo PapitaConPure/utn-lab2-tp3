@@ -124,5 +124,10 @@ namespace tp2 {
 
 			this.calendario.Refrescar();
 		}
-	}
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

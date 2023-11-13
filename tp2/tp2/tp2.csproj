@@ -89,6 +89,12 @@
     <Compile Include="Formularios\Secundarios\FDetalles.Designer.cs">
       <DependentUpon>FDetalles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Secundarios\FPasajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Secundarios\FPasajero.Designer.cs">
+      <DependentUpon>FPasajero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Secundarios\FPrecioBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Secundarios\FDetalles.resx">
       <DependentUpon>FDetalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Secundarios\FPasajero.resx">
+      <DependentUpon>FPasajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Secundarios\FPrecioBase.resx">
       <DependentUpon>FPrecioBase.cs</DependentUpon>
