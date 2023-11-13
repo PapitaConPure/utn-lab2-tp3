@@ -213,6 +213,11 @@
     <None Include="Resources\xwhite32.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ayuda\Contenidos\Admin\cancelarPropiedad.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ayuda\Contenidos\General\alquilar.html" />
+    <Content Include="Ayuda\Contenidos\General\cambiarContraseña.html" />
     <Content Include="Ayuda\estilos.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -227,10 +232,10 @@
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ayuda\Contenidos\casa.html">
+    <Content Include="Ayuda\Contenidos\Admin\agregarPropiedad.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Ayuda\Contenidos\hotel.html">
+    <Content Include="Ayuda\Contenidos\Admin\modificarAlquiler.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
