@@ -97,7 +97,7 @@ namespace tp2
 			Graphics g = e.Graphics;
 			Font encabezado = new Font("Arial", 14, FontStyle.Bold);
 			Font encabezado2 = new Font("Arial", 12, FontStyle.Bold);
-			Font cuerpo = new Font("Arial", 11, FontStyle.Regular);
+			Font cuerpo = new Font("Arial", 12, FontStyle.Bold);
 			Image foto1 = residencia.Imágenes[0];
 			Image foto2 = residencia.Imágenes[1];
 			int ancho = 800;
@@ -156,7 +156,7 @@ namespace tp2
 			g.DrawString("Cantidad de pasajeros: " + alquiler.Cliente.CantPasajeros, encabezado2, brush, 60, y += 30);
 			g.DrawString("Alquiler realizado el día: " + alquiler.FechaReserva.ToShortDateString(), encabezado2, brush, 60, y += 30);
 			g.DrawString("Precio Total: $" + alquiler.PrecioTotal, encabezado2, brush, 60, y += 30);
-			y = 570;
+			y = 560;
 			g.DrawString("Inquilinos: ", cuerpo, brush, 60, y);
 			foreach(Persona p in alquiler.Cliente.Pasajeros)
             {
