@@ -213,9 +213,10 @@ namespace tp2 {
             // lsbResidencias
             // 
             this.lsbResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lsbResidencias.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsbResidencias.FormattingEnabled = true;
             this.lsbResidencias.IntegralHeight = false;
-            this.lsbResidencias.ItemHeight = 20;
+            this.lsbResidencias.ItemHeight = 23;
             this.lsbResidencias.Location = new System.Drawing.Point(3, 109);
             this.lsbResidencias.Name = "lsbResidencias";
             this.lsbResidencias.Size = new System.Drawing.Size(956, 274);

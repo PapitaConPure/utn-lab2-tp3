@@ -131,7 +131,7 @@ namespace AlquilerLib {
 
 		public override string ToString()
         {
-			return $"Hotel: {this.Dirección}, {this.Número}";
+			return $"{"Hotel",-12} {this.Dirección,-30} {this.Número,-10}";
 		}
     }
 }

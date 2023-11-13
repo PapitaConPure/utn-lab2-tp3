@@ -62,7 +62,7 @@ namespace AlquilerLib {
 
 		public override string ToString()
         {
-			return $"Casa: {this.Dirección}, {this.Número}";
+			return $"{"Casa",-12} {this.Dirección,-30} {this.Número,-10}";
         }
     }
 }

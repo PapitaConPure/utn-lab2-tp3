@@ -332,6 +332,8 @@ namespace tp2 {
 			double max = (double)this.nudMaxPrice.Value;
 			double min = (double)this.nudMinPrice.Value;
 
+			this.lsbResidencias.Items.Add($"{"Tipo",-13}{"Dirección",-31}{"Id",-10}");
+
 			foreach(Residencia residencia in residencias) {
 				if(this.VerificarTipo(residencia)
 				&& (destino is null || destino == residencia.Dirección)
