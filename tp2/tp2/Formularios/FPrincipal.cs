@@ -52,12 +52,15 @@ namespace tp2 {
 				if(fs != null)
 					fs.Close();
 			}
-
+			bool primerInicio = false; ;
 			if(this.sistema == null) {
 				FNuevoSistema fNuevoSistema = new FNuevoSistema();
-
-				if(fNuevoSistema.ShowDialog() == DialogResult.OK)
+				
+				if (fNuevoSistema.ShowDialog() == DialogResult.OK)
+				{
 					this.sistema = fNuevoSistema.Sistema;
+					primerInicio = true;
+				}
 				else
 					Application.Exit();
 
@@ -66,29 +69,36 @@ namespace tp2 {
 
 			this.Hide();
 			new FSplash(0.001, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
-			FUsuario f = new FUsuario(this.sistema);
-			DialogResult dr = f.ShowDialog();
-			string tipoUsuario;
-			if (dr == DialogResult.OK)
-			{
-				tipoUsuario = "Administrador";
-                this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
-                agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = true;
-                this.btnBorrarPropiedad.Enabled = true;
-				this.btnImportar.Enabled = true;
+			string tipoUsuario="";
+			if (primerInicio)
+            {
+				agregarUsuarioToolStripMenuItem.PerformClick();
 			}
-			else 
-			{ 
-				tipoUsuario = "Empleado";
-				this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = 
-				this.btnModificarPropiedad.Enabled = this.btnBorrarPropiedad.Enabled = false;
-				this.btnImportar.Enabled = false;
-				agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = false;
+			else
+            {
+				FUsuario f = new FUsuario(this.sistema);
+				DialogResult dr = f.ShowDialog();
+				
+				if (dr == DialogResult.OK)
+				{
+					tipoUsuario = "Administrador";
+					this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
+					agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = true;
+					this.btnBorrarPropiedad.Enabled = true;
+					this.btnImportar.Enabled = true;
+				}
+				else
+				{
+					tipoUsuario = "Empleado";
+					this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled =
+					this.btnModificarPropiedad.Enabled = this.btnBorrarPropiedad.Enabled = false;
+					this.btnImportar.Enabled = false;
+					agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = false;
+					sistema.UsuarioActual = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
+					f.Dispose();
+				}
 			}
-
-			sistema.UsuarioActual = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
-			f.Dispose();
-
+			
 			if(sistema.UsuarioActual is null) {
 				Application.Exit();
 				return;
