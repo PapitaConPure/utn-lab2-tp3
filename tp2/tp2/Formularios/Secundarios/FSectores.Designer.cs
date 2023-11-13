@@ -30,11 +30,24 @@ namespace tp2.Formularios.Secundarios
         private void InitializeComponent()
         {
 			this.pnlSectores = new System.Windows.Forms.Panel();
+			this.btncm = new System.Windows.Forms.Button();
+			this.btnbm = new System.Windows.Forms.Button();
+			this.btnam = new System.Windows.Forms.Button();
+			this.btncp = new System.Windows.Forms.Button();
+			this.btnbp = new System.Windows.Forms.Button();
+			this.btnap = new System.Windows.Forms.Button();
 			this.lbPropReser = new System.Windows.Forms.Label();
+			this.pnlSectores.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlSectores
 			// 
+			this.pnlSectores.Controls.Add(this.btncm);
+			this.pnlSectores.Controls.Add(this.btnbm);
+			this.pnlSectores.Controls.Add(this.btnam);
+			this.pnlSectores.Controls.Add(this.btncp);
+			this.pnlSectores.Controls.Add(this.btnbp);
+			this.pnlSectores.Controls.Add(this.btnap);
 			this.pnlSectores.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlSectores.Location = new System.Drawing.Point(0, 45);
 			this.pnlSectores.Name = "pnlSectores";
@@ -45,6 +58,72 @@ namespace tp2.Formularios.Secundarios
 			this.pnlSectores.VisibleChanged += new System.EventHandler(this.PnlSectores_SizeChanged);
 			this.pnlSectores.Paint += new System.Windows.Forms.PaintEventHandler(this.FSectores_Paint);
 			// 
+			// btncm
+			// 
+			this.btncm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btncm.Location = new System.Drawing.Point(765, 370);
+			this.btncm.Name = "btncm";
+			this.btncm.Size = new System.Drawing.Size(23, 23);
+			this.btncm.TabIndex = 1;
+			this.btncm.Text = "-";
+			this.btncm.UseVisualStyleBackColor = true;
+			this.btncm.Click += new System.EventHandler(this.btncm_Click);
+			// 
+			// btnbm
+			// 
+			this.btnbm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnbm.Location = new System.Drawing.Point(765, 341);
+			this.btnbm.Name = "btnbm";
+			this.btnbm.Size = new System.Drawing.Size(23, 23);
+			this.btnbm.TabIndex = 1;
+			this.btnbm.Text = "-";
+			this.btnbm.UseVisualStyleBackColor = true;
+			this.btnbm.Click += new System.EventHandler(this.btnbm_Click);
+			// 
+			// btnam
+			// 
+			this.btnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnam.Location = new System.Drawing.Point(765, 312);
+			this.btnam.Name = "btnam";
+			this.btnam.Size = new System.Drawing.Size(23, 23);
+			this.btnam.TabIndex = 1;
+			this.btnam.Text = "-";
+			this.btnam.UseVisualStyleBackColor = true;
+			this.btnam.Click += new System.EventHandler(this.btnam_Click);
+			// 
+			// btncp
+			// 
+			this.btncp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btncp.Location = new System.Drawing.Point(736, 370);
+			this.btncp.Name = "btncp";
+			this.btncp.Size = new System.Drawing.Size(23, 23);
+			this.btncp.TabIndex = 0;
+			this.btncp.Text = "+";
+			this.btncp.UseVisualStyleBackColor = true;
+			this.btncp.Click += new System.EventHandler(this.btncp_Click);
+			// 
+			// btnbp
+			// 
+			this.btnbp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnbp.Location = new System.Drawing.Point(736, 341);
+			this.btnbp.Name = "btnbp";
+			this.btnbp.Size = new System.Drawing.Size(23, 23);
+			this.btnbp.TabIndex = 0;
+			this.btnbp.Text = "+";
+			this.btnbp.UseVisualStyleBackColor = true;
+			this.btnbp.Click += new System.EventHandler(this.btnbp_Click);
+			// 
+			// btnap
+			// 
+			this.btnap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnap.Location = new System.Drawing.Point(736, 312);
+			this.btnap.Name = "btnap";
+			this.btnap.Size = new System.Drawing.Size(23, 23);
+			this.btnap.TabIndex = 0;
+			this.btnap.Text = "+";
+			this.btnap.UseVisualStyleBackColor = true;
+			this.btnap.Click += new System.EventHandler(this.btnap_Click);
+			// 
 			// lbPropReser
 			// 
 			this.lbPropReser.AutoSize = true;
@@ -53,22 +132,23 @@ namespace tp2.Formularios.Secundarios
 			this.lbPropReser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
 			this.lbPropReser.Location = new System.Drawing.Point(0, 0);
 			this.lbPropReser.Name = "lbPropReser";
-			this.lbPropReser.Size = new System.Drawing.Size(393, 45);
+			this.lbPropReser.Size = new System.Drawing.Size(379, 45);
 			this.lbPropReser.TabIndex = 8;
-			this.lbPropReser.Text = "Propiedades Alquiladas";
+			this.lbPropReser.Text = "Residencias Alquiladas";
 			// 
 			// FSectores
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.pnlSectores);
 			this.Controls.Add(this.lbPropReser);
-			this.MaximizeBox = false;
-			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(410, 360);
 			this.Name = "FSectores";
+			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.pnlSectores.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -77,5 +157,11 @@ namespace tp2.Formularios.Secundarios
         #endregion
 		private System.Windows.Forms.Panel pnlSectores;
 		private System.Windows.Forms.Label lbPropReser;
+		private System.Windows.Forms.Button btncp;
+		private System.Windows.Forms.Button btnbp;
+		private System.Windows.Forms.Button btnap;
+		private System.Windows.Forms.Button btncm;
+		private System.Windows.Forms.Button btnbm;
+		private System.Windows.Forms.Button btnam;
 	}
 }

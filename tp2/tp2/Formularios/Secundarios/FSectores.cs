@@ -13,13 +13,13 @@ using System.Drawing.Drawing2D;
 
 namespace tp2.Formularios.Secundarios {
 	public partial class FSectores: Form {
-		private static readonly Color colorTextoAlt = Color.FromArgb(22, 22, 22);
+		private static readonly Color colorTextoAlt = Color.FromArgb(182, 158, 158);
 		private static readonly Font fuenteSector = new Font("Segoe UI Semibold", 11);
 
 		private readonly Sector[] sectores = {
 			new Sector("Casas", Color.FromArgb(219, 64, 69)),
-			new Sector("Casas Finde", Color.FromArgb(56, 214, 98)),
-			new Sector("Hoteles", Color.FromArgb(84, 180, 211)),
+			new Sector("Casas Finde", Color.FromArgb(40, 185, 86)),
+			new Sector("Hoteles", Color.FromArgb(87, 156, 179)),
 		};
 
 		private readonly Sistema sistema;
@@ -30,7 +30,6 @@ namespace tp2.Formularios.Secundarios {
 
 		public FSectores(Sistema sis): this() {
 			this.sistema = sis;
-			this.Text = "Cantidad de Reservas";
 
 			foreach(Residencia residencia in this.sistema.Residencias) {
 				if(residencia is CasaFinde)
@@ -60,12 +59,28 @@ namespace tp2.Formularios.Secundarios {
 			Rectangle rectangulo = new Rectangle(x, y, ss, ss);
 
 			int total = 0;
-
-			foreach(Sector sector in this.sectores)
+			Sector primero = null;
+			foreach(Sector sector in this.sectores) {
 				total += sector.Peso;
+				if(sector.Peso > 0 && primero is null)
+					primero = sector;
+			}
 
 			if(total == 0) {
 				g.FillEllipse(new SolidBrush(Color.Gray), rectangulo);
+				return;
+			}
+
+			if(total == primero.Peso) {
+				Size tt = TextRenderer.MeasureText(primero.Nombre, fuenteSector);
+				g.FillEllipse(new SolidBrush(primero.Color), rectangulo);
+				g.DrawString(
+					primero.Nombre,
+					fuenteSector,
+					new SolidBrush(Color.White),
+					this.pnlSectores.Width / 2 - tt.Width / 2,
+					this.pnlSectores.Height / 2 - tt.Height / 2);
+
 				return;
 			}
 
@@ -130,7 +145,7 @@ namespace tp2.Formularios.Secundarios {
 				texto = sector.Nombre;
 				tamañoTexto = TextRenderer.MeasureText(texto, fuenteSector);
 
-				if(ángulo >= 12) {
+				if(ángulo >= 18) {
 					brushTextoSector = new SolidBrush(Color.White);
 					puntoTextoSector = new PointF(
 						this.pnlSectores.Width / 2 + sm * radioTextos * seno - tamañoTexto.Width / 2,
@@ -149,9 +164,44 @@ namespace tp2.Formularios.Secundarios {
 			#endregion
 		}
 
+		#region Para pruebas
 		private void PnlSectores_SizeChanged(object sender, EventArgs e) {
 			this.pnlSectores.Invalidate();
 		}
+
+		private void btnap_Click(object sender, EventArgs e) {
+			this.sectores[0].Peso++;
+			this.pnlSectores.Invalidate();
+		}
+
+		private void btnbp_Click(object sender, EventArgs e) {
+			this.sectores[1].Peso++;
+			this.pnlSectores.Invalidate();
+		}
+
+		private void btncp_Click(object sender, EventArgs e) {
+			this.sectores[2].Peso++;
+			this.pnlSectores.Invalidate();
+		}
+
+		private void btnam_Click(object sender, EventArgs e) {
+			if(this.sectores[0].Peso > 0)
+				this.sectores[0].Peso--;
+			this.pnlSectores.Invalidate();
+		}
+
+		private void btnbm_Click(object sender, EventArgs e) {
+			if(this.sectores[1].Peso > 0)
+				this.sectores[1].Peso--;
+			this.pnlSectores.Invalidate();
+		}
+
+		private void btncm_Click(object sender, EventArgs e) {
+			if(this.sectores[2].Peso > 0)
+				this.sectores[2].Peso--;
+			this.pnlSectores.Invalidate();
+		}
+		#endregion
 	}
 
 	//Clase de utilidad para almacenar datos varios de un sector nomás

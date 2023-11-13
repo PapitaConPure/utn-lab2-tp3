@@ -10,7 +10,10 @@
     
     <body>
         <header>
-            <img id="img-empresa" src="logo.jpg"> <span id="nombre-empresa">Royal Alquiler</span>
+            <img id="img-empresa" src="logo.jpg">
+            <div id="nombre-empresa">
+                Royal Alquiler
+            </div>
         </header>
 
         <div class="contenido">
@@ -22,7 +25,7 @@
                 </p>
     
                 <p>
-                    En caso de ser necesario, comunícate con <a href="#">nuestro equipo</a>.
+                    En caso de ser necesario, <a href="#">comunícate con nuestro equipo</a>.
                 </p>
             </section>
 
@@ -34,53 +37,74 @@
 
                 <h3>Abriendo la aplicación por primera vez</h3>
                 <p>
-                    Cuando abras la aplicación por primera vez, serás presentado con una ventana para ingresar el precio base de los alquileres de las propiedades ingresadas.
+                    Cuando abras la aplicación por primera vez, serás presentado con una ventana para ingresar el <b>precio base</b> de los alquileres de las propiedades ingresadas.
                     Este es el precio que tendrán en cuenta los alquileres como base para sus demás factores.
                 </p>
+                <p>
+                    A continuación, serás presentado con una ventana para ingresar tus <b>datos de usuario</b> y acceder al sistema.
+                </p>
 
-                <!--
-				<table width="80%">
+                <h2>Acceso al Sistema</h2>
+                <p>
+                    La aplicación permite crear cuentas de diferentes tipos con un nombre de usuario y una contraseña.
+                </p>
+
+                <p>
+                    Puedes ingresar a la aplicación con credenciales válidas de un usuario. Solo debes ingresar tu nombre y contraseña.
+                </p>
+
+                <div class="énfasis light info">
+                    <h4>Creación de primer usuario</h4>
+                    <p>
+                        Si no existe ningún usuario, se creará un primer usuario como administrador al ingresar las credenciales solicitadas.
+                    </p>
+                </div>
+
+                <h3>Tipos de usuarios</h3>
+                <p class="table-showcase">
+                    Hay <b>2 tipos de usuario</b> con diferentes privilegios en el sistema:
+                </p>
+				<table width="90%">
                     <tr>
-                        <th>buenas</th>
-                        <th>loco</th>
-                        <th>comportación</th>
-                        <th>maurisionamiento</th>
+                        <th width = "50%">Administrador</th>
+                        <th width = "50%">Empleado</th>
                     </tr>
 					<tr>
-						<td>a</td>
-						<td>dawdab</td>
-                        <td>c</td>
-						<td>d</td>
-					</tr>
-					<tr>
-						<td>aawdawd</td>
-						<td>b</td>
-						<td>c</td>
-						<td>d</td>
+						<td>
+                            Puede hacer todo lo permitido por el sistema. Puede hacer altas y bajas de propiedades, además puede crear nuevos usuarios y anular reservas.
+                        </td>
+
+						<td>
+                            Solo puede cambiar su contraseña, realizar reservas y respaldar archivos CSV solicitados de clientes y alquileres
+                        </td>
 					</tr>
 				</table>
-                -->
             </section>
 
-            <section>
+
+            <section class="énfasis">
                 <h2>Índice</h2>
+                <p>
+                    Los siguientes capítulos discuten en mayor profundidad algunos temas importantes en el manejo de la aplicación
+                </p>
+
                 <h3>Acciones Generales</h3>
                 <ul>
                     <li><a href="Contenidos/General/alquilar.html">Alquilar</a></li>
                     <li><a href="Contenidos/General/cambiarContraseña.html">Cambiar Contraseña</a></li>
                 </ul>
+
                 <h3>Acciones de Administrador</h3>
                 <ul>
                     <li><a href="Contenidos/Admin/agregarPropiedad.html">Agregar Propiedad</a></li>
-                    <li><a href="Contenidos/Admin/modificarAlquiler.html">Modificar Alquiler</a></li>
                     <li><a href="Contenidos/Admin/cancelarPropiedad.html">Cancelar Alquiler</a></li>
+                    <li><a href="Contenidos/Admin/modificarAlquiler.html">Modificar Alquiler</a></li>
                 </ul>
             </section>
-            
         </div>
 
         <footer>
-            
+            © 2023 Royal Alquiler. Todos los derechos reservados.
         </footer>
     </body>
 </html>

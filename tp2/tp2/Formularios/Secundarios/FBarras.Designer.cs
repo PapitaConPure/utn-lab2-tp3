@@ -59,13 +59,14 @@ namespace tp2.Formularios.Secundarios
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.pnlBarras);
 			this.Controls.Add(this.lbCantPasajeros);
 			this.MinimumSize = new System.Drawing.Size(380, 300);
 			this.Name = "FBarras";
+			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "FBarras";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

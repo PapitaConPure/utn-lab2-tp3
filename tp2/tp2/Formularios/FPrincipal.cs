@@ -16,10 +16,14 @@ using System.Runtime.Serialization;
 using ProyectoSplash;
 using tp2.Formularios;
 using tp2.Formularios.Secundarios;
-using System.Diagnostics;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
+		private static readonly Color backColorColumnHeaderCell = Color.FromArgb(247, 181, 60);
+		private static readonly Color foreColorColumnHeaderCell = Color.FromArgb(22, 22, 22);
+		private static readonly Color backColorCell = Color.FromArgb(28, 28, 28);
+		private static readonly Color foreColorCell = Color.FromArgb(216, 216, 216);
+
 		private Sistema sistema;
 		private string rutaBin;
 
@@ -69,6 +73,7 @@ namespace tp2 {
 
 			this.Hide();
 			new FSplash(0.001, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
+
 			string tipoUsuario="";
 			if (primerInicio || sistema.Usuarios.Count==0)
             {
@@ -112,7 +117,26 @@ namespace tp2 {
 			labelNombreUsuario.ForeColor = Color.FromArgb(168, 146, 146);
 			this.barraEstado.Items.Add(labelTipoUsuario);
 			this.barraEstado.Items.Add(labelNombreUsuario);
-            this.Show();
+
+			#region Puta que te remil parió, Windows Forms
+			this.dgvResidencias.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle() {
+				Alignment = DataGridViewContentAlignment.MiddleCenter,
+				BackColor = backColorColumnHeaderCell,
+				ForeColor = foreColorColumnHeaderCell,
+				SelectionBackColor = backColorColumnHeaderCell,
+				SelectionForeColor = foreColorColumnHeaderCell,
+				Font = new Font("Segoe UI Black", 11),
+			};
+
+			this.dgvResidencias.DefaultCellStyle = new DataGridViewCellStyle() {
+				Alignment = DataGridViewContentAlignment.MiddleCenter,
+				BackColor = backColorCell,
+				ForeColor = foreColorCell,
+				SelectionBackColor = Color.FromArgb(70, 190, 190),
+				SelectionForeColor = Color.FromArgb(22, 22, 22),
+				Font = new Font("Segoe UI", 11),
+			};
+			#endregion
 		}
 
 		private void FPrincipal_FormClosed(object sender, FormClosedEventArgs e) {
@@ -170,35 +194,56 @@ namespace tp2 {
 		}
 
 		private void BtnBorrarPropiedad_Click(object sender, EventArgs e) {
-			Residencia aBorrar = this.lsbResidencias.SelectedItem as Residencia;
+			if(this.dgvResidencias.SelectedCells.Count == 0) {
+				MessageBox.Show("Selecciona una residencia en la tabla", "Selección inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
-			if(aBorrar is null) {
+			DialogResult confirmación = MessageBox.Show(
+				"¿De verdad quieres eliminar esta residencia?\nEsta acción no puede deshacerse",
+				"Confirmar eliminar",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Warning);
+
+			if(confirmación != DialogResult.Yes)
+				return;
+
+			int nroResidencia = (int)this.dgvResidencias.SelectedRows[0].Cells[2].Value;
+			Residencia residencia = this.sistema.VerResidencia(nroResidencia);
+
+			if(residencia is null) {
 				MessageBox.Show("No se encontró una residencia", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
-			if(!this.sistema.QuitarResidencia(aBorrar.Número))
+			if(!this.sistema.QuitarResidencia(residencia.Número))
 				MessageBox.Show("No se ha podido eliminar la residencia");
 
-			MessageBox.Show("Residencia eliminada");
+			MessageBox.Show("Residencia eliminada", "Acción concluída", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			this.cmbDestinos.Items.Clear();
 			this.ActualizarListadoResidencias();
 		}
 
         private void BtnModificarPropiedad_Click(object sender, EventArgs e) {
-			Residencia aModificar = this.lsbResidencias.SelectedItem as Residencia;
+			if(this.dgvResidencias.SelectedCells.Count == 0) {
+				MessageBox.Show("Selecciona una residencia en la tabla", "Selección inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
-			if(aModificar is null) {
+			int nroResidencia = (int)this.dgvResidencias.SelectedRows[0].Cells[2].Value;
+			Residencia residencia = this.sistema.VerResidencia(nroResidencia);
+
+			if(residencia is null) {
 				MessageBox.Show("No se encontró una residencia", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
 			Form fModificar = null;
 
-			if(aModificar is Hotel)
-				fModificar = new FAgregarHotel(this.sistema, aModificar as Hotel);
-			else if(aModificar is Casa)
-				fModificar = new FAgregarCasa(this.sistema, aModificar as Casa);
+			if(residencia is Hotel)
+				fModificar = new FAgregarHotel(this.sistema, residencia as Hotel);
+			else if(residencia is Casa)
+				fModificar = new FAgregarCasa(this.sistema, residencia as Casa);
 
 			if(fModificar != null) {
 				fModificar.ShowDialog();
@@ -207,14 +252,20 @@ namespace tp2 {
 		}
 
 		private void BtnConsultarPropiedad_Click(object sender, EventArgs e) {
-			Residencia aVer = this.lsbResidencias.SelectedItem as Residencia;
+			if(this.dgvResidencias.SelectedCells.Count == 0) {
+				MessageBox.Show("Selecciona una residencia en la tabla", "Selección inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 
-			if(aVer is null) {
+			int nroResidencia = (int)this.dgvResidencias.SelectedRows[0].Cells[2].Value;
+			Residencia residencia = this.sistema.VerResidencia(nroResidencia);
+
+			if(residencia is null) {
 				MessageBox.Show("No se encontró una residencia", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
-			FDetalles fDetalles = new FDetalles(this.sistema, aVer);
+			FDetalles fDetalles = new FDetalles(this.sistema, residencia);
 			fDetalles.ShowDialog();
 			fDetalles.Dispose();
 		}
@@ -249,6 +300,10 @@ namespace tp2 {
 			this.rbHotel.Checked = false;
 			this.cbFecha.Checked = false;
 			this.ActualizarListadoResidencias();
+		}
+
+		private void CbFecha_CheckedChanged(object sender, EventArgs e) {
+			this.pnlFechas.Enabled = this.cbFecha.Checked;
 		}
 
 		private bool VerificarTipo(Residencia r) {
@@ -318,6 +373,130 @@ namespace tp2 {
 		}
 		#endregion
 
+		#region Barra de Menú
+		private void AcercaDeToolStripMenuItem_Click(object sender, EventArgs e) {
+			AcercaDe fAcercaDe = new AcercaDe();
+			fAcercaDe.ShowDialog();
+		}
+
+		private void PropiedadesReservadasToolStripMenuItem_Click(object sender, EventArgs e) {
+			FSectores FS = new FSectores(this.sistema);
+			FS.ShowDialog();
+			FS.Dispose();
+		}
+
+		private void CantidadPasajaerosToolStripMenuItem_Click(object sender, EventArgs e) {
+			FBarras FB = new FBarras(this.sistema);
+			FB.ShowDialog();
+			FB.Dispose();
+		}
+
+		private void AgregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e) {
+			FUsuario f = new FUsuario(this.sistema);
+			f.btnIngresar.Visible = false;
+			f.tlpBotonesAlt.Visible = true;
+			f.tlpTipoUsuario.Visible = true;
+
+			f.lblTítulo.Text = "Agregar Usuario";
+			f.btnAceptar.Text = "Agregar";
+
+			if(f.ShowDialog() == DialogResult.No) {
+				string tipo;
+				if(f.rbAdministrador.Checked) tipo = "Administrador";
+				else tipo = "Empleado";
+
+				Usuario nuevo = new Usuario(f.tbUsuario.Text, f.tbContraseña.Text, tipo);
+				sistema.AgregarUsuario(nuevo);
+				MessageBox.Show("Usuario agregado");
+			} else {
+				f.Dispose();
+			}
+		}
+
+		private void EliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e) {
+			FUsuario f = new FUsuario(this.sistema);
+			f.btnIngresar.Visible = false;
+			f.tlpBotonesAlt.Visible = true;
+
+			f.lblTítulo.Text = "Eliminar Usuario";
+			f.btnAceptar.BackColor = Color.FromArgb(240, 62, 67);
+			f.btnAceptar.ForeColor = Color.White;
+			f.btnAceptar.Text = "Eliminar";
+
+			if(f.ShowDialog() == DialogResult.No) {
+				Usuario aux = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
+				if(aux == null) {
+					MessageBox.Show("El usuario no existe");
+					return;
+				} else {
+					sistema.EliminarUsuario(aux);
+					MessageBox.Show("El usuario " + aux.Nombre + " a sido eliminado");
+				}
+			}
+		}
+
+		private void CambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e) {
+			FUsuario f = new FUsuario(this.sistema);
+			f.btnIngresar.Visible = false;
+			f.tlpBotonesAlt.Visible = true;
+			f.tbUsuario.Text = sistema.UsuarioActual.Nombre;
+			f.gbUsuario.Enabled = false;
+
+			f.lblTítulo.Text = "Cambiar contraseña";
+
+			if(f.ShowDialog() == DialogResult.No) {
+				sistema.UsuarioActual.CambiarContraseña(f.tbContraseña.Text);
+				MessageBox.Show("La contraseña ha sido actualizada correctamente");
+			} else {
+				f.Dispose();
+			}
+		}
+
+		private void AyudaToolStripMenuItem_Click(object sender, EventArgs e) {
+			FAyuda fAyuda = new FAyuda();
+			fAyuda.ShowDialog();
+			fAyuda.Dispose();
+			//string ruta = Path.Combine(Application.StartupPath, "Ayuda", "index.html");
+			//Process.Start(ruta);
+		}
+
+		private void GuardarToolStripMenuItem_Click(object sender, EventArgs e) {
+			FileStream fs = null;
+			BinaryFormatter bf;
+			try {
+				fs = new FileStream(this.rutaBin, FileMode.OpenOrCreate, FileAccess.Write);
+				bf = new BinaryFormatter();
+				this.sistema.GuardaNúmeroResidenciaSerializado();
+				bf.Serialize(fs, this.sistema);
+			} catch(IOException) {
+				MessageBox.Show("No se pudieron guardar los datos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			} catch(UnauthorizedAccessException) {
+				MessageBox.Show("No se pudieron guardar los datos", "Error de Permisos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			} finally {
+				if(fs != null)
+					fs.Close();
+			}
+
+			if(this.sfdDatos.ShowDialog() != DialogResult.OK)
+				return;
+			try {
+				this.sistema.GuardarLista(this.sfdDatos.FileName);
+				MessageBox.Show("Se Guardaron los alquileres y clientes.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			} catch(IOException ex) {
+				MessageBox.Show(ex.Message, "Error de Escritura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+			} catch(UnauthorizedAccessException ex) {
+				MessageBox.Show(ex.Message, "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+			} catch(ArgumentException ex) {
+				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			DateTime hora = DateTime.Now;
+			ToolStripLabel texto = new ToolStripLabel("| Ultimo respaldo: " + hora.Hour + ":" + hora.Minute + ":" + hora.Second);
+			texto.ForeColor = Color.FromArgb(211, 197, 197);
+			barraEstado.Items.Add(texto);
+		}
+		#endregion
+
 		#region Utilidades
 		private void ActualizarListadoResidencias() {
 			Residencia[] residencias = this.sistema.Residencias;
@@ -326,13 +505,11 @@ namespace tp2 {
 				if(!this.cmbDestinos.Items.Contains(residencia.Dirección))
 					this.cmbDestinos.Items.Add(residencia.Dirección);
 
-			this.lsbResidencias.Items.Clear();
+			this.dgvResidencias.Rows.Clear();
 
 			string destino = this.cmbDestinos.SelectedItem as string;
 			double max = (double)this.nudMaxPrice.Value;
 			double min = (double)this.nudMinPrice.Value;
-
-			this.lsbResidencias.Items.Add($"{"Tipo",-13}{"Dirección",-31}{"Id",-10}");
 
 			foreach(Residencia residencia in residencias) {
 				if(this.VerificarTipo(residencia)
@@ -340,12 +517,16 @@ namespace tp2 {
 				&& (max == 0 || residencia.CalcularPrecioTotal() * this.sistema.PrecioBase <= max)
 				&& (min == 0 || residencia.CalcularPrecioTotal() * this.sistema.PrecioBase >= min)
 				&& this.VerificarPlazas(residencia)
-				&& this.VerificarFecha(residencia,this.dtpIngreso.Value, this.dtpSalida.Value))
-					this.lsbResidencias.Items.Add(residencia);
+				&& this.VerificarFecha(residencia, this.dtpIngreso.Value, this.dtpSalida.Value)) {
+					this.dgvResidencias.Rows.Add(
+						residencia.GetType().Name,
+						residencia.Dirección,
+						residencia.Número);
+					this.dgvResidencias.Rows[this.dgvResidencias.Rows.Count - 1].Cells[0].Style.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+				}
 			}
 
-			if(this.lsbResidencias.Items.Count == 0)
-				this.lsbResidencias.Items.Add("No hay resultados...");
+			this.dgvResidencias.ClearSelection();
 		}
 		#endregion
 
@@ -357,164 +538,6 @@ namespace tp2 {
 		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
 			(sender as NumericUpDown).Select(0, 20);
 		}
-        #endregion
-
-        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			AcercaDe fAcercaDe = new AcercaDe();
-			fAcercaDe.ShowDialog();
-        }
-
-        private void cbFecha_CheckedChanged(object sender, EventArgs e)
-        {
-			this.pnlFecha.Enabled = this.cbFecha.Checked;
-        }
-
-        private void propiedadesReservadasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			FSectores FS = new FSectores(this.sistema);
-			FS.ShowDialog();
-			FS.Dispose();
-        }
-
-        private void cantidadPasajaerosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			FBarras FB = new FBarras(this.sistema);
-			FB.ShowDialog();
-			FB.Dispose();
-        }
-
-        private void AgregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			FUsuario f = new FUsuario(this.sistema);
-			f.btnIngresar.Visible = false;
-			f.tlpBotonesAlt.Visible = true;
-			f.tlpTipoUsuario.Visible = true;
-
-			f.lblTítulo.Text = "Agregar Usuario";
-			f.btnAceptar.Text = "Agregar";
-
-			if(f.ShowDialog() == DialogResult.No)
-            {
-				string tipo;
-				if (f.rbAdministrador.Checked) tipo = "Administrador";
-				else tipo = "Empleado";
-				
-				Usuario nuevo = new Usuario(f.tbUsuario.Text, f.tbContraseña.Text, tipo);
-				sistema.AgregarUsuario(nuevo);
-				MessageBox.Show("Usuario agregado");
-            }
-            else
-            {
-				f.Dispose();
-            }
-        }
-
-        private void EliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			FUsuario f = new FUsuario(this.sistema);
-            f.btnIngresar.Visible = false;
-			f.tlpBotonesAlt.Visible = true;
-
-			f.lblTítulo.Text = "Eliminar Usuario";
-			f.btnAceptar.BackColor = Color.FromArgb(240, 62, 67);
-			f.btnAceptar.ForeColor = Color.White;
-			f.btnAceptar.Text = "Eliminar";
-
-			if (f.ShowDialog() == DialogResult.No)
-			{
-				Usuario aux = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
-				if(aux == null)
-                {
-					MessageBox.Show("El usuario no existe");
-					return;
-                }
-                else
-                {
-					sistema.EliminarUsuario(aux);
-					MessageBox.Show("El usuario "+ aux.Nombre +" a sido eliminado");
-				}
-			}
-		}
-
-        private void CambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			FUsuario f = new FUsuario(this.sistema);
-			f.btnIngresar.Visible = false;
-			f.tlpBotonesAlt.Visible = true;
-			f.tbUsuario.Text = sistema.UsuarioActual.Nombre;
-			f.gbUsuario.Enabled = false;
-
-			f.lblTítulo.Text = "Cambiar contraseña";
-
-			if(f.ShowDialog() == DialogResult.No)
-            {
-				sistema.UsuarioActual.CambiarContraseña(f.tbContraseña.Text);
-				MessageBox.Show("La contraseña ha sido actualizada correctamente");
-            }
-            else
-            {
-				f.Dispose();
-            }
-        }
-
-		private void ayudaToolStripMenuItem_Click(object sender, EventArgs e) {
-			//FAyuda fAyuda = new FAyuda();
-			//fAyuda.ShowDialog();
-			//fAyuda.Dispose();
-			string ruta = Path.Combine(Application.StartupPath, "Ayuda", "index.html");
-			Process.Start(ruta);
-		}
-
-        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			FileStream fs = null;
-			BinaryFormatter bf;
-			try
-			{
-				fs = new FileStream(this.rutaBin, FileMode.OpenOrCreate, FileAccess.Write);
-				bf = new BinaryFormatter();
-				this.sistema.GuardaNúmeroResidenciaSerializado();
-				bf.Serialize(fs, this.sistema);
-			}
-			catch (IOException)
-			{
-				MessageBox.Show("No se pudieron guardar los datos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			catch (UnauthorizedAccessException)
-			{
-				MessageBox.Show("No se pudieron guardar los datos", "Error de Permisos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			finally
-			{
-				if (fs != null)
-					fs.Close();
-			}
-
-			if (this.sfdDatos.ShowDialog() != DialogResult.OK)
-				return;
-			try
-			{
-				this.sistema.GuardarLista(this.sfdDatos.FileName);
-				MessageBox.Show("Se Guardaron los alquileres y clientes.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			catch (IOException ex)
-			{
-				MessageBox.Show(ex.Message, "Error de Escritura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-			}
-			catch (UnauthorizedAccessException ex)
-			{
-				MessageBox.Show(ex.Message, "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-			}
-			catch (ArgumentException ex)
-			{
-				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-
-			DateTime hora = DateTime.Now;
-			ToolStripLabel texto = new ToolStripLabel("| Ultimo respaldo: " + hora.Hour + ":" + hora.Minute + ":" + hora.Second);
-			texto.ForeColor = Color.FromArgb(211, 197, 197);
-			barraEstado.Items.Add(texto);
-		}
-    }
+		#endregion
+	}
 }

@@ -16,12 +16,13 @@ namespace tp2.Formularios.Secundarios
 		private static readonly Color colorPrimario = Color.FromArgb(255, 190, 70);
 		private static readonly Color colorSecundario = Color.FromArgb(211, 197, 197);
 		private static readonly Color colorInformación = Color.FromArgb(84, 180, 211);
-		private static readonly Color colorFrente = Color.FromArgb(22, 22, 22);
+		private static readonly Color colorFrente = Color.FromArgb(236, 236, 236);
 		private static readonly Font fuenteBarra = new Font("Segoe UI", 11);
 		private static readonly Font fuenteBaseBarra = new Font("Lato Black", 10);
 
 		private readonly Sistema sistema;
-        private readonly int cnt2, cnt3, cnt4, cnt5, cnt6;
+		private readonly string[] nombresBarra;
+		private readonly int[] cantidades;
 		private readonly Color colorSombra;
 
 		public FBarras() {
@@ -30,41 +31,56 @@ namespace tp2.Formularios.Secundarios
 
         public FBarras(Sistema sis): this() {
             this.sistema = sis;
-            this.Text = "Cantidad de pasajeros";
 
 			this.colorSombra = Color.FromArgb(
 				(int)(this.BackColor.R * 0.72),
 				(int)(this.BackColor.G * 0.69),
 				(int)(this.BackColor.B * 0.80));
+			
+			//Para agregar nuevas barras, solo modificar acá
+			Dictionary<string, int> barras = new Dictionary<string, int>();
+			barras.Add("2", 0);
+			barras.Add("3", 0);
+			barras.Add("4", 0);
+			barras.Add("5", 0);
+			barras.Add("6+", 0);
 
-            foreach(Residencia r in this.sistema.Residencias) {
+			foreach(Residencia r in this.sistema.Residencias) {
                 foreach(Alquiler a in r.Alquileres) {
                     switch(a.Cliente.CantPasajeros) {
                     case 1:
                     case 2:
-                        this.cnt2++;
+						barras["2"]++;
                         break;
 
                     case 3:
-						this.cnt3++;
+						barras["3"]++;
                         break;
 
                     case 4:
-						this.cnt4++;
+						barras["4"]++;
                         break;
 
                     case 5:
-						this.cnt5++;
+						barras["5"]++;
                         break;
 
                     default:
 						if(a.Cliente.CantPasajeros >= 6)
-							this.cnt6++;
+							barras["6+"]++;
                         break;
                     }
                 }
             }
-        }
+
+			this.nombresBarra = new string[barras.Count];
+			this.cantidades = new int[barras.Count];
+			int c = 0;
+			foreach(KeyValuePair<string, int> barra in barras) {
+				this.nombresBarra[c] = barra.Key;
+				this.cantidades[c++] = barra.Value;
+			}
+		}
 
         private void PnlBarras_Paint(object sender, PaintEventArgs e) {
 			Graphics g = e.Graphics;
@@ -74,7 +90,6 @@ namespace tp2.Formularios.Secundarios
 			Brush brushTextoBarras = new SolidBrush(colorFrente);
 			Brush brushTextoBaseBarras = new SolidBrush(colorInformación);
 
-			int muestra = 0;
 			float margenH = 0.1f;
 			float margenV = 0.1f;
 			float x = this.pnlBarras.Width * margenH;
@@ -83,12 +98,16 @@ namespace tp2.Formularios.Secundarios
 			float h = this.pnlBarras.Height * (1 - margenV * 2);
 			float anchoBarra = 16;
 
-			string[] textoBase = { "2", "3", "4", "5", "6+" };
-			int[] cantidades = { this.cnt2, this.cnt3, this.cnt4, this.cnt5, this.cnt6 };
 			float espaciadoBarra = w / (cantidades.Length - 1f);
 
-			foreach(int cantidad in cantidades)
-				muestra += cantidad;
+			int mayor = 0, total = 0;
+			foreach(int cantidad in cantidades) {
+				total += cantidad;
+				if(mayor < cantidad)
+					mayor = cantidad;
+			}
+			
+			float muestra = 0.75f * mayor + 0.25f * total;
 
 			float xBarra, hBarra;
 			Size tamañoTexto;
@@ -121,15 +140,15 @@ namespace tp2.Formularios.Secundarios
 						xBarra + 2f - tamañoTexto.Width * 0.5f,
 						y - hBarra - tamañoTexto.Height));
 
-				textoBarra = textoBase[i];
+				textoBarra = nombresBarra[i];
 				tamañoTexto = TextRenderer.MeasureText(textoBarra, fuenteBaseBarra);
 				g.DrawString(
 					textoBarra,
 					fuenteBaseBarra,
 					brushTextoBaseBarras,
 					new PointF(
-						xBarra + 4f - tamañoTexto.Width * 0.5f,
-						y + 4f));
+						xBarra + 2f - tamañoTexto.Width * 0.5f,
+						y + 2f));
 			}
 		}
 
@@ -137,7 +156,7 @@ namespace tp2.Formularios.Secundarios
 			this.pnlBarras.Invalidate();
 		}
 
-		private float CalcularAltura(int clase, int muestra, float alturaMáxima) {
+		private float CalcularAltura(int clase, float muestra, float alturaMáxima) {
 			if(muestra == 0)
 				return 1f;
 
