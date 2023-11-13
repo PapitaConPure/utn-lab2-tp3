@@ -11,6 +11,7 @@ namespace AlquilerLib {
 		}
 		public int CantPasajeros { get; private set; }
 		List<Persona> pasajeros;
+		public List<Persona> Pasajeros { get { return this.pasajeros; } }
 		public override string Exportar() {
 			return string.Join(";", base.Exportar(), this.CantPasajeros);
 		}

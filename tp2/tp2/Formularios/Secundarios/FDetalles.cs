@@ -150,6 +150,14 @@ namespace tp2
 			g.DrawString("Cantidad de pasajeros: " + alquiler.Cliente.CantPasajeros, encabezado2, brush, 60, y += 30);
 			g.DrawString("Alquiler realizado el día: " + alquiler.FechaReserva.ToShortDateString(), encabezado2, brush, 60, y += 30);
 			g.DrawString("Precio Total: $" + alquiler.PrecioTotal, encabezado2, brush, 60, y += 30);
+			y = 570;
+			g.DrawString("Inquilinos: ", cuerpo, brush, 60, y);
+			foreach(Persona p in alquiler.Cliente.Pasajeros)
+            {
+				g.DrawString("Nombre: " + p.Nombre + " " + p.Apellido + " " + 
+							 " Dni: " + p.Dni + " " + " Fecha de nacimiento: "+ 
+							 p.FechaNacimiento.ToShortDateString(),cuerpo,brush,60,y+=30);
+            }
 
 			t = "Firma de la empresa";
 			s = TextRenderer.MeasureText(t, cuerpo);
