@@ -2,10 +2,12 @@
 using System;
 using System.Windows.Forms;
 using AlquilerLib.Utilidades;
+using AlquilerLib.Constructores;
 
 namespace tp2 {
 	public partial class FAlquiler: Form {
 		private readonly Sistema sistema;
+		private readonly Alquiler alquiler;
 		private readonly Residencia residencia;
 		private Calendario calendario;
 		private DateTime[] meses;
@@ -30,6 +32,7 @@ namespace tp2 {
 			this.nudTel.Value = alquiler.Cliente.Teléfono;
 			this.tbApellido.Text = alquiler.Cliente.Apellido;
 			this.tbNombre.Text = alquiler.Cliente.Nombre;
+			this.alquiler = alquiler;
 			this.btnAlquilar.Visible = false;
 			this.btnModificar.Visible = true;
 		}
@@ -78,7 +81,25 @@ namespace tp2 {
 					this.DialogResult = DialogResult.None;
 					return;
 				}
-
+				DatosPersona d;
+				d = new DatosPersona(dni, nom, apellido, telefono);
+				Cliente c = new Cliente(d, cantPasajeros);
+				FPasajero nuevo;
+				Persona aux;
+				
+				int cont = (int)nudCantPasajeros.Value;
+				for (int i = 0; i < cont-1; i++)
+				{
+					nuevo = new FPasajero();
+					nuevo.ShowDialog();
+					d = new DatosPersona((int)nuevo.nudDniPasajero.Value,
+										nuevo.tbNombrePasajero.Text, nuevo.tbApellido.Text,
+										0, nuevo.dtpFechaNacimiento.Value);
+					aux = new Persona(d);
+					c.AgregarPasajero(aux);
+					nuevo.Dispose();
+				}
+				
 				MessageBox.Show(
 					$"Desde:{checkIn:d} hasta {checkOut:d}",
 					"Residencia alquilada",
@@ -125,9 +146,6 @@ namespace tp2 {
 			this.calendario.Refrescar();
 		}
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

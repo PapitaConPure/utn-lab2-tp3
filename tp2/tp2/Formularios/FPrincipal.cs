@@ -72,15 +72,17 @@ namespace tp2 {
 			if (dr == DialogResult.OK)
 			{
 				tipoUsuario = "Administrador";
-				this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
-				agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = true;
-				this.btnBorrarPropiedad.Enabled = true;
+                this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
+                agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = true;
+                this.btnBorrarPropiedad.Enabled = true;
+				this.btnImportar.Enabled = true;
 			}
 			else 
 			{ 
 				tipoUsuario = "Empleado";
 				this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = 
 				this.btnModificarPropiedad.Enabled = this.btnBorrarPropiedad.Enabled = false;
+				this.btnImportar.Enabled = false;
 				agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = false;
 			}
 

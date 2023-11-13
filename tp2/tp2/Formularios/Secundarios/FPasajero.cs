@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AlquilerLib.Utilidades;
+using AlquilerLib;
 
-namespace tp2.Formularios.Secundarios
+namespace tp2
 {
     public partial class FPasajero : Form
     {
         public FPasajero()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

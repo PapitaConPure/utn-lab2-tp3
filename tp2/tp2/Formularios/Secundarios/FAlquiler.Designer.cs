@@ -270,7 +270,6 @@ namespace tp2 {
             this.btnModificar.Text = "Modificar Alquiler";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Visible = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAlquilar
             // 

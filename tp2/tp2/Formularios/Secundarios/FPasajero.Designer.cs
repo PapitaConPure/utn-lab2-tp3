@@ -1,5 +1,5 @@
 ﻿
-namespace tp2.Formularios.Secundarios
+namespace tp2
 {
     partial class FPasajero
     {
@@ -36,13 +36,15 @@ namespace tp2.Formularios.Secundarios
             this.nudDniPasajero = new System.Windows.Forms.NumericUpDown();
             this.tbNombrePasajero = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.tbApellido = new System.Windows.Forms.TextBox();
+            this.lbApellido = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudDniPasajero)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(157, 28);
+            this.label1.Location = new System.Drawing.Point(157, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
@@ -51,7 +53,7 @@ namespace tp2.Formularios.Secundarios
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(178, 56);
+            this.label2.Location = new System.Drawing.Point(178, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 1;
@@ -78,14 +80,29 @@ namespace tp2.Formularios.Secundarios
             // 
             // nudDniPasajero
             // 
-            this.nudDniPasajero.Location = new System.Drawing.Point(210, 54);
+            this.nudDniPasajero.Location = new System.Drawing.Point(210, 68);
+            this.nudDniPasajero.Maximum = new decimal(new int[] {
+            99000000,
+            0,
+            0,
+            0});
+            this.nudDniPasajero.Minimum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             this.nudDniPasajero.Name = "nudDniPasajero";
             this.nudDniPasajero.Size = new System.Drawing.Size(120, 20);
             this.nudDniPasajero.TabIndex = 4;
+            this.nudDniPasajero.Value = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
             // 
             // tbNombrePasajero
             // 
-            this.tbNombrePasajero.Location = new System.Drawing.Point(210, 25);
+            this.tbNombrePasajero.Location = new System.Drawing.Point(210, 16);
             this.tbNombrePasajero.Name = "tbNombrePasajero";
             this.tbNombrePasajero.Size = new System.Drawing.Size(100, 20);
             this.tbNombrePasajero.TabIndex = 5;
@@ -100,11 +117,29 @@ namespace tp2.Formularios.Secundarios
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // tbApellido
+            // 
+            this.tbApellido.Location = new System.Drawing.Point(210, 42);
+            this.tbApellido.Name = "tbApellido";
+            this.tbApellido.Size = new System.Drawing.Size(100, 20);
+            this.tbApellido.TabIndex = 8;
+            // 
+            // lbApellido
+            // 
+            this.lbApellido.AutoSize = true;
+            this.lbApellido.Location = new System.Drawing.Point(157, 45);
+            this.lbApellido.Name = "lbApellido";
+            this.lbApellido.Size = new System.Drawing.Size(47, 13);
+            this.lbApellido.TabIndex = 7;
+            this.lbApellido.Text = "Apellido:";
+            // 
             // FPasajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 234);
+            this.Controls.Add(this.tbApellido);
+            this.Controls.Add(this.lbApellido);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.tbNombrePasajero);
             this.Controls.Add(this.nudDniPasajero);
@@ -130,5 +165,7 @@ namespace tp2.Formularios.Secundarios
         public System.Windows.Forms.NumericUpDown nudDniPasajero;
         public System.Windows.Forms.TextBox tbNombrePasajero;
         public System.Windows.Forms.Button btnAceptar;
+        public System.Windows.Forms.TextBox tbApellido;
+        private System.Windows.Forms.Label lbApellido;
     }
 }
