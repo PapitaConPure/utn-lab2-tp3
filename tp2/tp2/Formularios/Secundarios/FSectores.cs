@@ -20,6 +20,7 @@ namespace tp2.Formularios.Secundarios {
 			new Sector("Casas", Color.FromArgb(219, 64, 69)),
 			new Sector("Casas Finde", Color.FromArgb(40, 185, 86)),
 			new Sector("Hoteles", Color.FromArgb(87, 156, 179)),
+			//new Sector("Habitaciones", Color.FromArgb(240, 208, 0)),
 		};
 
 		private readonly Sistema sistema;
@@ -54,8 +55,10 @@ namespace tp2.Formularios.Secundarios {
 			double margen = 0.15;
 			int ss = (int)(s * (1 - margen * 2));
 			int sm = ss / 2;
-			int x = this.pnlSectores.Width / 2 - sm;
-			int y = this.pnlSectores.Height / 2 - sm;
+			int cx = this.pnlSectores.Width / 2;
+			int cy = this.pnlSectores.Height / 2;
+			int x = cx - sm;
+			int y = cy - sm;
 			Rectangle rectangulo = new Rectangle(x, y, ss, ss);
 
 			int total = 0;
@@ -78,11 +81,13 @@ namespace tp2.Formularios.Secundarios {
 					primero.Nombre,
 					fuenteSector,
 					new SolidBrush(Color.White),
-					this.pnlSectores.Width / 2 - tt.Width / 2,
-					this.pnlSectores.Height / 2 - tt.Height / 2);
+					cx - tt.Width / 2,
+					cy - tt.Height / 2);
 
 				return;
 			}
+
+			Sector[] sectores = this.SectoresOrdenados();
 
 			//Desplazamiento del ángulo inicial: 0 = Este, 90 = Sur, 180 = Oeste, 270 = Norte
 			float desplazamiento = 270f;
@@ -95,11 +100,11 @@ namespace tp2.Formularios.Secundarios {
 			int i = 0;
 
 			#region Rellenos de torta
-			foreach(Sector sector in this.sectores) {
+			foreach(Sector sector in sectores) {
 				int cantidad = sector.Peso;
 				ánguloInicio = ánguloFin;
 
-				if(i < this.sectores.Length - 1)
+				if(i < sectores.Length - 1)
 					ánguloFin = ánguloInicio + 360f * cantidad / total;
 				else
 					ánguloFin = desplazamiento + 360f;
@@ -120,16 +125,18 @@ namespace tp2.Formularios.Secundarios {
 			float ánguloMedio;
 			float seno, coseno;
 			float radioTextos = 0.6f; // Qué tan alejado está un texto del centro del pastel, del 0 al 1
+			float radioExTextos = 1.02f;
+			float aumentoRadioEx = 0.06f;
 			string texto;
 			Size tamañoTexto;
 			PointF puntoTextoSector;
 			ánguloFin = desplazamiento;
 			i = 0;
-			foreach(Sector sector in this.sectores) {
+			foreach(Sector sector in sectores) {
 				int cantidad = sector.Peso;
 				ánguloInicio = ánguloFin;
 
-				if(i < this.sectores.Length - 1)
+				if(i < sectores.Length - 1)
 					ánguloFin = ánguloInicio + 360f * cantidad / total;
 				else
 					ánguloFin = desplazamiento + 360f;
@@ -148,13 +155,16 @@ namespace tp2.Formularios.Secundarios {
 				if(ángulo >= 18) {
 					brushTextoSector = new SolidBrush(Color.White);
 					puntoTextoSector = new PointF(
-						this.pnlSectores.Width / 2 + sm * radioTextos * seno - tamañoTexto.Width / 2,
-						this.pnlSectores.Height / 2 + sm * radioTextos * coseno - tamañoTexto.Height / 2);
+						cx + sm * radioTextos * seno - tamañoTexto.Width / 2,
+						cy + sm * radioTextos * coseno - tamañoTexto.Height / 2);
 				} else {
+					float tw = tamañoTexto.Width / 2;
+					float th = tamañoTexto.Height / 2;
 					brushTextoSector = new SolidBrush(colorTextoAlt);
 					puntoTextoSector = new PointF(
-						this.pnlSectores.Width / 2 + sm * seno - tamañoTexto.Width / 2 + tamañoTexto.Width / 2 * seno,
-						this.pnlSectores.Height / 2 + sm * coseno - tamañoTexto.Height / 2 + tamañoTexto.Height / 2 * coseno);
+						cx + sm * radioExTextos * seno - tw + tw * seno,
+						cy + sm * radioExTextos * coseno - th + th * coseno);
+					radioExTextos += aumentoRadioEx;
 				}
 
 				g.DrawString(texto, fuenteSector, brushTextoSector, puntoTextoSector);
@@ -162,6 +172,28 @@ namespace tp2.Formularios.Secundarios {
 				i++;
 			}
 			#endregion
+		}
+
+		private Sector[] SectoresOrdenados() {
+			Sector[] vec = new Sector[this.sectores.Length];
+			this.sectores.CopyTo(vec, 0);
+
+			int l = vec.Length;
+			Sector aux;
+			int i, j;
+
+			for(i = 0; i < l - 1; i++) {
+				aux = vec[i];
+				for(j = i + 1; j < l; j++) {
+					if(aux.Peso < vec[j].Peso) {
+						vec[i] = vec[j];
+						vec[j] = aux;
+						aux = vec[i];
+					}
+				}
+			}
+
+			return vec;
 		}
 
 		#region Para pruebas
