@@ -1019,15 +1019,15 @@ namespace tp2 {
 		private System.Windows.Forms.Panel pnlDisponibilidad;
 		private System.Windows.Forms.Panel pnlPrecio;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Dirección;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Número;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Servicios;
 		private System.Windows.Forms.Panel pnlResidencias;
 		private System.Windows.Forms.TableLayoutPanel tlpBotonesPropiedades;
 		private System.Windows.Forms.Button btnBorrarPropiedad;
 		private System.Windows.Forms.Button btnModificarPropiedad;
 		private System.Windows.Forms.Button btnConsultarPropiedad;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Dirección;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Número;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Servicios;
 	}
 }
 

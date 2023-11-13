@@ -521,7 +521,8 @@ namespace tp2 {
 					this.dgvResidencias.Rows.Add(
 						residencia.GetType().Name,
 						residencia.Dirección,
-						residencia.Número);
+						residencia.Número,
+						string.Join(", ", residencia.VerServicios()));
 					this.dgvResidencias.Rows[this.dgvResidencias.Rows.Count - 1].Cells[0].Style.Font = new Font("Segoe UI", 11, FontStyle.Bold);
 				}
 			}

@@ -70,8 +70,10 @@ namespace AlquilerLib {
         {
 			nuevo = new Alquiler(this.contAlquileres++, hoy, ingreso, salida, this, cantPasajeros, dni, nombre, apellido, tel, precioBase);
 			bool puedeAlquilar = this.PuedeAlquilar(nuevo);
+
 			if(puedeAlquilar)
 				this.AgregarAlquiler(nuevo);
+
 			return puedeAlquilar;
         }
 
@@ -79,8 +81,10 @@ namespace AlquilerLib {
         {
             nuevo = new Alquiler(nro, hoy, ingreso, salida, this, cantPasajeros, dni, nombre, apellido, tel, precioBase);
             bool puedeAlquilar = this.PuedeAlquilar(nuevo);
+
             if (puedeAlquilar)
                 this.AgregarAlquiler(nuevo);
+
             return puedeAlquilar;
         }
 
@@ -147,7 +151,12 @@ namespace AlquilerLib {
 		}
 
 		public string[] VerServicios() {
-			return this.servicios;
+			string[] resultado = new string[this.CServicios];
+			
+			for(int i = 0; i < this.CServicios; i++)
+				resultado[i] = this.servicios[i];
+
+			return resultado;
 		}
 
 		public string Exportar() {
