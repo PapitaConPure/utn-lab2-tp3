@@ -94,9 +94,10 @@ namespace tp2 {
 					this.btnModificarPropiedad.Enabled = this.btnBorrarPropiedad.Enabled = false;
 					this.btnImportar.Enabled = false;
 					agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = false;
-					sistema.UsuarioActual = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
-					f.Dispose();
+					
 				}
+				sistema.UsuarioActual = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
+				f.Dispose();
 			}
 			
 			if(sistema.UsuarioActual is null) {
@@ -393,7 +394,7 @@ namespace tp2 {
 
 			if(f.ShowDialog() == DialogResult.No)
             {
-				string tipo="";
+				string tipo;
 				if (f.rbAdministrador.Checked) tipo = "Administrador";
 				else tipo = "Empleado";
 				
@@ -462,5 +463,56 @@ namespace tp2 {
 			string ruta = Path.Combine(Application.StartupPath, "Ayuda", "index.html");
 			Process.Start(ruta);
 		}
-	}
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			FileStream fs = null;
+			BinaryFormatter bf;
+			try
+			{
+				fs = new FileStream(this.rutaBin, FileMode.OpenOrCreate, FileAccess.Write);
+				bf = new BinaryFormatter();
+				this.sistema.GuardaNúmeroResidenciaSerializado();
+				bf.Serialize(fs, this.sistema);
+			}
+			catch (IOException)
+			{
+				MessageBox.Show("No se pudieron guardar los datos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			catch (UnauthorizedAccessException)
+			{
+				MessageBox.Show("No se pudieron guardar los datos", "Error de Permisos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			finally
+			{
+				if (fs != null)
+					fs.Close();
+			}
+
+			if (this.sfdDatos.ShowDialog() != DialogResult.OK)
+				return;
+			try
+			{
+				this.sistema.GuardarLista(this.sfdDatos.FileName);
+				MessageBox.Show("Se Guardaron los alquileres y clientes.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			catch (IOException ex)
+			{
+				MessageBox.Show(ex.Message, "Error de Escritura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+			}
+			catch (UnauthorizedAccessException ex)
+			{
+				MessageBox.Show(ex.Message, "Error de Permisos", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+			}
+			catch (ArgumentException ex)
+			{
+				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			DateTime hora = DateTime.Now;
+			ToolStripLabel texto = new ToolStripLabel("| Ultimo respaldo: " + hora.Hour + ":" + hora.Minute + ":" + hora.Second);
+			texto.ForeColor = Color.FromArgb(211, 197, 197);
+			barraEstado.Items.Add(texto);
+		}
+    }
 }

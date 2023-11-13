@@ -5,7 +5,7 @@ using AlquilerLib.Utilidades;
 
 namespace AlquilerLib {
 	[Serializable]
-	public class Persona: IExportable {
+	public class Persona: IExportable, IGuardable {
 		private static readonly Regex regexLetras = new Regex("[A-Za-zÁÉÍÓÚáéíóú ]+");
 
 		private string apellido;
@@ -66,6 +66,10 @@ namespace AlquilerLib {
 
 		public virtual string Exportar() {
 			return string.Join(";", this.Dni, this.Nombre, this.Apellido, this.Teléfono);
+		}
+		public virtual string Guardar()
+        {
+			return string.Join(";", this.Dni, this.Nombre, this.Apellido);
 		}
 	}
 }

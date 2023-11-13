@@ -3,7 +3,7 @@ using AlquilerLib.Constructores;
 
 namespace AlquilerLib {
 	[Serializable]
-	public class Alquiler: IComparable, IExportable {
+	public class Alquiler: IComparable, IExportable, IGuardable {
 		private readonly Residencia residencia;
 		private readonly Cliente cliente;
 		private readonly Habitación habitacion;
@@ -67,8 +67,10 @@ namespace AlquilerLib {
 		public DateTime FechaReserva { get; private set; }
 
 		public DateTime CheckIn { get; private set; }
-
+		
 		public DateTime CheckOut { get; private set; }
+
+		public TimeSpan CantDias { get { return CheckOut.Subtract(CheckIn); } }
 
 		public double PrecioBase { get; private set; }
 
@@ -101,6 +103,11 @@ namespace AlquilerLib {
 				this.CheckOut.ToShortDateString(),
 				this.residencia.PorcentajePorDía(this.Número)*this.PrecioBase,
 				this.PrecioTotal);
+        }
+		public string Guardar()
+        {
+			return string.Join(";",residencia.Número, Cliente.Dni, 
+								CheckIn.ToShortDateString(), CheckOut.ToShortDateString());
         }
 
 		public void Modificar(DateTime checkIn, DateTime checkOut)

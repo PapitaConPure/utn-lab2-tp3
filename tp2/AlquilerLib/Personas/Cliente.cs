@@ -15,6 +15,7 @@ namespace AlquilerLib {
 		public override string Exportar() {
 			return string.Join(";", base.Exportar(), this.CantPasajeros);
 		}
+
 		public void AgregarPasajero(Persona nueva)
         {
 			pasajeros.Add(nueva);

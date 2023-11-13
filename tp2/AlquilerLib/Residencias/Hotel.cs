@@ -102,7 +102,7 @@ namespace AlquilerLib {
 			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			double precio = 1;
 
-			precio += (int)this.VerTipoHabitación(alquiler.Cliente.CantPasajeros) / 100;
+			precio += (double)this.VerTipoHabitación(alquiler.Cliente.CantPasajeros) / 100;
 
 			if(this.Estrellas >= 3)
 				precio *= 1.4;
@@ -114,7 +114,8 @@ namespace AlquilerLib {
         {
             Alquiler alquiler = this.VerAlquiler(nroAlquiler);
 			TimeSpan diferencia = alquiler.CheckOut.Subtract(alquiler.CheckIn);
-			double precioFinal = this.PorcentajePorDía(nroAlquiler) * (1 + (int)diferencia.TotalDays * 0.03);
+			double precioFinal = (this.PorcentajePorDía(nroAlquiler)*(int)diferencia.TotalDays) * ((1 + (int)diferencia.TotalDays*0.03 
+								 - 0.015*((int)diferencia.TotalDays-1)));
 			return precioFinal;
 		}
 

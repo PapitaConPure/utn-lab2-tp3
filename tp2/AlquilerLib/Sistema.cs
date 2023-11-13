@@ -218,11 +218,56 @@ namespace AlquilerLib {
 					foreach(Alquiler alquiler in residencia.Alquileres) {
 						sw.WriteLine(alquiler.Exportar());
 					}
-					residencia.LimpiarAlquileres();
+					//residencia.LimpiarAlquileres();
 				}
 			} finally {
 				if(fs != null) {
 					if(sw != null)
+						sw.Close();
+
+					fs.Close();
+				}
+			}
+		}
+		public void GuardarLista(string ruta)
+        {
+			FileStream fs = null;
+			StreamWriter sw = null;
+			try
+			{
+				if (File.Exists(ruta)) { File.Delete(ruta); }
+				fs = new FileStream(ruta, FileMode.Create, FileAccess.Write);
+				sw = new StreamWriter(fs);
+				List<Alquiler> alq = new List<Alquiler>();
+				List<Cliente> cl = new List<Cliente>();
+				foreach (Residencia residencia in residencias)
+				{
+					foreach (Alquiler alquiler in residencia.Alquileres)
+					{
+						alq.Add(alquiler);
+						cl.Add(alquiler.Cliente);
+					}
+				}
+				sw.WriteLine("Alquileres");
+				sw.WriteLine(string.Join(";","Id alojamiento","Dni cliente","CheckIn","Checkout"));
+				foreach (Alquiler alquiler in alq)
+				{
+					sw.WriteLine(alquiler.Guardar());
+				}
+				sw.WriteLine("Clientes");
+				sw.WriteLine(string.Join(";", "Dni Cliente", "Nombre", "Apellido"));
+				foreach(Cliente c in cl)
+                {
+					sw.WriteLine(c.Guardar());
+                }
+					//residencia.LimpiarAlquileres();
+				
+			}
+			finally
+			{
+				if (fs != null)
+				{
+					if (sw != null)
 						sw.Close();
 
 					fs.Close();

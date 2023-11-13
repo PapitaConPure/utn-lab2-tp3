@@ -30,8 +30,6 @@ namespace tp2 {
             this.sfdDatos = new System.Windows.Forms.SaveFileDialog();
             this.gbAgregar = new System.Windows.Forms.GroupBox();
             this.tlpBotonesAgregar = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAgregarCasa = new System.Windows.Forms.Button();
-            this.btnAgregarHotel = new System.Windows.Forms.Button();
             this.tlpBotonesDatos = new System.Windows.Forms.TableLayoutPanel();
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
@@ -63,7 +61,6 @@ namespace tp2 {
             this.btnMostrarResidencias = new System.Windows.Forms.Button();
             this.btnLimpiarFiltros = new System.Windows.Forms.Button();
             this.tlpBotonesPropiedades = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBorrarPropiedad = new System.Windows.Forms.Button();
             this.btnModificarPropiedad = new System.Windows.Forms.Button();
             this.btnConsultarPropiedad = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -78,6 +75,10 @@ namespace tp2 {
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barraEstado = new System.Windows.Forms.StatusStrip();
+            this.btnBorrarPropiedad = new System.Windows.Forms.Button();
+            this.btnAgregarCasa = new System.Windows.Forms.Button();
+            this.btnAgregarHotel = new System.Windows.Forms.Button();
+            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbAgregar.SuspendLayout();
             this.tlpBotonesAgregar.SuspendLayout();
             this.tlpBotonesDatos.SuspendLayout();
@@ -168,44 +169,6 @@ namespace tp2 {
             this.tlpBotonesAgregar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBotonesAgregar.Size = new System.Drawing.Size(956, 52);
             this.tlpBotonesAgregar.TabIndex = 0;
-            // 
-            // btnAgregarCasa
-            // 
-            this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
-            this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarCasa.Image = global::tp2.Properties.Resources.plusblack32;
-            this.btnAgregarCasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
-            this.btnAgregarCasa.Name = "btnAgregarCasa";
-            this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnAgregarCasa.Size = new System.Drawing.Size(466, 46);
-            this.btnAgregarCasa.TabIndex = 0;
-            this.btnAgregarCasa.Text = "Casa";
-            this.btnAgregarCasa.UseVisualStyleBackColor = false;
-            this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
-            // 
-            // btnAgregarHotel
-            // 
-            this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
-            this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
-            this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
-            this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarHotel.Location = new System.Drawing.Point(487, 3);
-            this.btnAgregarHotel.Name = "btnAgregarHotel";
-            this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnAgregarHotel.Size = new System.Drawing.Size(466, 46);
-            this.btnAgregarHotel.TabIndex = 1;
-            this.btnAgregarHotel.Text = "Hotel";
-            this.btnAgregarHotel.UseVisualStyleBackColor = false;
-            this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
             // 
             // tlpBotonesDatos
             // 
@@ -590,25 +553,6 @@ namespace tp2 {
             this.tlpBotonesPropiedades.Size = new System.Drawing.Size(956, 48);
             this.tlpBotonesPropiedades.TabIndex = 22;
             // 
-            // btnBorrarPropiedad
-            // 
-            this.btnBorrarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(67)))));
-            this.btnBorrarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBorrarPropiedad.FlatAppearance.BorderSize = 0;
-            this.btnBorrarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-            this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
-            this.btnBorrarPropiedad.Image = global::tp2.Properties.Resources.xwhite32;
-            this.btnBorrarPropiedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrarPropiedad.Location = new System.Drawing.Point(639, 3);
-            this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
-            this.btnBorrarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnBorrarPropiedad.Size = new System.Drawing.Size(314, 42);
-            this.btnBorrarPropiedad.TabIndex = 2;
-            this.btnBorrarPropiedad.Text = "Eliminar";
-            this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
-            this.btnBorrarPropiedad.Click += new System.EventHandler(this.BtnBorrarPropiedad_Click);
-            // 
             // btnModificarPropiedad
             // 
             this.btnModificarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
@@ -658,6 +602,8 @@ namespace tp2 {
             // 
             // inicioToolStripMenuItem
             // 
+            this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.guardarToolStripMenuItem});
             this.inicioToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -748,6 +694,70 @@ namespace tp2 {
             this.barraEstado.Name = "barraEstado";
             this.barraEstado.Size = new System.Drawing.Size(962, 22);
             this.barraEstado.TabIndex = 5;
+            // 
+            // btnBorrarPropiedad
+            // 
+            this.btnBorrarPropiedad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(62)))), ((int)(((byte)(67)))));
+            this.btnBorrarPropiedad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBorrarPropiedad.FlatAppearance.BorderSize = 0;
+            this.btnBorrarPropiedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrarPropiedad.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+            this.btnBorrarPropiedad.ForeColor = System.Drawing.Color.White;
+            this.btnBorrarPropiedad.Image = global::tp2.Properties.Resources.xwhite32;
+            this.btnBorrarPropiedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBorrarPropiedad.Location = new System.Drawing.Point(639, 3);
+            this.btnBorrarPropiedad.Name = "btnBorrarPropiedad";
+            this.btnBorrarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnBorrarPropiedad.Size = new System.Drawing.Size(314, 42);
+            this.btnBorrarPropiedad.TabIndex = 2;
+            this.btnBorrarPropiedad.Text = "Eliminar";
+            this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
+            this.btnBorrarPropiedad.Click += new System.EventHandler(this.BtnBorrarPropiedad_Click);
+            // 
+            // btnAgregarCasa
+            // 
+            this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+            this.btnAgregarCasa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+            this.btnAgregarCasa.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarCasa.Image = global::tp2.Properties.Resources.plusblack32;
+            this.btnAgregarCasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCasa.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregarCasa.Name = "btnAgregarCasa";
+            this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnAgregarCasa.Size = new System.Drawing.Size(466, 46);
+            this.btnAgregarCasa.TabIndex = 0;
+            this.btnAgregarCasa.Text = "Casa";
+            this.btnAgregarCasa.UseVisualStyleBackColor = false;
+            this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
+            // 
+            // btnAgregarHotel
+            // 
+            this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(70)))));
+            this.btnAgregarHotel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
+            this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+            this.btnAgregarHotel.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarHotel.Image = global::tp2.Properties.Resources.plusblack32;
+            this.btnAgregarHotel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarHotel.Location = new System.Drawing.Point(487, 3);
+            this.btnAgregarHotel.Name = "btnAgregarHotel";
+            this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.btnAgregarHotel.Size = new System.Drawing.Size(466, 46);
+            this.btnAgregarHotel.TabIndex = 1;
+            this.btnAgregarHotel.Text = "Hotel";
+            this.btnAgregarHotel.UseVisualStyleBackColor = false;
+            this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
+            // 
+            // guardarToolStripMenuItem
+            // 
+            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.guardarToolStripMenuItem.Text = "Guardar";
+            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // FPrincipal
             // 
@@ -854,6 +864,7 @@ namespace tp2 {
         private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
-	}
+        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+    }
 }
 

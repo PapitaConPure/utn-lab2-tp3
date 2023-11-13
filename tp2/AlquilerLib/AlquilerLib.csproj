@@ -46,6 +46,7 @@
     <Compile Include="Alquiler.cs" />
     <Compile Include="Constructores\DatosPersona.cs" />
     <Compile Include="Habitacion.cs" />
+    <Compile Include="IGuardable.cs" />
     <Compile Include="Residencias\Casa.cs" />
     <Compile Include="Residencias\CasaFinde.cs" />
     <Compile Include="Personas\Cliente.cs" />
