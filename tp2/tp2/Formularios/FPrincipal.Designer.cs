@@ -83,12 +83,12 @@ namespace tp2 {
 			this.barraEstado = new System.Windows.Forms.StatusStrip();
 			this.pnlResidencias = new System.Windows.Forms.Panel();
 			this.tlpBotonesPropiedades = new System.Windows.Forms.TableLayoutPanel();
-			this.pnlBotonesResidencias = new System.Windows.Forms.Panel();
 			this.btnAgregarHotel = new System.Windows.Forms.Button();
 			this.btnAgregarCasa = new System.Windows.Forms.Button();
 			this.btnBorrarPropiedad = new System.Windows.Forms.Button();
 			this.btnModificarPropiedad = new System.Windows.Forms.Button();
 			this.btnConsultarPropiedad = new System.Windows.Forms.Button();
+			this.pnlBotonesResidencias = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.dgvResidencias)).BeginInit();
 			this.pnlFiltro.SuspendLayout();
 			this.pnlDestinosPasajeros.SuspendLayout();
@@ -645,7 +645,7 @@ namespace tp2 {
 			// 
 			this.guardarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-			this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.guardarToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.guardarToolStripMenuItem.Text = "&Guardar";
 			this.guardarToolStripMenuItem.Click += new System.EventHandler(this.GuardarToolStripMenuItem_Click);
 			// 
@@ -655,7 +655,7 @@ namespace tp2 {
             this.alquileresToolStripMenuItem});
 			this.importarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-			this.importarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.importarToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.importarToolStripMenuItem.Text = "&Importar...";
 			// 
 			// alquileresToolStripMenuItem
@@ -671,7 +671,7 @@ namespace tp2 {
             this.alquileresToolStripMenuItem1});
 			this.exportarToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exportarToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
 			this.exportarToolStripMenuItem.Text = "&Exportar...";
 			// 
 			// alquileresToolStripMenuItem1
@@ -802,16 +802,6 @@ namespace tp2 {
 			this.tlpBotonesPropiedades.Size = new System.Drawing.Size(832, 45);
 			this.tlpBotonesPropiedades.TabIndex = 22;
 			// 
-			// pnlBotonesResidencias
-			// 
-			this.pnlBotonesResidencias.Controls.Add(this.tlpBotonesPropiedades);
-			this.pnlBotonesResidencias.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pnlBotonesResidencias.Location = new System.Drawing.Point(0, 528);
-			this.pnlBotonesResidencias.Name = "pnlBotonesResidencias";
-			this.pnlBotonesResidencias.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
-			this.pnlBotonesResidencias.Size = new System.Drawing.Size(844, 51);
-			this.pnlBotonesResidencias.TabIndex = 0;
-			// 
 			// btnAgregarHotel
 			// 
 			this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(181)))), ((int)(((byte)(60)))));
@@ -906,6 +896,16 @@ namespace tp2 {
 			this.btnConsultarPropiedad.Text = "Consultar";
 			this.btnConsultarPropiedad.UseVisualStyleBackColor = false;
 			this.btnConsultarPropiedad.Click += new System.EventHandler(this.BtnConsultarPropiedad_Click);
+			// 
+			// pnlBotonesResidencias
+			// 
+			this.pnlBotonesResidencias.Controls.Add(this.tlpBotonesPropiedades);
+			this.pnlBotonesResidencias.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.pnlBotonesResidencias.Location = new System.Drawing.Point(0, 528);
+			this.pnlBotonesResidencias.Name = "pnlBotonesResidencias";
+			this.pnlBotonesResidencias.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
+			this.pnlBotonesResidencias.Size = new System.Drawing.Size(844, 51);
+			this.pnlBotonesResidencias.TabIndex = 0;
 			// 
 			// FPrincipal
 			// 
