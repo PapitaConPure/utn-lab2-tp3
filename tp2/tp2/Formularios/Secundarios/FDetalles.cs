@@ -34,6 +34,10 @@ namespace tp2
 			esPrimera = true;
 		}
 
+		private void FDetalles_Load(object sender, EventArgs e) {
+			this.gbAlquileres.Font = new Font(Estilos.LatoBlack, 9);
+		}
+
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
 			FAlquiler fAlquiler = new FAlquiler(this.sistema, this.residencia);
 
@@ -44,12 +48,12 @@ namespace tp2
 		}
 
 		private void BtnCancelarAlquiler_Click(object sender, EventArgs e) {
-			Alquiler alq = residencia.VerAlquiler((int)this.nudNroAlquiler.Value);
-			bool pudo;
-			if (this.sistema.UsuarioActual.Tipo != "Administrador")
-				pudo = false;
-			else
-				 pudo = this.residencia.QuitarAlquiler((int)this.nudNroAlquiler.Value);
+			if(this.sistema.UsuarioActual.Tipo != "Administrador") {
+				MessageBox.Show("No tienes permiso para hacer eso", "No permitido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			bool pudo = this.residencia.QuitarAlquiler((int)this.nudNroAlquiler.Value);
 			
             if (pudo)
             {
@@ -95,12 +99,11 @@ namespace tp2
         private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
         {
 			Graphics g = e.Graphics;
-			Font encabezado = new Font("Segoe UI Black", 14, FontStyle.Bold);
-			Font encabezado2 = new Font("Segoe UI", 12, FontStyle.Bold);
-			Font cuerpo = new Font("Segoe UI", 12);
+			Font encabezado = new Font(Estilos.SegoeUIBlack, 14, FontStyle.Bold);
+			Font encabezado2 = new Font(Estilos.SegoeUI, 12, FontStyle.Bold);
+			Font cuerpo = new Font(Estilos.SegoeUI, 12);
 			Image foto1 = residencia.Imágenes[0];
 			Image foto2 = residencia.Imágenes[1];
-			int ancho = 800;
 			int y = 20;
 
 			Pen lapiz = new Pen(Color.Black);
@@ -145,58 +148,85 @@ namespace tp2
 			int rellenoInfo = 20;
 			int xl = página.Left + rellenoInfo;
 			int xr = página.Right - rellenoInfo;
-			if(residencia is Hotel) {
+
+			if(this.residencia is Hotel) {
 				tipo = "Hotel";
 				g.DrawString($"Habitación {this.alquiler.Habitacion.Tipo}", encabezado2, brush, xl, 540);
-			} else if (residencia is CasaFinde) tipo = "Casa de fin de semana";
-			else tipo = "Casa";
-			int n = residencia.Número;
-			string d = residencia.Dirección;
-			string t = $"{tipo}   Nro: {n}   Dirección: {d}";
-			Size s = TextRenderer.MeasureText(t, encabezado);
-			int x = e.PageBounds.Width / 2 - s.Width / 2;
+			} else if(this.residencia is CasaFinde)
+				tipo = "Casa de fin de semana";
+			else
+				tipo = "Casa";
+
+			int n = this.residencia.Número;
+			string d = this.residencia.Dirección;
+			string t;
+			StringBuilder tBuilder = new StringBuilder();
+			tBuilder.Append(tipo);
+			tBuilder.Append("   N.º ");
+			tBuilder.Append(n.ToString());
+			tBuilder.Append("   Dirección: ");
+			tBuilder.Append(d);
+			t = tBuilder.ToString();
+
+			float anchoEncabezado = AnchoTexto(g, t, encabezado);
+			int objetivoH = página.Width - relleno * 2;
+			if(anchoEncabezado > objetivoH) {
+				string adicional = "...";
+				float anchoAdicional = AnchoTexto(g, adicional, encabezado);
+				tBuilder.Remove(tBuilder.Length - 3, 3);
+				do {
+					tBuilder.Remove(tBuilder.Length - 1, 1);
+					t = tBuilder.ToString();
+					anchoEncabezado = AnchoTexto(g, t, encabezado);
+				} while(anchoEncabezado + anchoAdicional > objetivoH);
+				t += adicional;
+			}
+
+
+			float x = e.PageBounds.Width / 2f - anchoEncabezado / 2f;
+
 			g.DrawString(t, encabezado, brush,
-						new Rectangle(x,y+=40,ancho,y));
+						new RectangleF(x, y += 40, página.Width - x + página.X, y));
 
 			y = 300;
 			string textoDerecha = this.alquiler.CheckIn.ToShortDateString();
 			g.DrawString("Fecha de Check-in", encabezado2, brush, xl, y);
-			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(textoDerecha, cuerpo), y);
+			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
 			textoDerecha = this.alquiler.CheckOut.ToShortDateString();
 			g.DrawString($"Fecha de Check-out", encabezado2, brush, xl, y);
-			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(textoDerecha, cuerpo), y);
+			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
 			textoDerecha = $"{this.alquiler.Cliente.Apellido} {this.alquiler.Cliente.Nombre}";
 			g.DrawString("Responsable", encabezado2, brush, xl, y);
-			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(textoDerecha, cuerpo), y);
+			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
 			textoDerecha = this.alquiler.Cliente.Dni.ToString();
 			g.DrawString("Dni", encabezado2, brush, xl, y);
-			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(textoDerecha, cuerpo), y);
+			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
 			textoDerecha = this.alquiler.Cliente.Teléfono.ToString();
 			g.DrawString("Teléfono", encabezado2, brush, xl, y);
-			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(textoDerecha, cuerpo), y);
+			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
 			textoDerecha = this.alquiler.Cliente.CantPasajeros.ToString();
 			g.DrawString("Cantidad de pasajeros", encabezado2, brush, xl, y);
-			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(textoDerecha, cuerpo), y);
+			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
 			textoDerecha = $"{this.alquiler.FechaReserva:dd/MM/yy HH:mm:ss}";
 			g.DrawString("Fecha de reserva", encabezado2, brush, xl, y);
-			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(textoDerecha, cuerpo), y);
+			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
 			textoDerecha = $"${this.alquiler.PrecioTotal:F2}";
 			g.DrawString("Precio Total", encabezado2, brush, xl, y);
-			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(textoDerecha, cuerpo), y);
+			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 
 			int xx = página.Left + relleno;
 			y = 560;
@@ -223,17 +253,19 @@ namespace tp2
 			}
 
 			t = "Firma de la empresa";
-			s = TextRenderer.MeasureText(t, cuerpo);
-			g.DrawLine(lapiz, 100, 980, s.Width+100, 980);
+			anchoEncabezado = AnchoTexto(g, t, cuerpo);
+			g.DrawLine(lapiz, 100, 980, anchoEncabezado + 100, 980);
 			g.DrawString(t, cuerpo, brush, 100, 980);
 
 			t = "Firma del cliente";
-			s = TextRenderer.MeasureText(t, cuerpo);
-			g.DrawLine(lapiz, 580, 980, s.Width+600, 980);
+			anchoEncabezado = AnchoTexto(g, t, cuerpo);
+			g.DrawLine(lapiz, 580, 980, anchoEncabezado + 600, 980);
 			g.DrawString(t, cuerpo, brush, 580, 980);
         }
 
-		private static int AnchoTexto(string textoDerecha, Font cuerpo) => TextRenderer.MeasureText(textoDerecha, cuerpo).Width;
+		private static float AnchoTexto(Graphics g, string texto, Font fuente) {
+			return g.MeasureString(texto, fuente).Width;
+		}
 
 		private void BtnModificarAlquiler_Click(object sender, EventArgs e) {
             Alquiler alquiler = this.residencia.VerAlquiler(Convert.ToInt32(this.nudNroAlquiler.Value));
@@ -320,8 +352,7 @@ namespace tp2
 				this.lsbAlquileres.Items.Add("----------------------------------------------------------------");
 			}
 		}
-        #endregion
 
-        
-    }
+		#endregion
+	}
 }

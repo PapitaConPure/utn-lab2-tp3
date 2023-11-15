@@ -9,13 +9,17 @@ using AlquilerLib.Constructores;
 using AlquilerLib.Utilidades;
 
 namespace tp2 {
-    public partial class FAgregarCasa: Form {
+    public partial class FCasa: Form {
 		private readonly Sistema sistema;
 		private readonly FImagen fImagen;
 		private CheckBox[] servicios;
 		private Casa casa;
 
-		public FAgregarCasa() {
+		public Image[] Imágenes {
+			get { return this.fImagen.Imágenes; }
+		}
+
+		public FCasa() {
 			this.InitializeComponent();
 
 			this.servicios = new CheckBox[] {
@@ -37,12 +41,12 @@ namespace tp2 {
 			this.tbNombre.Enabled = true;
 		}
 
-		public FAgregarCasa(Sistema sistema): this() {
+		public FCasa(Sistema sistema): this() {
 			this.sistema = sistema;
 			this.fImagen = new FImagen();
 		}
 
-		public FAgregarCasa(Sistema sistema, Casa casa): this() {
+		public FCasa(Sistema sistema, Casa casa): this() {
 			this.sistema = sistema;
 			this.fImagen = new FImagen(casa.Imágenes);
 			this.casa = casa;
@@ -70,20 +74,18 @@ namespace tp2 {
 			}
 		}
 
-		public Image[] Imágenes {
-            get { return this.fImagen.Imágenes; }
+		~FCasa() {
+			if(this.fImagen != null)
+				this.fImagen.Dispose();
 		}
 
-		public List<string> ServiciosCargados {
-			get {
-				List<string> resultado = new List<string>();
-
-				foreach(CheckBox servicio in this.servicios)
-					if(servicio.Checked)
-						resultado.Add(servicio.Text);
-
-				return resultado;
-			}
+		private void FAgregarCasa_Load(object sender, EventArgs e) {
+			Font fuente = new Font(Estilos.LatoBlack, 9);
+			this.gbDatos.Font = fuente;
+			this.gbPropietario.Font = fuente;
+			this.gbCantCamas.Font = fuente;
+			this.gbMinDías.Font = fuente;
+			this.gbServicios.Font = fuente;
 		}
 
 		private void BtnCrear_Click(object sender, EventArgs e) {
@@ -153,8 +155,6 @@ namespace tp2 {
         private void BtnAgregarImagen_Click(object sender, EventArgs e) {
 			this.fImagen.ShowDialog();
         }
-
-		
 
 		#region Calidad de vida
 		private void SeleccionarTextBox(object sender, EventArgs e) {

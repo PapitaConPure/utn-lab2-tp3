@@ -46,7 +46,6 @@ namespace tp2 {
 			this.btnAlquilar = new System.Windows.Forms.Button();
 			this.gbPropietario = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.lbCantPasajeros = new System.Windows.Forms.Label();
 			this.lbDNI = new System.Windows.Forms.Label();
 			this.nudTel = new System.Windows.Forms.NumericUpDown();
 			this.tbNombre = new System.Windows.Forms.TextBox();
@@ -57,6 +56,8 @@ namespace tp2 {
 			this.lbApellido = new System.Windows.Forms.Label();
 			this.nudCantPasajeros = new System.Windows.Forms.NumericUpDown();
 			this.pnlControl = new System.Windows.Forms.Panel();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.gbCantPasajeros = new System.Windows.Forms.GroupBox();
 			this.gbCantDías = new System.Windows.Forms.GroupBox();
 			this.nudCantDias = new System.Windows.Forms.NumericUpDown();
 			this.tlpCalendario.SuspendLayout();
@@ -70,6 +71,8 @@ namespace tp2 {
 			((System.ComponentModel.ISupportInitialize)(this.nudDNI)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCantPasajeros)).BeginInit();
 			this.pnlControl.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
+			this.gbCantPasajeros.SuspendLayout();
 			this.gbCantDías.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudCantDias)).BeginInit();
 			this.SuspendLayout();
@@ -91,7 +94,7 @@ namespace tp2 {
 			this.tlpCalendario.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tlpCalendario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tlpCalendario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tlpCalendario.Size = new System.Drawing.Size(206, 332);
+			this.tlpCalendario.Size = new System.Drawing.Size(206, 325);
 			this.tlpCalendario.TabIndex = 0;
 			// 
 			// dgvCalendario
@@ -130,7 +133,7 @@ namespace tp2 {
 			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvCalendario.EnableHeadersVisualStyles = false;
-			this.dgvCalendario.Location = new System.Drawing.Point(6, 66);
+			this.dgvCalendario.Location = new System.Drawing.Point(6, 63);
 			this.dgvCalendario.MultiSelect = false;
 			this.dgvCalendario.Name = "dgvCalendario";
 			this.dgvCalendario.ReadOnly = true;
@@ -213,7 +216,7 @@ namespace tp2 {
 			this.tlpBotonesMes.Controls.Add(this.btnMes1, 0, 0);
 			this.tlpBotonesMes.Controls.Add(this.btnMes2, 1, 0);
 			this.tlpBotonesMes.Controls.Add(this.btnMes3, 2, 0);
-			this.tlpBotonesMes.Location = new System.Drawing.Point(6, 222);
+			this.tlpBotonesMes.Location = new System.Drawing.Point(6, 219);
 			this.tlpBotonesMes.Name = "tlpBotonesMes";
 			this.tlpBotonesMes.RowCount = 1;
 			this.tlpBotonesMes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -277,12 +280,12 @@ namespace tp2 {
 			this.tlpBotonesAlquiler.Controls.Add(this.btnCerrar, 2, 0);
 			this.tlpBotonesAlquiler.Controls.Add(this.pnlBotonesAceptar, 0, 0);
 			this.tlpBotonesAlquiler.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.tlpBotonesAlquiler.Location = new System.Drawing.Point(0, 332);
+			this.tlpBotonesAlquiler.Location = new System.Drawing.Point(0, 325);
 			this.tlpBotonesAlquiler.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tlpBotonesAlquiler.Name = "tlpBotonesAlquiler";
 			this.tlpBotonesAlquiler.RowCount = 1;
 			this.tlpBotonesAlquiler.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tlpBotonesAlquiler.Size = new System.Drawing.Size(704, 56);
+			this.tlpBotonesAlquiler.Size = new System.Drawing.Size(564, 56);
 			this.tlpBotonesAlquiler.TabIndex = 2;
 			// 
 			// btnCerrar
@@ -294,10 +297,10 @@ namespace tp2 {
 			this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnCerrar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.btnCerrar.Location = new System.Drawing.Point(425, 4);
+			this.btnCerrar.Location = new System.Drawing.Point(341, 4);
 			this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCerrar.Name = "btnCerrar";
-			this.btnCerrar.Size = new System.Drawing.Size(275, 48);
+			this.btnCerrar.Size = new System.Drawing.Size(219, 48);
 			this.btnCerrar.TabIndex = 2;
 			this.btnCerrar.Text = "Cerrar";
 			this.btnCerrar.UseVisualStyleBackColor = false;
@@ -309,7 +312,7 @@ namespace tp2 {
 			this.pnlBotonesAceptar.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlBotonesAceptar.Location = new System.Drawing.Point(3, 3);
 			this.pnlBotonesAceptar.Name = "pnlBotonesAceptar";
-			this.pnlBotonesAceptar.Size = new System.Drawing.Size(275, 50);
+			this.pnlBotonesAceptar.Size = new System.Drawing.Size(219, 50);
 			this.pnlBotonesAceptar.TabIndex = 0;
 			// 
 			// btnModificar
@@ -326,9 +329,9 @@ namespace tp2 {
 			this.btnModificar.Location = new System.Drawing.Point(0, 0);
 			this.btnModificar.Name = "btnModificar";
 			this.btnModificar.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-			this.btnModificar.Size = new System.Drawing.Size(275, 50);
+			this.btnModificar.Size = new System.Drawing.Size(219, 50);
 			this.btnModificar.TabIndex = 1;
-			this.btnModificar.Text = "Modificar Alquiler";
+			this.btnModificar.Text = "      Modificar Alquiler";
 			this.btnModificar.UseVisualStyleBackColor = false;
 			this.btnModificar.Visible = false;
 			// 
@@ -347,9 +350,9 @@ namespace tp2 {
 			this.btnAlquilar.Margin = new System.Windows.Forms.Padding(4);
 			this.btnAlquilar.Name = "btnAlquilar";
 			this.btnAlquilar.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-			this.btnAlquilar.Size = new System.Drawing.Size(275, 50);
+			this.btnAlquilar.Size = new System.Drawing.Size(219, 50);
 			this.btnAlquilar.TabIndex = 0;
-			this.btnAlquilar.Text = "Alquilar";
+			this.btnAlquilar.Text = "      Alquilar";
 			this.btnAlquilar.UseVisualStyleBackColor = false;
 			this.btnAlquilar.Click += new System.EventHandler(this.BtnAlquilar_Click);
 			// 
@@ -363,17 +366,16 @@ namespace tp2 {
 			this.gbPropietario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbPropietario.Name = "gbPropietario";
 			this.gbPropietario.Padding = new System.Windows.Forms.Padding(5, 2, 6, 5);
-			this.gbPropietario.Size = new System.Drawing.Size(474, 256);
+			this.gbPropietario.Size = new System.Drawing.Size(334, 243);
 			this.gbPropietario.TabIndex = 0;
 			this.gbPropietario.TabStop = false;
-			this.gbPropietario.Text = "Datos del cliente";
+			this.gbPropietario.Text = "CLIENTE REPRESENTANTE";
 			// 
 			// tableLayoutPanel3
 			// 
 			this.tableLayoutPanel3.ColumnCount = 2;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Controls.Add(this.lbCantPasajeros, 0, 4);
 			this.tableLayoutPanel3.Controls.Add(this.lbDNI, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.nudTel, 1, 3);
 			this.tableLayoutPanel3.Controls.Add(this.tbNombre, 1, 2);
@@ -382,32 +384,17 @@ namespace tp2 {
 			this.tableLayoutPanel3.Controls.Add(this.nudDNI, 1, 0);
 			this.tableLayoutPanel3.Controls.Add(this.lbNombres, 0, 2);
 			this.tableLayoutPanel3.Controls.Add(this.lbApellido, 0, 1);
-			this.tableLayoutPanel3.Controls.Add(this.nudCantPasajeros, 1, 4);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(5, 16);
 			this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.RowCount = 5;
+			this.tableLayoutPanel3.RowCount = 4;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(463, 235);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(323, 222);
 			this.tableLayoutPanel3.TabIndex = 0;
-			// 
-			// lbCantPasajeros
-			// 
-			this.lbCantPasajeros.AutoSize = true;
-			this.lbCantPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbCantPasajeros.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.lbCantPasajeros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			this.lbCantPasajeros.Location = new System.Drawing.Point(4, 196);
-			this.lbCantPasajeros.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-			this.lbCantPasajeros.Name = "lbCantPasajeros";
-			this.lbCantPasajeros.Size = new System.Drawing.Size(104, 31);
-			this.lbCantPasajeros.TabIndex = 29;
-			this.lbCantPasajeros.Text = "Cant Pasajeros";
 			// 
 			// lbDNI
 			// 
@@ -418,7 +405,7 @@ namespace tp2 {
 			this.lbDNI.Location = new System.Drawing.Point(4, 8);
 			this.lbDNI.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
 			this.lbDNI.Name = "lbDNI";
-			this.lbDNI.Size = new System.Drawing.Size(104, 31);
+			this.lbDNI.Size = new System.Drawing.Size(70, 39);
 			this.lbDNI.TabIndex = 21;
 			this.lbDNI.Text = "DNI";
 			// 
@@ -426,10 +413,10 @@ namespace tp2 {
 			// 
 			this.nudTel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
 			this.nudTel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.nudTel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudTel.Dock = System.Windows.Forms.DockStyle.Right;
 			this.nudTel.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.nudTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.nudTel.Location = new System.Drawing.Point(116, 149);
+			this.nudTel.Location = new System.Drawing.Point(199, 173);
 			this.nudTel.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
 			this.nudTel.Maximum = new decimal(new int[] {
             -727379969,
@@ -437,8 +424,9 @@ namespace tp2 {
             0,
             0});
 			this.nudTel.Name = "nudTel";
-			this.nudTel.Size = new System.Drawing.Size(343, 23);
+			this.nudTel.Size = new System.Drawing.Size(120, 23);
 			this.nudTel.TabIndex = 3;
+			this.nudTel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
 			// tbNombre
 			// 
@@ -447,11 +435,11 @@ namespace tp2 {
 			this.tbNombre.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tbNombre.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.tbNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.tbNombre.Location = new System.Drawing.Point(116, 102);
+			this.tbNombre.Location = new System.Drawing.Point(82, 118);
 			this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
 			this.tbNombre.MaxLength = 16;
 			this.tbNombre.Name = "tbNombre";
-			this.tbNombre.Size = new System.Drawing.Size(343, 20);
+			this.tbNombre.Size = new System.Drawing.Size(237, 20);
 			this.tbNombre.TabIndex = 2;
 			// 
 			// lbTel
@@ -460,10 +448,10 @@ namespace tp2 {
 			this.lbTel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lbTel.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.lbTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			this.lbTel.Location = new System.Drawing.Point(4, 149);
+			this.lbTel.Location = new System.Drawing.Point(4, 173);
 			this.lbTel.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
 			this.lbTel.Name = "lbTel";
-			this.lbTel.Size = new System.Drawing.Size(104, 31);
+			this.lbTel.Size = new System.Drawing.Size(70, 41);
 			this.lbTel.TabIndex = 28;
 			this.lbTel.Text = "Telefono";
 			// 
@@ -474,21 +462,21 @@ namespace tp2 {
 			this.tbApellido.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tbApellido.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.tbApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.tbApellido.Location = new System.Drawing.Point(116, 55);
+			this.tbApellido.Location = new System.Drawing.Point(82, 63);
 			this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
 			this.tbApellido.MaxLength = 16;
 			this.tbApellido.Name = "tbApellido";
-			this.tbApellido.Size = new System.Drawing.Size(343, 20);
+			this.tbApellido.Size = new System.Drawing.Size(237, 20);
 			this.tbApellido.TabIndex = 1;
 			// 
 			// nudDNI
 			// 
 			this.nudDNI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
 			this.nudDNI.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.nudDNI.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.nudDNI.Dock = System.Windows.Forms.DockStyle.Right;
 			this.nudDNI.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.nudDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.nudDNI.Location = new System.Drawing.Point(116, 8);
+			this.nudDNI.Location = new System.Drawing.Point(226, 8);
 			this.nudDNI.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
 			this.nudDNI.Maximum = new decimal(new int[] {
             99999999,
@@ -501,7 +489,7 @@ namespace tp2 {
             0,
             0});
 			this.nudDNI.Name = "nudDNI";
-			this.nudDNI.Size = new System.Drawing.Size(343, 23);
+			this.nudDNI.Size = new System.Drawing.Size(93, 23);
 			this.nudDNI.TabIndex = 0;
 			this.nudDNI.ThousandsSeparator = true;
 			this.nudDNI.Value = new decimal(new int[] {
@@ -516,10 +504,10 @@ namespace tp2 {
 			this.lbNombres.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lbNombres.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.lbNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			this.lbNombres.Location = new System.Drawing.Point(4, 102);
+			this.lbNombres.Location = new System.Drawing.Point(4, 118);
 			this.lbNombres.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
 			this.lbNombres.Name = "lbNombres";
-			this.lbNombres.Size = new System.Drawing.Size(104, 31);
+			this.lbNombres.Size = new System.Drawing.Size(70, 39);
 			this.lbNombres.TabIndex = 27;
 			this.lbNombres.Text = "Nombres";
 			// 
@@ -529,10 +517,10 @@ namespace tp2 {
 			this.lbApellido.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lbApellido.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.lbApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			this.lbApellido.Location = new System.Drawing.Point(4, 55);
+			this.lbApellido.Location = new System.Drawing.Point(4, 63);
 			this.lbApellido.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
 			this.lbApellido.Name = "lbApellido";
-			this.lbApellido.Size = new System.Drawing.Size(104, 31);
+			this.lbApellido.Size = new System.Drawing.Size(70, 39);
 			this.lbApellido.TabIndex = 26;
 			this.lbApellido.Text = "Apellido";
 			// 
@@ -543,8 +531,7 @@ namespace tp2 {
 			this.nudCantPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.nudCantPasajeros.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.nudCantPasajeros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.nudCantPasajeros.Location = new System.Drawing.Point(116, 196);
-			this.nudCantPasajeros.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
+			this.nudCantPasajeros.Location = new System.Drawing.Point(6, 20);
 			this.nudCantPasajeros.Maximum = new decimal(new int[] {
             10,
             0,
@@ -556,8 +543,9 @@ namespace tp2 {
             0,
             0});
 			this.nudCantPasajeros.Name = "nudCantPasajeros";
-			this.nudCantPasajeros.Size = new System.Drawing.Size(343, 23);
-			this.nudCantPasajeros.TabIndex = 4;
+			this.nudCantPasajeros.Size = new System.Drawing.Size(149, 23);
+			this.nudCantPasajeros.TabIndex = 0;
+			this.nudCantPasajeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.nudCantPasajeros.Value = new decimal(new int[] {
             1,
             0,
@@ -567,27 +555,57 @@ namespace tp2 {
 			// pnlControl
 			// 
 			this.pnlControl.Controls.Add(this.gbPropietario);
-			this.pnlControl.Controls.Add(this.gbCantDías);
+			this.pnlControl.Controls.Add(this.tableLayoutPanel1);
 			this.pnlControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlControl.Location = new System.Drawing.Point(206, 0);
 			this.pnlControl.Name = "pnlControl";
 			this.pnlControl.Padding = new System.Windows.Forms.Padding(12);
-			this.pnlControl.Size = new System.Drawing.Size(498, 332);
+			this.pnlControl.Size = new System.Drawing.Size(358, 325);
 			this.pnlControl.TabIndex = 1;
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.AutoSize = true;
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Controls.Add(this.gbCantPasajeros, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.gbCantDías, 1, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 255);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 58);
+			this.tableLayoutPanel1.TabIndex = 3;
+			// 
+			// gbCantPasajeros
+			// 
+			this.gbCantPasajeros.Controls.Add(this.nudCantPasajeros);
+			this.gbCantPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gbCantPasajeros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+			this.gbCantPasajeros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
+			this.gbCantPasajeros.Location = new System.Drawing.Point(3, 3);
+			this.gbCantPasajeros.Name = "gbCantPasajeros";
+			this.gbCantPasajeros.Padding = new System.Windows.Forms.Padding(6, 6, 6, 3);
+			this.gbCantPasajeros.Size = new System.Drawing.Size(161, 52);
+			this.gbCantPasajeros.TabIndex = 1;
+			this.gbCantPasajeros.TabStop = false;
+			this.gbCantPasajeros.Text = "PASAJEROS";
 			// 
 			// gbCantDías
 			// 
 			this.gbCantDías.Controls.Add(this.nudCantDias);
-			this.gbCantDías.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.gbCantDías.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbCantDías.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
 			this.gbCantDías.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
-			this.gbCantDías.Location = new System.Drawing.Point(12, 268);
+			this.gbCantDías.Location = new System.Drawing.Point(170, 3);
 			this.gbCantDías.Name = "gbCantDías";
 			this.gbCantDías.Padding = new System.Windows.Forms.Padding(6, 6, 6, 3);
-			this.gbCantDías.Size = new System.Drawing.Size(474, 52);
-			this.gbCantDías.TabIndex = 1;
+			this.gbCantDías.Size = new System.Drawing.Size(161, 52);
+			this.gbCantDías.TabIndex = 2;
 			this.gbCantDías.TabStop = false;
-			this.gbCantDías.Text = "Cantidad de Días";
+			this.gbCantDías.Text = "DÍAS DE ALQUILER";
 			// 
 			// nudCantDias
 			// 
@@ -603,8 +621,9 @@ namespace tp2 {
             0,
             0});
 			this.nudCantDias.Name = "nudCantDias";
-			this.nudCantDias.Size = new System.Drawing.Size(462, 23);
+			this.nudCantDias.Size = new System.Drawing.Size(149, 23);
 			this.nudCantDias.TabIndex = 0;
+			this.nudCantDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.nudCantDias.Value = new decimal(new int[] {
             1,
             0,
@@ -616,12 +635,12 @@ namespace tp2 {
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
-			this.ClientSize = new System.Drawing.Size(704, 388);
+			this.ClientSize = new System.Drawing.Size(564, 381);
 			this.Controls.Add(this.pnlControl);
 			this.Controls.Add(this.tlpCalendario);
 			this.Controls.Add(this.tlpBotonesAlquiler);
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			this.MinimumSize = new System.Drawing.Size(540, 370);
+			this.MinimumSize = new System.Drawing.Size(540, 382);
 			this.Name = "FAlquiler";
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -639,6 +658,9 @@ namespace tp2 {
 			((System.ComponentModel.ISupportInitialize)(this.nudDNI)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCantPasajeros)).EndInit();
 			this.pnlControl.ResumeLayout(false);
+			this.pnlControl.PerformLayout();
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.gbCantPasajeros.ResumeLayout(false);
 			this.gbCantDías.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.nudCantDias)).EndInit();
 			this.ResumeLayout(false);
@@ -667,7 +689,6 @@ namespace tp2 {
         public System.Windows.Forms.NumericUpDown nudDNI;
         private System.Windows.Forms.Label lbNombres;
         private System.Windows.Forms.Label lbApellido;
-        private System.Windows.Forms.Label lbCantPasajeros;
         public System.Windows.Forms.NumericUpDown nudCantPasajeros;
         public System.Windows.Forms.GroupBox gbPropietario;
         public System.Windows.Forms.Button btnModificar;
@@ -680,5 +701,7 @@ namespace tp2 {
 		private System.Windows.Forms.Button btnMes1;
 		private System.Windows.Forms.Button btnMes2;
 		private System.Windows.Forms.Button btnMes3;
+		private System.Windows.Forms.GroupBox gbCantPasajeros;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 	}
 }

@@ -11,13 +11,17 @@ using AlquilerLib;
 using cargandoImagenes;
 
 namespace tp2 {
-    public partial class FAgregarHotel : Form {
+    public partial class FHotel : Form {
 		private readonly Sistema sistema;
 		private readonly FImagen fImagen;
 		private CheckBox[] servicios;
 		private Hotel hotel;
 
-		public FAgregarHotel() {
+		public Image[] Imágenes {
+			get { return this.fImagen.Imágenes; }
+		}
+
+		public FHotel() {
 			this.InitializeComponent();
 
 			this.servicios = new CheckBox[] {
@@ -34,12 +38,12 @@ namespace tp2 {
 			this.trbEstrellas.Enabled = true;
 		}
 
-		public FAgregarHotel(Sistema sistema): this() {
+		public FHotel(Sistema sistema): this() {
 			this.sistema = sistema;
 			this.fImagen = new FImagen();
 		}
 
-		public FAgregarHotel(Sistema sistema, Hotel hotel): this() {
+		public FHotel(Sistema sistema, Hotel hotel): this() {
 			this.sistema = sistema;
 			this.fImagen = new FImagen(hotel.Imágenes);
 			this.hotel = hotel;
@@ -52,8 +56,17 @@ namespace tp2 {
 			this.nudNroPropiedad.Value = hotel.Número;
 		}
 
-		public Image[] Imágenes {
-			get { return this.fImagen.Imágenes; }
+		~FHotel() {
+			if(this.fImagen != null)
+				this.fImagen.Dispose();
+		}
+
+		private void FAgregarHotel_Load(object sender, EventArgs e) {
+			Font fuente = new Font(Estilos.LatoBlack, 9);
+			this.gbDatos.Font = fuente;
+			this.gbEstrellas.Font = fuente;
+			this.gbPlazas.Font = fuente;
+			this.gbServicios.Font = fuente;
 		}
 
 		private void FAgregarHotel_Shown(object sender, EventArgs e) {

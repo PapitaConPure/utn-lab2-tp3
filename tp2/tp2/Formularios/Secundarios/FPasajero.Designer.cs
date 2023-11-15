@@ -111,12 +111,14 @@ namespace tp2
 			this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnAceptar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.btnAceptar.Image = global::tp2.Properties.Resources.plusblack24;
+			this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnAceptar.Location = new System.Drawing.Point(12, 221);
 			this.btnAceptar.Margin = new System.Windows.Forms.Padding(0, 3, 6, 3);
 			this.btnAceptar.Name = "btnAceptar";
 			this.btnAceptar.Size = new System.Drawing.Size(284, 39);
 			this.btnAceptar.TabIndex = 0;
-			this.btnAceptar.Text = "Siguiente";
+			this.btnAceptar.Text = "      Siguiente";
 			this.btnAceptar.UseVisualStyleBackColor = false;
 			// 
 			// tbApellido
@@ -208,6 +210,9 @@ namespace tp2
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "FPasajero";
 			this.Load += new System.EventHandler(this.FPasajero_Load);
+			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FPasajero_MouseDown);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FPasajero_MouseMove);
+			this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FPasajero_MouseUp);
 			((System.ComponentModel.ISupportInitialize)(this.nudDniPasajero)).EndInit();
 			this.gbNombre.ResumeLayout(false);
 			this.gbNombre.PerformLayout();

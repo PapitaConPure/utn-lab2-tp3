@@ -16,9 +16,6 @@ namespace tp2
     public partial class FUsuario : Form
     {
         private readonly Sistema sistema;
-		private bool esperarEntrada = false;
-		private bool arrastraVentana = false;
-		private Point arrastreMouse;
 
         public FUsuario() {
             this.InitializeComponent();
@@ -40,6 +37,11 @@ namespace tp2
 				this.tbUsuario.Focus();
 			else if(this.tbContraseña.CanFocus)
 				this.tbContraseña.Focus();
+
+			if(this.btnIngresar.Visible)
+				this.AcceptButton = this.btnIngresar;
+			else
+				this.AcceptButton = this.btnAceptar;
 		}
 
 		private void BtnIngresar_Click(object sender, EventArgs e)
@@ -78,20 +80,9 @@ namespace tp2
             }
 		}
 
-		private void FUsuario_KeyDown(object sender, KeyEventArgs e) {
-			esperarEntrada = true;
-		}
-
-		private void FUsuario_KeyUp(object sender, KeyEventArgs e) {
-			if(!esperarEntrada)
-				return;
-
-			if(this.btnIngresar.Visible && e.KeyCode == Keys.Enter) {
-				this.btnIngresar.PerformClick();
-			}
-
-			esperarEntrada = false;
-		}
+		#region Arrastrado con mouse
+		private bool arrastraVentana = false;
+		private Point arrastreMouse;
 
 		private void FUsuario_MouseDown(object sender, MouseEventArgs e) {
 			this.arrastraVentana = true;
@@ -108,6 +99,7 @@ namespace tp2
 					MousePosition.X - this.arrastreMouse.X,
 					MousePosition.Y - this.arrastreMouse.Y);
 		}
+		#endregion
 
 		#region Calidad de vida
 		private void SeleccionarTextBox(object sender, EventArgs e) {

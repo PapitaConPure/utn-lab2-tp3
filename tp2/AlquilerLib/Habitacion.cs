@@ -4,20 +4,13 @@ using System.Collections.Generic;
 namespace AlquilerLib
 {
     [Serializable]
-    public class Habitación{
-    
-        Hotel Hotel { get; }
+    public class Habitación {
         public int Número { get; set; }
         public Hotel.TipoHabitación Tipo { get; }
-        //public int Camas { get; }
-        //public bool noDisponible { get; set; }
         public List<Alquiler> Reservas { get; set; }
 
-        public Habitación(Hotel.TipoHabitación tipo, Hotel unHotel)
-        {
-            //this.Número = nro;
+        public Habitación(Hotel.TipoHabitación tipo) {
             this.Tipo = tipo;
-            this.Hotel = unHotel;
             this.Reservas = new List<Alquiler>();
         }
 
@@ -37,27 +30,16 @@ namespace AlquilerLib
                     || (pasajeros > 0 && pasajeros < 3 && this.Tipo == Hotel.TipoHabitación.Simple);
             return puede;
         }
+
         public void Alquilar(Alquiler alq)
         {
             this.Reservas.Add(alq);
         }
+
         public void QuitarAlquiler(Alquiler alq)
         {
             this.Reservas.Remove(alq);
         }
-        //public int CompareTo(object obj)
-        //{
-        //    return this.Número.CompareTo(((Habitación)obj).Número);
-        //}
-        //public override string ToString()
-        //{
-        //    string i = "Disponible";
-        //    if (noDisponible)
-        //    {
-        //        i = "No Disponible";
-        //    }
-        //    return $"Número:{Número}, Tipo:{Tipo}, Camas:{Camas},{i}";
-        //}
     }
 }
 

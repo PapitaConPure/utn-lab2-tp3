@@ -42,7 +42,7 @@ namespace tp2 {
 			this.gbPrecioBase.Location = new System.Drawing.Point(12, 12);
 			this.gbPrecioBase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.gbPrecioBase.Name = "gbPrecioBase";
-			this.gbPrecioBase.Padding = new System.Windows.Forms.Padding(4, 2, 4, 5);
+			this.gbPrecioBase.Padding = new System.Windows.Forms.Padding(4, 3, 4, 5);
 			this.gbPrecioBase.Size = new System.Drawing.Size(276, 50);
 			this.gbPrecioBase.TabIndex = 0;
 			this.gbPrecioBase.TabStop = false;
@@ -51,7 +51,7 @@ namespace tp2 {
 			// nudPrecioBase
 			// 
 			this.nudPrecioBase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
-			this.nudPrecioBase.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.nudPrecioBase.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.nudPrecioBase.DecimalPlaces = 2;
 			this.nudPrecioBase.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.nudPrecioBase.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -61,7 +61,7 @@ namespace tp2 {
             0,
             0,
             0});
-			this.nudPrecioBase.Location = new System.Drawing.Point(4, 18);
+			this.nudPrecioBase.Location = new System.Drawing.Point(4, 19);
 			this.nudPrecioBase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.nudPrecioBase.Maximum = new decimal(new int[] {
             999999,
@@ -74,7 +74,7 @@ namespace tp2 {
             0,
             0});
 			this.nudPrecioBase.Name = "nudPrecioBase";
-			this.nudPrecioBase.Size = new System.Drawing.Size(268, 27);
+			this.nudPrecioBase.Size = new System.Drawing.Size(268, 23);
 			this.nudPrecioBase.TabIndex = 4;
 			this.nudPrecioBase.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.nudPrecioBase.Value = new decimal(new int[] {

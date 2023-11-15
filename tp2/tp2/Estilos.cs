@@ -8,9 +8,11 @@ using System.Windows.Forms;
 
 namespace tp2 {
 	//Perdón, parpadeé y cuando me di cuenta le había puesto estilo a todo el programa y mínimo 4 clases nuevas
+	//Quién diría que Lato no es una fuente por defecto. Voy a matar a los de Microsoft
 	static class Estilos {
 		private static PrivateFontCollection latoBlack;
 		private static FontFamily segoeUI;
+		private static FontFamily segoeUISemibold;
 		private static FontFamily segoeUIBlack;
 
 		/// <summary>
@@ -21,6 +23,10 @@ namespace tp2 {
 		/// Fuente Sans-Serif humanista de apariencia altamente legible y relativamente moderna
 		/// </summary>
 		public static FontFamily SegoeUI { get { return segoeUI; } }
+		/// <summary>
+		/// Fuente Sans-Serif humanista de apariencia altamente legible y relativamente moderna. Seminegrita
+		/// </summary>
+		public static FontFamily SegoeUISemibold { get { return segoeUISemibold; } }
 		/// <summary>
 		/// Fuente Sans-Serif humanista de apariencia altamente legible y relativamente moderna. Negra
 		/// </summary>
@@ -88,6 +94,7 @@ namespace tp2 {
 			latoBlack = new PrivateFontCollection();
 			latoBlack.AddFontFile(Path.Combine(Application.StartupPath, "Resources", "Lato-Black.ttf"));
 			segoeUI = new FontFamily("Segoe UI");
+			segoeUISemibold = new FontFamily("Segoe UI Semibold");
 			segoeUIBlack = new FontFamily("Segoe UI Black");
 		}
 	}

@@ -11,8 +11,8 @@ namespace tp2.Formularios.Secundarios
 		private static readonly Color colorSecundario = Color.FromArgb(211, 197, 197);
 		private static readonly Color colorInformación = Color.FromArgb(84, 180, 211);
 		private static readonly Color colorFrente = Color.FromArgb(236, 236, 236);
-		private static readonly Font fuenteBarra = new Font("Segoe UI", 11);
-		private static readonly Font fuenteBaseBarra = new Font("Lato Black", 10);
+		private static readonly Font fuenteBarra = new Font(Estilos.SegoeUI, 11);
+		private static readonly Font fuenteBaseBarra = new Font(Estilos.LatoBlack, 10);
 
 		private readonly Sistema sistema;
 		private readonly string[] nombresBarra;

@@ -33,9 +33,9 @@
 			this.anterior = new System.Windows.Forms.Button();
 			this.btnQuitarImágenes = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnCantImágenes = new System.Windows.Forms.Button();
 			this.siguiente = new System.Windows.Forms.Button();
 			this.ofdElegirImagen = new System.Windows.Forms.OpenFileDialog();
-			this.btnCantImágenes = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pbVisor)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -48,12 +48,14 @@
 			this.btnCargarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnCargarImagen.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnCargarImagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.btnCargarImagen.Image = global::VisorImágenes.Properties.Resources.plusblack24;
+			this.btnCargarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnCargarImagen.Location = new System.Drawing.Point(4, 4);
 			this.btnCargarImagen.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCargarImagen.Name = "btnCargarImagen";
 			this.btnCargarImagen.Size = new System.Drawing.Size(107, 42);
 			this.btnCargarImagen.TabIndex = 0;
-			this.btnCargarImagen.Text = "Cargar";
+			this.btnCargarImagen.Text = "      Cargar";
 			this.btnCargarImagen.UseVisualStyleBackColor = false;
 			this.btnCargarImagen.Click += new System.EventHandler(this.BtnCargarImagen_Click);
 			// 
@@ -93,12 +95,14 @@
 			this.btnQuitarImágenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnQuitarImágenes.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.btnQuitarImágenes.ForeColor = System.Drawing.Color.White;
+			this.btnQuitarImágenes.Image = global::VisorImágenes.Properties.Resources.xwhite24;
+			this.btnQuitarImágenes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnQuitarImágenes.Location = new System.Drawing.Point(119, 4);
 			this.btnQuitarImágenes.Margin = new System.Windows.Forms.Padding(4);
 			this.btnQuitarImágenes.Name = "btnQuitarImágenes";
 			this.btnQuitarImágenes.Size = new System.Drawing.Size(107, 42);
-			this.btnQuitarImágenes.TabIndex = 0;
-			this.btnQuitarImágenes.Text = "Quitar";
+			this.btnQuitarImágenes.TabIndex = 1;
+			this.btnQuitarImágenes.Text = "      Quitar";
 			this.btnQuitarImágenes.UseVisualStyleBackColor = false;
 			this.btnQuitarImágenes.Click += new System.EventHandler(this.BtnQuitarImágenes_Click);
 			// 
@@ -124,31 +128,6 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(380, 50);
 			this.tableLayoutPanel1.TabIndex = 5;
 			// 
-			// siguiente
-			// 
-			this.siguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(72)))));
-			this.siguiente.Dock = System.Windows.Forms.DockStyle.Right;
-			this.siguiente.FlatAppearance.BorderSize = 0;
-			this.siguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.siguiente.Font = new System.Drawing.Font("Segoe UI", 18F);
-			this.siguiente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.siguiente.Location = new System.Drawing.Point(284, 4);
-			this.siguiente.Margin = new System.Windows.Forms.Padding(4);
-			this.siguiente.Name = "siguiente";
-			this.siguiente.Size = new System.Drawing.Size(42, 42);
-			this.siguiente.TabIndex = 4;
-			this.siguiente.Text = "►";
-			this.siguiente.UseVisualStyleBackColor = false;
-			this.siguiente.Click += new System.EventHandler(this.BtnSiguiente_click);
-			// 
-			// ofdElegirImagen
-			// 
-			this.ofdElegirImagen.DefaultExt = "*.png";
-			this.ofdElegirImagen.Filter = "Imagen PNG (*.png)|*.png|Imagen JPG (*.jpg;*.jpeg;*.jpe;*.jfif)|*.jpg;*.jpeg;*.jp" +
-    "e;*.jfif|Secuencia GIF (*.gif)|*.gif|Todos los archivos (*.*)|*.*";
-			this.ofdElegirImagen.InitialDirectory = ".";
-			this.ofdElegirImagen.Title = "Elegir imagen";
-			// 
 			// btnCantImágenes
 			// 
 			this.btnCantImágenes.Dock = System.Windows.Forms.DockStyle.Right;
@@ -162,9 +141,35 @@
 			this.btnCantImágenes.Margin = new System.Windows.Forms.Padding(4);
 			this.btnCantImágenes.Name = "btnCantImágenes";
 			this.btnCantImágenes.Size = new System.Drawing.Size(42, 42);
-			this.btnCantImágenes.TabIndex = 5;
+			this.btnCantImágenes.TabIndex = 4;
+			this.btnCantImágenes.TabStop = false;
 			this.btnCantImágenes.Text = "0";
 			this.btnCantImágenes.UseVisualStyleBackColor = false;
+			// 
+			// siguiente
+			// 
+			this.siguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(72)))));
+			this.siguiente.Dock = System.Windows.Forms.DockStyle.Right;
+			this.siguiente.FlatAppearance.BorderSize = 0;
+			this.siguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.siguiente.Font = new System.Drawing.Font("Segoe UI", 18F);
+			this.siguiente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+			this.siguiente.Location = new System.Drawing.Point(284, 4);
+			this.siguiente.Margin = new System.Windows.Forms.Padding(4);
+			this.siguiente.Name = "siguiente";
+			this.siguiente.Size = new System.Drawing.Size(42, 42);
+			this.siguiente.TabIndex = 3;
+			this.siguiente.Text = "►";
+			this.siguiente.UseVisualStyleBackColor = false;
+			this.siguiente.Click += new System.EventHandler(this.BtnSiguiente_click);
+			// 
+			// ofdElegirImagen
+			// 
+			this.ofdElegirImagen.DefaultExt = "*.png";
+			this.ofdElegirImagen.Filter = "Imagen PNG (*.png)|*.png|Imagen JPG (*.jpg;*.jpeg;*.jpe;*.jfif)|*.jpg;*.jpeg;*.jp" +
+    "e;*.jfif|Secuencia GIF (*.gif)|*.gif|Todos los archivos (*.*)|*.*";
+			this.ofdElegirImagen.InitialDirectory = ".";
+			this.ofdElegirImagen.Title = "Elegir imagen";
 			// 
 			// FImagen
 			// 

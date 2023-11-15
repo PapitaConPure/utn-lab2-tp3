@@ -9,38 +9,38 @@ namespace AlquilerLib {
 	/// </summary>
 	[Serializable]
 	public class Sistema {
-		static int nroResidencia = 0;
-
 		public Usuario UsuarioActual { get; set; }
 		List<Usuario> usuarios = new List<Usuario>();
 		public List<Usuario> Usuarios { get { return this.usuarios; } }
+
 		public Usuario VerUsuario(string n, string c)
         {
 			Usuario usuario=null;
 			bool encontro = false;
 			int i=0;
-			while(!encontro && i < Usuarios.Count)
+			while(!encontro && i < this.Usuarios.Count)
             {
-				if (Usuarios[i].Nombre == n && Usuarios[i].Contraseña == c)
+				if (this.Usuarios[i].Nombre == n && this.Usuarios[i].Contraseña == c)
 				{ 
 					encontro = true;
-					usuario = Usuarios[i];
+					usuario = this.Usuarios[i];
 				}
 				i++;
             }
 			return usuario;
         }
+
 		public void AgregarUsuario(Usuario nuevo)
         {
-			usuarios.Add(nuevo);
+			this.usuarios.Add(nuevo);
         }
+		
 		public void EliminarUsuario(Usuario aEliminar)
         {
-			usuarios.Remove(aEliminar);
+			this.usuarios.Remove(aEliminar);
         }
 
 		private readonly List<Residencia> residencias;
-		private int nroResidenciaSerializado;
 
 		/// <summary>
 		/// Crea un sistema de alquileres con una lista de residencias vacía
@@ -151,14 +151,6 @@ namespace AlquilerLib {
             }
 		}
 
-		public void CargarNroResidenciaSerializado() {
-			nroResidencia = this.nroResidenciaSerializado;
-		}
-
-		public void GuardaNúmeroResidenciaSerializado() {
-			this.nroResidenciaSerializado = nroResidencia;
-		}
-
 		public void ImportarAlquileres(string ruta) {
 			FileStream fs = null;
 			StreamReader sr = null;
@@ -229,6 +221,7 @@ namespace AlquilerLib {
 				}
 			}
 		}
+
 		public void GuardarLista(string ruta)
         {
 			FileStream fs = null;

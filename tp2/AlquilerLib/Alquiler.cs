@@ -75,6 +75,7 @@ namespace AlquilerLib {
 		public double PrecioBase { get; private set; }
 
 		public Residencia Residencia { get { return this.residencia; } }
+
 		public Habitación Habitacion { get { return this.habitacion; } }
 
 		public double PrecioTotal {
@@ -104,10 +105,14 @@ namespace AlquilerLib {
 				this.residencia.PorcentajePorDía(this.Número)*this.PrecioBase,
 				this.PrecioTotal);
         }
+
 		public string Guardar()
         {
-			return string.Join(";",residencia.Número, Cliente.Dni, 
-								CheckIn.ToShortDateString(), CheckOut.ToShortDateString());
+			return string.Join(";",
+				this.residencia.Número,
+				this.Cliente.Dni, 
+				this.CheckIn.ToShortDateString(),
+				this.CheckOut.ToShortDateString());
         }
 
 		public void Modificar(DateTime checkIn, DateTime checkOut)

@@ -14,7 +14,7 @@ using System.Drawing.Drawing2D;
 namespace tp2.Formularios.Secundarios {
 	public partial class FSectores: Form {
 		private static readonly Color colorTextoAlt = Color.FromArgb(182, 158, 158);
-		private static readonly Font fuenteSector = new Font("Segoe UI Semibold", 11);
+		private static readonly Font fuenteSector = new Font(Estilos.SegoeUISemibold, 11);
 
 		private readonly Sector[] sectores = {
 			new Sector("Casas", Estilos.DangerSemanticColor),

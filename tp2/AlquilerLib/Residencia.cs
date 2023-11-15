@@ -9,9 +9,26 @@ namespace AlquilerLib {
 		private readonly List<Alquiler> alquileres = new List<Alquiler>();
 		protected string[] servicios;
 		protected double precioDía;
-		private int cServicios = 0;
 		protected int contAlquileres = 0;
-		public int ContAlquileres { get { return this.contAlquileres; } }
+		private int cServicios = 0;
+
+		public int Número { get; set; }
+
+		public string Dirección { get; private set; }
+
+		public Image[] Imágenes { get; private set; }
+
+		public Alquiler[] Alquileres {
+			get { return this.alquileres.ToArray(); }
+		}
+
+		public int ContAlquileres {
+			get { return this.contAlquileres; }
+		}
+
+		public int CServicios {
+			get { return this.cServicios; }
+		}
 
 		/// <summary>
 		/// Crea una nueva residencia con el número, la dirección y las imágenes especificadas
@@ -32,7 +49,7 @@ namespace AlquilerLib {
 					throw new ArgumentException("La residencia debe tener 2 imágenes");
 
 			this.Número = número;
-			this.Dirección = dirección.ToUpper();
+			this.Dirección = dirección.Trim().Substring(0, 28).ToUpper();
 			this.alquileres = new List<Alquiler>();
             this.servicios = new string[6];
 			this.Imágenes = imágenes;
@@ -46,29 +63,20 @@ namespace AlquilerLib {
 			this.Número = número;
 		}
 
-		public Residencia() {
-			
-		}
-
-		public int CServicios { get { return this.cServicios; } }
-
-		public int Número { get; set; }
-
-		public string Dirección { get; private set; }
-
-		public Image[] Imágenes { get; private set; }
-
-		public Alquiler[] Alquileres {
-			get { return this.alquileres.ToArray(); }
-		}
-
 		virtual public double CalcularPrecioTotal() {
 			return 0;
 		}
 
         public virtual bool Alquilar(DateTime hoy, DateTime ingreso, DateTime salida, int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase, out Alquiler nuevo)
         {
-			nuevo = new Alquiler(this.contAlquileres++, hoy, ingreso, salida, this, cantPasajeros, dni, nombre, apellido, tel, precioBase);
+			nuevo = new Alquiler(this.contAlquileres, hoy, ingreso, salida, this, cantPasajeros, dni, nombre, apellido, tel, precioBase);
+
+			//Creo estar bastante seguro de que es literalmente imposible de que tengas 999 alquileres en 3 meses
+			if(this.contAlquileres < 999)
+				this.contAlquileres++;
+			else
+				this.contAlquileres = 0;
+
 			bool puedeAlquilar = this.PuedeAlquilar(nuevo);
 
 			if(puedeAlquilar)
@@ -90,14 +98,13 @@ namespace AlquilerLib {
 
         public bool QuitarAlquiler(int nroAlquiler) {
 			Alquiler alquiler = this.VerAlquiler(nroAlquiler);
-			bool pudo = false;
+
 			if(alquiler is null)
 				return false;
-			pudo = this.alquileres.Remove(alquiler);
-            if (pudo)
-            {
-				if(this is Hotel)
-                {
+
+			bool pudo = this.alquileres.Remove(alquiler);
+            if(pudo) {
+				if(this is Hotel) {
 					alquiler.Habitacion.QuitarAlquiler(alquiler);
                 }
             }

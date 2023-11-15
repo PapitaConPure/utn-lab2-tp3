@@ -155,7 +155,7 @@ namespace tp2 {
 			if(día < 1)
 				throw new ArgumentOutOfRangeException("El día a marcar no puede ser menor que 1");
 
-			if(día >= this.díasTotales)
+			if(día > this.díasTotales)
 				return;
 
 			int idx = this.primerDíaSemana + día - 1;

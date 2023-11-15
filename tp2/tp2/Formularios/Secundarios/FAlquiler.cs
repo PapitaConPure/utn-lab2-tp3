@@ -28,6 +28,7 @@ namespace tp2 {
 
 		public FAlquiler(Sistema sistema, Residencia residencia, Alquiler alquiler): this(sistema, residencia) {
 			this.gbPropietario.Enabled = false;
+			this.gbCantPasajeros.Enabled = false;
 			this.nudCantPasajeros.Value = alquiler.Cliente.CantPasajeros;
 			this.nudDNI.Value = alquiler.Cliente.Dni;
 			this.nudTel.Value = alquiler.Cliente.Teléfono;
@@ -52,8 +53,10 @@ namespace tp2 {
 			this.calendario = new Calendario(this.dgvCalendario);
 			this.RefrescarCalendario(0);
 
-			this.gbPropietario.Font = new Font(Estilos.LatoBlack, 9);
-			this.gbCantDías.Font = new Font(Estilos.LatoBlack, 9);
+			Font fuente = new Font(Estilos.LatoBlack, 9);
+			this.gbPropietario.Font = fuente;
+			this.gbCantPasajeros.Font = fuente;
+			this.gbCantDías.Font = fuente;
 		}
 
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
@@ -138,9 +141,10 @@ namespace tp2 {
 			this.calendario.CargarMes(mes.Month, mes.Year);
 
 			foreach(Alquiler alquiler in this.residencia.Alquileres) {
-				DateTime fin = alquiler.CheckOut;
+				DateTime inicio = new DateTime(alquiler.CheckIn.Year, alquiler.CheckIn.Month, alquiler.CheckIn.Day);
+				DateTime fin = new DateTime(alquiler.CheckOut.Year, alquiler.CheckOut.Month, alquiler.CheckOut.Day);
 
-				for(DateTime día = alquiler.CheckIn; día <= fin; día = día.AddDays(1))
+				for(DateTime día = inicio; día <= fin; día = día.AddDays(1))
 					if(día.Month == mes.Month)
 						this.calendario.Marcar(día.Day);
 			}

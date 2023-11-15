@@ -174,7 +174,7 @@ namespace tp2 {
 			this.dgvResidencias.Size = new System.Drawing.Size(820, 368);
 			this.dgvResidencias.StandardTab = true;
 			this.dgvResidencias.TabIndex = 1;
-			this.dgvResidencias.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResidencias_CellContentDoubleClick);
+			this.dgvResidencias.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvResidencias_CellContentDoubleClick);
 			// 
 			// Tipo
 			// 
@@ -268,8 +268,8 @@ namespace tp2 {
 			// lbCantPasajeros
 			// 
 			this.lbCantPasajeros.AutoSize = true;
-			this.lbCantPasajeros.Location = new System.Drawing.Point(3, 55);
-			this.lbCantPasajeros.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+			this.lbCantPasajeros.Location = new System.Drawing.Point(3, 64);
+			this.lbCantPasajeros.Margin = new System.Windows.Forms.Padding(3, 12, 3, 0);
 			this.lbCantPasajeros.Name = "lbCantPasajeros";
 			this.lbCantPasajeros.Size = new System.Drawing.Size(70, 20);
 			this.lbCantPasajeros.TabIndex = 18;
@@ -292,7 +292,8 @@ namespace tp2 {
 			this.nudCantPersonas.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.nudCantPersonas.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.nudCantPersonas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.nudCantPersonas.Location = new System.Drawing.Point(79, 55);
+			this.nudCantPersonas.Location = new System.Drawing.Point(79, 64);
+			this.nudCantPersonas.Margin = new System.Windows.Forms.Padding(3, 12, 3, 3);
 			this.nudCantPersonas.Name = "nudCantPersonas";
 			this.nudCantPersonas.Size = new System.Drawing.Size(209, 23);
 			this.nudCantPersonas.TabIndex = 1;
@@ -369,8 +370,8 @@ namespace tp2 {
 			this.dtpSalida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.dtpSalida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtpSalida.Location = new System.Drawing.Point(38, 50);
-			this.dtpSalida.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+			this.dtpSalida.Location = new System.Drawing.Point(38, 54);
+			this.dtpSalida.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.dtpSalida.Name = "dtpSalida";
 			this.dtpSalida.Size = new System.Drawing.Size(99, 27);
 			this.dtpSalida.TabIndex = 1;
@@ -380,8 +381,8 @@ namespace tp2 {
 			this.dtpIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.dtpIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			this.dtpIngreso.Location = new System.Drawing.Point(38, 4);
-			this.dtpIngreso.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+			this.dtpIngreso.Location = new System.Drawing.Point(38, 8);
+			this.dtpIngreso.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
 			this.dtpIngreso.Name = "dtpIngreso";
 			this.dtpIngreso.Size = new System.Drawing.Size(99, 27);
 			this.dtpIngreso.TabIndex = 0;
@@ -389,7 +390,8 @@ namespace tp2 {
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = global::tp2.Properties.Resources.bracketopenaccent24;
-			this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+			this.pictureBox1.Location = new System.Drawing.Point(3, 7);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(29, 29);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -399,7 +401,8 @@ namespace tp2 {
 			// pictureBox2
 			// 
 			this.pictureBox2.Image = global::tp2.Properties.Resources.bracketcloseaccent24;
-			this.pictureBox2.Location = new System.Drawing.Point(3, 49);
+			this.pictureBox2.Location = new System.Drawing.Point(3, 53);
+			this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
 			this.pictureBox2.Name = "pictureBox2";
 			this.pictureBox2.Size = new System.Drawing.Size(29, 29);
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -455,8 +458,8 @@ namespace tp2 {
 			this.nudMaxPrice.DecimalPlaces = 2;
 			this.nudMaxPrice.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.nudMaxPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.nudMaxPrice.Location = new System.Drawing.Point(38, 52);
-			this.nudMaxPrice.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+			this.nudMaxPrice.Location = new System.Drawing.Point(38, 55);
+			this.nudMaxPrice.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
 			this.nudMaxPrice.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -477,8 +480,8 @@ namespace tp2 {
 			this.nudMinPrice.DecimalPlaces = 2;
 			this.nudMinPrice.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.nudMinPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.nudMinPrice.Location = new System.Drawing.Point(38, 6);
-			this.nudMinPrice.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+			this.nudMinPrice.Location = new System.Drawing.Point(38, 9);
+			this.nudMinPrice.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
 			this.nudMinPrice.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -495,7 +498,8 @@ namespace tp2 {
 			// pbMínPrecio
 			// 
 			this.pbMínPrecio.Image = global::tp2.Properties.Resources.bracketopenaccent24;
-			this.pbMínPrecio.Location = new System.Drawing.Point(3, 3);
+			this.pbMínPrecio.Location = new System.Drawing.Point(3, 7);
+			this.pbMínPrecio.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
 			this.pbMínPrecio.Name = "pbMínPrecio";
 			this.pbMínPrecio.Size = new System.Drawing.Size(29, 29);
 			this.pbMínPrecio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -505,7 +509,8 @@ namespace tp2 {
 			// pbMaxPrecio
 			// 
 			this.pbMaxPrecio.Image = global::tp2.Properties.Resources.bracketcloseaccent24;
-			this.pbMaxPrecio.Location = new System.Drawing.Point(3, 49);
+			this.pbMaxPrecio.Location = new System.Drawing.Point(3, 53);
+			this.pbMaxPrecio.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
 			this.pbMaxPrecio.Name = "pbMaxPrecio";
 			this.pbMaxPrecio.Size = new System.Drawing.Size(29, 29);
 			this.pbMaxPrecio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -605,7 +610,7 @@ namespace tp2 {
 			this.btnMostrarResidencias.Name = "btnMostrarResidencias";
 			this.btnMostrarResidencias.Size = new System.Drawing.Size(100, 47);
 			this.btnMostrarResidencias.TabIndex = 0;
-			this.btnMostrarResidencias.Text = "Buscar";
+			this.btnMostrarResidencias.Text = "&Buscar";
 			this.btnMostrarResidencias.UseVisualStyleBackColor = false;
 			this.btnMostrarResidencias.Click += new System.EventHandler(this.BtnBuscarResidencias_Click);
 			// 
@@ -831,7 +836,7 @@ namespace tp2 {
 			this.btnAgregarHotel.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
 			this.btnAgregarHotel.Size = new System.Drawing.Size(154, 39);
 			this.btnAgregarHotel.TabIndex = 1;
-			this.btnAgregarHotel.Text = "Hotel";
+			this.btnAgregarHotel.Text = "      &Hotel";
 			this.btnAgregarHotel.UseVisualStyleBackColor = false;
 			this.btnAgregarHotel.Click += new System.EventHandler(this.BtnAgregarHotel_Click);
 			// 
@@ -851,7 +856,7 @@ namespace tp2 {
 			this.btnAgregarCasa.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
 			this.btnAgregarCasa.Size = new System.Drawing.Size(154, 39);
 			this.btnAgregarCasa.TabIndex = 0;
-			this.btnAgregarCasa.Text = "Casa";
+			this.btnAgregarCasa.Text = "      &Casa";
 			this.btnAgregarCasa.UseVisualStyleBackColor = false;
 			this.btnAgregarCasa.Click += new System.EventHandler(this.BtnAgregarCasa_Click);
 			// 
@@ -871,7 +876,7 @@ namespace tp2 {
 			this.btnBorrarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
 			this.btnBorrarPropiedad.Size = new System.Drawing.Size(156, 39);
 			this.btnBorrarPropiedad.TabIndex = 4;
-			this.btnBorrarPropiedad.Text = "Eliminar";
+			this.btnBorrarPropiedad.Text = "      Eliminar";
 			this.btnBorrarPropiedad.UseVisualStyleBackColor = false;
 			this.btnBorrarPropiedad.Click += new System.EventHandler(this.BtnBorrarPropiedad_Click);
 			// 
@@ -891,7 +896,7 @@ namespace tp2 {
 			this.btnModificarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
 			this.btnModificarPropiedad.Size = new System.Drawing.Size(154, 39);
 			this.btnModificarPropiedad.TabIndex = 3;
-			this.btnModificarPropiedad.Text = "Modificar";
+			this.btnModificarPropiedad.Text = "      Modificar";
 			this.btnModificarPropiedad.UseVisualStyleBackColor = false;
 			this.btnModificarPropiedad.Click += new System.EventHandler(this.BtnModificarPropiedad_Click);
 			// 
@@ -911,7 +916,7 @@ namespace tp2 {
 			this.btnConsultarPropiedad.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
 			this.btnConsultarPropiedad.Size = new System.Drawing.Size(154, 39);
 			this.btnConsultarPropiedad.TabIndex = 2;
-			this.btnConsultarPropiedad.Text = "Consultar";
+			this.btnConsultarPropiedad.Text = "      Consultar";
 			this.btnConsultarPropiedad.UseVisualStyleBackColor = false;
 			this.btnConsultarPropiedad.Click += new System.EventHandler(this.BtnConsultarPropiedad_Click);
 			// 

@@ -33,7 +33,6 @@ namespace tp2 {
 					fs = new FileStream(this.rutaBin, FileMode.Open, FileAccess.Read);
 					BinaryFormatter bf = new BinaryFormatter();
 					this.sistema = bf.Deserialize(fs) as Sistema;
-					this.sistema.CargarNroResidenciaSerializado();
 					this.ActualizarListadoResidencias();
 				}
 			} catch(IOException) {
@@ -46,11 +45,11 @@ namespace tp2 {
 				if(fs != null)
 					fs.Close();
 			}
-			bool primerInicio = false; ;
+			bool primerInicio = false;
 			if(this.sistema == null) {
 				FNuevoSistema fNuevoSistema = new FNuevoSistema();
 				
-				if (fNuevoSistema.ShowDialog() == DialogResult.OK)
+				if(fNuevoSistema.ShowDialog() == DialogResult.OK)
 				{
 					this.sistema = fNuevoSistema.Sistema;
 					primerInicio = true;
@@ -99,8 +98,8 @@ namespace tp2 {
 			foreach(ToolStripMenuItem item in this.barraMenú.Items)
 				item.Font = new Font(Estilos.LatoBlack, 9);
 
-			this.gbPrecio.Font = new Font(Estilos.LatoBlack, 10);
-			this.gbFecha.Font = new Font(Estilos.LatoBlack, 10);
+			this.gbPrecio.Font = new Font(Estilos.LatoBlack, 9);
+			this.gbFecha.Font = new Font(Estilos.LatoBlack, 9);
 
 			#region Cargar barra de estado + estilo
 			ToolStripStatusLabel labelTipoUsuario = new ToolStripStatusLabel(tipoUsuario.ToUpper());
@@ -144,7 +143,6 @@ namespace tp2 {
 			try {
 				fs = new FileStream(this.rutaBin, FileMode.OpenOrCreate, FileAccess.Write);
 				BinaryFormatter bf = new BinaryFormatter();
-				this.sistema.GuardaNúmeroResidenciaSerializado();
 				bf.Serialize(fs, this.sistema);
 			} catch(IOException) {
 				MessageBox.Show("No se pudieron guardar los datos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -159,7 +157,7 @@ namespace tp2 {
 
 		#region ABM de Residencias
 		private void BtnAgregarCasa_Click(object sender, EventArgs e) {
-			FAgregarCasa fCasa = new FAgregarCasa(this.sistema);
+			FCasa fCasa = new FCasa(this.sistema);
 
             if(fCasa.ShowDialog() == DialogResult.OK) {
 				MessageBox.Show(
@@ -175,7 +173,7 @@ namespace tp2 {
 		}
 
 		private void BtnAgregarHotel_Click(object sender, EventArgs e) {
-			FAgregarHotel fHotel = new FAgregarHotel(this.sistema);
+			FHotel fHotel = new FHotel(this.sistema);
 
 			if(fHotel.ShowDialog() == DialogResult.OK) {
 				MessageBox.Show(
@@ -238,9 +236,9 @@ namespace tp2 {
 			Form fModificar = null;
 
 			if(residencia is Hotel)
-				fModificar = new FAgregarHotel(this.sistema, residencia as Hotel);
+				fModificar = new FHotel(this.sistema, residencia as Hotel);
 			else if(residencia is Casa)
-				fModificar = new FAgregarCasa(this.sistema, residencia as Casa);
+				fModificar = new FCasa(this.sistema, residencia as Casa);
 
 			if(fModificar != null) {
 				fModificar.ShowDialog();
@@ -248,7 +246,7 @@ namespace tp2 {
 			}
 		}
 
-		private void dgvResidencias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
+		private void DgvResidencias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
 			this.btnConsultarPropiedad.PerformClick();
 		}
 
@@ -426,13 +424,13 @@ namespace tp2 {
 			this.fUsuario.btnAceptar.ForeColor = Color.White;
 
 			if(this.fUsuario.ShowDialog() == DialogResult.No) {
-				Usuario aux = sistema.VerUsuario(this.fUsuario.tbUsuario.Text, this.fUsuario.tbContraseña.Text);
+				Usuario aux = this.sistema.VerUsuario(this.fUsuario.tbUsuario.Text, this.fUsuario.tbContraseña.Text);
 				if(aux == null) {
 					MessageBox.Show("El usuario no existe");
 					return;
 				} else {
 					this.sistema.EliminarUsuario(aux);
-					MessageBox.Show("El usuario " + aux.Nombre + " a sido eliminado");
+					MessageBox.Show($"El usuario {aux.Nombre} ha sido eliminado");
 				}
 			}
 		}
@@ -468,7 +466,6 @@ namespace tp2 {
 			try {
 				fs = new FileStream(this.rutaBin, FileMode.OpenOrCreate, FileAccess.Write);
 				bf = new BinaryFormatter();
-				this.sistema.GuardaNúmeroResidenciaSerializado();
 				bf.Serialize(fs, this.sistema);
 			} catch(IOException) {
 				MessageBox.Show("No se pudieron guardar los datos", "Error de E/S", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -528,7 +525,7 @@ namespace tp2 {
 						residencia.Dirección,
 						residencia.Número,
 						string.Join(", ", residencia.VerServicios()));
-					this.dgvResidencias.Rows[this.dgvResidencias.Rows.Count - 1].Cells[0].Style.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+					this.dgvResidencias.Rows[this.dgvResidencias.Rows.Count - 1].Cells[0].Style.Font = new Font(Estilos.SegoeUI, 11, FontStyle.Bold);
 				}
 			}
 

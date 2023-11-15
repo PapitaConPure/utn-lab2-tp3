@@ -120,7 +120,7 @@ namespace tp2.Formularios {
 			this.btnCerrar.Name = "btnCerrar";
 			this.btnCerrar.Size = new System.Drawing.Size(228, 36);
 			this.btnCerrar.TabIndex = 0;
-			this.btnCerrar.Text = "Cerrar";
+			this.btnCerrar.Text = "&Cerrar";
 			this.btnCerrar.UseVisualStyleBackColor = false;
 			// 
 			// webView

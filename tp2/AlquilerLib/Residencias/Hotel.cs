@@ -39,21 +39,21 @@ namespace AlquilerLib {
 			Habitación nueva;
 			for ( i = 0; i < cntSimple; i++)
             {
-				nueva = new Habitación(TipoHabitación.Simple,this);
+				nueva = new Habitación(TipoHabitación.Simple);
 				this.habitaciones.Add(nueva);
             }
 
 			this.CntDoble = cntDoble;
 			for (i = 0; i < cntDoble; i++)
 			{
-				nueva = new Habitación(TipoHabitación.Doble,this);
+				nueva = new Habitación(TipoHabitación.Doble);
 				this.habitaciones.Add(nueva);
 			}
 
 			this.CntTriple = cntTriple;
 			for (i = 0; i < cntTriple; i++)
 			{
-				nueva = new Habitación(TipoHabitación.Triple,this);
+				nueva = new Habitación(TipoHabitación.Triple);
 				this.habitaciones.Add(nueva);
 			}
 		}
