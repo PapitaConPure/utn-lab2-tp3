@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UtilidadesForms;
 
 namespace cargandoImagenes
 {
@@ -25,6 +26,8 @@ namespace cargandoImagenes
 		}
 
 		public FImagen(Image[] imágenes): this() {
+			new ArrastradorVentana(this);
+
 			for(int i = 0; i < this.Imágenes.Length; i++) {
 				this.Imágenes[i] = imágenes[i];
 				this.cantidadImágenes++;
@@ -40,7 +43,6 @@ namespace cargandoImagenes
 				if(this.cantidadImágenes == this.Imágenes.Length)
 					this.btnCargarImagen.Enabled = false;
 			}
-
 
 			this.btnCantImágenes.Text = this.cantidadImágenes.ToString();
 		}
