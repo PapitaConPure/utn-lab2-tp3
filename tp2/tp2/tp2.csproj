@@ -212,6 +212,7 @@
     <None Include="Resources\bracketopenaccent24.png" />
     <None Include="Resources\bracketcloseaccent24.png" />
     <None Include="Resources\docwhite24.png" />
+    <None Include="Resources\houseblack24.png" />
     <Content Include="Resources\Lato-Black.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
