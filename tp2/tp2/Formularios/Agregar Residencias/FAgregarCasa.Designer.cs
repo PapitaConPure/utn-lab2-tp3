@@ -240,6 +240,7 @@ namespace tp2
             this.tbDirección.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbDirección.Location = new System.Drawing.Point(84, 5);
             this.tbDirección.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbDirección.MaxLength = 28;
             this.tbDirección.Name = "tbDirección";
             this.tbDirección.Size = new System.Drawing.Size(188, 27);
             this.tbDirección.TabIndex = 0;
@@ -262,6 +263,7 @@ namespace tp2
             this.tbApellido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbApellido.Location = new System.Drawing.Point(82, 40);
             this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbApellido.MaxLength = 16;
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(306, 27);
             this.tbApellido.TabIndex = 1;
@@ -310,6 +312,7 @@ namespace tp2
             this.tbNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbNombre.Location = new System.Drawing.Point(82, 75);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbNombre.MaxLength = 16;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(306, 27);
             this.tbNombre.TabIndex = 2;

@@ -103,6 +103,7 @@ namespace tp2
             // tbNombrePasajero
             // 
             this.tbNombrePasajero.Location = new System.Drawing.Point(210, 16);
+            this.tbNombrePasajero.MaxLength = 16;
             this.tbNombrePasajero.Name = "tbNombrePasajero";
             this.tbNombrePasajero.Size = new System.Drawing.Size(100, 20);
             this.tbNombrePasajero.TabIndex = 5;
@@ -120,6 +121,7 @@ namespace tp2
             // tbApellido
             // 
             this.tbApellido.Location = new System.Drawing.Point(210, 42);
+            this.tbApellido.MaxLength = 16;
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(100, 20);
             this.tbApellido.TabIndex = 8;

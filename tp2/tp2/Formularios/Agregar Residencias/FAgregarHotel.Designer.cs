@@ -359,6 +359,7 @@ namespace tp2
             this.tbDireccionHotel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbDireccionHotel.Location = new System.Drawing.Point(84, 5);
             this.tbDireccionHotel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbDireccionHotel.MaxLength = 28;
             this.tbDireccionHotel.Name = "tbDireccionHotel";
             this.tbDireccionHotel.Size = new System.Drawing.Size(188, 27);
             this.tbDireccionHotel.TabIndex = 0;

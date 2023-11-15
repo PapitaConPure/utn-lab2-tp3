@@ -24,8 +24,8 @@ namespace tp2 {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tlpCalendario = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCalendario = new System.Windows.Forms.DataGridView();
             this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,14 +98,14 @@ namespace tp2 {
             this.dgvCalendario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.dgvCalendario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCalendario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCalendario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lunes,
@@ -115,14 +115,14 @@ namespace tp2 {
             this.Viernes,
             this.Sábado,
             this.Domingo});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCalendario.EnableHeadersVisualStyles = false;
             this.dgvCalendario.Location = new System.Drawing.Point(6, 151);
@@ -356,8 +356,8 @@ namespace tp2 {
             this.nudTel.Location = new System.Drawing.Point(90, 200);
             this.nudTel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nudTel.Maximum = new decimal(new int[] {
-            1410065407,
-            2,
+            -727379969,
+            232,
             0,
             0});
             this.nudTel.Name = "nudTel";
@@ -369,6 +369,7 @@ namespace tp2 {
             this.tbNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbNombre.Location = new System.Drawing.Point(90, 135);
             this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbNombre.MaxLength = 16;
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(440, 20);
             this.tbNombre.TabIndex = 2;
@@ -389,6 +390,7 @@ namespace tp2 {
             this.tbApellido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbApellido.Location = new System.Drawing.Point(90, 70);
             this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbApellido.MaxLength = 16;
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(440, 20);
             this.tbApellido.TabIndex = 1;
