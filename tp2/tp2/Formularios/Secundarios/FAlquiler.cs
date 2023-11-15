@@ -23,6 +23,7 @@ namespace tp2 {
 			this.residencia = residencia;
 			this.btnAlquilar.Visible = true;
 			this.btnModificar.Visible = false;
+			this.AcceptButton = this.btnAlquilar;
 		}
 
 		public FAlquiler(Sistema sistema, Residencia residencia, Alquiler alquiler): this(sistema, residencia) {
@@ -35,6 +36,7 @@ namespace tp2 {
 			this.tbNombre.Text = alquiler.Cliente.Nombre;
 			this.btnAlquilar.Visible = false;
 			this.btnModificar.Visible = true;
+			this.AcceptButton = this.btnModificar;
 		}
 
 		private void FAlquilar_Load(object sender, EventArgs e) {

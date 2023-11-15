@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UtilidadesForms;
 
 namespace tp2.Formularios
 {
@@ -14,12 +15,8 @@ namespace tp2.Formularios
     {
         public AcercaDe()
         {
-            InitializeComponent();
-        }
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            Dispose();
+            this.InitializeComponent();
+			new ArrastradorVentana(this);
         }
     }
 }

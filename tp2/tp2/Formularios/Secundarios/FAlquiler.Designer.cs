@@ -24,8 +24,8 @@ namespace tp2 {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tlpCalendario = new System.Windows.Forms.TableLayoutPanel();
 			this.dgvCalendario = new System.Windows.Forms.DataGridView();
 			this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,25 +42,25 @@ namespace tp2 {
 			this.tlpBotonesAlquiler = new System.Windows.Forms.TableLayoutPanel();
 			this.btnCerrar = new System.Windows.Forms.Button();
 			this.pnlBotonesAceptar = new System.Windows.Forms.Panel();
+			this.btnModificar = new System.Windows.Forms.Button();
+			this.btnAlquilar = new System.Windows.Forms.Button();
 			this.gbPropietario = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.lbDNI = new System.Windows.Forms.Label();
-			this.nudTel = new System.Windows.Forms.NumericUpDown();
 			this.tbNombre = new System.Windows.Forms.TextBox();
-			this.lbTel = new System.Windows.Forms.Label();
 			this.tbApellido = new System.Windows.Forms.TextBox();
-			this.nudDNI = new System.Windows.Forms.NumericUpDown();
 			this.lbNombres = new System.Windows.Forms.Label();
 			this.lbApellido = new System.Windows.Forms.Label();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.nudTel = new System.Windows.Forms.NumericUpDown();
+			this.lbTel = new System.Windows.Forms.Label();
+			this.lbDNI = new System.Windows.Forms.Label();
+			this.nudDNI = new System.Windows.Forms.NumericUpDown();
 			this.nudCantPasajeros = new System.Windows.Forms.NumericUpDown();
 			this.pnlControl = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.gbCantPasajeros = new System.Windows.Forms.GroupBox();
 			this.gbCantDías = new System.Windows.Forms.GroupBox();
 			this.nudCantDias = new System.Windows.Forms.NumericUpDown();
-			this.btnModificar = new System.Windows.Forms.Button();
-			this.btnAlquilar = new System.Windows.Forms.Button();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.tlpCalendario.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvCalendario)).BeginInit();
 			this.tlpBotonesMes.SuspendLayout();
@@ -68,6 +68,7 @@ namespace tp2 {
 			this.pnlBotonesAceptar.SuspendLayout();
 			this.gbPropietario.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudTel)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudDNI)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCantPasajeros)).BeginInit();
@@ -76,7 +77,6 @@ namespace tp2 {
 			this.gbCantPasajeros.SuspendLayout();
 			this.gbCantDías.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudCantDias)).BeginInit();
-			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tlpCalendario
@@ -108,14 +108,14 @@ namespace tp2 {
 			this.dgvCalendario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
 			this.dgvCalendario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvCalendario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
-			dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-			dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvCalendario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lunes,
@@ -125,14 +125,14 @@ namespace tp2 {
             this.Viernes,
             this.Sábado,
             this.Domingo});
-			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle14;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvCalendario.EnableHeadersVisualStyles = false;
 			this.dgvCalendario.Location = new System.Drawing.Point(6, 23);
@@ -317,6 +317,47 @@ namespace tp2 {
 			this.pnlBotonesAceptar.Size = new System.Drawing.Size(219, 50);
 			this.pnlBotonesAceptar.TabIndex = 0;
 			// 
+			// btnModificar
+			// 
+			this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
+			this.btnModificar.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnModificar.FlatAppearance.BorderSize = 0;
+			this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.btnModificar.Image = global::tp2.Properties.Resources.pencilblack24;
+			this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnModificar.Location = new System.Drawing.Point(0, 0);
+			this.btnModificar.Name = "btnModificar";
+			this.btnModificar.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+			this.btnModificar.Size = new System.Drawing.Size(219, 50);
+			this.btnModificar.TabIndex = 1;
+			this.btnModificar.Text = "      Modificar Alquiler";
+			this.btnModificar.UseVisualStyleBackColor = false;
+			this.btnModificar.Visible = false;
+			// 
+			// btnAlquilar
+			// 
+			this.btnAlquilar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
+			this.btnAlquilar.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnAlquilar.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnAlquilar.FlatAppearance.BorderSize = 0;
+			this.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAlquilar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAlquilar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.btnAlquilar.Image = global::tp2.Properties.Resources.houseblack24;
+			this.btnAlquilar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnAlquilar.Location = new System.Drawing.Point(0, 0);
+			this.btnAlquilar.Margin = new System.Windows.Forms.Padding(4);
+			this.btnAlquilar.Name = "btnAlquilar";
+			this.btnAlquilar.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
+			this.btnAlquilar.Size = new System.Drawing.Size(219, 50);
+			this.btnAlquilar.TabIndex = 0;
+			this.btnAlquilar.Text = "      Alquilar";
+			this.btnAlquilar.UseVisualStyleBackColor = false;
+			this.btnAlquilar.Click += new System.EventHandler(this.BtnAlquilar_Click);
+			// 
 			// gbPropietario
 			// 
 			this.gbPropietario.Controls.Add(this.tableLayoutPanel3);
@@ -354,18 +395,79 @@ namespace tp2 {
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(323, 88);
 			this.tableLayoutPanel3.TabIndex = 0;
 			// 
-			// lbDNI
+			// tbNombre
 			// 
-			this.lbDNI.AutoSize = true;
-			this.lbDNI.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbDNI.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.lbDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			this.lbDNI.Location = new System.Drawing.Point(4, 8);
-			this.lbDNI.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-			this.lbDNI.Name = "lbDNI";
-			this.lbDNI.Size = new System.Drawing.Size(35, 38);
-			this.lbDNI.TabIndex = 21;
-			this.lbDNI.Text = "DNI";
+			this.tbNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
+			this.tbNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.tbNombre.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tbNombre.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.tbNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+			this.tbNombre.Location = new System.Drawing.Point(82, 52);
+			this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
+			this.tbNombre.MaxLength = 16;
+			this.tbNombre.Name = "tbNombre";
+			this.tbNombre.Size = new System.Drawing.Size(237, 20);
+			this.tbNombre.TabIndex = 2;
+			// 
+			// tbApellido
+			// 
+			this.tbApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
+			this.tbApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.tbApellido.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tbApellido.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.tbApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+			this.tbApellido.Location = new System.Drawing.Point(82, 8);
+			this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
+			this.tbApellido.MaxLength = 16;
+			this.tbApellido.Name = "tbApellido";
+			this.tbApellido.Size = new System.Drawing.Size(237, 20);
+			this.tbApellido.TabIndex = 1;
+			// 
+			// lbNombres
+			// 
+			this.lbNombres.AutoSize = true;
+			this.lbNombres.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbNombres.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.lbNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+			this.lbNombres.Location = new System.Drawing.Point(4, 52);
+			this.lbNombres.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+			this.lbNombres.Name = "lbNombres";
+			this.lbNombres.Size = new System.Drawing.Size(70, 28);
+			this.lbNombres.TabIndex = 27;
+			this.lbNombres.Text = "Nombres";
+			// 
+			// lbApellido
+			// 
+			this.lbApellido.AutoSize = true;
+			this.lbApellido.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbApellido.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.lbApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+			this.lbApellido.Location = new System.Drawing.Point(4, 8);
+			this.lbApellido.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+			this.lbApellido.Name = "lbApellido";
+			this.lbApellido.Size = new System.Drawing.Size(70, 28);
+			this.lbApellido.TabIndex = 26;
+			this.lbApellido.Text = "Apellido";
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 4;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+			this.tableLayoutPanel2.Controls.Add(this.nudTel, 3, 0);
+			this.tableLayoutPanel2.Controls.Add(this.lbTel, 2, 0);
+			this.tableLayoutPanel2.Controls.Add(this.lbDNI, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.nudDNI, 1, 0);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 16);
+			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 1;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(323, 54);
+			this.tableLayoutPanel2.TabIndex = 1;
 			// 
 			// nudTel
 			// 
@@ -386,20 +488,6 @@ namespace tp2 {
 			this.nudTel.TabIndex = 3;
 			this.nudTel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
-			// tbNombre
-			// 
-			this.tbNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
-			this.tbNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.tbNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tbNombre.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.tbNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.tbNombre.Location = new System.Drawing.Point(82, 52);
-			this.tbNombre.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
-			this.tbNombre.MaxLength = 16;
-			this.tbNombre.Name = "tbNombre";
-			this.tbNombre.Size = new System.Drawing.Size(237, 20);
-			this.tbNombre.TabIndex = 2;
-			// 
 			// lbTel
 			// 
 			this.lbTel.AutoSize = true;
@@ -413,19 +501,18 @@ namespace tp2 {
 			this.lbTel.TabIndex = 28;
 			this.lbTel.Text = "Tel.";
 			// 
-			// tbApellido
+			// lbDNI
 			// 
-			this.tbApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
-			this.tbApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.tbApellido.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tbApellido.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.tbApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.tbApellido.Location = new System.Drawing.Point(82, 8);
-			this.tbApellido.Margin = new System.Windows.Forms.Padding(4, 8, 4, 5);
-			this.tbApellido.MaxLength = 16;
-			this.tbApellido.Name = "tbApellido";
-			this.tbApellido.Size = new System.Drawing.Size(237, 20);
-			this.tbApellido.TabIndex = 1;
+			this.lbDNI.AutoSize = true;
+			this.lbDNI.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbDNI.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.lbDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+			this.lbDNI.Location = new System.Drawing.Point(4, 8);
+			this.lbDNI.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+			this.lbDNI.Name = "lbDNI";
+			this.lbDNI.Size = new System.Drawing.Size(35, 38);
+			this.lbDNI.TabIndex = 21;
+			this.lbDNI.Text = "DNI";
 			// 
 			// nudDNI
 			// 
@@ -455,32 +542,6 @@ namespace tp2 {
             0,
             0,
             0});
-			// 
-			// lbNombres
-			// 
-			this.lbNombres.AutoSize = true;
-			this.lbNombres.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbNombres.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.lbNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			this.lbNombres.Location = new System.Drawing.Point(4, 52);
-			this.lbNombres.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-			this.lbNombres.Name = "lbNombres";
-			this.lbNombres.Size = new System.Drawing.Size(70, 28);
-			this.lbNombres.TabIndex = 27;
-			this.lbNombres.Text = "Nombres";
-			// 
-			// lbApellido
-			// 
-			this.lbApellido.AutoSize = true;
-			this.lbApellido.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbApellido.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.lbApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			this.lbApellido.Location = new System.Drawing.Point(4, 8);
-			this.lbApellido.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-			this.lbApellido.Name = "lbApellido";
-			this.lbApellido.Size = new System.Drawing.Size(70, 28);
-			this.lbApellido.TabIndex = 26;
-			this.lbApellido.Text = "Apellido";
 			// 
 			// nudCantPasajeros
 			// 
@@ -588,72 +649,12 @@ namespace tp2 {
             0,
             0});
 			// 
-			// btnModificar
-			// 
-			this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
-			this.btnModificar.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnModificar.FlatAppearance.BorderSize = 0;
-			this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-			this.btnModificar.Image = global::tp2.Properties.Resources.pencilblack24;
-			this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnModificar.Location = new System.Drawing.Point(0, 0);
-			this.btnModificar.Name = "btnModificar";
-			this.btnModificar.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-			this.btnModificar.Size = new System.Drawing.Size(219, 50);
-			this.btnModificar.TabIndex = 1;
-			this.btnModificar.Text = "      Modificar Alquiler";
-			this.btnModificar.UseVisualStyleBackColor = false;
-			this.btnModificar.Visible = false;
-			// 
-			// btnAlquilar
-			// 
-			this.btnAlquilar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
-			this.btnAlquilar.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnAlquilar.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnAlquilar.FlatAppearance.BorderSize = 0;
-			this.btnAlquilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnAlquilar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
-			this.btnAlquilar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-			this.btnAlquilar.Image = global::tp2.Properties.Resources.houseblack24;
-			this.btnAlquilar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnAlquilar.Location = new System.Drawing.Point(0, 0);
-			this.btnAlquilar.Margin = new System.Windows.Forms.Padding(4);
-			this.btnAlquilar.Name = "btnAlquilar";
-			this.btnAlquilar.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-			this.btnAlquilar.Size = new System.Drawing.Size(219, 50);
-			this.btnAlquilar.TabIndex = 0;
-			this.btnAlquilar.Text = "      Alquilar";
-			this.btnAlquilar.UseVisualStyleBackColor = false;
-			this.btnAlquilar.Click += new System.EventHandler(this.BtnAlquilar_Click);
-			// 
-			// tableLayoutPanel2
-			// 
-			this.tableLayoutPanel2.ColumnCount = 4;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-			this.tableLayoutPanel2.Controls.Add(this.nudTel, 3, 0);
-			this.tableLayoutPanel2.Controls.Add(this.lbTel, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.lbDNI, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.nudDNI, 1, 0);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 16);
-			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(323, 54);
-			this.tableLayoutPanel2.TabIndex = 1;
-			// 
 			// FAlquiler
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
+			this.CancelButton = this.btnCerrar;
 			this.ClientSize = new System.Drawing.Size(564, 301);
 			this.Controls.Add(this.pnlControl);
 			this.Controls.Add(this.tlpCalendario);
@@ -673,6 +674,8 @@ namespace tp2 {
 			this.gbPropietario.ResumeLayout(false);
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.tableLayoutPanel3.PerformLayout();
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudTel)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudDNI)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCantPasajeros)).EndInit();
@@ -682,8 +685,6 @@ namespace tp2 {
 			this.gbCantPasajeros.ResumeLayout(false);
 			this.gbCantDías.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.nudCantDias)).EndInit();
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

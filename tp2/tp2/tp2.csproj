@@ -59,10 +59,10 @@
   <ItemGroup>
     <Compile Include="Calendario.cs" />
     <Compile Include="Estilos.cs" />
-    <Compile Include="Formularios\AcercaDe.cs">
+    <Compile Include="Formularios\Menú\AcercaDe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\AcercaDe.Designer.cs">
+    <Compile Include="Formularios\Menú\AcercaDe.Designer.cs">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Agregar Residencias\FAgregarCasa.cs">
@@ -77,10 +77,10 @@
     <Compile Include="Formularios\Agregar Residencias\FAgregarHotel.Designer.cs">
       <DependentUpon>FAgregarHotel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\FAyuda.cs">
+    <Compile Include="Formularios\Menú\FAyuda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\FAyuda.Designer.cs">
+    <Compile Include="Formularios\Menú\FAyuda.Designer.cs">
       <DependentUpon>FAyuda.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Secundarios\FAlquiler.cs">
@@ -89,10 +89,10 @@
     <Compile Include="Formularios\Secundarios\FAlquiler.Designer.cs">
       <DependentUpon>FAlquiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Secundarios\FBarras.cs">
+    <Compile Include="Formularios\Menú\FBarras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Secundarios\FBarras.Designer.cs">
+    <Compile Include="Formularios\Menú\FBarras.Designer.cs">
       <DependentUpon>FBarras.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Secundarios\FDetalles.cs">
@@ -119,10 +119,10 @@
     <Compile Include="Formularios\FPrincipal.Designer.cs">
       <DependentUpon>FPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Secundarios\FSectores.cs">
+    <Compile Include="Formularios\Menú\FSectores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Secundarios\FSectores.Designer.cs">
+    <Compile Include="Formularios\Menú\FSectores.Designer.cs">
       <DependentUpon>FSectores.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\FUsuario.cs">
@@ -133,7 +133,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Formularios\AcercaDe.resx">
+    <EmbeddedResource Include="Formularios\Menú\AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Agregar Residencias\FAgregarCasa.resx">
@@ -142,13 +142,13 @@
     <EmbeddedResource Include="Formularios\Agregar Residencias\FAgregarHotel.resx">
       <DependentUpon>FAgregarHotel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\FAyuda.resx">
+    <EmbeddedResource Include="Formularios\Menú\FAyuda.resx">
       <DependentUpon>FAyuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Secundarios\FAlquiler.resx">
       <DependentUpon>FAlquiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Secundarios\FBarras.resx">
+    <EmbeddedResource Include="Formularios\Menú\FBarras.resx">
       <DependentUpon>FBarras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Secundarios\FDetalles.resx">
@@ -163,7 +163,7 @@
     <EmbeddedResource Include="Formularios\FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Secundarios\FSectores.resx">
+    <EmbeddedResource Include="Formularios\Menú\FSectores.resx">
       <DependentUpon>FSectores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FUsuario.resx">
@@ -201,6 +201,10 @@
     <ProjectReference Include="..\ProyectoSplash\ProyectoSplash.csproj">
       <Project>{A4B845A2-5273-44EA-A779-86BCDB9AB743}</Project>
       <Name>ProyectoSplash</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilidadesForms\UtilidadesForms.csproj">
+      <Project>{71816BA8-0710-48CE-9B53-DDCEC94650FE}</Project>
+      <Name>UtilidadesForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\VisorImágenes\VisorImágenes.csproj">
       <Project>{C5516CBE-8771-4A83-BE74-57BB38EF5E08}</Project>

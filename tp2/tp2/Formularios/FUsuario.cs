@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using AlquilerLib;
-using System.Drawing.Text;
+using UtilidadesForms;
 
 namespace tp2
 {
@@ -19,10 +12,11 @@ namespace tp2
 
         public FUsuario() {
             this.InitializeComponent();
-        }
+		}
 
         public FUsuario(Sistema s): this() {
             this.sistema = s;
+			new ArrastradorVentana(this);
 		}
 
 		private void FUsuario_Load(object sender, EventArgs e) {
@@ -79,27 +73,6 @@ namespace tp2
                 MessageBox.Show("Contraseña o usuario invalido", "Error");
             }
 		}
-
-		#region Arrastrado con mouse
-		private bool arrastraVentana = false;
-		private Point arrastreMouse;
-
-		private void FUsuario_MouseDown(object sender, MouseEventArgs e) {
-			this.arrastraVentana = true;
-			this.arrastreMouse = this.PointToClient(MousePosition);
-		}
-
-		private void FUsuario_MouseUp(object sender, MouseEventArgs e) {
-			this.arrastraVentana = false;
-		}
-
-		private void FUsuario_MouseMove(object sender, MouseEventArgs e) {
-			if(this.arrastraVentana)
-				this.Location = new Point(
-					MousePosition.X - this.arrastreMouse.X,
-					MousePosition.Y - this.arrastreMouse.Y);
-		}
-		#endregion
 
 		#region Calidad de vida
 		private void SeleccionarTextBox(object sender, EventArgs e) {

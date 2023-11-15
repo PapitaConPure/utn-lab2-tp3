@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using UtilidadesForms;
 
 namespace tp2 {
     public partial class FPasajero: Form {
         public FPasajero() {
             this.InitializeComponent();
-        }
+			new ArrastradorVentana(this);
+		}
 
 		private void FPasajero_Load(object sender, EventArgs e) {
 			this.gbDni.Font = new Font(Estilos.LatoBlack, 9);
@@ -29,10 +31,7 @@ namespace tp2 {
 		}
 
 		private void FPasajero_MouseMove(object sender, MouseEventArgs e) {
-			if(this.arrastraVentana)
-				this.Location = new Point(
-					MousePosition.X - this.arrastreMouse.X,
-					MousePosition.Y - this.arrastreMouse.Y);
+
 		}
 		#endregion
 	}

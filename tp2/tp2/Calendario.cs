@@ -10,7 +10,7 @@ namespace tp2 {
 	/// <summary>
 	/// Representa un calendario personalizado que edita un <see cref="DataGridView"/> relacionado para representarse
 	/// </summary>
-	class Calendario {
+	sealed class Calendario {
 		private readonly DataGridView dataGridView;
 		private int[,] días;
 		private const int FILAS = 6;

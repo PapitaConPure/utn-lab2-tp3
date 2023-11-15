@@ -108,9 +108,5 @@ namespace cargandoImagenes
                 this.pbVisor.Image = this.Imágenes[--this.imagenActual];
             }
         }
-
-        private void FImagen_FormClosed(object sender, FormClosedEventArgs e)
-        {
-        }
 	}
 }

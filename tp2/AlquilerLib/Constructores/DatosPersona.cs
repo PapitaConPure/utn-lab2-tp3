@@ -9,7 +9,7 @@ namespace AlquilerLib.Constructores {
 	/// Representa los datos de una <see cref="Persona"/>.
 	/// Sirve para pasar datos de forma compacta
 	/// </summary>
-	public class DatosPersona {
+	public sealed class DatosPersona {
 		public int Dni;
 		public string Nombre;
 		public string Apellido;

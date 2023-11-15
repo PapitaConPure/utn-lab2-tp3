@@ -301,9 +301,6 @@ namespace tp2
 			this.Text = "Inicio de Sesión";
 			this.Load += new System.EventHandler(this.FUsuario_Load);
 			this.Shown += new System.EventHandler(this.FUsuario_Shown);
-			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FUsuario_MouseDown);
-			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FUsuario_MouseMove);
-			this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FUsuario_MouseUp);
 			this.pnlBotonesAceptar.ResumeLayout(false);
 			this.tlpBotonesAlt.ResumeLayout(false);
 			this.pnlBotónCancelar.ResumeLayout(false);

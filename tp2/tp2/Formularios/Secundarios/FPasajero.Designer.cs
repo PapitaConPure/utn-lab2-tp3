@@ -192,6 +192,7 @@ namespace tp2
 			// 
 			// FPasajero
 			// 
+			this.AcceptButton = this.btnAceptar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
@@ -210,9 +211,6 @@ namespace tp2
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "FPasajero";
 			this.Load += new System.EventHandler(this.FPasajero_Load);
-			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FPasajero_MouseDown);
-			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FPasajero_MouseMove);
-			this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FPasajero_MouseUp);
 			((System.ComponentModel.ISupportInitialize)(this.nudDniPasajero)).EndInit();
 			this.gbNombre.ResumeLayout(false);
 			this.gbNombre.PerformLayout();

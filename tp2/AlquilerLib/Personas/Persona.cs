@@ -35,7 +35,7 @@ namespace AlquilerLib {
 		public string Apellido {
 			get { return this.apellido; }
 			private set {
-				value = value.Trim().Substring(0, 16);
+				value = value.Trim().Substring(0, Math.Min(value.Length, 16));
 
 				if(value.Length == 0)
 					throw new ArgumentException("El apellido no puede estar vacío");
@@ -50,7 +50,7 @@ namespace AlquilerLib {
 		public string Nombre {
 			get { return this.nombre; }
 			set {
-				value = value.Trim().Substring(0, 16);
+				value = value.Trim().Substring(0, Math.Min(value.Length, 16));
 
 				if(value.Length == 0)
 					throw new ArgumentException("El nombre no puede estar vacío");

@@ -8,7 +8,7 @@ namespace AlquilerLib {
 	/// Representa un sistema de alquileres
 	/// </summary>
 	[Serializable]
-	public class Sistema {
+	public sealed class Sistema {
 		public Usuario UsuarioActual { get; set; }
 		List<Usuario> usuarios = new List<Usuario>();
 		public List<Usuario> Usuarios { get { return this.usuarios; } }

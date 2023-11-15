@@ -138,7 +138,6 @@
 			this.okButton.TabIndex = 24;
 			this.okButton.Text = "&Cerrar";
 			this.okButton.UseVisualStyleBackColor = false;
-			this.okButton.Click += new System.EventHandler(this.okButton_Click);
 			// 
 			// labelCopyright
 			// 

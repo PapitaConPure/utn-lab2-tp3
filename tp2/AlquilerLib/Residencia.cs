@@ -48,8 +48,12 @@ namespace AlquilerLib {
 				if(imagen is null)
 					throw new ArgumentException("La residencia debe tener 2 imágenes");
 
+			dirección = dirección.Trim();
+			if(dirección.Length > 28)
+				dirección = dirección.Substring(0, 28);
+
 			this.Número = número;
-			this.Dirección = dirección.Trim().Substring(0, 28).ToUpper();
+			this.Dirección = dirección.ToUpper();
 			this.alquileres = new List<Alquiler>();
             this.servicios = new string[6];
 			this.Imágenes = imágenes;

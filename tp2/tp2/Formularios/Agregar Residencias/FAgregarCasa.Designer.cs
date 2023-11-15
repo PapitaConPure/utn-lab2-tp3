@@ -704,9 +704,11 @@ namespace tp2
 			// 
 			// FCasa
 			// 
+			this.AcceptButton = this.btnCrear;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
+			this.CancelButton = this.btnCancelar;
 			this.ClientSize = new System.Drawing.Size(434, 533);
 			this.Controls.Add(this.gbServicios);
 			this.Controls.Add(this.tlpCamasDías);

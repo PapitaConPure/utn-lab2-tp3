@@ -573,11 +573,13 @@ namespace tp2
 			this.gbPlazas.TabStop = false;
 			this.gbPlazas.Text = "CANTIDAD DE PLAZAS";
 			// 
-			// FAgregarHotel
+			// FHotel
 			// 
+			this.AcceptButton = this.btnAceptar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
+			this.CancelButton = this.btnCancelar;
 			this.ClientSize = new System.Drawing.Size(434, 501);
 			this.Controls.Add(this.gbServicios);
 			this.Controls.Add(this.gbPlazas);
@@ -589,7 +591,7 @@ namespace tp2
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.MinimumSize = new System.Drawing.Size(450, 532);
-			this.Name = "FAgregarHotel";
+			this.Name = "FHotel";
 			this.Padding = new System.Windows.Forms.Padding(16, 18, 16, 18);
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

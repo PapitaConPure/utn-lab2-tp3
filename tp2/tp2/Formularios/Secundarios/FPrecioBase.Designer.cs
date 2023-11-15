@@ -113,6 +113,7 @@ namespace tp2 {
 			// 
 			// FNuevoSistema
 			// 
+			this.AcceptButton = this.btnAceptar;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
