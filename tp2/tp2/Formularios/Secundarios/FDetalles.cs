@@ -18,7 +18,7 @@ namespace tp2
         private readonly Sistema sistema;
         private readonly Residencia residencia;
 		private Alquiler alquiler;
-		private bool esPrimera;
+		private bool esPrimeraPágina;
 
         public FDetalles() {
             this.InitializeComponent();
@@ -31,7 +31,7 @@ namespace tp2
 			this.RefrescarListaAlquileres();
 			this.pbImagen1.Image = residencia.Imágenes[0];
 			this.pbImagen2.Image = residencia.Imágenes[1];
-			esPrimera = true;
+			this.esPrimeraPágina = true;
 		}
 
 		private void FDetalles_Load(object sender, EventArgs e) {
@@ -64,7 +64,8 @@ namespace tp2
 
 			this.RefrescarListaAlquileres();
 		}
-		private void btnImprimir_Click(object sender, EventArgs e)
+
+		private void BtnImprimir_Click(object sender, EventArgs e)
 		{
 			this.alquiler = this.residencia.VerAlquiler((int)this.nudNroAlquiler.Value);
 			if(this.alquiler is null) {
@@ -90,7 +91,7 @@ namespace tp2
             finally
             {
 				previo.Dispose();
-				esPrimera = true;
+				this.esPrimeraPágina = true;
 			}
 
 		}
@@ -102,24 +103,24 @@ namespace tp2
 			Font encabezado = new Font(Estilos.SegoeUIBlack, 14, FontStyle.Bold);
 			Font encabezado2 = new Font(Estilos.SegoeUI, 12, FontStyle.Bold);
 			Font cuerpo = new Font(Estilos.SegoeUI, 12);
-			Image foto1 = residencia.Imágenes[0];
-			Image foto2 = residencia.Imágenes[1];
+			Image foto1 = this.residencia.Imágenes[0];
+			Image foto2 = this.residencia.Imágenes[1];
 			int y = 20;
 
 			Pen lapiz = new Pen(Color.Black);
 			Brush brush = new SolidBrush(Color.Black);
 			string str;
-			if (esPrimera)
+			if (this.esPrimeraPágina)
 			{
 				str = "Original";
 				e.HasMorePages = true;
-				esPrimera = false;
+				this.esPrimeraPágina = false;
 			}
 			else
 			{
 				str = "Copia";
 				e.HasMorePages = false;
-				esPrimera = true;
+				this.esPrimeraPágina = true;
 			}
 
 			int margenH = 50;
@@ -182,9 +183,7 @@ namespace tp2
 				t += adicional;
 			}
 
-
 			float x = e.PageBounds.Width / 2f - anchoEncabezado / 2f;
-
 			g.DrawString(t, encabezado, brush,
 						new RectangleF(x, y += 40, página.Width - x + página.X, y));
 
@@ -199,17 +198,17 @@ namespace tp2
 			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
-			textoDerecha = $"{this.alquiler.Cliente.Apellido} {this.alquiler.Cliente.Nombre}";
+			textoDerecha = $"{this.alquiler.Cliente.Apellido}, {this.alquiler.Cliente.Nombre}";
 			g.DrawString("Responsable", encabezado2, brush, xl, y);
 			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
-			textoDerecha = this.alquiler.Cliente.Dni.ToString();
+			textoDerecha = $"{this.alquiler.Cliente.Dni:00,000,000}";
 			g.DrawString("Dni", encabezado2, brush, xl, y);
 			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
-			textoDerecha = this.alquiler.Cliente.Teléfono.ToString();
+			textoDerecha = $"{this.alquiler.Cliente.Teléfono:000}";
 			g.DrawString("Teléfono", encabezado2, brush, xl, y);
 			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
@@ -224,7 +223,7 @@ namespace tp2
 			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
-			textoDerecha = $"${this.alquiler.PrecioTotal:F2}";
+			textoDerecha = $"${this.alquiler.PrecioTotal:###,###,###.##}";
 			g.DrawString("Precio Total", encabezado2, brush, xl, y);
 			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 
@@ -302,7 +301,7 @@ namespace tp2
 
 			if(this.residencia is Hotel) {
 				Hotel hotel = this.residencia as Hotel;
-				this.lsbDetalles.Items.Add($"Estrellas: {hotel.Estrellas}");
+				this.lsbDetalles.Items.Add($"Estrellas: {new string('*', hotel.Estrellas)} ({hotel.Estrellas})");
 				this.lsbDetalles.Items.Add($"Cantidad de habitaciones:");
 				this.lsbDetalles.Items.Add($"Simples: {hotel.CntSimple}");
 				this.lsbDetalles.Items.Add($"Dobles: {hotel.CntDoble}");
@@ -313,7 +312,7 @@ namespace tp2
 				this.lsbDetalles.Items.Add($"Cantidad de camas: {casa.CamasDisponibles}");
 				this.lsbDetalles.Items.Add($"Propietario:");
 				this.lsbDetalles.Items.Add($"Apellido: {casa.Propietario.Apellido}, Nombre: {casa.Propietario.Nombre}");
-				this.lsbDetalles.Items.Add($"Dni: {casa.Propietario.Dni}, Tel:{casa.Propietario.Teléfono}");
+				this.lsbDetalles.Items.Add($"Dni: {casa.Propietario.Dni:00,000,000}, Tel: {casa.Propietario.Teléfono:000}");
 			}
 
 			StringBuilder stringServicios = new StringBuilder();

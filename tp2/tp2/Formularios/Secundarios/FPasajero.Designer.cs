@@ -68,7 +68,7 @@ namespace tp2
 			this.nudDniPasajero.Location = new System.Drawing.Point(3, 19);
 			this.nudDniPasajero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.nudDniPasajero.Maximum = new decimal(new int[] {
-            99000000,
+            99999999,
             0,
             0,
             0});

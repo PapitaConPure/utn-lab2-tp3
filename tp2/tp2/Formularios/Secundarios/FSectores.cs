@@ -100,11 +100,11 @@ namespace tp2.Formularios.Secundarios {
 			int i = 0;
 
 			#region Rellenos de torta
-			foreach(Sector sector in sectores) {
+			foreach(Sector sector in this.sectores) {
 				int cantidad = sector.Peso;
 				ánguloInicio = ánguloFin;
 
-				if(i < sectores.Length - 1)
+				if(i < this.sectores.Length - 1)
 					ánguloFin = ánguloInicio + 360f * cantidad / total;
 				else
 					ánguloFin = desplazamiento + 360f;
@@ -132,11 +132,11 @@ namespace tp2.Formularios.Secundarios {
 			PointF puntoTextoSector;
 			ánguloFin = desplazamiento;
 			i = 0;
-			foreach(Sector sector in sectores) {
+			foreach(Sector sector in this.sectores) {
 				int cantidad = sector.Peso;
 				ánguloInicio = ánguloFin;
 
-				if(i < sectores.Length - 1)
+				if(i < this.sectores.Length - 1)
 					ánguloFin = ánguloInicio + 360f * cantidad / total;
 				else
 					ánguloFin = desplazamiento + 360f;

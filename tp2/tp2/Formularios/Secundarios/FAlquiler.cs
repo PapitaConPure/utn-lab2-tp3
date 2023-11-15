@@ -8,7 +8,6 @@ using System.Drawing;
 namespace tp2 {
 	public partial class FAlquiler: Form {
 		private readonly Sistema sistema;
-		private readonly Alquiler alquiler;
 		private readonly Residencia residencia;
 		private Calendario calendario;
 		private DateTime[] meses;
@@ -34,7 +33,6 @@ namespace tp2 {
 			this.nudTel.Value = alquiler.Cliente.Teléfono;
 			this.tbApellido.Text = alquiler.Cliente.Apellido;
 			this.tbNombre.Text = alquiler.Cliente.Nombre;
-			this.alquiler = alquiler;
 			this.btnAlquilar.Visible = false;
 			this.btnModificar.Visible = true;
 		}
@@ -96,7 +94,7 @@ namespace tp2 {
 				FPasajero nuevo;
 				Persona aux;
 				bool canceló = false;
-				int cont = (int)nudCantPasajeros.Value;
+				int cont = (int)this.nudCantPasajeros.Value;
 				for (int i = 0; i < cont-1 && !canceló; i++)
 				{
 					nuevo = new FPasajero();

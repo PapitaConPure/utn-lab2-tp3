@@ -77,6 +77,7 @@ namespace tp2 {
 			this.nudPrecioBase.Size = new System.Drawing.Size(268, 23);
 			this.nudPrecioBase.TabIndex = 4;
 			this.nudPrecioBase.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.nudPrecioBase.ThousandsSeparator = true;
 			this.nudPrecioBase.Value = new decimal(new int[] {
             100,
             0,

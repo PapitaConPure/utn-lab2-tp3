@@ -219,7 +219,7 @@ namespace tp2
 			this.btnImprimir.TabIndex = 3;
 			this.btnImprimir.Text = "      Imprimir";
 			this.btnImprimir.UseVisualStyleBackColor = false;
-			this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+			this.btnImprimir.Click += new System.EventHandler(this.BtnImprimir_Click);
 			// 
 			// gbNroAlquiler
 			// 
