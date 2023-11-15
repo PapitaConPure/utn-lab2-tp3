@@ -82,24 +82,24 @@
 			// 
 			// labelProductName
 			// 
-			this.labelProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelProductName.Location = new System.Drawing.Point(441, 0);
-			this.labelProductName.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
+			this.labelProductName.AutoSize = true;
+			this.labelProductName.Location = new System.Drawing.Point(441, 10);
+			this.labelProductName.Margin = new System.Windows.Forms.Padding(8, 10, 4, 0);
 			this.labelProductName.MaximumSize = new System.Drawing.Size(0, 26);
 			this.labelProductName.Name = "labelProductName";
-			this.labelProductName.Size = new System.Drawing.Size(410, 26);
+			this.labelProductName.Size = new System.Drawing.Size(151, 20);
 			this.labelProductName.TabIndex = 19;
 			this.labelProductName.Text = "Id del producto: 1010";
 			this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelVersion
 			// 
-			this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelVersion.Location = new System.Drawing.Point(441, 41);
-			this.labelVersion.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
+			this.labelVersion.AutoSize = true;
+			this.labelVersion.Location = new System.Drawing.Point(441, 51);
+			this.labelVersion.Margin = new System.Windows.Forms.Padding(8, 10, 4, 0);
 			this.labelVersion.MaximumSize = new System.Drawing.Size(0, 26);
 			this.labelVersion.Name = "labelVersion";
-			this.labelVersion.Size = new System.Drawing.Size(410, 26);
+			this.labelVersion.Size = new System.Drawing.Size(94, 20);
 			this.labelVersion.TabIndex = 0;
 			this.labelVersion.Text = "Versión: 1.0.0";
 			this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,24 +141,24 @@
 			// 
 			// labelCopyright
 			// 
-			this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelCopyright.Location = new System.Drawing.Point(441, 123);
-			this.labelCopyright.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
+			this.labelCopyright.AutoSize = true;
+			this.labelCopyright.Location = new System.Drawing.Point(441, 133);
+			this.labelCopyright.Margin = new System.Windows.Forms.Padding(8, 10, 4, 0);
 			this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 26);
 			this.labelCopyright.Name = "labelCopyright";
-			this.labelCopyright.Size = new System.Drawing.Size(410, 26);
+			this.labelCopyright.Size = new System.Drawing.Size(367, 20);
 			this.labelCopyright.TabIndex = 21;
 			this.labelCopyright.Text = "© 2023 Royal Alquiler. Todos los derechos reservados.";
 			this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelCompanyName
 			// 
-			this.labelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.labelCompanyName.Location = new System.Drawing.Point(441, 82);
-			this.labelCompanyName.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
+			this.labelCompanyName.AutoSize = true;
+			this.labelCompanyName.Location = new System.Drawing.Point(441, 92);
+			this.labelCompanyName.Margin = new System.Windows.Forms.Padding(8, 10, 4, 0);
 			this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 26);
 			this.labelCompanyName.Name = "labelCompanyName";
-			this.labelCompanyName.Size = new System.Drawing.Size(410, 26);
+			this.labelCompanyName.Size = new System.Drawing.Size(130, 20);
 			this.labelCompanyName.TabIndex = 22;
 			this.labelCompanyName.Text = "Por: Royal Alquiler";
 			this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

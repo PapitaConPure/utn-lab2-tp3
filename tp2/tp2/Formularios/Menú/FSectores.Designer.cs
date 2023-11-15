@@ -54,7 +54,7 @@ namespace tp2.Formularios.Secundarios
 			this.pnlSectores.Location = new System.Drawing.Point(0, 45);
 			this.pnlSectores.Name = "pnlSectores";
 			this.pnlSectores.Size = new System.Drawing.Size(800, 405);
-			this.pnlSectores.TabIndex = 4;
+			this.pnlSectores.TabIndex = 0;
 			this.pnlSectores.BackColorChanged += new System.EventHandler(this.PnlSectores_SizeChanged);
 			this.pnlSectores.SizeChanged += new System.EventHandler(this.PnlSectores_SizeChanged);
 			this.pnlSectores.VisibleChanged += new System.EventHandler(this.PnlSectores_SizeChanged);
@@ -69,7 +69,7 @@ namespace tp2.Formularios.Secundarios
 			this.pnlTest.Name = "pnlTest";
 			this.pnlTest.Padding = new System.Windows.Forms.Padding(12);
 			this.pnlTest.Size = new System.Drawing.Size(189, 127);
-			this.pnlTest.TabIndex = 3;
+			this.pnlTest.TabIndex = 1;
 			this.pnlTest.Visible = false;
 			// 
 			// tlpControlPropiedadesTest
@@ -96,7 +96,7 @@ namespace tp2.Formularios.Secundarios
 			this.tlpControlPropiedadesTest.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tlpControlPropiedadesTest.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tlpControlPropiedadesTest.Size = new System.Drawing.Size(148, 99);
-			this.tlpControlPropiedadesTest.TabIndex = 2;
+			this.tlpControlPropiedadesTest.TabIndex = 0;
 			// 
 			// lblHotel
 			// 
@@ -106,7 +106,7 @@ namespace tp2.Formularios.Secundarios
 			this.lblHotel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 6);
 			this.lblHotel.Name = "lblHotel";
 			this.lblHotel.Size = new System.Drawing.Size(46, 20);
-			this.lblHotel.TabIndex = 3;
+			this.lblHotel.TabIndex = 0;
 			this.lblHotel.Text = "Hotel";
 			// 
 			// btnAgregarCasa
@@ -132,7 +132,7 @@ namespace tp2.Formularios.Secundarios
 			this.lblCasaFinde.Margin = new System.Windows.Forms.Padding(3, 7, 3, 6);
 			this.lblCasaFinde.Name = "lblCasaFinde";
 			this.lblCasaFinde.Size = new System.Drawing.Size(76, 20);
-			this.lblCasaFinde.TabIndex = 3;
+			this.lblCasaFinde.TabIndex = 0;
 			this.lblCasaFinde.Text = "CasaFinde";
 			// 
 			// btnQuitarHotel
@@ -158,7 +158,7 @@ namespace tp2.Formularios.Secundarios
 			this.lblCasa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 6);
 			this.lblCasa.Name = "lblCasa";
 			this.lblCasa.Size = new System.Drawing.Size(40, 20);
-			this.lblCasa.TabIndex = 3;
+			this.lblCasa.TabIndex = 0;
 			this.lblCasa.Text = "Casa";
 			// 
 			// btnAgregarCasaFinde

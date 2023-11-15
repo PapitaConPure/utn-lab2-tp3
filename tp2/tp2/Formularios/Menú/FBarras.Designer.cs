@@ -51,7 +51,7 @@ namespace tp2.Formularios.Secundarios
 			this.pnlBarras.Location = new System.Drawing.Point(0, 45);
 			this.pnlBarras.Name = "pnlBarras";
 			this.pnlBarras.Size = new System.Drawing.Size(800, 405);
-			this.pnlBarras.TabIndex = 6;
+			this.pnlBarras.TabIndex = 0;
 			this.pnlBarras.SizeChanged += new System.EventHandler(this.PnlBarras_SizeChanged);
 			this.pnlBarras.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlBarras_Paint);
 			// 

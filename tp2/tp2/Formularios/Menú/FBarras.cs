@@ -21,7 +21,7 @@ namespace tp2.Formularios.Secundarios
 
 		public FBarras() {
             this.InitializeComponent();
-        }
+		}
 
         public FBarras(Sistema sis): this() {
             this.sistema = sis;
