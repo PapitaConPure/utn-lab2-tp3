@@ -16,6 +16,10 @@ namespace tp2 {
 			this.Sistema = null;
 		}
 
+		private void FNuevoSistema_Load(object sender, EventArgs e) {
+			this.gbPrecioBase.Font = new Font(Estilos.LatoBlack, 9);
+		}
+
 		public Sistema Sistema { get; private set; }
 
 		private void BtnAceptar_Click(object sender, EventArgs e) {

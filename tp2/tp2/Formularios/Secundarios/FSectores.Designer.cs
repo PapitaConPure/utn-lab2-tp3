@@ -30,24 +30,26 @@ namespace tp2.Formularios.Secundarios
         private void InitializeComponent()
         {
 			this.pnlSectores = new System.Windows.Forms.Panel();
-			this.btncm = new System.Windows.Forms.Button();
-			this.btnbm = new System.Windows.Forms.Button();
-			this.btnam = new System.Windows.Forms.Button();
-			this.btncp = new System.Windows.Forms.Button();
-			this.btnbp = new System.Windows.Forms.Button();
-			this.btnap = new System.Windows.Forms.Button();
+			this.pnlTest = new System.Windows.Forms.Panel();
+			this.tlpControlPropiedadesTest = new System.Windows.Forms.TableLayoutPanel();
+			this.lblHotel = new System.Windows.Forms.Label();
+			this.btnAgregarCasa = new System.Windows.Forms.Button();
+			this.lblCasaFinde = new System.Windows.Forms.Label();
+			this.btnQuitarHotel = new System.Windows.Forms.Button();
+			this.lblCasa = new System.Windows.Forms.Label();
+			this.btnAgregarCasaFinde = new System.Windows.Forms.Button();
+			this.btnQuitarCasaFinde = new System.Windows.Forms.Button();
+			this.btnAgregarHotel = new System.Windows.Forms.Button();
+			this.btnQuitarCasa = new System.Windows.Forms.Button();
 			this.lbPropReser = new System.Windows.Forms.Label();
 			this.pnlSectores.SuspendLayout();
+			this.pnlTest.SuspendLayout();
+			this.tlpControlPropiedadesTest.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pnlSectores
 			// 
-			this.pnlSectores.Controls.Add(this.btncm);
-			this.pnlSectores.Controls.Add(this.btnbm);
-			this.pnlSectores.Controls.Add(this.btnam);
-			this.pnlSectores.Controls.Add(this.btncp);
-			this.pnlSectores.Controls.Add(this.btnbp);
-			this.pnlSectores.Controls.Add(this.btnap);
+			this.pnlSectores.Controls.Add(this.pnlTest);
 			this.pnlSectores.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlSectores.Location = new System.Drawing.Point(0, 45);
 			this.pnlSectores.Name = "pnlSectores";
@@ -58,84 +60,173 @@ namespace tp2.Formularios.Secundarios
 			this.pnlSectores.VisibleChanged += new System.EventHandler(this.PnlSectores_SizeChanged);
 			this.pnlSectores.Paint += new System.Windows.Forms.PaintEventHandler(this.FSectores_Paint);
 			// 
-			// btncm
+			// pnlTest
 			// 
-			this.btncm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btncm.Location = new System.Drawing.Point(765, 370);
-			this.btncm.Name = "btncm";
-			this.btncm.Size = new System.Drawing.Size(23, 23);
-			this.btncm.TabIndex = 1;
-			this.btncm.Text = "-";
-			this.btncm.UseVisualStyleBackColor = true;
-			this.btncm.Visible = false;
-			this.btncm.Click += new System.EventHandler(this.Btncm_Click);
+			this.pnlTest.AutoSize = true;
+			this.pnlTest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.pnlTest.Controls.Add(this.tlpControlPropiedadesTest);
+			this.pnlTest.Location = new System.Drawing.Point(599, 266);
+			this.pnlTest.Name = "pnlTest";
+			this.pnlTest.Padding = new System.Windows.Forms.Padding(12);
+			this.pnlTest.Size = new System.Drawing.Size(189, 127);
+			this.pnlTest.TabIndex = 3;
+			this.pnlTest.Visible = false;
 			// 
-			// btnbm
+			// tlpControlPropiedadesTest
 			// 
-			this.btnbm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnbm.Location = new System.Drawing.Point(765, 341);
-			this.btnbm.Name = "btnbm";
-			this.btnbm.Size = new System.Drawing.Size(23, 23);
-			this.btnbm.TabIndex = 1;
-			this.btnbm.Text = "-";
-			this.btnbm.UseVisualStyleBackColor = true;
-			this.btnbm.Visible = false;
-			this.btnbm.Click += new System.EventHandler(this.Btnbm_Click);
+			this.tlpControlPropiedadesTest.AutoSize = true;
+			this.tlpControlPropiedadesTest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.tlpControlPropiedadesTest.ColumnCount = 3;
+			this.tlpControlPropiedadesTest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpControlPropiedadesTest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpControlPropiedadesTest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpControlPropiedadesTest.Controls.Add(this.lblHotel, 0, 2);
+			this.tlpControlPropiedadesTest.Controls.Add(this.btnAgregarCasa, 1, 0);
+			this.tlpControlPropiedadesTest.Controls.Add(this.lblCasaFinde, 0, 1);
+			this.tlpControlPropiedadesTest.Controls.Add(this.btnQuitarHotel, 2, 2);
+			this.tlpControlPropiedadesTest.Controls.Add(this.lblCasa, 0, 0);
+			this.tlpControlPropiedadesTest.Controls.Add(this.btnAgregarCasaFinde, 1, 1);
+			this.tlpControlPropiedadesTest.Controls.Add(this.btnQuitarCasaFinde, 2, 1);
+			this.tlpControlPropiedadesTest.Controls.Add(this.btnAgregarHotel, 1, 2);
+			this.tlpControlPropiedadesTest.Controls.Add(this.btnQuitarCasa, 2, 0);
+			this.tlpControlPropiedadesTest.Location = new System.Drawing.Point(26, 13);
+			this.tlpControlPropiedadesTest.Name = "tlpControlPropiedadesTest";
+			this.tlpControlPropiedadesTest.RowCount = 3;
+			this.tlpControlPropiedadesTest.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tlpControlPropiedadesTest.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tlpControlPropiedadesTest.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tlpControlPropiedadesTest.Size = new System.Drawing.Size(148, 99);
+			this.tlpControlPropiedadesTest.TabIndex = 2;
 			// 
-			// btnam
+			// lblHotel
 			// 
-			this.btnam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnam.Location = new System.Drawing.Point(765, 312);
-			this.btnam.Name = "btnam";
-			this.btnam.Size = new System.Drawing.Size(23, 23);
-			this.btnam.TabIndex = 1;
-			this.btnam.Text = "-";
-			this.btnam.UseVisualStyleBackColor = true;
-			this.btnam.Visible = false;
-			this.btnam.Click += new System.EventHandler(this.Btnam_Click);
+			this.lblHotel.AutoSize = true;
+			this.lblHotel.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.lblHotel.Location = new System.Drawing.Point(3, 73);
+			this.lblHotel.Margin = new System.Windows.Forms.Padding(3, 7, 3, 6);
+			this.lblHotel.Name = "lblHotel";
+			this.lblHotel.Size = new System.Drawing.Size(46, 20);
+			this.lblHotel.TabIndex = 3;
+			this.lblHotel.Text = "Hotel";
 			// 
-			// btncp
+			// btnAgregarCasa
 			// 
-			this.btncp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btncp.Location = new System.Drawing.Point(736, 370);
-			this.btncp.Name = "btncp";
-			this.btncp.Size = new System.Drawing.Size(23, 23);
-			this.btncp.TabIndex = 0;
-			this.btncp.Text = "+";
-			this.btncp.UseVisualStyleBackColor = true;
-			this.btncp.Visible = false;
-			this.btncp.Click += new System.EventHandler(this.Btncp_Click);
+			this.btnAgregarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(185)))), ((int)(((byte)(86)))));
+			this.btnAgregarCasa.FlatAppearance.BorderSize = 0;
+			this.btnAgregarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarCasa.ForeColor = System.Drawing.Color.White;
+			this.btnAgregarCasa.Location = new System.Drawing.Point(85, 3);
+			this.btnAgregarCasa.Name = "btnAgregarCasa";
+			this.btnAgregarCasa.Size = new System.Drawing.Size(27, 27);
+			this.btnAgregarCasa.TabIndex = 0;
+			this.btnAgregarCasa.Text = "+";
+			this.btnAgregarCasa.UseVisualStyleBackColor = false;
+			this.btnAgregarCasa.Click += new System.EventHandler(this.Btnap_Click);
 			// 
-			// btnbp
+			// lblCasaFinde
 			// 
-			this.btnbp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnbp.Location = new System.Drawing.Point(736, 341);
-			this.btnbp.Name = "btnbp";
-			this.btnbp.Size = new System.Drawing.Size(23, 23);
-			this.btnbp.TabIndex = 0;
-			this.btnbp.Text = "+";
-			this.btnbp.UseVisualStyleBackColor = true;
-			this.btnbp.Visible = false;
-			this.btnbp.Click += new System.EventHandler(this.Btnbp_Click);
+			this.lblCasaFinde.AutoSize = true;
+			this.lblCasaFinde.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.lblCasaFinde.Location = new System.Drawing.Point(3, 40);
+			this.lblCasaFinde.Margin = new System.Windows.Forms.Padding(3, 7, 3, 6);
+			this.lblCasaFinde.Name = "lblCasaFinde";
+			this.lblCasaFinde.Size = new System.Drawing.Size(76, 20);
+			this.lblCasaFinde.TabIndex = 3;
+			this.lblCasaFinde.Text = "CasaFinde";
 			// 
-			// btnap
+			// btnQuitarHotel
 			// 
-			this.btnap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnap.Location = new System.Drawing.Point(736, 312);
-			this.btnap.Name = "btnap";
-			this.btnap.Size = new System.Drawing.Size(23, 23);
-			this.btnap.TabIndex = 0;
-			this.btnap.Text = "+";
-			this.btnap.UseVisualStyleBackColor = true;
-			this.btnap.Visible = false;
-			this.btnap.Click += new System.EventHandler(this.Btnap_Click);
+			this.btnQuitarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(55)))), ((int)(((byte)(60)))));
+			this.btnQuitarHotel.FlatAppearance.BorderSize = 0;
+			this.btnQuitarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnQuitarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnQuitarHotel.ForeColor = System.Drawing.Color.White;
+			this.btnQuitarHotel.Location = new System.Drawing.Point(118, 69);
+			this.btnQuitarHotel.Name = "btnQuitarHotel";
+			this.btnQuitarHotel.Size = new System.Drawing.Size(27, 27);
+			this.btnQuitarHotel.TabIndex = 1;
+			this.btnQuitarHotel.Text = "-";
+			this.btnQuitarHotel.UseVisualStyleBackColor = false;
+			this.btnQuitarHotel.Click += new System.EventHandler(this.Btncm_Click);
+			// 
+			// lblCasa
+			// 
+			this.lblCasa.AutoSize = true;
+			this.lblCasa.Font = new System.Drawing.Font("Segoe UI", 11F);
+			this.lblCasa.Location = new System.Drawing.Point(3, 7);
+			this.lblCasa.Margin = new System.Windows.Forms.Padding(3, 7, 3, 6);
+			this.lblCasa.Name = "lblCasa";
+			this.lblCasa.Size = new System.Drawing.Size(40, 20);
+			this.lblCasa.TabIndex = 3;
+			this.lblCasa.Text = "Casa";
+			// 
+			// btnAgregarCasaFinde
+			// 
+			this.btnAgregarCasaFinde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(185)))), ((int)(((byte)(86)))));
+			this.btnAgregarCasaFinde.FlatAppearance.BorderSize = 0;
+			this.btnAgregarCasaFinde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarCasaFinde.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarCasaFinde.ForeColor = System.Drawing.Color.White;
+			this.btnAgregarCasaFinde.Location = new System.Drawing.Point(85, 36);
+			this.btnAgregarCasaFinde.Name = "btnAgregarCasaFinde";
+			this.btnAgregarCasaFinde.Size = new System.Drawing.Size(27, 27);
+			this.btnAgregarCasaFinde.TabIndex = 0;
+			this.btnAgregarCasaFinde.Text = "+";
+			this.btnAgregarCasaFinde.UseVisualStyleBackColor = false;
+			this.btnAgregarCasaFinde.Click += new System.EventHandler(this.Btnbp_Click);
+			// 
+			// btnQuitarCasaFinde
+			// 
+			this.btnQuitarCasaFinde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(55)))), ((int)(((byte)(60)))));
+			this.btnQuitarCasaFinde.FlatAppearance.BorderSize = 0;
+			this.btnQuitarCasaFinde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnQuitarCasaFinde.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnQuitarCasaFinde.ForeColor = System.Drawing.Color.White;
+			this.btnQuitarCasaFinde.Location = new System.Drawing.Point(118, 36);
+			this.btnQuitarCasaFinde.Name = "btnQuitarCasaFinde";
+			this.btnQuitarCasaFinde.Size = new System.Drawing.Size(27, 27);
+			this.btnQuitarCasaFinde.TabIndex = 1;
+			this.btnQuitarCasaFinde.Text = "-";
+			this.btnQuitarCasaFinde.UseVisualStyleBackColor = false;
+			this.btnQuitarCasaFinde.Click += new System.EventHandler(this.Btnbm_Click);
+			// 
+			// btnAgregarHotel
+			// 
+			this.btnAgregarHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(185)))), ((int)(((byte)(86)))));
+			this.btnAgregarHotel.FlatAppearance.BorderSize = 0;
+			this.btnAgregarHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAgregarHotel.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnAgregarHotel.ForeColor = System.Drawing.Color.White;
+			this.btnAgregarHotel.Location = new System.Drawing.Point(85, 69);
+			this.btnAgregarHotel.Name = "btnAgregarHotel";
+			this.btnAgregarHotel.Size = new System.Drawing.Size(27, 27);
+			this.btnAgregarHotel.TabIndex = 0;
+			this.btnAgregarHotel.Text = "+";
+			this.btnAgregarHotel.UseVisualStyleBackColor = false;
+			this.btnAgregarHotel.Click += new System.EventHandler(this.Btncp_Click);
+			// 
+			// btnQuitarCasa
+			// 
+			this.btnQuitarCasa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(55)))), ((int)(((byte)(60)))));
+			this.btnQuitarCasa.FlatAppearance.BorderSize = 0;
+			this.btnQuitarCasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnQuitarCasa.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
+			this.btnQuitarCasa.ForeColor = System.Drawing.Color.White;
+			this.btnQuitarCasa.Location = new System.Drawing.Point(118, 3);
+			this.btnQuitarCasa.Name = "btnQuitarCasa";
+			this.btnQuitarCasa.Size = new System.Drawing.Size(27, 27);
+			this.btnQuitarCasa.TabIndex = 1;
+			this.btnQuitarCasa.Text = "-";
+			this.btnQuitarCasa.UseVisualStyleBackColor = false;
+			this.btnQuitarCasa.Click += new System.EventHandler(this.Btnam_Click);
 			// 
 			// lbPropReser
 			// 
 			this.lbPropReser.AutoSize = true;
 			this.lbPropReser.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lbPropReser.Font = new System.Drawing.Font("Segoe UI Black", 24F);
-			this.lbPropReser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+			this.lbPropReser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(123)))));
 			this.lbPropReser.Location = new System.Drawing.Point(0, 0);
 			this.lbPropReser.Name = "lbPropReser";
 			this.lbPropReser.Size = new System.Drawing.Size(379, 45);
@@ -146,15 +237,21 @@ namespace tp2.Formularios.Secundarios
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.pnlSectores);
 			this.Controls.Add(this.lbPropReser);
+			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
 			this.MinimumSize = new System.Drawing.Size(410, 360);
 			this.Name = "FSectores";
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.pnlSectores.ResumeLayout(false);
+			this.pnlSectores.PerformLayout();
+			this.pnlTest.ResumeLayout(false);
+			this.pnlTest.PerformLayout();
+			this.tlpControlPropiedadesTest.ResumeLayout(false);
+			this.tlpControlPropiedadesTest.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -163,11 +260,16 @@ namespace tp2.Formularios.Secundarios
         #endregion
 		private System.Windows.Forms.Panel pnlSectores;
 		private System.Windows.Forms.Label lbPropReser;
-		private System.Windows.Forms.Button btncp;
-		private System.Windows.Forms.Button btnbp;
-		private System.Windows.Forms.Button btnap;
-		private System.Windows.Forms.Button btncm;
-		private System.Windows.Forms.Button btnbm;
-		private System.Windows.Forms.Button btnam;
+		private System.Windows.Forms.Button btnAgregarHotel;
+		private System.Windows.Forms.Button btnAgregarCasaFinde;
+		private System.Windows.Forms.Button btnAgregarCasa;
+		private System.Windows.Forms.Button btnQuitarHotel;
+		private System.Windows.Forms.Button btnQuitarCasaFinde;
+		private System.Windows.Forms.Button btnQuitarCasa;
+		private System.Windows.Forms.Label lblCasa;
+		private System.Windows.Forms.TableLayoutPanel tlpControlPropiedadesTest;
+		private System.Windows.Forms.Label lblHotel;
+		private System.Windows.Forms.Label lblCasaFinde;
+		private System.Windows.Forms.Panel pnlTest;
 	}
 }

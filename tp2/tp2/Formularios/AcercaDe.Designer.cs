@@ -30,13 +30,13 @@
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AcercaDe));
 			this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-			this.logoPictureBox = new System.Windows.Forms.PictureBox();
 			this.labelProductName = new System.Windows.Forms.Label();
 			this.labelVersion = new System.Windows.Forms.Label();
 			this.textBoxDescription = new System.Windows.Forms.TextBox();
 			this.okButton = new System.Windows.Forms.Button();
 			this.labelCopyright = new System.Windows.Forms.Label();
 			this.labelCompanyName = new System.Windows.Forms.Label();
+			this.logoPictureBox = new System.Windows.Forms.PictureBox();
 			this.tableLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
 			this.SuspendLayout();
@@ -66,19 +66,6 @@
 			this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
 			this.tableLayoutPanel.Size = new System.Drawing.Size(855, 411);
 			this.tableLayoutPanel.TabIndex = 2;
-			// 
-			// logoPictureBox
-			// 
-			this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
-			this.logoPictureBox.Location = new System.Drawing.Point(4, 5);
-			this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-			this.logoPictureBox.Name = "logoPictureBox";
-			this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
-			this.logoPictureBox.Size = new System.Drawing.Size(425, 401);
-			this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.logoPictureBox.TabIndex = 12;
-			this.logoPictureBox.TabStop = false;
 			// 
 			// labelProductName
 			// 
@@ -126,8 +113,9 @@
 			// okButton
 			// 
 			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.okButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(72)))));
 			this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.okButton.FlatAppearance.BorderSize = 2;
+			this.okButton.FlatAppearance.BorderSize = 0;
 			this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.okButton.Font = new System.Drawing.Font("Segoe UI Semibold", 11F);
 			this.okButton.Location = new System.Drawing.Point(727, 374);
@@ -136,6 +124,7 @@
 			this.okButton.Size = new System.Drawing.Size(124, 32);
 			this.okButton.TabIndex = 24;
 			this.okButton.Text = "&Cerrar";
+			this.okButton.UseVisualStyleBackColor = false;
 			this.okButton.Click += new System.EventHandler(this.okButton_Click);
 			// 
 			// labelCopyright
@@ -162,11 +151,24 @@
 			this.labelCompanyName.Text = "Por: Royal Alquiler";
 			this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
+			// logoPictureBox
+			// 
+			this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
+			this.logoPictureBox.Location = new System.Drawing.Point(4, 5);
+			this.logoPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.logoPictureBox.Name = "logoPictureBox";
+			this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);
+			this.logoPictureBox.Size = new System.Drawing.Size(425, 401);
+			this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.logoPictureBox.TabIndex = 12;
+			this.logoPictureBox.TabStop = false;
+			// 
 			// AcercaDe
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(28)))));
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
 			this.ClientSize = new System.Drawing.Size(879, 435);
 			this.Controls.Add(this.tableLayoutPanel);
 			this.Font = new System.Drawing.Font("Segoe UI", 11F);
@@ -175,7 +177,7 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.Name = "AcercaDe";
 			this.Padding = new System.Windows.Forms.Padding(12);
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Acerca de...";
 			this.tableLayoutPanel.ResumeLayout(false);
 			this.tableLayoutPanel.PerformLayout();

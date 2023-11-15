@@ -36,7 +36,6 @@ namespace tp2.Formularios {
 			// 
 			// tableLayoutPanel1
 			// 
-			this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
 			this.tableLayoutPanel1.ColumnCount = 4;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -58,7 +57,7 @@ namespace tp2.Formularios {
 			// 
 			// btnInicio
 			// 
-			this.btnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(177)))), ((int)(((byte)(51)))));
+			this.btnInicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
 			this.btnInicio.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnInicio.FlatAppearance.BorderSize = 0;
 			this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -75,7 +74,7 @@ namespace tp2.Formularios {
 			// 
 			// btnAnterior
 			// 
-			this.btnAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(177)))), ((int)(((byte)(51)))));
+			this.btnAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
 			this.btnAnterior.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnAnterior.FlatAppearance.BorderSize = 0;
 			this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -92,7 +91,7 @@ namespace tp2.Formularios {
 			// 
 			// btnSiguiente
 			// 
-			this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(177)))), ((int)(((byte)(51)))));
+			this.btnSiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
 			this.btnSiguiente.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnSiguiente.FlatAppearance.BorderSize = 0;
 			this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -109,7 +108,7 @@ namespace tp2.Formularios {
 			// 
 			// btnCerrar
 			// 
-			this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+			this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(72)))));
 			this.btnCerrar.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnCerrar.FlatAppearance.BorderSize = 0;
@@ -127,7 +126,7 @@ namespace tp2.Formularios {
 			// webView
 			// 
 			this.webView.AllowExternalDrop = true;
-			this.webView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+			this.webView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(39)))));
 			this.webView.CreationProperties = null;
 			this.webView.DefaultBackgroundColor = System.Drawing.Color.White;
 			this.webView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -142,13 +141,13 @@ namespace tp2.Formularios {
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
 			this.ClientSize = new System.Drawing.Size(944, 521);
 			this.ControlBox = false;
 			this.Controls.Add(this.webView);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11F);
-			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;

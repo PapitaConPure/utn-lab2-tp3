@@ -35,11 +35,11 @@ namespace ProyectoSplash
             Rectangle áreaCargaBarra = new Rectangle(0, 0, anchoCarga, this.Height);
 
             //Brochas de colores para dibujar las áreas determinadas
-            Brush brochaFondoBarra = new SolidBrush(Color.FromArgb(116, 117,122));
-            Brush brochaCargaBarra = new SolidBrush(Color.FromArgb(199, 44,48));
+            Brush brochaFondoBarra = new SolidBrush(Color.FromArgb(35, 35, 72)); //13, 235, 94
+            Brush brochaCargaBarra = new SolidBrush(Color.FromArgb(13, 235, 94)); //199, 44, 48
 
-            //Pintar el área del fondo con la brocha del fondo
-            graphics.FillRectangle(brochaFondoBarra, áreaFondoBarra);
+			//Pintar el área del fondo con la brocha del fondo
+			graphics.FillRectangle(brochaFondoBarra, áreaFondoBarra);
 
             //Pintar el área del progreso de carga con la brocha del progreso de carga
             if (this.Value > 0)

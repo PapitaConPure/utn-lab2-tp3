@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calendario.cs" />
+    <Compile Include="Estilos.cs" />
     <Compile Include="Formularios\AcercaDe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +208,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\pencilblack24.png" />
+    <None Include="Resources\bracketopenaccent24.png" />
+    <None Include="Resources\bracketcloseaccent24.png" />
+    <Content Include="Resources\Lato-Black.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lato-Bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lato-Light.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Lato-Thin.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\passaccent24.png" />
+    <None Include="Resources\useraccent24.png" />
+    <None Include="Resources\useraccent32.png" />
     <None Include="Resources\plusblack.png" />
   </ItemGroup>
   <ItemGroup>

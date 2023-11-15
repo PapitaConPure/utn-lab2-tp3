@@ -17,9 +17,9 @@ namespace tp2.Formularios.Secundarios {
 		private static readonly Font fuenteSector = new Font("Segoe UI Semibold", 11);
 
 		private readonly Sector[] sectores = {
-			new Sector("Casas", Color.FromArgb(219, 64, 69)),
-			new Sector("Casas Finde", Color.FromArgb(40, 185, 86)),
-			new Sector("Hoteles", Color.FromArgb(87, 156, 179)),
+			new Sector("Casas", Estilos.DangerSemanticColor),
+			new Sector("Casas Finde", Estilos.SuccessSemanticColor),
+			new Sector("Hoteles", Estilos.InformationSemanticColor),
 			//new Sector("Habitaciones", Color.FromArgb(240, 208, 0)),
 		};
 

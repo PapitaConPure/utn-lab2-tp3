@@ -9,24 +9,40 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using AlquilerLib;
+using System.Drawing.Text;
 
 namespace tp2
 {
     public partial class FUsuario : Form
     {
-		bool esperarEntrada = false;
+        private readonly Sistema sistema;
+		private bool esperarEntrada = false;
+		private bool arrastraVentana = false;
+		private Point arrastreMouse;
 
-        public FUsuario()
-        {
-            InitializeComponent();
-        }
-        Sistema sistema;
-        public FUsuario(Sistema s) : this()
-        {
-            sistema = s;
+        public FUsuario() {
+            this.InitializeComponent();
         }
 
-        private void btnIngresar_Click(object sender, EventArgs e)
+        public FUsuario(Sistema s): this() {
+            this.sistema = s;
+		}
+
+		private void FUsuario_Load(object sender, EventArgs e) {
+			this.gbUsuario.Font = new Font(Estilos.LatoBlack, 9);
+			this.gbContraseña.Font = new Font(Estilos.LatoBlack, 9);
+		}
+
+		private void FUsuario_Shown(object sender, EventArgs e) {
+			if(this.rbEmpleado.CanFocus)
+				this.rbEmpleado.Focus();
+			else if(this.tbUsuario.CanFocus)
+				this.tbUsuario.Focus();
+			else if(this.tbContraseña.CanFocus)
+				this.tbContraseña.Focus();
+		}
+
+		private void BtnIngresar_Click(object sender, EventArgs e)
         {
             string usuario = tbUsuario.Text, contraseña = tbContraseña.Text;
             Usuario aux;
@@ -76,5 +92,31 @@ namespace tp2
 
 			esperarEntrada = false;
 		}
+
+		private void FUsuario_MouseDown(object sender, MouseEventArgs e) {
+			this.arrastraVentana = true;
+			this.arrastreMouse = this.PointToClient(MousePosition);
+		}
+
+		private void FUsuario_MouseUp(object sender, MouseEventArgs e) {
+			this.arrastraVentana = false;
+		}
+
+		private void FUsuario_MouseMove(object sender, MouseEventArgs e) {
+			if(this.arrastraVentana)
+				this.Location = new Point(
+					MousePosition.X - this.arrastreMouse.X,
+					MousePosition.Y - this.arrastreMouse.Y);
+		}
+
+		#region Calidad de vida
+		private void SeleccionarTextBox(object sender, EventArgs e) {
+			(sender as TextBox).SelectAll();
+		}
+
+		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
+			(sender as NumericUpDown).Select(0, 20);
+		}
+		#endregion
 	}
 }

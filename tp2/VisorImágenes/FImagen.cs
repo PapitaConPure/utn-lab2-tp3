@@ -31,6 +31,13 @@ namespace cargandoImagenes
 			if(this.cantidadImágenes > 0) {
 				this.pbVisor.Image = this.Imágenes[0];
 			}
+
+			if(this.cantidadImágenes == 0)
+				this.btnQuitarImágenes.Enabled = false;
+			else if(this.cantidadImágenes == this.Imágenes.Length)
+				this.btnCargarImagen.Enabled = false;
+
+			this.btnCantImágenes.Text = this.cantidadImágenes.ToString();
 		}
 
 		public Image[] Imágenes { get; private set; }
@@ -52,6 +59,12 @@ namespace cargandoImagenes
 					MessageBox.Show("La imagen es demasiado grande o no es de un formato de imagen reconocible", "Archivo inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
+
+			if(this.cantidadImágenes == this.Imágenes.Length)
+				this.btnCargarImagen.Enabled = false;
+			this.btnQuitarImágenes.Enabled = true;
+
+			this.btnCantImágenes.Text = this.cantidadImágenes.ToString();
 		}
 
 		private void BtnQuitarImágenes_Click(object sender, EventArgs e) {
@@ -68,6 +81,12 @@ namespace cargandoImagenes
 			} else {
 				this.pbVisor.Image = null;
 			}
+
+			if(this.cantidadImágenes == 0)
+				this.btnQuitarImágenes.Enabled = false;
+			this.btnCargarImagen.Enabled = true;
+
+			this.btnCantImágenes.Text = this.cantidadImágenes.ToString();
 		}
 
 		private void BtnSiguiente_click(object sender, EventArgs e)

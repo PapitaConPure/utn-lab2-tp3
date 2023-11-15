@@ -63,10 +63,80 @@ namespace tp2.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bracketcloseaccent24 {
+            get {
+                object obj = ResourceManager.GetObject("bracketcloseaccent24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bracketopenaccent24 {
+            get {
+                object obj = ResourceManager.GetObject("bracketopenaccent24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bracketopenaccent241 {
+            get {
+                object obj = ResourceManager.GetObject("bracketopenaccent241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eyewhite24 {
             get {
                 object obj = ResourceManager.GetObject("eyewhite24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Lato_Black {
+            get {
+                object obj = ResourceManager.GetObject("Lato_Black", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Lato_Bold {
+            get {
+                object obj = ResourceManager.GetObject("Lato_Bold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Lato_Light {
+            get {
+                object obj = ResourceManager.GetObject("Lato_Light", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Lato_Thin {
+            get {
+                object obj = ResourceManager.GetObject("Lato_Thin", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
@@ -76,6 +146,26 @@ namespace tp2.Properties {
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap passaccent24 {
+            get {
+                object obj = ResourceManager.GetObject("passaccent24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pencilblack24 {
+            get {
+                object obj = ResourceManager.GetObject("pencilblack24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +196,26 @@ namespace tp2.Properties {
         internal static System.Drawing.Bitmap plusblack32 {
             get {
                 object obj = ResourceManager.GetObject("plusblack32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap useraccent24 {
+            get {
+                object obj = ResourceManager.GetObject("useraccent24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap useraccent32 {
+            get {
+                object obj = ResourceManager.GetObject("useraccent32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

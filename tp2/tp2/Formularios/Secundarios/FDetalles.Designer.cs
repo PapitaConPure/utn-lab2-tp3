@@ -254,8 +254,9 @@ namespace tp2
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
 			this.MinimumSize = new System.Drawing.Size(360, 440);
 			this.Name = "FDetalles";
+			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Residencia";
+			this.Text = "Detalles de Residencia";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pbImagen1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbImagen2)).EndInit();

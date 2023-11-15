@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -19,20 +11,18 @@ using tp2.Formularios.Secundarios;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
-		private static readonly Color backColorColumnHeaderCell = Color.FromArgb(247, 181, 60);
-		private static readonly Color foreColorColumnHeaderCell = Color.FromArgb(22, 22, 22);
-		private static readonly Color backColorCell = Color.FromArgb(28, 28, 28);
-		private static readonly Color foreColorCell = Color.FromArgb(216, 216, 216);
 
 		private Sistema sistema;
 		private string rutaBin;
+
+		private FUsuario fUsuario;
 
         public FPrincipal() {
 			this.InitializeComponent();
 		}
 
-		#region Persistencia de Sistema y Carga de Formulario
 		private void FPrincipal_Load(object sender, EventArgs e) {
+			#region Serialización
 			string rutaDir = Application.StartupPath;
 			this.rutaBin = Path.Combine(rutaDir, "config.dat");
 
@@ -70,75 +60,82 @@ namespace tp2 {
 
 				fNuevoSistema.Dispose();
 			}
+			#endregion
 
 			this.Hide();
-			new FSplash(0.001, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
+			new FSplash(.01, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
 
-			string tipoUsuario="";
-			if (primerInicio || sistema.Usuarios.Count==0)
-            {
-				agregarUsuarioToolStripMenuItem.PerformClick();
-			}
-			else
-            {
-				FUsuario f = new FUsuario(this.sistema);
-				DialogResult dr = f.ShowDialog();
+			#region Capas de Usuario
+			string tipoUsuario = "";
+			if (primerInicio || this.sistema.Usuarios.Count==0) {
+				this.agregarUsuarioToolStripMenuItem.PerformClick();
+			} else {
+				this.fUsuario = new FUsuario(this.sistema);
+				DialogResult dr = this.fUsuario.ShowDialog();
 				
-				if (dr == DialogResult.OK)
-				{
+				if (dr == DialogResult.OK) {
 					tipoUsuario = "Administrador";
 					this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
-					agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = true;
+					this.agregarUsuarioToolStripMenuItem.Enabled = this.eliminarUsuarioToolStripMenuItem.Enabled = true;
 					this.btnBorrarPropiedad.Enabled = true;
 					this.importarToolStripMenuItem.Enabled = true;
-				}
-				else
-				{
+				} else {
 					tipoUsuario = "Empleado";
 					this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled =
 					this.btnModificarPropiedad.Enabled = this.btnBorrarPropiedad.Enabled = false;
 					this.importarToolStripMenuItem.Enabled = false;
-					agregarUsuarioToolStripMenuItem.Enabled = eliminarUsuarioToolStripMenuItem.Enabled = false;
-					
+					this.agregarUsuarioToolStripMenuItem.Enabled = this.eliminarUsuarioToolStripMenuItem.Enabled = false;
 				}
-				sistema.UsuarioActual = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
-				f.Dispose();
+
+				this.sistema.UsuarioActual = this.sistema.VerUsuario(this.fUsuario.tbUsuario.Text, this.fUsuario.tbContraseña.Text);
 			}
-			
-			if(sistema.UsuarioActual is null) {
+			#endregion
+
+			if(this.sistema.UsuarioActual is null) {
 				Application.Exit();
 				return;
 			}
-            
-			barraEstado.Items.Clear();
+
+			foreach(ToolStripMenuItem item in this.barraMenú.Items)
+				item.Font = new Font(Estilos.LatoBlack, 9);
+
+			this.gbPrecio.Font = new Font(Estilos.LatoBlack, 10);
+			this.gbFecha.Font = new Font(Estilos.LatoBlack, 10);
+
+			#region Cargar barra de estado + estilo
 			ToolStripStatusLabel labelTipoUsuario = new ToolStripStatusLabel(tipoUsuario.ToUpper());
 			ToolStripStatusLabel labelNombreUsuario = new ToolStripStatusLabel(this.sistema.UsuarioActual.Nombre.ToUpper());
-			labelTipoUsuario.ForeColor = Color.FromArgb(211, 197, 197);
-			labelNombreUsuario.ForeColor = Color.FromArgb(168, 146, 146);
+			labelTipoUsuario.ForeColor = Estilos.SecondaryColorLight3;
+			labelNombreUsuario.ForeColor = Estilos.SecondaryColorLight2;
 			this.barraEstado.Items.Add(labelTipoUsuario);
 			this.barraEstado.Items.Add(labelNombreUsuario);
+			foreach(ToolStripItem item in this.barraEstado.Items)
+				item.Font = new Font(Estilos.LatoBlack, 9);
+			#endregion
 
-			#region Puta que te remil parió, Windows Forms
+			#region Cargar estilo de tabla de búsqueda
 			this.dgvResidencias.ColumnHeadersDefaultCellStyle = new DataGridViewCellStyle() {
 				Alignment = DataGridViewContentAlignment.MiddleCenter,
-				BackColor = backColorColumnHeaderCell,
-				ForeColor = foreColorColumnHeaderCell,
-				SelectionBackColor = backColorColumnHeaderCell,
-				SelectionForeColor = foreColorColumnHeaderCell,
-				Font = new Font("Segoe UI Black", 11),
+				BackColor = Estilos.PrimaryColor,
+				ForeColor = Estilos.TextColorDarkest,
+				SelectionBackColor = Estilos.PrimaryColor,
+				SelectionForeColor = Estilos.BackgroundColorDark2,
+				Font = new Font(Estilos.SegoeUIBlack, 11),
 			};
 
 			this.dgvResidencias.DefaultCellStyle = new DataGridViewCellStyle() {
 				Alignment = DataGridViewContentAlignment.MiddleCenter,
-				BackColor = backColorCell,
-				ForeColor = foreColorCell,
-				SelectionBackColor = Color.FromArgb(70, 190, 190),
-				SelectionForeColor = Color.FromArgb(22, 22, 22),
-				Font = new Font("Segoe UI", 11),
+				BackColor = Estilos.BackgroundColorDark1,
+				ForeColor = Estilos.TextColor,
+				SelectionBackColor = Estilos.SecondaryColor,
+				SelectionForeColor = Color.White,
+				Font = new Font(Estilos.SegoeUI, 11),
 			};
 			#endregion
 		}
 
+
+		#region Persistencia de Sistema
 		private void FPrincipal_FormClosed(object sender, FormClosedEventArgs e) {
 			if(this.sistema is null)
 				return;
@@ -382,75 +379,80 @@ namespace tp2 {
 		}
 
 		private void PropiedadesReservadasToolStripMenuItem_Click(object sender, EventArgs e) {
-			FSectores FS = new FSectores(this.sistema);
-			FS.ShowDialog();
-			FS.Dispose();
+			FSectores fSectores = new FSectores(this.sistema);
+			fSectores.ShowDialog();
+			fSectores.Dispose();
 		}
 
 		private void CantidadPasajaerosToolStripMenuItem_Click(object sender, EventArgs e) {
-			FBarras FB = new FBarras(this.sistema);
-			FB.ShowDialog();
-			FB.Dispose();
+			FBarras fBarras = new FBarras(this.sistema);
+			fBarras.ShowDialog();
+			fBarras.Dispose();
 		}
 
 		private void AgregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e) {
-			FUsuario f = new FUsuario(this.sistema);
-			f.btnIngresar.Visible = false;
-			f.tlpBotonesAlt.Visible = true;
-			f.tlpTipoUsuario.Visible = true;
+			this.fUsuario.btnIngresar.Visible = false;
+			this.fUsuario.tlpBotonesAlt.Visible = true;
+			this.fUsuario.tlpTipoUsuario.Visible = true;
+			this.fUsuario.gbUsuario.Enabled = true;
+			this.fUsuario.gbContraseña.Enabled = true;
 
-			f.lblTítulo.Text = "Agregar Usuario";
-			f.btnAceptar.Text = "Agregar";
+			this.fUsuario.lblTítulo.Text = "Agregar Usuario";
+			this.fUsuario.btnAceptar.Text = "Agregar";
+			this.fUsuario.btnAceptar.BackColor = Estilos.PrimaryColor;
+			this.fUsuario.btnAceptar.ForeColor = Estilos.TextColorDarkest;
 
-			if(f.ShowDialog() == DialogResult.No) {
+			if(this.fUsuario.ShowDialog() == DialogResult.No) {
 				string tipo;
-				if(f.rbAdministrador.Checked) tipo = "Administrador";
+				if(this.fUsuario.rbAdministrador.Checked) tipo = "Administrador";
 				else tipo = "Empleado";
 
-				Usuario nuevo = new Usuario(f.tbUsuario.Text, f.tbContraseña.Text, tipo);
-				sistema.AgregarUsuario(nuevo);
+				Usuario nuevo = new Usuario(this.fUsuario.tbUsuario.Text, this.fUsuario.tbContraseña.Text, tipo);
+				this.sistema.AgregarUsuario(nuevo);
 				MessageBox.Show("Usuario agregado");
-			} else {
-				f.Dispose();
 			}
 		}
 
 		private void EliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e) {
-			FUsuario f = new FUsuario(this.sistema);
-			f.btnIngresar.Visible = false;
-			f.tlpBotonesAlt.Visible = true;
+			this.fUsuario.btnIngresar.Visible = false;
+			this.fUsuario.tlpBotonesAlt.Visible = true;
+			this.fUsuario.tlpTipoUsuario.Visible = false;
+			this.fUsuario.gbUsuario.Enabled = true;
+			this.fUsuario.gbContraseña.Enabled = true;
 
-			f.lblTítulo.Text = "Eliminar Usuario";
-			f.btnAceptar.BackColor = Color.FromArgb(240, 62, 67);
-			f.btnAceptar.ForeColor = Color.White;
-			f.btnAceptar.Text = "Eliminar";
+			this.fUsuario.lblTítulo.Text = "Eliminar Usuario";
+			this.fUsuario.btnAceptar.Text = "Eliminar";
+			this.fUsuario.btnAceptar.BackColor = Estilos.DangerSemanticColor;
+			this.fUsuario.btnAceptar.ForeColor = Color.White;
 
-			if(f.ShowDialog() == DialogResult.No) {
-				Usuario aux = sistema.VerUsuario(f.tbUsuario.Text, f.tbContraseña.Text);
+			if(this.fUsuario.ShowDialog() == DialogResult.No) {
+				Usuario aux = sistema.VerUsuario(this.fUsuario.tbUsuario.Text, this.fUsuario.tbContraseña.Text);
 				if(aux == null) {
 					MessageBox.Show("El usuario no existe");
 					return;
 				} else {
-					sistema.EliminarUsuario(aux);
+					this.sistema.EliminarUsuario(aux);
 					MessageBox.Show("El usuario " + aux.Nombre + " a sido eliminado");
 				}
 			}
 		}
 
 		private void CambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e) {
-			FUsuario f = new FUsuario(this.sistema);
-			f.btnIngresar.Visible = false;
-			f.tlpBotonesAlt.Visible = true;
-			f.tbUsuario.Text = sistema.UsuarioActual.Nombre;
-			f.gbUsuario.Enabled = false;
+			this.fUsuario.btnIngresar.Visible = false;
+			this.fUsuario.tlpBotonesAlt.Visible = true;
+			this.fUsuario.tlpTipoUsuario.Visible = false;
+			this.fUsuario.tbUsuario.Text = this.sistema.UsuarioActual.Nombre;
+			this.fUsuario.gbUsuario.Enabled = false;
+			this.fUsuario.gbContraseña.Enabled = true;
 
-			f.lblTítulo.Text = "Cambiar contraseña";
+			this.fUsuario.lblTítulo.Text = "Cambiar contraseña";
+			this.fUsuario.btnAceptar.Text = "Cambiar";
+			this.fUsuario.btnAceptar.BackColor = Estilos.PrimaryColor;
+			this.fUsuario.btnAceptar.ForeColor = Estilos.TextColorDarkest;
 
-			if(f.ShowDialog() == DialogResult.No) {
-				sistema.UsuarioActual.CambiarContraseña(f.tbContraseña.Text);
+			if(this.fUsuario.ShowDialog() == DialogResult.No) {
+				this.sistema.UsuarioActual.CambiarContraseña(this.fUsuario.tbContraseña.Text);
 				MessageBox.Show("La contraseña ha sido actualizada correctamente");
-			} else {
-				f.Dispose();
 			}
 		}
 
@@ -458,8 +460,6 @@ namespace tp2 {
 			FAyuda fAyuda = new FAyuda();
 			fAyuda.ShowDialog();
 			fAyuda.Dispose();
-			//string ruta = Path.Combine(Application.StartupPath, "Ayuda", "index.html");
-			//Process.Start(ruta);
 		}
 
 		private void GuardarToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -481,6 +481,7 @@ namespace tp2 {
 
 			if(this.sfdDatos.ShowDialog() != DialogResult.OK)
 				return;
+
 			try {
 				this.sistema.GuardarLista(this.sfdDatos.FileName);
 				MessageBox.Show("Se Guardaron los alquileres y clientes.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -492,10 +493,12 @@ namespace tp2 {
 				MessageBox.Show(ex.Message, "Error de Parámetros", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 
-			DateTime hora = DateTime.Now;
-			ToolStripLabel texto = new ToolStripLabel("| Ultimo respaldo: " + hora.Hour + ":" + hora.Minute + ":" + hora.Second);
+			DateTime horaRespaldo = DateTime.Now;
+			ToolStripLabel texto = new ToolStripLabel($"ÚLTIMO RESPALDO: {horaRespaldo:HH:mm:ss}");
 			texto.ForeColor = Color.FromArgb(211, 197, 197);
-			barraEstado.Items.Add(texto);
+			texto.Font = new Font(Estilos.LatoBlack, 9);
+			texto.Alignment = ToolStripItemAlignment.Right;
+			this.barraEstado.Items.Add(texto);
 		}
 		#endregion
 

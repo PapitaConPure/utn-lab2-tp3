@@ -41,17 +41,17 @@
 			// barra
 			// 
 			this.barra.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barra.Location = new System.Drawing.Point(10, 376);
+			this.barra.Location = new System.Drawing.Point(10, 455);
 			this.barra.Maximum = 1000;
 			this.barra.Name = "barra";
-			this.barra.Size = new System.Drawing.Size(514, 12);
+			this.barra.Size = new System.Drawing.Size(629, 12);
 			this.barra.TabIndex = 0;
 			// 
 			// FSplash
 			// 
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(534, 398);
+			this.ClientSize = new System.Drawing.Size(649, 477);
 			this.Controls.Add(this.barra);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FSplash";

@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using AlquilerLib.Utilidades;
 using AlquilerLib.Constructores;
+using System.Drawing;
 
 namespace tp2 {
 	public partial class FAlquiler: Form {
@@ -40,14 +41,19 @@ namespace tp2 {
 		private void FAlquilar_Load(object sender, EventArgs e) {
 			this.meses = new DateTime[3];
 			DateTime fecha = DateTime.Now;
+
+			Button[] botonesMeses = { this.btnMes1, this.btnMes2, this.btnMes3 };
 			for(int i = 0; i < 3; i++) {
 				this.meses[i] = fecha;
-				this.cmbMes.Items.Add((Calendario.NombreMes)fecha.Month);
+				botonesMeses[i].Text = ((Calendario.NombreMes)fecha.Month).ToString().Substring(0, 3).ToUpper();
 				fecha = fecha.AddMonths(1);
 			}
-			this.cmbMes.SelectedIndex = 0;
+
 			this.calendario = new Calendario(this.dgvCalendario);
-			this.RefrescarCalendario();
+			this.RefrescarCalendario(0);
+
+			this.gbPropietario.Font = new Font(Estilos.LatoBlack, 9);
+			this.gbCantDías.Font = new Font(Estilos.LatoBlack, 9);
 		}
 
 		private void BtnAlquilar_Click(object sender, EventArgs e) {
@@ -63,7 +69,7 @@ namespace tp2 {
             try
             {
 				int dni = 0;
-				if (sistema.VerificarDni((int)this.nudDNI.Value))
+				if (this.sistema.VerificarDni((int)this.nudDNI.Value))
                 {
 					dni = (int)this.nudDNI.Value;
 				}
@@ -83,14 +89,16 @@ namespace tp2 {
 				}
 
 				DatosPersona d;
-				Alquiler alq = residencia.VerAlquiler(residencia.ContAlquileres-1);
+				Alquiler alq = this.residencia.VerAlquiler(this.residencia.ContAlquileres-1);
 				FPasajero nuevo;
 				Persona aux;
+				bool canceló = false;
 				int cont = (int)nudCantPasajeros.Value;
-				for (int i = 0; i < cont-1; i++)
+				for (int i = 0; i < cont-1 && !canceló; i++)
 				{
 					nuevo = new FPasajero();
-					nuevo.ShowDialog();
+					while(nuevo.ShowDialog() != DialogResult.OK) {}
+
 					d = new DatosPersona((int)nuevo.nudDniPasajero.Value,
 										nuevo.tbNombrePasajero.Text, nuevo.tbApellido.Text,
 										nuevo.dtpFechaNacimiento.Value);
@@ -98,7 +106,7 @@ namespace tp2 {
 					alq.Cliente.AgregarPasajero(aux);
 					nuevo.Dispose();
 				}
-				
+
 				MessageBox.Show(
 					$"Desde:{checkIn:d} hasta {checkOut:d}",
 					"Residencia alquilada",
@@ -107,7 +115,7 @@ namespace tp2 {
 			}
 			catch(DniException ex)
             {
-				MessageBox.Show(ex.Message, "Error en el DNI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(ex.Message, "DNI inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				this.DialogResult = DialogResult.None;
 			}
             catch (ArgumentException ex)
@@ -117,20 +125,15 @@ namespace tp2 {
 			}
 			catch(FormatException ex)
             {
-				MessageBox.Show(ex.Message, "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(ex.Message, "Datos inválidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				this.DialogResult = DialogResult.None;
 			}
 		}
 
-		private void CmbMes_SelectedIndexChanged(object sender, EventArgs e) {
-			this.RefrescarCalendario();
-		}
-
-		private void RefrescarCalendario() {
+		private void RefrescarCalendario(int idx) {
 			if(this.calendario is null || this.sistema is null || this.residencia is null)
 				return;
 
-			int idx = this.cmbMes.SelectedIndex;
 			DateTime mes = this.meses[idx];
 			this.calendario.CargarMes(mes.Month, mes.Year);
 
@@ -145,6 +148,15 @@ namespace tp2 {
 			this.calendario.Refrescar();
 		}
 
-        
-    }
+		private void BtnMes_Click(object sender, EventArgs e) {
+			Button button = sender as Button;
+
+			if(button == this.btnMes1)
+				this.RefrescarCalendario(0);
+			else if(button == this.btnMes2)
+				this.RefrescarCalendario(1);
+			else
+				this.RefrescarCalendario(2);
+		}
+	}
 }

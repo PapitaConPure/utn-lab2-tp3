@@ -126,19 +126,21 @@ namespace tp2 {
 				if(d < this.días.GetLength(0) && this.días[d, 0] > 0) {
 					celda.Value = this.días[d, 0];
 
-					if(this.días[d, 1] == 0)
-						celda.Style.BackColor = Color.White;
-					else
-						celda.Style.BackColor = Color.FromArgb(219, 145, 88);
-					celda.Style.ForeColor = Color.FromArgb(22, 22, 22);
+					if(this.días[d, 1] == 0) {
+						celda.Style.BackColor = Estilos.SecondaryColor;
+						celda.Style.ForeColor = Estilos.TextColor;
+					} else {
+						celda.Style.BackColor = Estilos.AccentColor;
+						celda.Style.ForeColor = Estilos.TextColorDarkest;
+					}
 				} else {
 					if(d < this.primerDíaSemana)
 						celda.Value = d + 1 + DateTime.DaysInMonth(this.año, this.mes - 1) - this.primerDíaSemana;
 					else
 						celda.Value = d + 1 - this.díasTotales - this.primerDíaSemana;
 
-					celda.Style.BackColor = Color.FromArgb(211, 197, 197);
-					celda.Style.ForeColor = Color.FromArgb(112, 103, 103);
+					celda.Style.BackColor = Estilos.BackgroundColorDark1;
+					celda.Style.ForeColor = Estilos.SecondaryColorLight1;
 				}
 			}
 		}

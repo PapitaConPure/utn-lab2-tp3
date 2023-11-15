@@ -39,7 +39,9 @@ namespace tp2
 			this.pnlBotónCancelar = new System.Windows.Forms.Panel();
 			this.btnCancelar = new System.Windows.Forms.Button();
 			this.gbUsuario = new System.Windows.Forms.GroupBox();
+			this.pbUsuario = new System.Windows.Forms.PictureBox();
 			this.gbContraseña = new System.Windows.Forms.GroupBox();
+			this.pbContraseña = new System.Windows.Forms.PictureBox();
 			this.tlpTipoUsuario = new System.Windows.Forms.TableLayoutPanel();
 			this.btnIngresar = new System.Windows.Forms.Button();
 			this.lblTítulo = new System.Windows.Forms.Label();
@@ -47,36 +49,42 @@ namespace tp2
 			this.tlpBotonesAlt.SuspendLayout();
 			this.pnlBotónCancelar.SuspendLayout();
 			this.gbUsuario.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
 			this.gbContraseña.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbContraseña)).BeginInit();
 			this.tlpTipoUsuario.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tbContraseña
 			// 
-			this.tbContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.tbContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
 			this.tbContraseña.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.tbContraseña.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tbContraseña.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.tbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.tbContraseña.Location = new System.Drawing.Point(3, 17);
+			this.tbContraseña.Location = new System.Drawing.Point(31, 17);
 			this.tbContraseña.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tbContraseña.Name = "tbContraseña";
 			this.tbContraseña.PasswordChar = '•';
-			this.tbContraseña.Size = new System.Drawing.Size(433, 20);
+			this.tbContraseña.Size = new System.Drawing.Size(405, 20);
 			this.tbContraseña.TabIndex = 0;
+			this.tbContraseña.Click += new System.EventHandler(this.SeleccionarTextBox);
+			this.tbContraseña.Enter += new System.EventHandler(this.SeleccionarTextBox);
 			// 
 			// tbUsuario
 			// 
-			this.tbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			this.tbUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(11)))));
 			this.tbUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.tbUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tbUsuario.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.tbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-			this.tbUsuario.Location = new System.Drawing.Point(3, 17);
+			this.tbUsuario.Location = new System.Drawing.Point(31, 17);
 			this.tbUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.tbUsuario.Name = "tbUsuario";
-			this.tbUsuario.Size = new System.Drawing.Size(433, 20);
+			this.tbUsuario.Size = new System.Drawing.Size(405, 20);
 			this.tbUsuario.TabIndex = 0;
+			this.tbUsuario.Click += new System.EventHandler(this.SeleccionarTextBox);
+			this.tbUsuario.Enter += new System.EventHandler(this.SeleccionarTextBox);
 			// 
 			// rbAdministrador
 			// 
@@ -117,7 +125,7 @@ namespace tp2
 			// 
 			// btnAceptar
 			// 
-			this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(181)))), ((int)(((byte)(60)))));
+			this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
 			this.btnAceptar.DialogResult = System.Windows.Forms.DialogResult.No;
 			this.btnAceptar.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnAceptar.FlatAppearance.BorderSize = 0;
@@ -160,7 +168,7 @@ namespace tp2
 			// 
 			// btnCancelar
 			// 
-			this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+			this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(72)))));
 			this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnCancelar.FlatAppearance.BorderSize = 0;
@@ -178,9 +186,10 @@ namespace tp2
 			// gbUsuario
 			// 
 			this.gbUsuario.Controls.Add(this.tbUsuario);
+			this.gbUsuario.Controls.Add(this.pbUsuario);
 			this.gbUsuario.Dock = System.Windows.Forms.DockStyle.Top;
 			this.gbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-			this.gbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+			this.gbUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
 			this.gbUsuario.Location = new System.Drawing.Point(12, 109);
 			this.gbUsuario.Name = "gbUsuario";
 			this.gbUsuario.Size = new System.Drawing.Size(439, 48);
@@ -188,18 +197,39 @@ namespace tp2
 			this.gbUsuario.TabStop = false;
 			this.gbUsuario.Text = "USUARIO";
 			// 
+			// pbUsuario
+			// 
+			this.pbUsuario.Dock = System.Windows.Forms.DockStyle.Left;
+			this.pbUsuario.Image = global::tp2.Properties.Resources.useraccent24;
+			this.pbUsuario.Location = new System.Drawing.Point(3, 17);
+			this.pbUsuario.Name = "pbUsuario";
+			this.pbUsuario.Size = new System.Drawing.Size(28, 28);
+			this.pbUsuario.TabIndex = 1;
+			this.pbUsuario.TabStop = false;
+			// 
 			// gbContraseña
 			// 
 			this.gbContraseña.Controls.Add(this.tbContraseña);
+			this.gbContraseña.Controls.Add(this.pbContraseña);
 			this.gbContraseña.Dock = System.Windows.Forms.DockStyle.Top;
 			this.gbContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-			this.gbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+			this.gbContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
 			this.gbContraseña.Location = new System.Drawing.Point(12, 157);
 			this.gbContraseña.Name = "gbContraseña";
 			this.gbContraseña.Size = new System.Drawing.Size(439, 48);
 			this.gbContraseña.TabIndex = 2;
 			this.gbContraseña.TabStop = false;
 			this.gbContraseña.Text = "CONTRASEÑA";
+			// 
+			// pbContraseña
+			// 
+			this.pbContraseña.Dock = System.Windows.Forms.DockStyle.Left;
+			this.pbContraseña.Image = global::tp2.Properties.Resources.passaccent24;
+			this.pbContraseña.Location = new System.Drawing.Point(3, 17);
+			this.pbContraseña.Name = "pbContraseña";
+			this.pbContraseña.Size = new System.Drawing.Size(28, 28);
+			this.pbContraseña.TabIndex = 1;
+			this.pbContraseña.TabStop = false;
 			// 
 			// tlpTipoUsuario
 			// 
@@ -219,7 +249,7 @@ namespace tp2
 			// 
 			// btnIngresar
 			// 
-			this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(181)))), ((int)(((byte)(60)))));
+			this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
 			this.btnIngresar.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.btnIngresar.FlatAppearance.BorderSize = 0;
 			this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -232,7 +262,7 @@ namespace tp2
 			this.btnIngresar.TabIndex = 3;
 			this.btnIngresar.Text = "Ingresar";
 			this.btnIngresar.UseVisualStyleBackColor = false;
-			this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+			this.btnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
 			// 
 			// lblTítulo
 			// 
@@ -250,7 +280,7 @@ namespace tp2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
 			this.CancelButton = this.btnCancelar;
 			this.ClientSize = new System.Drawing.Size(463, 264);
 			this.ControlBox = false;
@@ -269,15 +299,22 @@ namespace tp2
 			this.Padding = new System.Windows.Forms.Padding(12);
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Inicio de Sesión";
+			this.Load += new System.EventHandler(this.FUsuario_Load);
+			this.Shown += new System.EventHandler(this.FUsuario_Shown);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FUsuario_KeyDown);
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FUsuario_KeyUp);
+			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FUsuario_MouseDown);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FUsuario_MouseMove);
+			this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FUsuario_MouseUp);
 			this.pnlBotonesAceptar.ResumeLayout(false);
 			this.tlpBotonesAlt.ResumeLayout(false);
 			this.pnlBotónCancelar.ResumeLayout(false);
 			this.gbUsuario.ResumeLayout(false);
 			this.gbUsuario.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
 			this.gbContraseña.ResumeLayout(false);
 			this.gbContraseña.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbContraseña)).EndInit();
 			this.tlpTipoUsuario.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -299,5 +336,7 @@ namespace tp2
 		public System.Windows.Forms.Button btnIngresar;
 		public System.Windows.Forms.Button btnAceptar;
 		public System.Windows.Forms.Label lblTítulo;
+		private System.Windows.Forms.PictureBox pbUsuario;
+		private System.Windows.Forms.PictureBox pbContraseña;
 	}
 }

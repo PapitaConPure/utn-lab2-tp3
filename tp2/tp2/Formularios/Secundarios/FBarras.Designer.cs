@@ -38,7 +38,7 @@ namespace tp2.Formularios.Secundarios
 			this.lbCantPasajeros.AutoSize = true;
 			this.lbCantPasajeros.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lbCantPasajeros.Font = new System.Drawing.Font("Segoe UI Black", 24F);
-			this.lbCantPasajeros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+			this.lbCantPasajeros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(123)))));
 			this.lbCantPasajeros.Location = new System.Drawing.Point(0, 0);
 			this.lbCantPasajeros.Name = "lbCantPasajeros";
 			this.lbCantPasajeros.Size = new System.Drawing.Size(367, 45);
@@ -59,7 +59,7 @@ namespace tp2.Formularios.Secundarios
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.pnlBarras);
 			this.Controls.Add(this.lbCantPasajeros);
