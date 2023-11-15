@@ -77,5 +77,11 @@
   <ItemGroup>
     <None Include="Resources\plusblack24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UtilidadesForms\UtilidadesForms.csproj">
+      <Project>{71816BA8-0710-48CE-9B53-DDCEC94650FE}</Project>
+      <Name>UtilidadesForms</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
