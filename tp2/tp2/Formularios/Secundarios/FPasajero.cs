@@ -16,5 +16,20 @@ namespace tp2 {
 			this.gbNombre.Font = new Font(Estilos.LatoBlack, 9);
 			this.gbFechaNacimiento.Font = new Font(Estilos.LatoBlack, 9);
 		}
-    }
+
+		private void FPasajero_Shown(object sender, EventArgs e) {
+			this.nudDniPasajero.Focus();
+			this.nudDniPasajero.Select(0, 20);
+		}
+
+		#region Calidad de vida
+		private void SeleccionarTextBox(object sender, EventArgs e) {
+			(sender as TextBox).SelectAll();
+		}
+
+		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
+			(sender as NumericUpDown).Select(0, 20);
+		}
+		#endregion
+	}
 }

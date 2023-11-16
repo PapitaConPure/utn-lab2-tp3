@@ -276,5 +276,14 @@ namespace AlquilerLib {
 			else
 				return true;
 		}
+
+		public bool ContieneUsuario(string nombre) {
+			foreach(Usuario usuario in this.usuarios) {
+				if(usuario.Nombre == nombre)
+					return true;
+			}
+
+			return false;
+		}
 	}
 }

@@ -441,9 +441,19 @@ namespace tp2 {
 				if(this.fUsuario.rbAdministrador.Checked) tipo = "Administrador";
 				else tipo = "Empleado";
 
+				if(this.sistema.ContieneUsuario(this.fUsuario.tbUsuario.Text)) {
+					MessageBox.Show(
+						"No se pudo agregar porque ya existe un usuario con ese nombre",
+						"Operación inválida",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Warning);
+
+					return;
+				}
+
 				Usuario nuevo = new Usuario(this.fUsuario.tbUsuario.Text, this.fUsuario.tbContraseña.Text, tipo);
 				this.sistema.AgregarUsuario(nuevo);
-				MessageBox.Show("Usuario agregado");
+				MessageBox.Show("Usuario agregado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
 

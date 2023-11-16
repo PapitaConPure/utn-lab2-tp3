@@ -24,8 +24,8 @@ namespace tp2 {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tlpCalendario = new System.Windows.Forms.TableLayoutPanel();
 			this.dgvCalendario = new System.Windows.Forms.DataGridView();
 			this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,14 +108,14 @@ namespace tp2 {
 			this.dgvCalendario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(10)))), ((int)(((byte)(11)))));
 			this.dgvCalendario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.dgvCalendario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(235)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvCalendario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			this.dgvCalendario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvCalendario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Lunes,
@@ -125,14 +125,14 @@ namespace tp2 {
             this.Viernes,
             this.Sábado,
             this.Domingo});
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F);
+			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dgvCalendario.DefaultCellStyle = dataGridViewCellStyle8;
 			this.dgvCalendario.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvCalendario.EnableHeadersVisualStyles = false;
 			this.dgvCalendario.Location = new System.Drawing.Point(6, 23);
@@ -394,7 +394,7 @@ namespace tp2 {
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(323, 88);
-			this.tableLayoutPanel3.TabIndex = 0;
+			this.tableLayoutPanel3.TabIndex = 1;
 			// 
 			// tbNombre
 			// 
@@ -472,7 +472,7 @@ namespace tp2 {
 			this.tlpDniTel.RowCount = 1;
 			this.tlpDniTel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tlpDniTel.Size = new System.Drawing.Size(323, 54);
-			this.tlpDniTel.TabIndex = 1;
+			this.tlpDniTel.TabIndex = 0;
 			// 
 			// nudTel
 			// 
@@ -518,7 +518,7 @@ namespace tp2 {
 			this.lbDNI.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
 			this.lbDNI.Name = "lbDNI";
 			this.lbDNI.Size = new System.Drawing.Size(35, 38);
-			this.lbDNI.TabIndex = 21;
+			this.lbDNI.TabIndex = 0;
 			this.lbDNI.Text = "DNI";
 			// 
 			// nudDNI
@@ -607,7 +607,7 @@ namespace tp2 {
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 58);
-			this.tableLayoutPanel1.TabIndex = 3;
+			this.tableLayoutPanel1.TabIndex = 1;
 			// 
 			// gbCantPasajeros
 			// 
@@ -619,7 +619,7 @@ namespace tp2 {
 			this.gbCantPasajeros.Name = "gbCantPasajeros";
 			this.gbCantPasajeros.Padding = new System.Windows.Forms.Padding(6, 6, 6, 3);
 			this.gbCantPasajeros.Size = new System.Drawing.Size(161, 52);
-			this.gbCantPasajeros.TabIndex = 1;
+			this.gbCantPasajeros.TabIndex = 0;
 			this.gbCantPasajeros.TabStop = false;
 			this.gbCantPasajeros.Text = "PASAJEROS";
 			// 
@@ -633,7 +633,7 @@ namespace tp2 {
 			this.gbCantDías.Name = "gbCantDías";
 			this.gbCantDías.Padding = new System.Windows.Forms.Padding(6, 6, 6, 3);
 			this.gbCantDías.Size = new System.Drawing.Size(161, 52);
-			this.gbCantDías.TabIndex = 2;
+			this.gbCantDías.TabIndex = 1;
 			this.gbCantDías.TabStop = false;
 			this.gbCantDías.Text = "DÍAS DE ALQUILER";
 			// 
