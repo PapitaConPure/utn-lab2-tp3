@@ -525,6 +525,7 @@ namespace tp2 {
 			texto.ForeColor = Color.FromArgb(211, 197, 197);
 			texto.Font = new Font(Estilos.LatoBlack, 9);
 			texto.Alignment = ToolStripItemAlignment.Right;
+			this.barraEstado.Items.RemoveAt(1);
 			this.barraEstado.Items.Add(texto);
 		}
 		#endregion
