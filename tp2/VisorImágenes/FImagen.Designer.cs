@@ -182,6 +182,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.MinimumSize = new System.Drawing.Size(254, 254);
 			this.Name = "FImagen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Visor de Imágenes";

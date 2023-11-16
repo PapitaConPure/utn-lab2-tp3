@@ -297,6 +297,8 @@ namespace tp2 {
 			this.nudCantPersonas.Name = "nudCantPersonas";
 			this.nudCantPersonas.Size = new System.Drawing.Size(209, 23);
 			this.nudCantPersonas.TabIndex = 1;
+			this.nudCantPersonas.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudCantPersonas.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// pnlDisponibilidad
 			// 
