@@ -535,16 +535,16 @@ namespace tp2 {
             0,
             0,
             0});
-            this.nudDNI.Minimum = new decimal(new int[] {
+			this.nudDNI.Minimum = new decimal(new int[] {
             10000000,
             0,
             0,
             0});
-            this.nudDNI.Name = "nudDNI";
-            this.nudDNI.Size = new System.Drawing.Size(88, 23);
-            this.nudDNI.TabIndex = 0;
-            this.nudDNI.ThousandsSeparator = true;
-            this.nudDNI.Value = new decimal(new int[] {
+			this.nudDNI.Name = "nudDNI";
+			this.nudDNI.Size = new System.Drawing.Size(88, 23);
+			this.nudDNI.TabIndex = 0;
+			this.nudDNI.ThousandsSeparator = true;
+			this.nudDNI.Value = new decimal(new int[] {
             10000000,
             0,
             0,
@@ -565,16 +565,16 @@ namespace tp2 {
             0,
             0,
             0});
-            this.nudCantPasajeros.Minimum = new decimal(new int[] {
+			this.nudCantPasajeros.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudCantPasajeros.Name = "nudCantPasajeros";
-            this.nudCantPasajeros.Size = new System.Drawing.Size(149, 23);
-            this.nudCantPasajeros.TabIndex = 0;
-            this.nudCantPasajeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudCantPasajeros.Value = new decimal(new int[] {
+			this.nudCantPasajeros.Name = "nudCantPasajeros";
+			this.nudCantPasajeros.Size = new System.Drawing.Size(149, 23);
+			this.nudCantPasajeros.TabIndex = 0;
+			this.nudCantPasajeros.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.nudCantPasajeros.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -655,11 +655,11 @@ namespace tp2 {
             0,
             0,
             0});
-            this.nudCantDias.Name = "nudCantDias";
-            this.nudCantDias.Size = new System.Drawing.Size(149, 23);
-            this.nudCantDias.TabIndex = 0;
-            this.nudCantDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudCantDias.Value = new decimal(new int[] {
+			this.nudCantDias.Name = "nudCantDias";
+			this.nudCantDias.Size = new System.Drawing.Size(149, 23);
+			this.nudCantDias.TabIndex = 0;
+			this.nudCantDias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.nudCantDias.Value = new decimal(new int[] {
             1,
             0,
             0,
