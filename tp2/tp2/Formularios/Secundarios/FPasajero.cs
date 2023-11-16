@@ -33,6 +33,11 @@ namespace tp2 {
 		private void FPasajero_MouseMove(object sender, MouseEventArgs e) {
 
 		}
-		#endregion
-	}
+        #endregion
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

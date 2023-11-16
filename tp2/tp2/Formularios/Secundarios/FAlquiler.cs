@@ -101,13 +101,23 @@ namespace tp2 {
 				{
 					nuevo = new FPasajero();
 					while(nuevo.ShowDialog() != DialogResult.OK) {}
-
-					d = new DatosPersona((int)nuevo.nudDniPasajero.Value,
-										nuevo.tbNombrePasajero.Text, nuevo.tbApellido.Text,
-										nuevo.dtpFechaNacimiento.Value);
-					aux = new Persona(d);
-					alq.Cliente.AgregarPasajero(aux);
-					nuevo.Dispose();
+					try
+					{
+						d = new DatosPersona((int)nuevo.nudDniPasajero.Value,
+											nuevo.tbNombrePasajero.Text, nuevo.tbApellido.Text,
+											nuevo.dtpFechaNacimiento.Value);
+						aux = new Persona(d);
+						alq.Cliente.AgregarPasajero(aux);
+					}
+					catch
+					{
+						MessageBox.Show("Rellene todos los campos.");
+						i--;
+					}
+					finally
+					{
+						nuevo.Dispose();
+					}
 				}
 
 				MessageBox.Show(
