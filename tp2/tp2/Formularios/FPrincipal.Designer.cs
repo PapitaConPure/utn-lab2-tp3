@@ -1049,6 +1049,7 @@ namespace tp2 {
 		private System.Windows.Forms.PictureBox pbMaxPrecio;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.PictureBox pictureBox2;
-	}
+        private System.Windows.Forms.ToolStrip toolStrip1;
+    }
 }
 

@@ -7,7 +7,7 @@ namespace AlquilerLib {
 		private readonly Residencia residencia;
 		private readonly Cliente cliente;
 		private readonly Habitación habitacion;
-
+		public readonly double Precio;
 		public Alquiler(int número, DateTime fechaReserva, DateTime checkIn, DateTime checkOut, Residencia residencia,
 		int cantPasajeros, int dni, string nombre, string apellido, long tel, double precioBase) {
 			this.Número = número;
@@ -23,6 +23,7 @@ namespace AlquilerLib {
 			this.CheckOut = checkOut;
 			this.residencia = residencia;
 			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
+			this.Precio = this.PrecioTotal;
 			this.cliente = new Cliente(new DatosPersona(dni, nombre, apellido, tel), cantPasajeros);
 		}
 
@@ -44,6 +45,7 @@ namespace AlquilerLib {
 			this.residencia = residencia;
 			this.habitacion = unaHabitacion;
 			this.PrecioBase = precioBase * (int)(this.CheckOut - this.CheckIn).TotalDays;
+			this.Precio = this.PrecioTotal;
 			this.cliente = new Cliente(new DatosPersona(dni, nombre, apellido, tel), cantPasajeros);
 		}
 		public Alquiler(int número)
@@ -103,7 +105,7 @@ namespace AlquilerLib {
 				this.CheckIn.ToShortDateString(),
 				this.CheckOut.ToShortDateString(),
 				this.residencia.PorcentajePorDía(this.Número)*this.PrecioBase,
-				this.PrecioTotal);
+				this.Precio);
         }
 
 		public string Guardar()
