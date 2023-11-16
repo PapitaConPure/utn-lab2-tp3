@@ -205,12 +205,16 @@ namespace tp2 {
 
 			int nroResidencia = (int)this.dgvResidencias.SelectedRows[0].Cells[2].Value;
 			Residencia residencia = this.sistema.VerResidencia(nroResidencia);
-
 			if(residencia is null) {
 				MessageBox.Show("No se encontró una residencia", "No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-
+			Alquiler[] reservas = residencia.Alquileres;
+			if (reservas.Length > 0)
+			{
+				MessageBox.Show("No se puede eliminar una residencia con reservas activas.");
+				return;
+			}
 			if(!this.sistema.QuitarResidencia(residencia.Número))
 				MessageBox.Show("No se ha podido eliminar la residencia");
 
