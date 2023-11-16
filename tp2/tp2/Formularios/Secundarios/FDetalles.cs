@@ -92,8 +92,8 @@ namespace tp2
             {
 				previo.Dispose();
 				this.esPrimeraPágina = true;
+				aImprimir.PrintPage -= this.Imprimir_PrintPage;
 			}
-
 		}
 
         
@@ -132,14 +132,20 @@ namespace tp2
 				e.PageBounds.Width - margenH * 2,
 				e.PageBounds.Height - margenV * 2);
 
-			g.DrawString(str, encabezado,brush,380,20);
+			g.DrawString(str, encabezado,brush, 380, 20);
 			g.DrawRectangle(lapiz, página);
-			g.DrawImage(foto1, página.Left + relleno, 100, 300, 180);
-			g.DrawImage(foto2, página.Right - relleno - 300, 100, 300, 180);
-			Image i = global::tp2.Properties.Resources.logo;
+
+			float altoMáximo = 180f;
+			float anchoCalculado;
+			
+			anchoCalculado = altoMáximo * foto1.Width / foto1.Height;
+			g.DrawImage(foto1, página.Left + página.Width * 0.25f - anchoCalculado / 2f, 100, anchoCalculado, altoMáximo);
+
+			anchoCalculado = altoMáximo * foto2.Width / foto2.Height;
+			g.DrawImage(foto2, página.Left + página.Width * 0.75f - anchoCalculado / 2f, 100, anchoCalculado, altoMáximo);
 
 			int tamañoMarcaAgua = 640;
-			g.DrawImage(i,
+			g.DrawImage(global::tp2.Properties.Resources.logo,
 				e.PageBounds.Width / 2 - tamañoMarcaAgua / 2,
 				640 - tamañoMarcaAgua / 2,
 				tamañoMarcaAgua,
@@ -236,9 +242,11 @@ namespace tp2
 			g.DrawString("Nombre", encabezado2, brush, xx, y);
 			xx += 250;
 			g.DrawString("Apellido", encabezado2, brush, xx, y);
-			xx += 250;
+			int der = (int)(página.Right - relleno - AnchoTexto(g, "Nacimiento", encabezado2));
+			xx = der;
 			g.DrawString("Nacimiento", encabezado2, brush, xx, y);
 			y += 30;
+
 			foreach(Persona p in this.alquiler.Cliente.Pasajeros) {
 				xx = página.Left + relleno;
 				g.DrawString($"{p.Dni:##,###,###}", cuerpo, brush, xx, y);
@@ -246,7 +254,7 @@ namespace tp2
 				g.DrawString(p.Nombre, cuerpo, brush, xx, y);
 				xx += 250;
 				g.DrawString(p.Apellido, cuerpo, brush, xx, y);
-				xx += 250;
+				xx = der;
 				g.DrawString(p.FechaNacimiento.ToShortDateString(), cuerpo, brush, xx, y);
 				y += 26;
 			}
@@ -351,7 +359,13 @@ namespace tp2
 				this.lsbAlquileres.Items.Add("----------------------------------------------------------------");
 			}
 		}
+		#endregion
 
+		#region Calidad de Vida
+		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
+			NumericUpDown nud = sender as NumericUpDown;
+			nud.Select(0, nud.Maximum.ToString().Length);
+		}
 		#endregion
 	}
 }

@@ -683,7 +683,7 @@ namespace tp2 {
 			this.alquileresToolStripMenuItem.Name = "alquileresToolStripMenuItem";
 			this.alquileresToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
 			this.alquileresToolStripMenuItem.Text = "&Alquileres";
-			this.alquileresToolStripMenuItem.Click += new System.EventHandler(this.AlquileresToolStripMenuItem_Click);
+			this.alquileresToolStripMenuItem.Click += new System.EventHandler(this.ImportarAlquileresToolStripMenuItem_Click);
 			// 
 			// exportarToolStripMenuItem
 			// 
@@ -699,7 +699,7 @@ namespace tp2 {
 			this.alquileresToolStripMenuItem1.Name = "alquileresToolStripMenuItem1";
 			this.alquileresToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
 			this.alquileresToolStripMenuItem1.Text = "Alquileres";
-			this.alquileresToolStripMenuItem1.Click += new System.EventHandler(this.AlquileresToolStripMenuItem1_Click);
+			this.alquileresToolStripMenuItem1.Click += new System.EventHandler(this.ExportarAlquileresToolStripMenuItem_Click);
 			// 
 			// graficarToolStripMenuItem
 			// 

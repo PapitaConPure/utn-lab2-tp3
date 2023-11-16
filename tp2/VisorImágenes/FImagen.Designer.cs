@@ -36,8 +36,10 @@
 			this.btnCantImágenes = new System.Windows.Forms.Button();
 			this.siguiente = new System.Windows.Forms.Button();
 			this.ofdElegirImagen = new System.Windows.Forms.OpenFileDialog();
+			this.panel1 = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.pbVisor)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// btnCargarImagen
@@ -62,11 +64,11 @@
 			// pbVisor
 			// 
 			this.pbVisor.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pbVisor.Location = new System.Drawing.Point(0, 50);
+			this.pbVisor.Location = new System.Drawing.Point(12, 12);
 			this.pbVisor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.pbVisor.Name = "pbVisor";
-			this.pbVisor.Size = new System.Drawing.Size(380, 337);
-			this.pbVisor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pbVisor.Size = new System.Drawing.Size(356, 313);
+			this.pbVisor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbVisor.TabIndex = 1;
 			this.pbVisor.TabStop = false;
 			// 
@@ -171,13 +173,23 @@
 			this.ofdElegirImagen.InitialDirectory = ".";
 			this.ofdElegirImagen.Title = "Elegir imagen";
 			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.pbVisor);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel1.Location = new System.Drawing.Point(0, 50);
+			this.panel1.Name = "panel1";
+			this.panel1.Padding = new System.Windows.Forms.Padding(12);
+			this.panel1.Size = new System.Drawing.Size(380, 337);
+			this.panel1.TabIndex = 6;
+			// 
 			// FImagen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(29)))));
 			this.ClientSize = new System.Drawing.Size(380, 387);
-			this.Controls.Add(this.pbVisor);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
@@ -188,6 +200,7 @@
 			this.Text = "Visor de Imágenes";
 			((System.ComponentModel.ISupportInitialize)(this.pbVisor)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -202,6 +215,7 @@
 		private System.Windows.Forms.Button siguiente;
 		private System.Windows.Forms.OpenFileDialog ofdElegirImagen;
 		private System.Windows.Forms.Button btnCantImágenes;
+		private System.Windows.Forms.Panel panel1;
 	}
 }
 

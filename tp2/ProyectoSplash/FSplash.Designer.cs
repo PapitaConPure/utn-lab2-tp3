@@ -36,7 +36,7 @@
 			// 
 			// tmReloj
 			// 
-			this.tmReloj.Tick += new System.EventHandler(this.tmReloj_Tick);
+			this.tmReloj.Tick += new System.EventHandler(this.TmReloj_Tick);
 			// 
 			// barra
 			// 
@@ -44,21 +44,20 @@
 			this.barra.Location = new System.Drawing.Point(10, 460);
 			this.barra.Maximum = 1000;
 			this.barra.Name = "barra";
-			this.barra.Size = new System.Drawing.Size(629, 7);
+			this.barra.Size = new System.Drawing.Size(281, 7);
 			this.barra.TabIndex = 0;
 			// 
 			// FSplash
 			// 
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(649, 477);
+			this.ClientSize = new System.Drawing.Size(301, 477);
 			this.Controls.Add(this.barra);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FSplash";
 			this.Padding = new System.Windows.Forms.Padding(10);
 			this.ShowIcon = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Load += new System.EventHandler(this.FSplash_Load_1);
 			this.ResumeLayout(false);
 
         }

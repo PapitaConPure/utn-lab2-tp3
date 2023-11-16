@@ -62,7 +62,7 @@ namespace tp2 {
 			#endregion
 
 			this.Hide();
-			new FSplash(2, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
+			new FSplash(3.25, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
 
 			#region Inicio de Sesión
 			string tipoUsuario = "";
@@ -129,8 +129,19 @@ namespace tp2 {
 			labelNombreUsuario.ForeColor = Estilos.SecondaryColorLight2;
 			this.barraEstado.Items.Add(labelTipoUsuario);
 			this.barraEstado.Items.Add(labelNombreUsuario);
+
 			foreach(ToolStripItem item in this.barraEstado.Items)
 				item.Font = new Font(Estilos.LatoBlack, 9);
+
+			ToolStripStatusLabel separador = new ToolStripStatusLabel(string.Empty);
+			separador.Spring = true;
+			this.barraEstado.Items.Add(separador);
+
+			ToolStripStatusLabel texto = new ToolStripStatusLabel();
+			texto.ForeColor = Estilos.SecondaryColorLight2;
+			texto.Font = new Font(Estilos.LatoBlack, 9);
+			texto.Alignment = ToolStripItemAlignment.Right;
+			this.barraEstado.Items.Add(texto);
 			#endregion
 
 			#region Cargar estilo de tabla de búsqueda
@@ -357,7 +368,7 @@ namespace tp2 {
 		#endregion
 
 		#region Importar y Exportar CSV
-		private void AlquileresToolStripMenuItem_Click(object sender, EventArgs e) {
+		private void ImportarAlquileresToolStripMenuItem_Click(object sender, EventArgs e) {
 			if(this.ofdDatos.ShowDialog() != DialogResult.OK)
 				return;
 
@@ -378,13 +389,13 @@ namespace tp2 {
 			}
 		}
 
-		private void AlquileresToolStripMenuItem1_Click(object sender, EventArgs e) {
+		private void ExportarAlquileresToolStripMenuItem_Click(object sender, EventArgs e) {
 			if(this.sfdDatos.ShowDialog() != DialogResult.OK)
 				return;
 
 			try {
 				this.sistema.ExportarAlquileres(this.sfdDatos.FileName);
-				MessageBox.Show("Se exportaron los alquileres.\nTambién fueron limpiados de la aplicación", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Se exportaron los alquileres", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			} catch(IOException ex) {
 				MessageBox.Show(ex.Message, "Error de Escritura", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 			} catch(UnauthorizedAccessException ex) {
@@ -521,11 +532,7 @@ namespace tp2 {
 			}
 
 			DateTime horaRespaldo = DateTime.Now;
-			ToolStripLabel texto = new ToolStripLabel($"ÚLTIMO RESPALDO: {horaRespaldo:HH:mm:ss}");
-			texto.ForeColor = Color.FromArgb(211, 197, 197);
-			texto.Font = new Font(Estilos.LatoBlack, 9);
-			texto.Alignment = ToolStripItemAlignment.Right;
-			this.barraEstado.Items.Add(texto);
+			this.barraEstado.Items[this.barraEstado.Items.Count - 1].Text = $"ÚLTIMO RESPALDO   {horaRespaldo:HH:mm:ss}";
 		}
 		#endregion
 

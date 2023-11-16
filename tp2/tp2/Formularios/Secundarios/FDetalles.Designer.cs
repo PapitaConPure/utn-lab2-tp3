@@ -35,7 +35,7 @@ namespace tp2
 			this.lsbDetalles = new System.Windows.Forms.ListBox();
 			this.gbAlquileres = new System.Windows.Forms.GroupBox();
 			this.lsbAlquileres = new System.Windows.Forms.ListBox();
-			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
 			this.btnAlquilar = new System.Windows.Forms.Button();
 			this.btnModificarAlquiler = new System.Windows.Forms.Button();
 			this.btnImprimir = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@ namespace tp2
 			((System.ComponentModel.ISupportInitialize)(this.pbImagen1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbImagen2)).BeginInit();
 			this.gbAlquileres.SuspendLayout();
-			this.tableLayoutPanel3.SuspendLayout();
+			this.tlpBotones.SuspendLayout();
 			this.gbNroAlquiler.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudNroAlquiler)).BeginInit();
 			this.pnlDetalles.SuspendLayout();
@@ -114,7 +114,7 @@ namespace tp2
 			// gbAlquileres
 			// 
 			this.gbAlquileres.Controls.Add(this.lsbAlquileres);
-			this.gbAlquileres.Controls.Add(this.tableLayoutPanel3);
+			this.gbAlquileres.Controls.Add(this.tlpBotones);
 			this.gbAlquileres.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbAlquileres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
 			this.gbAlquileres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
@@ -144,27 +144,27 @@ namespace tp2
 			this.lsbAlquileres.TabIndex = 0;
 			this.lsbAlquileres.TabStop = false;
 			// 
-			// tableLayoutPanel3
+			// tlpBotones
 			// 
-			this.tableLayoutPanel3.ColumnCount = 5;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-			this.tableLayoutPanel3.Controls.Add(this.btnAlquilar, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.btnModificarAlquiler, 1, 0);
-			this.tableLayoutPanel3.Controls.Add(this.btnImprimir, 2, 0);
-			this.tableLayoutPanel3.Controls.Add(this.gbNroAlquiler, 4, 0);
-			this.tableLayoutPanel3.Controls.Add(this.btnCancelarAlquiler, 3, 0);
-			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 287);
-			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-			this.tableLayoutPanel3.RowCount = 1;
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(521, 61);
-			this.tableLayoutPanel3.TabIndex = 9;
+			this.tlpBotones.ColumnCount = 5;
+			this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+			this.tlpBotones.Controls.Add(this.btnAlquilar, 0, 0);
+			this.tlpBotones.Controls.Add(this.btnModificarAlquiler, 1, 0);
+			this.tlpBotones.Controls.Add(this.btnImprimir, 2, 0);
+			this.tlpBotones.Controls.Add(this.gbNroAlquiler, 4, 0);
+			this.tlpBotones.Controls.Add(this.btnCancelarAlquiler, 3, 0);
+			this.tlpBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.tlpBotones.Location = new System.Drawing.Point(6, 287);
+			this.tlpBotones.Name = "tlpBotones";
+			this.tlpBotones.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+			this.tlpBotones.RowCount = 1;
+			this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpBotones.Size = new System.Drawing.Size(521, 61);
+			this.tlpBotones.TabIndex = 9;
 			// 
 			// btnAlquilar
 			// 
@@ -249,7 +249,9 @@ namespace tp2
             0});
 			this.nudNroAlquiler.Name = "nudNroAlquiler";
 			this.nudNroAlquiler.Size = new System.Drawing.Size(47, 23);
-			this.nudNroAlquiler.TabIndex = 0;
+			this.nudNroAlquiler.TabIndex = 1;
+			this.nudNroAlquiler.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudNroAlquiler.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// btnCancelarAlquiler
 			// 
@@ -301,7 +303,7 @@ namespace tp2
 			((System.ComponentModel.ISupportInitialize)(this.pbImagen1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbImagen2)).EndInit();
 			this.gbAlquileres.ResumeLayout(false);
-			this.tableLayoutPanel3.ResumeLayout(false);
+			this.tlpBotones.ResumeLayout(false);
 			this.gbNroAlquiler.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.nudNroAlquiler)).EndInit();
 			this.pnlDetalles.ResumeLayout(false);
@@ -317,7 +319,7 @@ namespace tp2
 		public System.Windows.Forms.ListBox lsbDetalles;
 		private System.Windows.Forms.GroupBox gbAlquileres;
 		public System.Windows.Forms.ListBox lsbAlquileres;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tlpBotones;
         private System.Windows.Forms.Button btnAlquilar;
         public System.Windows.Forms.Button btnModificarAlquiler;
         public System.Windows.Forms.Button btnImprimir;
