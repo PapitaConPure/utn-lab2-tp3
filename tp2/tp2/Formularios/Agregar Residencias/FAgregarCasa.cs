@@ -121,7 +121,7 @@ namespace tp2 {
 					this.casa.CamasDisponibles = (int)this.nudCantCamas.Value;
 					this.casa.MínimoPermitido = (int)this.nudMinDias.Value;
 					this.casa.Propietario.Nombre = this.tbNombre.Text;
-					this.casa.Propietario.Teléfono = (int)this.nudTel.Value;
+					this.casa.Propietario.Teléfono = (long)this.nudTel.Value;
 
 					this.casa.LimpiarServicios();
 					foreach(CheckBox servicio in this.servicios) {
@@ -129,9 +129,7 @@ namespace tp2 {
 							this.casa.AgregarServicio(servicio.Text);
 					}
 				}
-			} 
-			catch(DniException ex)
-            {
+			} catch(DniException ex) {
 				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				this.DialogResult = DialogResult.None;
 			}

@@ -50,7 +50,7 @@ namespace tp2 {
 			this.tbApellido = new System.Windows.Forms.TextBox();
 			this.lbNombres = new System.Windows.Forms.Label();
 			this.lbApellido = new System.Windows.Forms.Label();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.tlpDniTel = new System.Windows.Forms.TableLayoutPanel();
 			this.nudTel = new System.Windows.Forms.NumericUpDown();
 			this.lbTel = new System.Windows.Forms.Label();
 			this.lbDNI = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@ namespace tp2 {
 			this.pnlBotonesAceptar.SuspendLayout();
 			this.gbPropietario.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
+			this.tlpDniTel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudTel)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudDNI)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCantPasajeros)).BeginInit();
@@ -144,6 +144,7 @@ namespace tp2 {
 			this.dgvCalendario.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.dgvCalendario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.dgvCalendario.Size = new System.Drawing.Size(194, 150);
+			this.dgvCalendario.StandardTab = true;
 			this.dgvCalendario.TabIndex = 0;
 			// 
 			// Lunes
@@ -361,7 +362,7 @@ namespace tp2 {
 			// gbPropietario
 			// 
 			this.gbPropietario.Controls.Add(this.tableLayoutPanel3);
-			this.gbPropietario.Controls.Add(this.tableLayoutPanel2);
+			this.gbPropietario.Controls.Add(this.tlpDniTel);
 			this.gbPropietario.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
 			this.gbPropietario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(164)))));
@@ -408,6 +409,8 @@ namespace tp2 {
 			this.tbNombre.Name = "tbNombre";
 			this.tbNombre.Size = new System.Drawing.Size(237, 20);
 			this.tbNombre.TabIndex = 2;
+			this.tbNombre.Click += new System.EventHandler(this.SeleccionarTextBox);
+			this.tbNombre.Enter += new System.EventHandler(this.SeleccionarTextBox);
 			// 
 			// tbApellido
 			// 
@@ -422,6 +425,8 @@ namespace tp2 {
 			this.tbApellido.Name = "tbApellido";
 			this.tbApellido.Size = new System.Drawing.Size(237, 20);
 			this.tbApellido.TabIndex = 1;
+			this.tbApellido.Click += new System.EventHandler(this.SeleccionarTextBox);
+			this.tbApellido.Enter += new System.EventHandler(this.SeleccionarTextBox);
 			// 
 			// lbNombres
 			// 
@@ -449,25 +454,25 @@ namespace tp2 {
 			this.lbApellido.TabIndex = 26;
 			this.lbApellido.Text = "Apellido";
 			// 
-			// tableLayoutPanel2
+			// tlpDniTel
 			// 
-			this.tableLayoutPanel2.ColumnCount = 4;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-			this.tableLayoutPanel2.Controls.Add(this.nudTel, 3, 0);
-			this.tableLayoutPanel2.Controls.Add(this.lbTel, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.lbDNI, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.nudDNI, 1, 0);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 16);
-			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(323, 54);
-			this.tableLayoutPanel2.TabIndex = 1;
+			this.tlpDniTel.ColumnCount = 4;
+			this.tlpDniTel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpDniTel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+			this.tlpDniTel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tlpDniTel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+			this.tlpDniTel.Controls.Add(this.nudTel, 3, 0);
+			this.tlpDniTel.Controls.Add(this.lbTel, 2, 0);
+			this.tlpDniTel.Controls.Add(this.lbDNI, 0, 0);
+			this.tlpDniTel.Controls.Add(this.nudDNI, 1, 0);
+			this.tlpDniTel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.tlpDniTel.Location = new System.Drawing.Point(5, 16);
+			this.tlpDniTel.Margin = new System.Windows.Forms.Padding(4, 8, 4, 8);
+			this.tlpDniTel.Name = "tlpDniTel";
+			this.tlpDniTel.RowCount = 1;
+			this.tlpDniTel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpDniTel.Size = new System.Drawing.Size(323, 54);
+			this.tlpDniTel.TabIndex = 1;
 			// 
 			// nudTel
 			// 
@@ -485,8 +490,10 @@ namespace tp2 {
             0});
 			this.nudTel.Name = "nudTel";
 			this.nudTel.Size = new System.Drawing.Size(120, 23);
-			this.nudTel.TabIndex = 3;
+			this.nudTel.TabIndex = 1;
 			this.nudTel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.nudTel.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudTel.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// lbTel
 			// 
@@ -542,6 +549,8 @@ namespace tp2 {
             0,
             0,
             0});
+			this.nudDNI.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudDNI.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// nudCantPasajeros
 			// 
@@ -570,6 +579,8 @@ namespace tp2 {
             0,
             0,
             0});
+			this.nudCantPasajeros.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudCantPasajeros.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// pnlControl
 			// 
@@ -634,6 +645,11 @@ namespace tp2 {
 			this.nudCantDias.Font = new System.Drawing.Font("Segoe UI", 11F);
 			this.nudCantDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
 			this.nudCantDias.Location = new System.Drawing.Point(6, 20);
+			this.nudCantDias.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
 			this.nudCantDias.Minimum = new decimal(new int[] {
             1,
             0,
@@ -648,6 +664,8 @@ namespace tp2 {
             0,
             0,
             0});
+			this.nudCantDias.Click += new System.EventHandler(this.SeleccionarNumericUpDown);
+			this.nudCantDias.Enter += new System.EventHandler(this.SeleccionarNumericUpDown);
 			// 
 			// FAlquiler
 			// 
@@ -674,8 +692,8 @@ namespace tp2 {
 			this.gbPropietario.ResumeLayout(false);
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.tableLayoutPanel3.PerformLayout();
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel2.PerformLayout();
+			this.tlpDniTel.ResumeLayout(false);
+			this.tlpDniTel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudTel)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudDNI)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCantPasajeros)).EndInit();
@@ -725,6 +743,6 @@ namespace tp2 {
 		private System.Windows.Forms.Button btnMes3;
 		private System.Windows.Forms.GroupBox gbCantPasajeros;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+		private System.Windows.Forms.TableLayoutPanel tlpDniTel;
 	}
 }

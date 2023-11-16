@@ -66,9 +66,19 @@ namespace tp2 {
 				return;
 			}
 
-			DateTime fechaReserva = DateTime.Now;
+			DateTime ahora = DateTime.Now;
+			DateTime fechaReserva = ahora;
 			DateTime checkIn = this.calendario.DíaSeleccionado;
 			DateTime checkOut = checkIn.AddDays((double)this.nudCantDias.Value);
+
+			if(checkOut > new DateTime(ahora.Year, ahora.Month, ahora.Day)) {
+				MessageBox.Show(
+					"No se puede alquilar más allá de los próximos 3 meses",
+					"Rango de fechas inválido",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Warning);
+			}
+
             try
             {
 				int dni = 0;
@@ -172,5 +182,15 @@ namespace tp2 {
 			else
 				this.RefrescarCalendario(2);
 		}
+
+		#region Calidad de vida
+		private void SeleccionarTextBox(object sender, EventArgs e) {
+			(sender as TextBox).SelectAll();
+		}
+
+		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
+			(sender as NumericUpDown).Select(0, 20);
+		}
+		#endregion
 	}
 }

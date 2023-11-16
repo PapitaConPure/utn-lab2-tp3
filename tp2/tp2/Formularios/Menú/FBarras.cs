@@ -38,11 +38,12 @@ namespace tp2.Formularios.Secundarios
             }
 
 			barras.Sort();
+			Barra removida;
 			for(int i = 1; i < barras.Count; i++) {
 				if(barras[i].CompareTo(barras[i - 1]) == 0) {
+					removida = barras[i];
 					barras.RemoveAt(i);
-					barras[i - 1].Valor += barras[i].Valor;
-					i--;
+					barras[--i].Valor += removida.Valor;
 				}
 			}
 
