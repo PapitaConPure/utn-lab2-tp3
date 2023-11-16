@@ -71,12 +71,13 @@ namespace tp2 {
 			DateTime checkIn = this.calendario.DíaSeleccionado;
 			DateTime checkOut = checkIn.AddDays((double)this.nudCantDias.Value);
 
-			if(checkOut > new DateTime(ahora.Year, ahora.Month, 1).AddMonths(3)) {
+			if(checkOut >= new DateTime(ahora.Year, ahora.Month, 1).AddMonths(3)) {
 				MessageBox.Show(
 					"No se puede alquilar más allá de los próximos 3 meses",
 					"Rango de fechas inválido",
 					MessageBoxButtons.OK,
 					MessageBoxIcon.Warning);
+
 				return;
 			}
 

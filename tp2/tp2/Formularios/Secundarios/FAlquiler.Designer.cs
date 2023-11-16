@@ -646,7 +646,7 @@ namespace tp2 {
 			this.nudCantDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
 			this.nudCantDias.Location = new System.Drawing.Point(6, 20);
 			this.nudCantDias.Maximum = new decimal(new int[] {
-            90,
+            92,
             0,
             0,
             0});
