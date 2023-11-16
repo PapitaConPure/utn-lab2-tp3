@@ -16,28 +16,5 @@ namespace tp2 {
 			this.gbNombre.Font = new Font(Estilos.LatoBlack, 9);
 			this.gbFechaNacimiento.Font = new Font(Estilos.LatoBlack, 9);
 		}
-
-		#region Arrastrado con mouse
-		private bool arrastraVentana = false;
-		private Point arrastreMouse;
-
-		private void FPasajero_MouseDown(object sender, MouseEventArgs e) {
-			this.arrastraVentana = true;
-			this.arrastreMouse = this.PointToClient(MousePosition);
-		}
-
-		private void FPasajero_MouseUp(object sender, MouseEventArgs e) {
-			this.arrastraVentana = false;
-		}
-
-		private void FPasajero_MouseMove(object sender, MouseEventArgs e) {
-
-		}
-        #endregion
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

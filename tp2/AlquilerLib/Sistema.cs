@@ -253,7 +253,6 @@ namespace AlquilerLib {
                 {
 					sw.WriteLine(c.Guardar());
                 }
-					//residencia.LimpiarAlquileres();
 				
 			}
 			finally
