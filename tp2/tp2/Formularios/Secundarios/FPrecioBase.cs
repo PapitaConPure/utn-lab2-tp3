@@ -28,5 +28,9 @@ namespace tp2 {
 			double precioBase = (double)this.nudPrecioBase.Value;
 			this.Sistema = new Sistema(precioBase);
 		}
+
+		private void SeleccionarNumericUpDown(object sender, EventArgs e) {
+			this.nudPrecioBase.Select(0, 24);
+		}
 	}
 }

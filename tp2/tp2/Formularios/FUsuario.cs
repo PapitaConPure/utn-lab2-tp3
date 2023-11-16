@@ -44,14 +44,14 @@ namespace tp2
             Usuario aux;
             bool encontro=false;
             bool admin = false;
-            int cantidad = sistema.Usuarios.Count, contador=0;
+            int cantidad = this.sistema.Usuarios.Count, contador=0;
             while (contador<cantidad && !encontro)
             {
-                if (sistema.Usuarios[contador].Contraseña == contraseña
-                   && sistema.Usuarios[contador].Nombre == usuario)
+                if (this.sistema.Usuarios[contador].Contraseña == contraseña
+                   && this.sistema.Usuarios[contador].Nombre == usuario)
                 {
                     encontro = true;
-                    aux = sistema.Usuarios[contador];
+                    aux = this.sistema.Usuarios[contador];
                     if (aux.Tipo == "Administrador")
                     {
                         admin = true;

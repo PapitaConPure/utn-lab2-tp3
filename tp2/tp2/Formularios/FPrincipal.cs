@@ -11,7 +11,6 @@ using tp2.Formularios.Secundarios;
 
 namespace tp2 {
 	public partial class FPrincipal: Form {
-
 		private Sistema sistema;
 		private string rutaBin;
 
@@ -45,34 +44,56 @@ namespace tp2 {
 				if(fs != null)
 					fs.Close();
 			}
+
 			bool primerInicio = false;
 			if(this.sistema == null) {
 				FNuevoSistema fNuevoSistema = new FNuevoSistema();
-				
-				if(fNuevoSistema.ShowDialog() == DialogResult.OK)
-				{
+
+				if(fNuevoSistema.ShowDialog() == DialogResult.OK) {
 					this.sistema = fNuevoSistema.Sistema;
 					primerInicio = true;
-				}
-				else
+					fNuevoSistema.Dispose();
+				} else {
 					Application.Exit();
-
-				fNuevoSistema.Dispose();
+					fNuevoSistema.Dispose();
+					return;
+				}
 			}
 			#endregion
 
 			this.Hide();
-			new FSplash(.01, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
+			new FSplash(2, 50).ShowDialog(); //Ponerle 3.25 después. Ya no aguanto lo que tarda en arrancar lpm
 
-			#region Capas de Usuario
+			#region Inicio de Sesión
 			string tipoUsuario = "";
-			if (primerInicio || this.sistema.Usuarios.Count==0) {
-				this.agregarUsuarioToolStripMenuItem.PerformClick();
+			this.fUsuario = new FUsuario(this.sistema);
+			if(primerInicio || this.sistema.Usuarios.Count == 0) {
+				this.fUsuario.btnIngresar.Visible = false;
+				this.fUsuario.tlpBotonesAlt.Visible = true;
+
+				this.fUsuario.lblTítulo.Text = "Registrar Administrador";
+				this.fUsuario.lblTítulo.ForeColor = Estilos.PrimaryColor;
+				this.fUsuario.btnAceptar.Text = "Registrar";
+				this.fUsuario.btnCancelar.Text = "Salir";
+				this.fUsuario.btnAceptar.BackColor = Estilos.PrimaryColor;
+				this.fUsuario.btnAceptar.ForeColor = Estilos.TextColorDarkest;
+
+				if(this.fUsuario.ShowDialog() == DialogResult.No) {
+					Usuario nuevo = new Usuario(this.fUsuario.tbUsuario.Text, this.fUsuario.tbContraseña.Text, "Administrador");
+					this.sistema.AgregarUsuario(nuevo);
+					this.sistema.UsuarioActual = nuevo;
+					tipoUsuario = "Administrador";
+					this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
+					this.agregarUsuarioToolStripMenuItem.Enabled = this.eliminarUsuarioToolStripMenuItem.Enabled = true;
+					this.btnBorrarPropiedad.Enabled = true;
+					this.importarToolStripMenuItem.Enabled = true;
+				}
+
+				this.fUsuario.btnCancelar.Text = "Cerrar";
 			} else {
-				this.fUsuario = new FUsuario(this.sistema);
-				DialogResult dr = this.fUsuario.ShowDialog();
+				DialogResult resultado = this.fUsuario.ShowDialog();
 				
-				if (dr == DialogResult.OK) {
+				if(resultado == DialogResult.OK) {
 					tipoUsuario = "Administrador";
 					this.btnAgregarCasa.Enabled = this.btnAgregarHotel.Enabled = this.btnModificarPropiedad.Enabled = true;
 					this.agregarUsuarioToolStripMenuItem.Enabled = this.eliminarUsuarioToolStripMenuItem.Enabled = true;
@@ -434,7 +455,12 @@ namespace tp2 {
 					return;
 				} else {
 					this.sistema.EliminarUsuario(aux);
-					MessageBox.Show($"El usuario {aux.Nombre} ha sido eliminado");
+
+					if(aux == this.sistema.UsuarioActual) {
+						MessageBox.Show($"Este usuario fue eliminado. Se cerrará la aplicación...", "Usuario eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						Application.Exit();
+					} else 
+						MessageBox.Show($"El usuario {aux.Nombre} ha sido eliminado", "Usuario eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
 		}

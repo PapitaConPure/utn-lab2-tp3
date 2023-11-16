@@ -41,10 +41,10 @@
 			// barra
 			// 
 			this.barra.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.barra.Location = new System.Drawing.Point(10, 455);
+			this.barra.Location = new System.Drawing.Point(10, 460);
 			this.barra.Maximum = 1000;
 			this.barra.Name = "barra";
-			this.barra.Size = new System.Drawing.Size(629, 12);
+			this.barra.Size = new System.Drawing.Size(629, 7);
 			this.barra.TabIndex = 0;
 			// 
 			// FSplash
