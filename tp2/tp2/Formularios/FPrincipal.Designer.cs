@@ -89,6 +89,7 @@ namespace tp2 {
             this.btnModificarPropiedad = new System.Windows.Forms.Button();
             this.btnConsultarPropiedad = new System.Windows.Forms.Button();
             this.pnlBotonesResidencias = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResidencias)).BeginInit();
             this.pnlFiltro.SuspendLayout();
             this.pnlDestinosPasajeros.SuspendLayout();
@@ -793,6 +794,7 @@ namespace tp2 {
             // 
             // pnlResidencias
             // 
+            this.pnlResidencias.Controls.Add(this.toolStrip1);
             this.pnlResidencias.Controls.Add(this.dgvResidencias);
             this.pnlResidencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlResidencias.Location = new System.Drawing.Point(0, 148);
@@ -932,6 +934,14 @@ namespace tp2 {
             this.pnlBotonesResidencias.Size = new System.Drawing.Size(844, 51);
             this.pnlBotonesResidencias.TabIndex = 0;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(12, 6);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(820, 25);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -978,6 +988,7 @@ namespace tp2 {
             this.barraMenú.ResumeLayout(false);
             this.barraMenú.PerformLayout();
             this.pnlResidencias.ResumeLayout(false);
+            this.pnlResidencias.PerformLayout();
             this.tlpBotonesPropiedades.ResumeLayout(false);
             this.pnlBotonesResidencias.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1049,6 +1060,7 @@ namespace tp2 {
 		private System.Windows.Forms.PictureBox pbMaxPrecio;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.PictureBox pictureBox2;
-	}
+        private System.Windows.Forms.ToolStrip toolStrip1;
+    }
 }
 

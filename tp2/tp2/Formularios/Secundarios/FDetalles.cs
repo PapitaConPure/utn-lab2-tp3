@@ -223,7 +223,7 @@ namespace tp2
 			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 			y += 30;
 
-			textoDerecha = $"${this.alquiler.PrecioTotal:###,###,###.##}";
+			textoDerecha = $"${this.alquiler.Precio:###,###,###.##}";
 			g.DrawString("Precio Total", encabezado2, brush, xl, y);
 			g.DrawString(textoDerecha, cuerpo, brush, xr - AnchoTexto(g, textoDerecha, cuerpo), y);
 
@@ -344,7 +344,7 @@ namespace tp2
 				this.lsbAlquileres.Items.Add($"Fecha de CheckIn: {al.CheckIn:d}");
 				this.lsbAlquileres.Items.Add($"Fecha de CheckOut: {al.CheckOut:d}");
 				this.lsbAlquileres.Items.Add($"Fecha de Reserva: {al.FechaReserva:g}");
-				this.lsbAlquileres.Items.Add($"Precio Total: ${al.PrecioTotal:F2}");
+				this.lsbAlquileres.Items.Add($"Precio Total: ${al.Precio:F2}");
 				this.lsbAlquileres.Items.Add($"Nombre del cliente: {al.Cliente.Nombre} {al.Cliente.Apellido}");
 				this.lsbAlquileres.Items.Add($"Dni: {al.Cliente.Dni:00,000,000}");
 				this.lsbAlquileres.Items.Add($"Inquilinos: {al.Cliente.CantPasajeros}");
